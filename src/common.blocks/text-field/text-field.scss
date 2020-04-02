@@ -1,0 +1,10 @@
+.text-field {
+  width: 320px;
+  height: 67px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@import "text-field__input";

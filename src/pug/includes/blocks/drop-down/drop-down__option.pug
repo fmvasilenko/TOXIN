@@ -1,0 +1,7 @@
+mixin drop-down__option(title, value)
+  .drop-down__option
+        h3= title
+        .drop-down__number
+          button.drop-down__button.drop-down__button_decrease -
+          input.drop-down__input(type="number" value=value readonly)
+          button.drop-down__button.drop-down__button_increase +

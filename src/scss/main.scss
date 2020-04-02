@@ -1,0 +1,76 @@
+@import "utils/libs";
+@import "utils/vars";
+@import "utils/mixins";
+@import "utils/fonts";
+
+/*html {
+  line-height: $mainLineHeight;
+  font-size: $mainFontSize;
+  font-family: $textFontFamily;
+  font-weight: $mainFontWeight;
+  height: 100%;
+  @media screen and (max-width: $desktopWidth) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: $tableWidth) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: $phoneWidth) {
+    font-size: 14px;
+  }
+}*/
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: $textFontFamily;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 24px;
+  color: $darkShade75;
+}
+
+*, *:before, *:after { box-sizing: boreder-box; }
+
+h1, h2, h3, h4, h5, h6, p { margin: 0; }
+
+a { text-decoration: none; }
+
+ul, li {
+  list-style-type: none;
+  margin: 0;
+}
+
+
+h1 {
+  font-family: $titleFontFamily;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 30px;
+  color: $darkShade100;
+}
+
+h2 {
+  font-family: $titleFontFamily;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 19px;
+  line-height: 24px;
+  color: $darkShade100;
+}
+
+h3 {
+  font-family: $textFontFamily;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  text-transform: uppercase;
+  color: $darkShade100;
+}
+
+@import "./modules/wrapper";
+@import "../common.blocks/text-field/text-field.scss";
+@import "../common.blocks/drop-down/drop-down.scss";

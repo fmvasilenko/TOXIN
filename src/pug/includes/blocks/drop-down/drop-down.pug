@@ -1,0 +1,11 @@
+include drop-down__option.pug
+
+.drop-down.drop-down_size_s
+  h3 Dropdown
+  .drop-down__field.drop-down__field_drop
+    p Сколько гостей
+    .drop-down__open-list v
+  .drop-down__list
+    +drop-down__option("Спальни", 0)
+    +drop-down__option("Кровати", 0)
+    +drop-down__option("Ванные комнаты", 0)

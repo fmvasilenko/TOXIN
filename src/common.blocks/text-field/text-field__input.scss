@@ -1,0 +1,24 @@
+.text-field__input {
+  width: 320px;
+  height: 44px;
+  padding: 0 15px;
+
+  box-sizing: border-box;
+
+  background: #FFFFFF;
+  border: 1px solid $darkShade25;
+  border-radius: 4px;
+
+  font-family: $textFontFamily;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 18px;
+  color: $darkShade25;
+}
+
+.text-field__input:hover,
+.text-field__input:focus {
+  border-color: $darkShade50;
+  color: $darkShade75;
+}

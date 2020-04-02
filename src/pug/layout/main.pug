@@ -1,0 +1,15 @@
+block variables
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title #{title}
+    meta(name="description", content=description)
+    script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
+
+  body(class=pageClass)
+    .wrapper
+      //include ../includes/modules/header
+      block content
+      //include ../includes/modules/footer
