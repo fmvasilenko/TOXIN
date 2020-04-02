@@ -1,6 +1,7 @@
 //Fonts
 $titleFontFamily         : 'Quicksand';
-$textFontFamily          : 'Montserrat', Helvetica, Arial, sans-serif;
+$textFontFamily          : 'Montserrat-Regular';
+$textFontFamilyBold      : 'Montserrat-Bold';
 
 //Size
 $mainFontSize            : 18px;
@@ -16,6 +17,7 @@ $smPhoneWidth            : 320px;
 //Main colors
 $mainColor               : #BC9CFF;
 $secondColor             : #6FCF97;
+$gradient                : linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
 
 //Shade colors
 $darkShade100            : rgba(31,32,65,1);

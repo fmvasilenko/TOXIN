@@ -1,0 +1,10 @@
+.checkbox-button {
+  width: 266px;
+  //min-height: 30px;
+
+  //display: flex;
+  //align-items: center;
+}
+
+@import "./checkbox-button__input/checkbox-button__input.scss";
+@import "./checkbox-button__label/checkbox-button__label.scss";
