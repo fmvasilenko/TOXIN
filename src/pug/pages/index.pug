@@ -8,8 +8,8 @@ block variables
 block content
   include ../includes/blocks/text-field.pug
   //include ../includes/blocks/drop-down/drop-down.pug
-  include ../includes/blocks/checkbox-button/checkbox-button.pug
-  div
-    +checkbox-button('smoke', "Можно курить")
-    +checkbox-button('pets', "Можно с питомцами")
-    +checkbox-button('guests', "Можно пригласить гостей (до 10 человек)")
+  include ../includes/blocks/radio-button/radio-button.pug
+  
+  .radio-buttons
+    +radio-button('gender', 'male', 'Мужчина')
+    +radio-button('gender', 'female', 'Женщина')

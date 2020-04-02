@@ -75,3 +75,12 @@ h3 {
 @import "../common.blocks/text-field/text-field.scss";
 @import "../common.blocks/drop-down/drop-down.scss";
 @import "../common.blocks/checkbox-button/checkbox-button.scss";
+@import "../common.blocks/radio-button/radio-button.scss";
+
+.radio-buttons {
+  display: flex;
+  justify-content: flex-start;
+  
+  width: 266px;
+  height: 30px;
+}
