@@ -6,13 +6,8 @@ block variables
   - var pageClass = 'index-page';
 
 block content
-  include ../includes/blocks/text-field.pug
-  //include ../includes/blocks/drop-down/drop-down.pug
-
   include ../includes/blocks/checkbox-button/checkbox-button.pug
   +checkbox-button('smoke', 'Можно курить')
 
-  include ../includes/blocks/checkbox-button-rich/checkbox-button-rich.pug
-  div
-    +checkbox-button-rich('hall', 'Широкий коридор', 'Ширина коридоров в номере не менее 91 см.')
-    +checkbox-button-rich('helper', 'Помощник для инвалидов', 'На 1 этаже вас встретит специалист и проводит до номера')
+  include ../includes/blocks/toggle/toggle.pug
+  +toggle('offer', 'Получать спецпредложения')
