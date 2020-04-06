@@ -1,0 +1,12 @@
+.button_no-background {
+  width: auto;
+  height: auto;
+  background: none;
+  border: 0;
+
+  color: $mainColor;
+}
+
+.button_no-background:disabled {
+  color: $darkShade50;
+}

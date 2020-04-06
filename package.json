@@ -21,7 +21,11 @@
     "url": "https://github.com/fmvasilenko/TOXIN/issues"
   },
   "homepage": "https://github.com/fmvasilenko/TOXIN#readme",
-  "dependencies": {},
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "jquery-ui": "^1.12.1",
+    "jquery-ui-touch-punch": "^0.2.3"
+  },
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
