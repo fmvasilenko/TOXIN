@@ -87,3 +87,6 @@ h3 {
 
 @import "../common.blocks/checkbox-button-rich/checkbox-button-rich.scss";
 @import "../common.blocks/toggle/toggle.scss";
+
+@include icons_mixin('/assets/img/svg/icons.svg');
+//@include icons_mixin('');

@@ -21,3 +21,16 @@
   ::-moz-placeholder          {@content}
   :-ms-input-placeholder      {@content}
 }
+
+@mixin icons_mixin($path) {
+  .favorite div {
+    clip-path: url($path + '#heart')
+    //clip-path: circle();
+  }
+  
+  .icon {
+    width: 50px;
+    height: 50px;
+    fill: $darkShade25;
+  }
+}
