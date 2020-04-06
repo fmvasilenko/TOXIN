@@ -1,0 +1,10 @@
+.button_empty {
+  color: $mainColor;
+  background: white;
+  border: 2px solid $mainColor;
+}
+
+.button_empty:disabled {
+  opacity: 1;
+  border-color: $mainColor50;
+}

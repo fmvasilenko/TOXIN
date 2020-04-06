@@ -1,0 +1,27 @@
+.button {
+  width: 99px;
+  height: 44px;
+  box-sizing: border-box;
+
+  line-height: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: $textFontFamilyBold;
+  font-size: 12px;
+
+  border: 0px;
+  border-radius: 22px;
+
+  color: white;
+  background: $gradient;
+
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+@import "./button_empty/button_empty.scss";
+@import "./button_size/button_size_l.scss";
