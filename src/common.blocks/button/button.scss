@@ -2,6 +2,7 @@
   width: 99px;
   height: 44px;
   box-sizing: border-box;
+  position: relative;
 
   line-height: 100%;
   text-align: center;
@@ -26,3 +27,4 @@
 @import "./button_empty/button_empty.scss";
 @import "./button_size/button_size_l.scss";
 @import "./button_no-background/button_no-background.scss";
+@import "./button__arrow/button__arrow.scss";
