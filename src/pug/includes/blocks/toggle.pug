@@ -1,0 +1,9 @@
+mixin toggle($id, $text, $checked)
+  if $checked=='checked'
+    .toggle
+      input.toggle__input(type='checkbox' id=$id checked)
+      label.toggle__label(for=$id)=$text
+  else
+    .toggle
+      input.toggle__input(type='checkbox' id=$id)
+      label.toggle__label(for=$id)=$text
