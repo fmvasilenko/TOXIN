@@ -1,0 +1,15 @@
+mixin checkbox-button-rich($id, $title, $description, $checked)
+  if $checked=='checked'
+    .checkbox-button-rich
+      input.checkbox-button-rich__input(id=$id type='checkbox' checked)
+      label.checkbox-button-rich__label(for=$id)
+        .checkbox-button-rich__label-wrapper
+          h3.checkbox-button-rich__title=$title
+          p.checkbox-button-rich__description=$description
+  else
+    .checkbox-button-rich
+      input.checkbox-button-rich__input(id=$id type='checkbox')
+      label.checkbox-button-rich__label(for=$id)
+        .checkbox-button-rich__label-wrapper
+          h3.checkbox-button-rich__title=$title
+          p.checkbox-button-rich__description=$description
