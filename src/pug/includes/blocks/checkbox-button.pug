@@ -1,0 +1,9 @@
+mixin checkbox-button($id, $text, $checked)
+  if $checked=='checked'
+    .checkbox-button
+      input.checkbox-button__input(id=$id type='checkbox' checked)
+      label.checkbox-button__label(for=$id)=$text
+  else
+    .checkbox-button
+      input.checkbox-button__input(id=$id type='checkbox')
+      label.checkbox-button__label(for=$id)=$text

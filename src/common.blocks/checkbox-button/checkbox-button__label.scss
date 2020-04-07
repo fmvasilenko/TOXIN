@@ -7,39 +7,39 @@
   cursor: pointer;
 
   color: $darkShade50;
-}
 
-.checkbox-button__label:before {
-  content: "";
-  box-sizing: border-box;
-  align-self: start;
+  &:before {
+    content: "";
+    box-sizing: border-box;
+    align-self: start;
 
-  min-width: 20px;
-  height: 20px;
-  margin-right: 10px;
+    min-width: 20px;
+    height: 20px;
+    margin-right: 10px;
 
-  background-color: #FFFFFF;
-  border: 1px solid $darkShade25;
-  border-radius: 4px;
-}
+    background-color: #FFFFFF;
+    border: 1px solid $darkShade25;
+    border-radius: 4px;
+  }
 
-.checkbox-button__label:after {
-  content: "";
-  display: none;
-  box-sizing: border-box;
-  position: absolute;
-  margin-left: 6px;
+  &:after {
+    content: "";
+    display: none;
+    box-sizing: border-box;
+    position: absolute;
+    margin-left: 6px;
 
-  align-self: flex-start;
-  margin-top: 2px;
+    align-self: flex-start;
+    margin-top: 2px;
 
-  width: 8px;
-  height: 10px;
-  border-width: 2px;
-  border-style: solid;
-  border-image: $gradient 0 1 1 0;
+    width: 8px;
+    height: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-image: $gradient 0 1 1 0;
 
-  transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
 }
 
 .checkbox-button__input:checked + .checkbox-button__label:before {
