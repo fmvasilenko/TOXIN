@@ -1,0 +1,9 @@
+mixin like-button($number, $liked)
+  if $liked == 'liked'
+    .like-button.like-button_liked
+      i.material-icons.like-button__icon.like-button__icon_liked favorite
+      p.like-button__number.like-button__number_liked=$number
+  else
+    .like-button
+      i.material-icons.like-button__icon favorite_border
+      p.like-button__number=$number

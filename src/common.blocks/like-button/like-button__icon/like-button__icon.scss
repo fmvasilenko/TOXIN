@@ -1,0 +1,12 @@
+.like-button__icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+
+  font-size: 10px;
+  color: $darkShade25;
+  line-height: 18px;
+  text-align: center;
+}
+
+@import "./like-button__icon_liked.scss";

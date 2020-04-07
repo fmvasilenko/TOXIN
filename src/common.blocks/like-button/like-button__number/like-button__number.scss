@@ -1,0 +1,11 @@
+.like-button__number {
+  display: inline-block;
+  margin-left: 2px;
+
+  font-size: 10px;
+  color: $darkShade25;
+  line-height: 18px;
+  text-align: center;
+}
+
+@import "./like-button__number_liked.scss";
