@@ -15,10 +15,10 @@
   font-size: 14px;
   line-height: 18px;
   color: $darkShade25;
-}
 
-.text-field__input:hover,
-.text-field__input:focus {
-  border-color: $darkShade50;
-  color: $darkShade75;
+  &:hover,
+  &:focus {
+    border-color: $darkShade50;
+    color: $darkShade75;
+  }
 }
