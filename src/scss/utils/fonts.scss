@@ -33,3 +33,12 @@
        url('/assets/fonts/icomoon/icomoon.ttf')  format('truetype'), /* Safari, Android, iOS */
        //  url('/assets/fonts/HelveticaNeueCyr/Black/HelveticaNeueCyr-Black.svg') format('svg'); /* Legacy iOS */
 }
+
+@font-face {
+  font-family: "Material Icons";
+  src: url('/assets/fonts/MaterialIcons-Regular/MaterialIcons-Regular.eot'); /* IE9 Compat Modes */
+  src: url('/assets/fonts/MaterialIcons-Regular/MaterialIcons-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/assets/fonts/MaterialIcons-Regular/MaterialIcons-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/assets/fonts/MaterialIcons-Regular/MaterialIcons-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       //  url('/assets/fonts/HelveticaNeueCyr/Black/HelveticaNeueCyr-Black.svg') format('svg'); /* Legacy iOS */
+}
