@@ -1,0 +1,55 @@
+mixin rate-button($name, $id, $value)
+  if $id
+    .rate-button
+      if $value==5
+        input.rate-button__input(type="radio" name=$name id=$id+"-5" checked)
+      else
+        input.rate-button__input(type="radio" name=$name id=$id+"-5")
+      label.material-icons.rate-button__label(for=$id+"-5")
+      if $value==4
+        input.rate-button__input(type="radio" name=$name id=$id+"-4" checked)
+      else
+        input.rate-button__input(type="radio" name=$name id=$id+"-4")
+      label.material-icons.rate-button__label(for=$id+"-4")
+      if $value==3
+        input.rate-button__input(type="radio" name=$name id=$id+"-3" checked)
+      else
+        input.rate-button__input(type="radio" name=$name id=$id+"-3")
+      label.material-icons.rate-button__label(for=$id+"-3")
+      if $value==2
+        input.rate-button__input(type="radio" name=$name id=$id+"-2" checked)
+      else
+        input.rate-button__input(type="radio" name=$name id=$id+"-2")
+      label.material-icons.rate-button__label(for=$id+"-2")
+      if $value==1
+        input.rate-button__input(type="radio" name=$name id=$id+"-1" checked)
+      else
+        input.rate-button__input(type="radio" name=$name id=$id+"-1")
+      label.material-icons.rate-button__label(for=$id+"-1")
+  else
+    .rate-button
+      if $value==5
+        input.rate-button__input(type="radio" name=$name id=$name+"-5" checked)
+      else
+        input.rate-button__input(type="radio" name=$name id=$name+"-5")
+      label.material-icons.rate-button__label(for=$name+"-5")
+      if $value==4
+        input.rate-button__input(type="radio" name=$name id=$name+"-4" checked)
+      else
+        input.rate-button__input(type="radio" name=$name id=$name+"-4")
+      label.material-icons.rate-button__label(for=$name+"-4")
+      if $value==3
+        input.rate-button__input(type="radio" name=$name id=$name+"-3" checked)
+      else
+        input.rate-button__input(type="radio" name=$name id=$name+"-3")
+      label.material-icons.rate-button__label(for=$name+"-3")
+      if $value==2
+        input.rate-button__input(type="radio" name=$name id=$name+"-2" checked)
+      else
+        input.rate-button__input(type="radio" name=$name id=$name+"-2")
+      label.material-icons.rate-button__label(for=$name+"-2")
+      if $value==1
+        input.rate-button__input(type="radio" name=$name id=$name+"-1" checked)
+      else
+        input.rate-button__input(type="radio" name=$name id=$name+"-1")
+      label.material-icons.rate-button__label(for=$name+"-1")

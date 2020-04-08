@@ -1,0 +1,8 @@
+.rate-button {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+@import "./rate-button__input.scss";
+@import "./rate-button__label.scss";
