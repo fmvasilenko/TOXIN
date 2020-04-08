@@ -1,6 +1,6 @@
 .drop-down {
   width: 320px;
-  height: 67px;
+  height: 63px;
 
   position: relative;
 
@@ -9,11 +9,13 @@
   justify-content: space-between;
 }
 
-@import "drop-down_size/drop-down_size_s";
+@import "drop-down_size_s";
 
 @import "drop-down__field/drop-down__field";
 @import "drop-down__list/drop-down__list";
-@import "drop-down__option/drop-down__option";
-@import "drop-down__button/drop-down__button";
-@import "drop-down__input/drop-down__input";
-@import "drop-down__open-list/drop-down__open-list";
+@import "drop-down__option";
+@import "drop-down__button";
+@import "drop-down__input";
+@import "drop-down__expand-more";
+@import "drop-down__option-title";
+@import "drop-down__number";

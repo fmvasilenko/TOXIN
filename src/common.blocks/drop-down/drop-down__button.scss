@@ -9,7 +9,14 @@
   font-family: $textFontFamily;
   font-style: normal;
   font-weight: normal;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 18px;
   color: $darkShade50;
+
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
 }

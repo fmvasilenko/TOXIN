@@ -13,4 +13,11 @@
   line-height: 15px;
   text-transform: uppercase;
   color: $darkShade100;
+
+  -moz-appearance: textfield;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
 }

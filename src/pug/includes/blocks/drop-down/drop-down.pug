@@ -1,11 +1,21 @@
+//   Example of usage
+//  - 
+    var drop_down_values = [
+                        {name: 'Спальни', id: 'bedrooms', number: 0}, 
+                        {name: 'Кровати', id: 'beds', number: 0}, 
+                        {name: 'Ванные комнаты', id: 'bathrooms', number: 0}
+    ]
+  +drop-down(drop_down_values, 'Заголовок', 'Сколько гостей')
+
+
 include drop-down__option.pug
 
-.drop-down.drop-down_size_s
-  h3 Dropdown
-  .drop-down__field.drop-down__field_drop
-    p Сколько гостей
-    .drop-down__open-list v
-  .drop-down__list
-    +drop-down__option("Спальни", 0)
-    +drop-down__option("Кровати", 0)
-    +drop-down__option("Ванные комнаты", 0)
+mixin drop-down($options, $title, $value)
+  .drop-down.drop-down_size_s
+    h3=$title
+    .drop-down__field
+      input.drop-down__field-input(value=$value disabled)
+      i.material-icons.drop-down__expand-more expand_more
+    .drop-down__list
+      each $option in $options
+        +drop-down__option($option.name, $option.id, $option.number)

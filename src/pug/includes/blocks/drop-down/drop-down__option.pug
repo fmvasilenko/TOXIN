@@ -1,7 +1,7 @@
-mixin drop-down__option(title, value)
+mixin drop-down__option($title, $id, $value)
   .drop-down__option
-        h3= title
-        .drop-down__number
-          button.drop-down__button.drop-down__button_decrease -
-          input.drop-down__input(type="number" value=value readonly)
-          button.drop-down__button.drop-down__button_increase +
+    label.drop-down__option-title(id=$id)= $title
+    .drop-down__number
+      button.drop-down__button.drop-down__button_decrease -
+      input.drop-down__input(type="number" id=$id value=$value readonly)
+      button.drop-down__button.drop-down__button_increase +
