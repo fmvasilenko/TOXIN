@@ -1,3 +1,6 @@
+import 'jquery';
+import 'jquery-ui';
+import 'jquery-ui-touch-punch';
 import './js/common.js';
 import './css/main.css';
 import './scss/main.scss';
