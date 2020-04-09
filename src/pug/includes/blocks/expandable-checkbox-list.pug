@@ -1,0 +1,20 @@
+//Example of usage
+//-
+    var checkbox_buttons = [{name: 'breakfast', label: 'Завтрак'},
+                            {name: 'desk', label: 'Письменный стол', checked: true},
+                            {name: 'baby-chair', label: 'Стул для кормления', checked: true},
+                            {name: 'baby-bed', label: 'Кроватка'},
+                            {name: 'TV', label: 'Телевизор'},
+                            {name: 'shampoo', label: 'Шампунь'}]
+                            
+  +expandable-checkbox-list('expandable checkbox list', checkbox_buttons)
+
+include ./checkbox-button.pug
+
+mixin expandable-checkbox-list(title, checkbox_buttons)
+  .expandable-checkbox-list
+    h3.expandable-checkbox-list__title= title
+      i.material-icons.expandable-checkbox-list__expand-more.expandable-checkbox-list__expand-more_upsidedown expand_more
+    .expandable-checkbox-list__list
+      each button in checkbox_buttons
+        +checkbox-button(button.name, button.label, button.checked)
