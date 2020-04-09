@@ -1,0 +1,16 @@
+.date-dropdown__expand-more {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: $darkShade50;
+
+  cursor: pointer;
+}

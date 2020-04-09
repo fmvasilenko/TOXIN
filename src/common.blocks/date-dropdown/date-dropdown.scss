@@ -1,0 +1,11 @@
+.date-dropdown {
+  width: $mainFieldWidth;
+
+  display: flex;
+  align-items: center;
+}
+
+@import "date-dropdown__input";
+@import "date-dropdown__title";
+@import "date-dropdown__wrapper";
+@import "date-dropdown__expand-more"
