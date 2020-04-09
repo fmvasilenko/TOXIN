@@ -1,0 +1,8 @@
+.subscription-text-field__icon {
+  color: $mainColor;
+  line-height: 100%;
+
+  background: $gradient; /* Градиент для текста */
+  -webkit-background-clip: text; /* Обрезаем фон по тексту */
+  -webkit-text-fill-color: transparent;
+}
