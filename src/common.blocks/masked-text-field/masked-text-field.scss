@@ -1,0 +1,6 @@
+.masked-text-field {
+  width: $mainFieldWidth;
+}
+
+@import "masked-text-field__input";
+@import "masked-text-field__title"
