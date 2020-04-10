@@ -1,0 +1,11 @@
+.registration {
+  box-sizing: border-box;
+  padding: 40px 30px 30px 30px;
+
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
+}
+
+@import "registration__text-field";
