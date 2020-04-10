@@ -8,10 +8,14 @@ mixin registration()
     .registration__gender
       +radio-button('gender', 'registration-male', 'Мужчина', 'checked')
       +radio-button('gender', 'registration-female', 'Женщина')
-    +masked-text-field('birth', 'Дата рождения')
-    h3 Данные для входа в сервис
-    +text-field('email', '', 'Email')
-    +text-field('password', '', 'Пароль')
+    .registration__birth-date
+      +masked-text-field('birth', 'Дата рождения')
+    .registration__subtitle
+      h3 Данные для входа в сервис
+    .registration__text-field
+      +text-field('email', '', 'Email')
+    .registration__text-field
+      +text-field('password', '', 'Пароль')
     +toggle('offers', 'Получать спецпредложения')
     +button('Перейти к оплате', 'size_l')
     .registration__login
