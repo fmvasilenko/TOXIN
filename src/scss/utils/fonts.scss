@@ -42,3 +42,27 @@
        url('/assets/fonts/MaterialIcons-Regular/MaterialIcons-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
        //  url('/assets/fonts/HelveticaNeueCyr/Black/HelveticaNeueCyr-Black.svg') format('svg'); /* Legacy iOS */
 }
+
+@font-face {
+  font-family: "QuickSand";
+  src: url('/assets/fonts/Quicksand-Regular/Quicksand-Regular.eot'); /* IE9 Compat Modes */
+  src: url('/assets/fonts/Quicksand-Regular/Quicksand-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/assets/fonts/Quicksand-Regular/Quicksand-Regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/assets/fonts/Quicksand-Regular/Quicksand-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/assets/fonts/Quicksand-Regular/Quicksand-Regular.svg') format('svg'); /* Legacy iOS */
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "QuickSand";
+  src: url('/assets/fonts/Quicksand-Bold/Quicksand-Bold.eot'); /* IE9 Compat Modes */
+  src: url('/assets/fonts/Quicksand-Bold/Quicksand-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/assets/fonts/Quicksand-Bold/Quicksand-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/assets/fonts/Quicksand-Bold/Quicksand-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/assets/fonts/Quicksand-Bold/Quicksand-Bold.svg') format('svg'); /* Legacy iOS */
+
+  font-weight: bold;
+  font-style: normal;
+}
