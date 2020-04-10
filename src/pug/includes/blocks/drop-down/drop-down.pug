@@ -9,9 +9,12 @@
 
 
 include drop-down__option.pug
+include ../button.pug
+
+//needed to add size_s button
 
 mixin drop-down($options, $title, $value)
-  .drop-down.drop-down_size_s
+  .drop-down
     h3=$title
     .drop-down__field
       input.drop-down__field-input(value=$value disabled)
@@ -19,3 +22,6 @@ mixin drop-down($options, $title, $value)
     .drop-down__list
       each $option in $options
         +drop-down__option($option.name, $option.id, $option.number)
+      .drop-down__submit-area
+        button.button.button_no-background.button_color_grey Очистить
+        button.button.button_no-background Применить
