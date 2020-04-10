@@ -1,4 +1,5 @@
-mixin text-field($name, $title, $placeholder)
+mixin text-field(name, title, placeholder)
   .text-field
-    h3(class='text-field__title')=$title
-    input(type='text', class='text-field__input', name=$name, placeholder=$placeholder)
+    if title
+      h3.text-field__title(class='text-field__title')=title
+    input(type='text', class='text-field__input', name=name, placeholder=placeholder)
