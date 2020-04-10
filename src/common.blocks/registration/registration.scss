@@ -8,7 +8,9 @@
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
 }
 
-@import "registration__text-field";
+@import "registration__field";
 @import "registration__gender";
 @import "registration__birth-date";
 @import "registration__subtitle";
+@import "registration__submit";
+@import "registration__login";
