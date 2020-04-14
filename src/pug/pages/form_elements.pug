@@ -11,8 +11,15 @@ include ../includes/blocks/drop-down/drop-down.pug
 include ../includes/blocks/masked-text-field.pug 
 include ../includes/blocks/date-dropdown.pug
 include ../includes/blocks/subscription-text-field.pug
+include ../includes/blocks/expandable-checkbox-list.pug
+
+include ../includes/blocks/checkbox-button.pug
 include ../includes/blocks/radio-button.pug 
 include ../includes/blocks/toggle.pug 
+include ../includes/blocks/like-button.pug 
+include ../includes/blocks/rate-button.pug 
+include ../includes/blocks/checkbox-button-rich.pug
+
 include ../includes/blocks/button.pug 
 
 block content
@@ -25,7 +32,13 @@ block content
   .form-elements__text-field-hover
     +text-field('text-field', 'Text field', '', 'This is pretty awesome')
     
-  - var drop_down_values = [{name: 'Спальни', id: 'bedrooms', number: 0}, {name: 'Кровати', id: 'beds', number: 0}, {name: 'Ванные комнаты', id: 'bathrooms', number: 0}]
+  - 
+    var drop_down_values = [
+                            {name: 'Спальни', id: 'bedrooms', number: 0}, 
+                            {name: 'Кровати', id: 'beds', number: 0}, 
+                            {name: 'Ванные комнаты', id: 'bathrooms', number: 0}
+    ]
+
   .form-elements__drop-down
     +drop-down(drop_down_values, 'Dropdown', 'Сколько гостей')
 
@@ -37,3 +50,97 @@ block content
 
   .form-elements__subscription-text-field
     +subscription-text-field
+
+  - 
+    var drop_down_values = [
+                            {name: 'Спальни', id: 'bedrooms', number: 2}, 
+                            {name: 'Кровати', id: 'beds', number: 1}, 
+                            {name: 'Ванные комнаты', id: 'bathrooms', number: 0}
+    ]
+
+  .form-elements__drop-down-default 
+    +drop-down(drop_down_values, 'dropdown')
+
+  .form-elements__drop-down-expanded
+    +drop-down(drop_down_values, 'dropdown')
+
+  -
+    var checkbox_buttons = [
+                            {name: 'breakfast', label: 'Завтрак'},
+                            {name: 'desk', label: 'Письменный стол', checked: true},
+                            {name: 'baby-chair', label: 'Стул для кормления', checked: true},
+                            {name: 'baby-bed', label: 'Кроватка'},
+                            {name: 'TV', label: 'Телевизор'},
+                            {name: 'shampoo', label: 'Шампунь'}
+    ]
+  .form-elements__expandable-checkbox-list
+    +expandable-checkbox-list('Expandable checkbox list', checkbox_buttons)
+
+  .form-elements__expandable-checkbox-list-expanded
+    +expandable-checkbox-list('Expandable checkbox list', checkbox_buttons)
+
+  .form-elements__checkbox-buttons
+    h3.form-elements__checkbox-buttons-title checkbox buttons
+    .form-elements__checkbox-button
+      +checkbox-button('smoke', 'Можно курить')
+    .form-elements__checkbox-button
+      +checkbox-button('pets', 'Можно с питомцами', 'checked')
+    .form-elements__checkbox-button
+      +checkbox-button('pets', 'Можно пригласить гостей (до 10 человек)', 'checked')
+
+  .form-elements__radio-buttons
+    h3.form-elements__radio-buttons-title Radio buttons
+    .form-elements__radio-button
+      +radio-button('gender', 'gender', 'Мужчина', 'checked')
+      +radio-button('gender', 'gender', 'Женщина')
+
+  .form-elements__toggle
+    h3.form-elements__toggle-title Toggle
+    .form-elements__toggle-item
+      +toggle('toggle1', 'Получать спецпредложения', 'checked')
+    .form-elements__toggle-item
+      +toggle('toggle1', 'Получать спецпредложения')
+
+  .form-elements__like-buttons
+    h3.form-elements__like-buttons-title Like button
+    .form-elements__like-button
+      .form-elements__like-button-item
+        +like-button(2)
+      .form-elements__like-button-item
+        +like-button(12, 'liked')
+
+  .form-elements__rate-buttons
+    h3.form-elements__rate-buttons-title Rate button
+    .form-elements__rate-button
+      .form-elements__rate-button-item
+        +rate-button('rate-button-1', '', 4)
+      .form-elements__rate-button-item
+        +rate-button('rate-button-2', '', 5)
+
+  .form-elements__rich-checkbox-buttons
+    h3.form-elements__rich-checkbox-buttons-title Rich checkbox buttons
+    .form-elements__rich-checkbox-buttons-item
+      +checkbox-button-rich('checkbox-button-rich-1', 'Широкий коридор', 'Ширина коридоров в номере не менее 91 см.')
+    .form-elements__rich-checkbox-buttons-item
+      +checkbox-button-rich('checkbox-button-rich-2', 'Помощник для инвалидов', 'На 1 этаже вас встретит специалист и проводит до номера')
+
+  .form-elements__buttons
+    h3.form-elements__buttons-title Buttons
+    .form-elements__buttons-line.form-elements__buttons-line_first
+      .form-elements__button
+        button.button Click me
+      .form-elements__button
+        button.button(disabled) Click me
+    .form-elements__buttons-line
+      .form-elements__button
+        button.button.button_empty Click me
+      .form-elements__button
+        button.button.button_empty(disabled) Click me
+    .form-elements__buttons-line(style="margin-top: 31.5px")
+      .form-elements__button
+        button.button.button_no-background Click me
+      .form-elements__button
+        button.button.button_no-background(disabled) Click me
+    .form-elements__buttons-line(style="margin-top: 32px")
+      +button('Перейти к оплате', 'size_l')
+  
