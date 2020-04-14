@@ -1,0 +1,12 @@
+.types {
+  width: 402px;
+
+  position: absolute;
+  top: 145px;
+  left: 833px;
+}
+
+@import "types__line";
+@import "types__title/types__title";
+@import "types__title/types__title_uppercase";
+@import "types__description";

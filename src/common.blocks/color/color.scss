@@ -1,2 +1,12 @@
+.color {
+  display: flex;
+  padding-top: 20px;
+
+  &:first-child {
+    padding: 0;
+  }
+}
+
 @import "color__title";
 @import "color__example";
+@import "color__code";
