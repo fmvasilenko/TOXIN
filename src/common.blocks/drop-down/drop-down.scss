@@ -1,6 +1,6 @@
 .drop-down {
-  width: 320px;
-  height: 63px;
+  //width: 320px;
+  //height: 63px;
 
   position: relative;
 
@@ -9,8 +9,7 @@
   justify-content: space-between;
 }
 
-@import "drop-down_size_s";
-
+@import "drop-down__title";
 @import "drop-down__field/drop-down__field";
 @import "drop-down__list/drop-down__list";
 @import "drop-down__option";

@@ -151,5 +151,46 @@ h3 {
   left: 141px;
 }
 
+.form-elements__text-field-hover {
+  width: 320px;
+
+  position: absolute;
+  left: 141px;
+  top: 227.44px;
+}
+
+.form-elements__drop-down {
+  width: 320px;
+
+  position: absolute;
+  left: 141px;
+  top: 311.44px;
+}
+
+.form-elements__masked-text-field {
+  width: 320px;
+
+  position: absolute;
+  left: 141px;
+  top: 398px;
+}
+
+.form-elements__date-dropdown {
+  width: 320px;
+
+  position: absolute;
+  left: 141px;
+  top: 502px;
+}
+
+.form-elements__subscription-text-field {
+  width: 267px;
+  height: 44px;
+
+  position: absolute;
+  left: 140px;
+  top: 732px;
+}
+
 @import "../common.blocks/color/color.scss";
 @import "../common.blocks/types/types.scss";

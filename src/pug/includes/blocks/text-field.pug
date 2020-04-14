@@ -1,5 +1,5 @@
-mixin text-field(name, title, placeholder)
+mixin text-field(name, title, placeholder, value)
   .text-field
     if title
       h3.text-field__title(class='text-field__title')=title
-    input(type='text', class='text-field__input', name=name, placeholder=placeholder)
+    input(type='text', class='text-field__input', name=name, placeholder=placeholder, value=value)

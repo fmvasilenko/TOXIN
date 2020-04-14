@@ -1,21 +1,19 @@
-//   Example of usage
-//  - 
-    var drop_down_values = [
-                        {name: 'Спальни', id: 'bedrooms', number: 0}, 
-                        {name: 'Кровати', id: 'beds', number: 0}, 
-                        {name: 'Ванные комнаты', id: 'bathrooms', number: 0}
-    ]
-  +drop-down(drop_down_values, 'Заголовок', 'Сколько гостей')
-
-
 include drop-down__option.pug
 include ../button.pug
 
-//needed to add size_s button
-
 mixin drop-down($options, $title, $value)
+  //   Example of usage
+  //  - 
+      var drop_down_values = [
+                          {name: 'Спальни', id: 'bedrooms', number: 0}, 
+                          {name: 'Кровати', id: 'beds', number: 0}, 
+                          {name: 'Ванные комнаты', id: 'bathrooms', number: 0}
+      ]
+
+  //+drop-down(drop_down_values, 'Заголовок', 'Сколько гостей')
+
   .drop-down
-    h3=$title
+    h3.drop-down__title=$title
     .drop-down__field
       input.drop-down__field-input(value=$value disabled)
       i.material-icons.drop-down__expand-more expand_more

@@ -1,15 +1,17 @@
 extends ../layout/main
 
 block variables
-  - var title = 'Webpack + Pug';
+  - var title = 'Form Elements';
   - var description = 'Description for Webpack + Pug';
   - var pageClass = 'index-page';
 
 include ../includes/blocks/logo.pug
-include ../includes/blocks/registration.pug 
 include ../includes/blocks/text-field.pug 
-include ../includes/blocks/radio-button.pug 
+include ../includes/blocks/drop-down/drop-down.pug 
 include ../includes/blocks/masked-text-field.pug 
+include ../includes/blocks/date-dropdown.pug
+include ../includes/blocks/subscription-text-field.pug
+include ../includes/blocks/radio-button.pug 
 include ../includes/blocks/toggle.pug 
 include ../includes/blocks/button.pug 
 
@@ -19,3 +21,19 @@ block content
 
   .form-elements__text-field
     +text-field('text-field', 'Text field', 'Email')
+
+  .form-elements__text-field-hover
+    +text-field('text-field', 'Text field', '', 'This is pretty awesome')
+    
+  - var drop_down_values = [{name: 'Спальни', id: 'bedrooms', number: 0}, {name: 'Кровати', id: 'beds', number: 0}, {name: 'Ванные комнаты', id: 'bathrooms', number: 0}]
+  .form-elements__drop-down
+    +drop-down(drop_down_values, 'Dropdown', 'Сколько гостей')
+
+  .form-elements__masked-text-field
+    +masked-text-field('masked-text-field', 'Masked text field')
+
+  .form-elements__date-dropdown
+    +date-dropdown('date-dropdown-1', 'date dropdown', '', 'date-dropdown-2', 'date dropdown', '2019-08-19')
+
+  .form-elements__subscription-text-field
+    +subscription-text-field
