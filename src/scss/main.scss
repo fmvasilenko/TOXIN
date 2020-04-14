@@ -133,5 +133,23 @@ h3 {
   left: 30px;
 }
 
+//Form elements
+.form-elements__logo {
+  width: 48px;
+  height: 48px;
+
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.form-elements__text-field {
+  width: 320px;
+  
+  position: absolute;
+  top: 143px;
+  left: 141px;
+}
+
 @import "../common.blocks/color/color.scss";
 @import "../common.blocks/types/types.scss";

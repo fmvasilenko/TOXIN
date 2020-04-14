@@ -1,0 +1,21 @@
+extends ../layout/main
+
+block variables
+  - var title = 'Webpack + Pug';
+  - var description = 'Description for Webpack + Pug';
+  - var pageClass = 'index-page';
+
+include ../includes/blocks/logo.pug
+include ../includes/blocks/registration.pug 
+include ../includes/blocks/text-field.pug 
+include ../includes/blocks/radio-button.pug 
+include ../includes/blocks/masked-text-field.pug 
+include ../includes/blocks/toggle.pug 
+include ../includes/blocks/button.pug 
+
+block content
+  .form-elements__logo
+    +logo_blank()
+
+  .form-elements__text-field
+    +text-field('text-field', 'Text field', 'Email')
