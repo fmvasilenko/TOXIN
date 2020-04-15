@@ -1,12 +1,12 @@
 extends ../layout/main
 
+include ../../common.blocks/logo/logo.pug
+include ../../common.blocks/color/color.pug
+
 block variables
   - var title = 'Colors & Type';
   - var description = 'Description for Webpack + Pug';
   - var pageClass = 'index-page';
-
-include ../includes/blocks/logo.pug
-include ../includes/blocks/color.pug
 
 block content
   .colors__logo

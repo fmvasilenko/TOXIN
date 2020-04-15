@@ -1,5 +1,21 @@
+/*class DropDown {
+
+  bindEventListeners(dropDown) {
+    let expandeMore = dropDown.find('.drop-down__expand-more');
+
+    expandeMore.addEventListener('click', this.expandMore);
+  }
+
+  expandMore(event) {
+    let dropDown = $(this).parents('.drop-down');
+    dropDown.find('.drop-down__list').toggleClass('drop-down__list_drop');
+    dropDown.find('.drop-down__field').toggleClass('drop-down__field_drop');
+  }
+
+}*/
+
 function changeDropdownField($drop_down){ //adding text to dropdown field
-  /* $drop_down has the whole dropdown element in it */
+  // $drop_down has the whole dropdown element in it 
   let str = '';
 
   $drop_down.find('.drop-down__input').each( function (index) { //creating a string
@@ -26,7 +42,8 @@ $('.drop-down__button_increase').click(function(){ //increasing button
 
   $(this).parent().find('.drop-down__button_decrease').prop("disabled", false); //activating the decrease button
 
-  changeDropdownField($('.drop-down'));
+  let dropDown = $(this).parents('.drop-down');
+  changeDropdownField(dropDown);
 
   return false;
 });
@@ -43,14 +60,16 @@ $('.drop-down__button_decrease').click(function () {//decreasing button
     $(this).prop("disabled", true); //disable the decrease button if the value is 0
   }
 
-  changeDropdownField($('.drop-down'));
+  let dropDown = $(this).parents('.drop-down');
+  changeDropdownField(dropDown);
 
   return false;
 });
 
 $('.drop-down__expand-more').click(function(){  //expand-more button
-  $('.drop-down__list').toggleClass('drop-down__list_drop');
-  $('.drop-down__field').toggleClass('drop-down__field_drop');
+  let dropDown = $(this).parents('.drop-down');
+  dropDown.find('.drop-down__list').toggleClass('drop-down__list_drop');
+  dropDown.find('.drop-down__field').toggleClass('drop-down__field_drop');
 })
 
 $(document).ready(function(){
