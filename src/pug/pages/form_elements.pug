@@ -21,6 +21,7 @@ include ../includes/blocks/rate-button.pug
 include ../includes/blocks/checkbox-button-rich.pug
 
 include ../includes/blocks/button.pug 
+include ../../common.blocks/pagination/pagination.pug
 
 block content
   .form-elements__logo
@@ -143,4 +144,9 @@ block content
         button.button.button_no-background(disabled) Click me
     .form-elements__buttons-line(style="margin-top: 32px")
       +button('Перейти к оплате', 'size_l')
+
+  .form-elements__pagination
+    h3.form-elements__pagination-title Pagination
+    +pagination()
+
   

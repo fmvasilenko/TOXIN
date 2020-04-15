@@ -1,0 +1,10 @@
+.pagination__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: $secondColorGradient;
+  border-radius: 50%;
+
+  color: white;
+}
