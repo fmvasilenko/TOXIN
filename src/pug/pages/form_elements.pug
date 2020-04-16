@@ -15,7 +15,7 @@ include ../includes/blocks/expandable-checkbox-list.pug
 include ../../common.blocks/benefit/benefit.pug
 
 include ../includes/blocks/checkbox-button.pug
-include ../includes/blocks/radio-button.pug 
+include ../../common.blocks/radio-button/radio-button.pug 
 include ../../common.blocks/toggle/toggle.pug 
 include ../includes/blocks/like-button.pug 
 include ../includes/blocks/rate-button.pug 
@@ -99,15 +99,15 @@ block content
   .form-elements__radio-buttons
     h3.form-elements__radio-buttons-title Radio buttons
     .form-elements__radio-button
-      +radio-button('gender', 'gender', 'Мужчина', 'checked')
-      +radio-button('gender', 'gender', 'Женщина')
+      +radio-button('gender', 'Мужчина', 'checked')
+      +radio-button('gender', 'Женщина')
 
   .form-elements__toggle
     h3.form-elements__toggle-title Toggle
     .form-elements__toggle-item
-      +toggle('toggle1', 'Получать спецпредложения', 'checked')
+      +toggle('toggle', 'Получать спецпредложения', 'checked')
     .form-elements__toggle-item
-      +toggle('toggle1', 'Получать спецпредложения')
+      +toggle('toggle', 'Получать спецпредложения')
 
   .form-elements__like-buttons
     h3.form-elements__like-buttons-title Like button

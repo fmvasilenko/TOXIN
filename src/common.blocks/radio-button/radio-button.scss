@@ -1,6 +1,54 @@
-.radio-button {
-margin-right: 20px;
+.radio-button__input {
+  display: none;
+
+  &:checked + .radio-button__text {
+    color: $darkShade75;
+  }
+  
+  &:checked + .radio-button__text:before {
+    border-color: $mainColor;
+  }
+  
+  &:checked + .radio-button__text:after {
+    display: block;
+  }
 }
 
-@import "./radio-button__input.scss";
-@import "./radio-button__label.scss";
+.radio-button__text {
+  display: flex;
+  align-items: center;
+  line-height: 18px;
+
+  color: $darkShade50;
+  cursor: pointer;
+
+  &:before {
+    content: "";
+    box-sizing: border-box;
+    align-self: start;
+
+    min-width: 20px;
+    height: 20px;
+    margin-right: 10px;
+
+    background-color: #FFFFFF;
+    border: 1px solid $darkShade25;
+    border-radius: 10px;
+  }
+
+  &:after {
+    content: "";
+    display: none;
+    box-sizing: border-box;
+    position: absolute;
+    margin-left: 4px;
+
+    align-self: flex-start;
+    margin-top: 4px;
+
+    width: 12px;
+    height: 12px;
+    background: $gradient;
+    border-radius: 6px;
+  }
+}
