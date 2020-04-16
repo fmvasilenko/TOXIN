@@ -12,6 +12,7 @@ include ../includes/blocks/masked-text-field.pug
 include ../includes/blocks/date-dropdown.pug
 include ../includes/blocks/subscription-text-field.pug
 include ../includes/blocks/expandable-checkbox-list.pug
+include ../../common.blocks/benefit/benefit.pug
 
 include ../includes/blocks/checkbox-button.pug
 include ../includes/blocks/radio-button.pug 
@@ -80,6 +81,10 @@ block content
 
   .form-elements__expandable-checkbox-list-expanded
     +expandable-checkbox-list('Expandable checkbox list', checkbox_buttons)
+
+  .form-elements__benefits
+    +benefit('Комфорт', 'Шумопоглощающие стены', 'insert_emoticon')
+    +benefit('Удобство', 'Окно в каждой из спален', 'location_city')
 
   .form-elements__checkbox-buttons
     h3.form-elements__checkbox-buttons-title checkbox buttons

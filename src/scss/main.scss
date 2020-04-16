@@ -119,6 +119,7 @@ h3 {
 
 @import "../common.blocks/pagination/pagination.scss";
 @import "../common.blocks/bullet-list/bullet-list.scss";
+@import "../common.blocks/benefit/benefit.scss";
 
 //Colors.html
 .colors {
@@ -193,6 +194,12 @@ h3 {
   position: absolute;
   left: 140px;
   top: 732px;
+}
+
+.form-elements__benefits {
+  position: absolute;
+  left: 140px;
+  top: 1543px;
 }
 
 .form-elements__checkbox-buttons {
