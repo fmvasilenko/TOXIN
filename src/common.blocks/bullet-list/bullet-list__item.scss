@@ -1,0 +1,17 @@
+.bullet-list__item {
+  display: flex;
+
+  &:before {
+    content: "";
+
+    min-width: 10px;
+    height: 10px;
+    margin-top: 5px;
+    margin-right: 10.43px;
+
+    //display: inline-block;
+
+    background: $darkShade25;
+    border-radius: 50%;
+  }
+}

@@ -118,6 +118,7 @@ h3 {
 @import "../common.blocks/registration/registration.scss";
 
 @import "../common.blocks/pagination/pagination.scss";
+@import "../common.blocks/bullet-list/bullet-list.scss";
 
 //Colors.html
 .colors {
@@ -370,6 +371,22 @@ h3 {
 .form-elements__pagination-title {
   margin-bottom: 16.44px;
 }
+
+.form-elements__bullet-list {
+  width: 300px;
+
+  position: absolute;
+  left: 979px;
+  top: 1196px;
+}
+
+.form-elements__bullet-list-title {
+  margin-bottom: 10px;
+} 
+
+.form-elements__bullet-list-item {
+  padding: 5px 0;
+} 
 
 @import "../common.blocks/color/color.scss";
 @import "../common.blocks/types/types.scss";

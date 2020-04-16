@@ -22,6 +22,7 @@ include ../includes/blocks/checkbox-button-rich.pug
 
 include ../includes/blocks/button.pug 
 include ../../common.blocks/pagination/pagination.pug
+include ../../common.blocks/bullet-list/bullet-list.pug 
 
 block content
   .form-elements__logo
@@ -149,4 +150,11 @@ block content
     h3.form-elements__pagination-title Pagination
     +pagination()
 
-  
+  .form-elements__bullet-list
+    h3.form-elements__bullet-list-title Bullet list
+    li.bullet-list__item.form-elements__bullet-list-item 
+      p Нельзя с питомцами
+    li.bullet-list__item.form-elements__bullet-list-item 
+      p Без вечеринок и мероприятий
+    li.bullet-list__item.form-elements__bullet-list-item 
+      p Время прибытия — после 13:00, а выезд до 12:00
