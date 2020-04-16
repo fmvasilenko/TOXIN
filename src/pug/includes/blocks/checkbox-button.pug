@@ -1,9 +1,12 @@
-mixin checkbox-button($id, $text, $checked)
-  if $checked=='checked'
+mixin checkbox-button(name, text, checked)
+  if checked=='checked'
     .checkbox-button
-      input.checkbox-button__input(id=$id type='checkbox' checked)
-      label.checkbox-button__label(for=$id)=$text
+      label
+        input.checkbox-button__input(type='checkbox' name=name checked)
+        p.checkbox-button__text #{text}
   else
     .checkbox-button
-      input.checkbox-button__input(id=$id type='checkbox')
-      label.checkbox-button__label(for=$id)=$text
+      label
+        input.checkbox-button__input(type='checkbox' name=name)
+        p.checkbox-button__text #{text}
+      

@@ -1,14 +1,15 @@
-.checkbox-button__label {
+.checkbox-button__text {
   display: flex;
   align-items: center;
+
+  color: $darkShade50;
   line-height: 18px;
 
   cursor: pointer;
 
-  color: $darkShade50;
-
   &:before {
     content: "";
+    display: block;
     box-sizing: border-box;
     align-self: start;
 
@@ -41,10 +42,10 @@
   }
 }
 
-.checkbox-button__input:checked + .checkbox-button__label:before {
+.checkbox-button__input:checked + .checkbox-button__text:before {
   border-color: $mainColor;
 }
 
-.checkbox-button__input:checked + .checkbox-button__label:after {
+.checkbox-button__input:checked + .checkbox-button__text:after {
   display: block;
 }
