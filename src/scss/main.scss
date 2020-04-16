@@ -120,6 +120,7 @@ h3 {
 @import "../common.blocks/pagination/pagination.scss";
 @import "../common.blocks/bullet-list/bullet-list.scss";
 @import "../common.blocks/benefit/benefit.scss";
+@import "../common.blocks/feedback/feedback.scss";
 
 //Colors.html
 .colors {
@@ -394,6 +395,14 @@ h3 {
 .form-elements__bullet-list-item {
   padding: 5px 0;
 } 
+
+.form-elements__feedback {
+  width: 711px;
+
+  position: absolute;
+  left: 587px;
+  top: 1573px;
+}
 
 @import "../common.blocks/color/color.scss";
 @import "../common.blocks/types/types.scss";

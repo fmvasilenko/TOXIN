@@ -24,6 +24,7 @@ include ../includes/blocks/checkbox-button-rich.pug
 include ../includes/blocks/button.pug 
 include ../../common.blocks/pagination/pagination.pug
 include ../../common.blocks/bullet-list/bullet-list.pug 
+include ../../common.blocks/feedback/feedback.pug
 
 block content
   .form-elements__logo
@@ -163,3 +164,6 @@ block content
       p Без вечеринок и мероприятий
     li.bullet-list__item.form-elements__bullet-list-item 
       p Время прибытия — после 13:00, а выезд до 12:00
+
+  .form-elements__feedback
+    +feedback()
