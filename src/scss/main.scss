@@ -229,8 +229,16 @@ h3 {
   margin-bottom: 16px;
 }
 
-.form-elements__radio-button {
+.form-elements__radio-buttons-container {
   display: flex;
+}
+
+.form-elements__radio-button {
+  margin-left: 20px;
+
+  &:first-child {
+    margin-left: 0;
+  }
 }
 
 .form-elements__toggle {

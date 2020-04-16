@@ -98,9 +98,11 @@ block content
 
   .form-elements__radio-buttons
     h3.form-elements__radio-buttons-title Radio buttons
-    .form-elements__radio-button
-      +radio-button('gender', 'Мужчина', 'checked')
-      +radio-button('gender', 'Женщина')
+    .form-elements__radio-buttons-container
+      .form-elements__radio-button
+        +radio-button('gender', 'Мужчина', 'checked')
+      .form-elements__radio-button
+        +radio-button('gender', 'Женщина')
 
   .form-elements__toggle
     h3.form-elements__toggle-title Toggle
