@@ -1,6 +1,52 @@
-.toggle {
-  width: 266px;
+.toggle__input {
+  display: none;
+
+  &:checked + .toggle__text:before {
+    border-color: $mainColor;
+  }
+  
+  &:checked + .toggle__text:after {
+    background: $gradient;
+    margin-left: 23px;
+  }
 }
 
-@import "./toggle__input.scss";
-@import "./toggle__label.scss";
+.toggle__text {
+  display: flex;
+  align-items: center;
+  line-height: 18px;
+
+  color: $darkShade75;
+  cursor: pointer;
+
+
+  &:before {
+    content: "";
+    box-sizing: border-box;
+    align-self: start;
+
+    min-width: 40px;
+    height: 20px;
+    margin-right: 10px;
+
+    background-color: #FFFFFF;
+    border: 1px solid $darkShade25;
+    border-radius: 10px;
+  }
+
+  &:after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    margin-left: 5px;
+
+    align-self: flex-start;
+    margin-top: 4px;
+
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    background: $darkShade25;
+    transition: 0.3s;
+  }
+}

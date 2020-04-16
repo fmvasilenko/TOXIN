@@ -1,0 +1,7 @@
+mixin toggle(name, text, checked)
+  label
+    if checked=='checked'
+      input.toggle__input(type='checkbox' name=name checked)
+    else
+      input.toggle__input(type='checkbox' name=name)
+    p.toggle__text #{text}
