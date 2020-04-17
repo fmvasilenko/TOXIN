@@ -1,8 +1,32 @@
 .expandable-checkbox-list {
   position: relative;
-}
 
-@import "./expandable-checkbox-list__list.scss";
-@import "./expandable-checkbox-list__list-item.scss";
-@import "./expandable-checkbox-list__title.scss";
-@import "./expandable-checkbox-list__expand-more/expandable-checkbox-list__expand-more.scss";
+  &__title {
+    line-height: 44px;
+    cursor: pointer;
+  }
+
+  &__list {
+    overflow: hidden;
+  }
+
+  &__list-item {
+    padding: 5px 0;
+  }
+
+  &__expand-more {
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  
+    line-height: 44px;
+    text-align: center;
+    color: $darkShade50;
+
+    &_expanded {
+      transform: rotate(-180deg);
+    }
+  }
+}

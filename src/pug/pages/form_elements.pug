@@ -11,7 +11,7 @@ include ../includes/blocks/drop-down/drop-down.pug
 include ../includes/blocks/masked-text-field.pug 
 include ../includes/blocks/date-dropdown.pug
 include ../includes/blocks/subscription-text-field.pug
-include ../includes/blocks/expandable-checkbox-list.pug
+include ../../common.blocks/expandable-checkbox-list/expandable-checkbox-list.pug
 include ../../common.blocks/benefit/benefit.pug
 
 include ../includes/blocks/checkbox-button.pug
@@ -69,19 +69,26 @@ block content
     +drop-down(drop_down_values, 'dropdown')
 
   -
-    var checkbox_buttons = [
-                            {name: 'breakfast', label: 'Завтрак'},
-                            {name: 'desk', label: 'Письменный стол', checked: true},
-                            {name: 'baby-chair', label: 'Стул для кормления', checked: true},
-                            {name: 'baby-bed', label: 'Кроватка'},
-                            {name: 'TV', label: 'Телевизор'},
-                            {name: 'shampoo', label: 'Шампунь'}
-    ]
+    var expandable_checkbox_list_parameters = {
+      title: 'Expandable checkbox list',
+      expanded: false,
+      checkbox_buttons: [
+        {name: 'breakfast', label: 'Завтрак'},
+        {name: 'desk', label: 'Письменный стол', checked: 'checked'},
+        {name: 'baby-chair', label: 'Стул для кормления', checked: 'checked'},
+        {name: 'baby-bed', label: 'Кроватка'},
+        {name: 'TV', label: 'Телевизор'},
+        {name: 'shampoo', label: 'Шампунь'}
+      ]
+    }
+
   .form-elements__expandable-checkbox-list
-    +expandable-checkbox-list('Expandable checkbox list', checkbox_buttons)
+    +expandable-checkbox-list(expandable_checkbox_list_parameters)
+
+  - expandable_checkbox_list_parameters.expanded = true
 
   .form-elements__expandable-checkbox-list-expanded
-    +expandable-checkbox-list('Expandable checkbox list', checkbox_buttons)
+    +expandable-checkbox-list(expandable_checkbox_list_parameters)
 
   .form-elements__benefits
     +benefit('Комфорт', 'Шумопоглощающие стены', 'insert_emoticon')

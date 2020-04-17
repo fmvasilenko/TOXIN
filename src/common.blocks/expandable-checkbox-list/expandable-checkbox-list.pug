@@ -1,0 +1,19 @@
+mixin expandable-checkbox-list(parameters = {title: 'Checkbox', checkbox_buttons: [], expanded: true})
+  
+  .expandable-checkbox-list
+
+    h3.expandable-checkbox-list__title= parameters.title
+
+      if parameters.expanded
+        i.material-icons.expandable-checkbox-list__expand-more.expandable-checkbox-list__expand-more_expanded expand_more
+      else
+        i.material-icons.expandable-checkbox-list__expand-more expand_more
+    
+
+    .expandable-checkbox-list__list
+
+      if parameters.checkbox_buttons
+        each button in parameters.checkbox_buttons
+
+          .expandable-checkbox-list__list-item
+            +checkbox-button(button.name, button.label, button.checked)
