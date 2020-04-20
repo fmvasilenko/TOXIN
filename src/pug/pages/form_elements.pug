@@ -7,7 +7,7 @@ block variables
 
 include ../../common.blocks/logo/logo.pug
 include ../includes/blocks/text-field.pug 
-include ../includes/blocks/drop-down/drop-down.pug 
+include ../../common.blocks/drop-down/drop-down.pug 
 include ../includes/blocks/masked-text-field.pug 
 include ../includes/blocks/date-dropdown.pug
 include ../includes/blocks/subscription-text-field.pug
@@ -36,14 +36,14 @@ block content
   .form-elements__text-field-hover
     +text-field('text-field', 'Text field', '', 'This is pretty awesome')
     
-  - 
+  ///- 
     var drop_down_values = [
                             {name: 'Спальни', id: 'bedrooms', number: 0}, 
                             {name: 'Кровати', id: 'beds', number: 0}, 
                             {name: 'Ванные комнаты', id: 'bathrooms', number: 0}
     ]
 
-  .form-elements__drop-down
+  ///.form-elements__drop-down
     +drop-down(drop_down_values, 'Dropdown', 'Сколько гостей')
 
   .form-elements__masked-text-field
@@ -57,13 +57,21 @@ block content
 
   - 
     var drop_down_values = [
-                            {name: 'Спальни', id: 'bedrooms', number: 2}, 
-                            {name: 'Кровати', id: 'beds', number: 1}, 
-                            {name: 'Ванные комнаты', id: 'bathrooms', number: 0}
+      {label: 'Спальни', name: 'bedrooms', value: 2, forms: 'Спальня,Спальни,Спален'}, 
+      {label: 'Кровати', name: 'beds', value: 1, forms: 'Кровать,Кровати,Кроватей'}, 
+      {label: 'Ванные комнаты', name: 'bathrooms', value: 0, forms: 'Ванная комната,Ванных комнаты,Ванных комнат'}
     ]
 
+  -
+    var drop_down_parameters = {
+      title: 'dropdown',
+      default_value: '',
+      value_forms: 'гость,гостя,гостей',
+      options: drop_down_values
+    }
+
   .form-elements__drop-down-default 
-    +drop-down(drop_down_values, 'dropdown')
+    +drop-down(drop_down_parameters)
 
   //.form-elements__drop-down-expanded
     +drop-down(drop_down_values, 'dropdown')
