@@ -112,6 +112,7 @@ class DropDown {
     this.dropDownOptions.forEach(function(item) {
       item.value = 0;
       item.input.val(0);
+      item.decreaseButton.attr('disabled', true);
     }.bind(this));
 
     this.display();
@@ -202,5 +203,8 @@ class DropDownDisplayValues extends DropDown {
 let dropDowns = []; 
 
 $('.drop-down').each( function(index, element) {
-  dropDowns[index] = new DropDownDisplayValues($(element));
+  if($(element).attr('display_type') == 'total')
+    dropDowns[index] = new DropDownDisplayTotal($(element));
+  else
+    dropDowns[index] = new DropDownDisplayValues($(element));
 });

@@ -1,17 +1,7 @@
-include __option/drop-down__option.pug
+include drop-down__option.pug
 
-mixin drop-down(parameters = {options: [], title: 'Dropdown', value: ''})
-  //   Example of usage
-  //  - 
-      var drop_down_values = [
-                          {name: 'Спальни', id: 'bedrooms', number: 0}, 
-                          {name: 'Кровати', id: 'beds', number: 0}, 
-                          {name: 'Ванные комнаты', id: 'bathrooms', number: 0}
-      ]
-
-  //+drop-down(drop_down_values, 'Заголовок', 'Сколько гостей')
-
-  .drop-down
+mixin drop-down(parameters = {options: [], title: 'Dropdown', value: '', display: 'total'})
+  .drop-down(display_type=parameters.display_type)
 
     h3.drop-down__title= parameters.title
     
@@ -24,5 +14,7 @@ mixin drop-down(parameters = {options: [], title: 'Dropdown', value: ''})
         each option in parameters.options
           +drop-down__option(option)
         .drop-down__submit-area
-          button.button.button_no-background.button_color_grey.js-drop-down__clear-button Очистить
-          button.button.button_no-background Применить
+          if parameters.display_clear_button
+            button.button.button_no-background.button_color_grey.js-drop-down__clear-button Очистить
+          if parameters.display_submit_button
+            button.button.button_no-background Применить

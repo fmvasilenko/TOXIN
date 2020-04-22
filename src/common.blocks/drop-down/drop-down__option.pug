@@ -1,7 +1,10 @@
-mixin drop-down__option(parameters)
+mixin drop-down__option(parameters = {name: '', label: '', value: ''})
   .drop-down__option
     label.drop-down__option-title= parameters.label
     .drop-down__number
-      button.drop-down__button.js-drop-down__button_decrease -
+      if parameters.value==0
+        button.drop-down__button.js-drop-down__button_decrease(disabled) -
+      else
+        button.drop-down__button.js-drop-down__button_decrease -
       input.drop-down__input(type="number" name=parameters.name value=parameters.value forms=parameters.forms readonly)
       button.drop-down__button.js-drop-down__button_increase +
