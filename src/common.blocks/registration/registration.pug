@@ -1,3 +1,9 @@
+include ../text-field/text-field.pug 
+include ../radio-button/radio-button.pug 
+include ../masked-text-field/masked-text-field.pug 
+include ../toggle/toggle.pug 
+include ../button/button.pug 
+
 mixin registration()
   form.registration(action="")
     h1.registration__title Регистрация аккаунта
@@ -6,8 +12,10 @@ mixin registration()
     .registration__field
       +text-field('lastname', '', 'Фамилия')
     .registration__gender
-      +radio-button('gender', 'registration-male', 'Мужчина', 'checked')
-      +radio-button('gender', 'registration-female', 'Женщина')
+      .registration__gender-radio-button
+        +radio-button('gender', 'Мужчина', 'checked')
+      .registration__gender-radio-button
+        +radio-button('gender', 'Женщина')
     .registration__birth-date
       +masked-text-field('birth', 'Дата рождения')
     .registration__subtitle

@@ -1,0 +1,21 @@
+body {
+  background: #F4F4F6;
+}
+
+.cards {
+  
+  &__logo {
+    width: 48px;
+    height: 48px;
+  
+    position: absolute;
+    top: 30px;
+    left: 30px;
+  }
+
+  &__registration {
+    position: absolute;
+    left: 140px;
+    top: 564px;
+  }
+}
