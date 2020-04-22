@@ -1,6 +1,7 @@
 extends ../layout/main
 
 include ../../common.blocks/logo/logo.pug 
+include ../../common.blocks/search-form/search-form.pug 
 include ../../common.blocks/registration/registration.pug 
 
 block variables
@@ -12,6 +13,9 @@ block content
   .cards
     .cards__logo
       +logo_blank()
+
+    .cards__search-form
+      +search-form()
 
     .cards__registration
       +registration()

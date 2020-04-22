@@ -1,11 +1,11 @@
-mixin date-dropdown(name_1, title_1, value1, name_2, title_2, value2)
+mixin date-dropdown(parameters = {title_1: 'dropdown', title_2: 'dropdown'})
   .date-dropdown
     .date-dropdown__wrapper
-      h3.date-dropdown__title= title_1
-      input.date-dropdown__input(type="date" name=name_1 value=value1)
+      h3.date-dropdown__title= parameters.title_1
+      input.date-dropdown__input(type="date" name=parameters.name_1 value=parameters.value1)
       i.material-icons.date-dropdown__expand-more expand_more
     .date-dropdown__wrapper
-      h3.date-dropdown__title= title_2
-      input.date-dropdown__input(type="date" name=name_2 value=value2)
+      h3.date-dropdown__title= parameters.title_2
+      input.date-dropdown__input(type="date" name=parameters.name_2 value=parameters.value2)
       i.material-icons.date-dropdown__expand-more expand_more
     
