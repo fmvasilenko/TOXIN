@@ -13,9 +13,43 @@ body {
     left: 30px;
   }
 
+  &__search-form {
+    width: 380px;
+
+    position: absolute;
+    left: 140px;
+    top: 150px;
+  }
+
   &__registration {
+    width: 380px;
+
     position: absolute;
     left: 140px;
     top: 564px;
+  }
+
+  &__receipt {
+    width: 380px;
+
+    position: absolute;
+    left: 560px;
+    top: 150px;
+  }
+
+  &__login {
+    width: 380px;
+
+    position: absolute;
+    left: 560px;
+    top: 701px;
+  }
+
+  &__suite {
+    width: 270px;
+    
+    position: absolute;
+    left: 980px;
+    top: 559.5px;
   }
 }

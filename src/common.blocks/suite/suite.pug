@@ -1,0 +1,24 @@
+include ../rate-button/rate-button.pug 
+
+mixin suite()
+  .suite
+
+    img.suite__image(src='/assets/img/suite_1.png')
+
+    .suite__description
+
+      .suite__title
+        h2.suite__title-number
+          span.suite__title-number-sign №
+          |888
+          span.suite__title-lux люкс
+        p.suite__title-price
+          |9 990₽
+          span в сутки
+      
+      .suite__rate
+        +rate-button('rate', 'rate1', 5)
+        p.suite__feedbacks 
+          span 145
+          |Отзывов
+        

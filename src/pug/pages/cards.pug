@@ -3,6 +3,9 @@ extends ../layout/main
 include ../../common.blocks/logo/logo.pug 
 include ../../common.blocks/search-form/search-form.pug 
 include ../../common.blocks/registration/registration.pug 
+include ../../common.blocks/receipt/receipt.pug 
+include ../../common.blocks/login/login.pug 
+include ../../common.blocks/suite/suite.pug 
 
 block variables
   - var title = 'Cards';
@@ -10,6 +13,34 @@ block variables
   - var pageClass = 'index-page';
 
 block content
+  -
+    var receipt_parameters = {
+      "suite_number": "888",
+      "is_luxury": true,
+      "price_per_period": "9 990",
+      "vocabulary": {
+        "period": "в день"
+      },
+      "dates_parameters": {
+        "value_1": "2019-08-19",
+        "value_2": "2019-08-23"
+      },
+      "costs": [
+        {
+          "title": "9 990₽ х 4 суток",
+          "price": "39 960"
+        },
+        {
+          "title": "Сбор за услуги: скидка 2 179₽",
+          "price": "0"
+        },
+        {
+          "title": "Сбор за дополнительные услуги",
+          "price": "300"
+        }
+      ]
+    }
+
   .cards
     .cards__logo
       +logo_blank()
@@ -19,3 +50,12 @@ block content
 
     .cards__registration
       +registration()
+
+    .cards__receipt 
+      +receipt(receipt_parameters)
+
+    .cards__login
+      +login()
+
+    .cards__suite
+      +suite()

@@ -1,0 +1,42 @@
+include ../date-dropdown/date-dropdown.pug 
+include ../drop-down/drop-down.pug 
+include ../button/button.pug 
+
+mixin receipt(custom_parameters = {})
+  - var blocks = require('../../js/plugins/blocks.js');
+  - var default_parameters = require('../../common.blocks/receipt/receipt-parameters.json');
+  - var parameters = Object.assign({}, default_parameters, custom_parameters);
+  - var par = blocks.configMerge(default_parameters, custom_parameters);
+  - var hello = par.costs;
+
+  .receipt
+
+    .receipt__title
+      h2.receipt__title-number
+        span.receipt__title-number-sign #{parameters.vocabulary.number_sign}
+        |#{parameters.suite_number}
+        if parameters.is_luxury
+          span.receipt__title-lux #{parameters.vocabulary.lux}
+      p.receipt__title-price
+        |#{parameters.price_per_period}#{parameters.vocabulary.currency_sign}
+        span #{parameters.vocabulary.period}
+
+    .receipt__dates
+      +date-dropdown(parameters.dates_parameters)
+
+    .receipt__guests
+      +drop-down(parameters.guests_parameters)
+
+    .receipt__costs
+      each cost in parameters.costs
+        .receipt__cost
+          .receipt__cost-title #{cost.title}
+          .receipt__cost-price #{cost.price}#{parameters.vocabulary.currency_sign}
+
+    h2.receipt__total
+      .receipt__total-word #{parameters.vocabulary.total}
+      .receipt__total-dots
+      .receipt__total-number 38 081₽
+
+    .receipt__submit
+      +button(hello, 'size_l')
