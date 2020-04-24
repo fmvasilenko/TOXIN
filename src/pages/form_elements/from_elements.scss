@@ -1,0 +1,272 @@
+.form-elements__logo {
+  width: 48px;
+  height: 48px;
+
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.form-elements__text-field {
+  width: 320px;
+  
+  position: absolute;
+  top: 143px;
+  left: 141px;
+}
+
+.form-elements__text-field-hover {
+  width: 320px;
+
+  position: absolute;
+  left: 141px;
+  top: 227.44px;
+}
+
+.form-elements__drop-down {
+  width: 320px;
+
+  position: absolute;
+  left: 141px;
+  top: 311.44px;
+}
+
+.form-elements__masked-text-field {
+  width: 320px;
+
+  position: absolute;
+  left: 141px;
+  top: 398px;
+}
+
+.form-elements__date-dropdown {
+  width: 320px;
+
+  position: absolute;
+  left: 141px;
+  top: 502px;
+}
+
+.form-elements__subscription-text-field {
+  width: 267px;
+  height: 44px;
+
+  position: absolute;
+  left: 140px;
+  top: 732px;
+}
+
+.form-elements__benefits {
+  position: absolute;
+  left: 140px;
+  top: 1543px;
+}
+
+.form-elements__checkbox-buttons {
+  width: 240px;
+
+  position: absolute;
+  left: 587px;
+  top: 143px;
+}
+
+.form-elements__checkbox-buttons-title {
+  margin-bottom: 13px;
+}
+
+.form-elements__checkbox-button {
+  padding: 5px 0;
+}
+
+.form-elements__radio-buttons {
+  position: absolute;
+  left: 587px;
+  top: 313px;
+}
+
+.form-elements__radio-buttons-title {
+  margin-bottom: 16px;
+}
+
+.form-elements__radio-buttons-container {
+  display: flex;
+}
+
+.form-elements__radio-button {
+  margin-left: 20px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.form-elements__toggle {
+  position: absolute;
+  left: 587px;
+  top: 404.56px;
+}
+
+.form-elements__toggle-title {
+  margin-bottom: 9px;
+}
+
+.form-elements__toggle-item {
+  padding: 7px 0;
+}
+
+.form-elements__like-buttons {
+  position: absolute;
+  left: 587px;
+  top: 534px;
+}
+
+.form-elements__like-buttons-title {
+  margin-bottom: 16px;
+}
+
+.form-elements__like-button {
+  display: flex;
+}
+
+.form-elements__like-button-item {
+  margin-left: 10px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.form-elements__rate-buttons {
+  position: absolute;
+  left: 587px;
+  top: 625px;
+}
+
+.form-elements__rate-buttons-title {
+  margin-bottom: 16px;
+}
+
+.form-elements__rate-button {
+  display: flex;
+}
+
+.form-elements__rate-button-item {
+  margin-left: 20px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.form-elements__buttons {
+  width: 320px;
+
+  position: absolute;
+  left: 979px;
+  top: 231px;
+}
+
+.form-elements__buttons-title {
+  margin-bottom: 16px;
+}
+
+.form-elements__buttons-line {
+  display: flex;
+
+  margin-top: 30px;
+
+  &_first {
+    margin-top: 0;
+  }
+}
+
+.form-elements__button {
+  margin-left: 20px;
+  line-height: 12px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.form-elements__drop-down-default {
+  width: 266px;
+
+  position: absolute;
+  left: 140px;
+  top: 876px;
+}
+
+.form-elements__drop-down-expanded {
+  width: 266px;
+
+  position: absolute;
+  left: 140px;
+  top: 960px;
+}
+
+.form-elements__expandable-checkbox-list {
+  width: 266px;
+
+  position: absolute;
+  left: 141px;
+  top: 1180px;
+}
+
+.form-elements__expandable-checkbox-list-expanded {
+  width: 266px;
+
+  position: absolute;
+  left: 140px;
+  top: 1244px;
+}
+
+.form-elements__rich-checkbox-buttons{
+  width: 266px;
+
+  position: absolute;
+  left: 587px;
+  top: 1196px;
+}
+
+.form-elements__rich-checkbox-buttons-title {
+  margin-bottom: 16px;
+}
+
+.form-elements__rich-checkbox-buttons-item {
+  margin-top: 10px;
+}
+
+.form-elements__pagination {
+  position: absolute;
+  left: 980px;
+  top: 540px;
+}
+
+.form-elements__pagination-title {
+  margin-bottom: 16.44px;
+}
+
+.form-elements__bullet-list {
+  width: 300px;
+
+  position: absolute;
+  left: 979px;
+  top: 1196px;
+}
+
+.form-elements__bullet-list-title {
+  margin-bottom: 10px;
+} 
+
+.form-elements__bullet-list-item {
+  padding: 5px 0;
+} 
+
+.form-elements__feedback {
+  width: 711px;
+
+  position: absolute;
+  left: 587px;
+  top: 1573px;
+}

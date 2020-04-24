@@ -12,8 +12,8 @@ const PATHS = {
   assets: 'assets/'
 };
 
-const PAGES_DIR = `${PATHS.src}/pug/pages/`;
-const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'));
+const PAGES_DIR = `${PATHS.src}/pages/`;
+const PAGES = fs.readdirSync(PAGES_DIR);   //.filter(fileName => fileName.endsWith('.pug'));
 
 module.exports = {
   externals: {
@@ -93,8 +93,8 @@ module.exports = {
       'window.jQuery': 'jquery'
     }),
     ...PAGES.map(page => new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}/${page}`,
-      filename: `./${page.replace(/\.pug/,'.html')}`
+      template: `${PAGES_DIR}/${page}/${page}.pug`,
+      filename: `./${page}.html`
     }))
   ]
 };

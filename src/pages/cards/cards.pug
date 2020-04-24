@@ -1,0 +1,35 @@
+extends ../../pug/layout/main
+
+include ../../common.blocks/logo/logo.pug 
+include ../../common.blocks/search-form/search-form.pug 
+include ../../common.blocks/registration/registration.pug 
+include ../../common.blocks/receipt/receipt.pug 
+include ../../common.blocks/login/login.pug 
+include ../../common.blocks/suite/suite.pug 
+
+block variables
+  - var title = 'Cards';
+  - var description = 'Description for Webpack + Pug';
+  - var pageClass = 'index-page';
+
+block content
+  - var data = require("./cards_data.json");
+
+  .cards
+    .cards__logo
+      +logo_blank()
+
+    .cards__search-form
+      +search-form()
+
+    .cards__registration
+      +registration()
+
+    .cards__receipt 
+      +receipt(data.receipt_parameters)
+
+    .cards__login
+      +login()
+
+    .cards__suite
+      +suite()
