@@ -1,28 +1,23 @@
 class Blocks 
 {
-  configMerge(object1, object2){
-    let finalObject = {};
+  mergeConfig(obj1, obj2){
+    let finalObject = obj1;
 
-    if(typeof(object1) == "array"){
-      return "hello";
-    }
-    else {
-      for (key1 in object1){
-
-        finalObject[key1] = object1[key1];
-
-        for(key2 in object2){
+    for(key2 in obj2){
+      if(typeof(obj2[key2]) == "object"){
+        let matched = false;
+        for(key1 in obj1){
           if(key1 == key2){
-            if(typeof(object1[key2]) == "object" || typeof(object1[key2]) == "array"){
-              finalObject[key2] = this.configMerge(object1[key2], object2[key2]);
-              delete object2[key2];
-            }
-            else {
-              finalObject[key2] = object2[key2];
-              delete object2[key2];
-            }
+            finalObject[key2] = this.mergeConfig(obj1[key2], obj2[key2]);
+            matched = true;
           }
         }
+        if(!matched){
+          finalObject[key2] = obj2[key2];
+        }
+      }
+      else {
+        finalObject[key2] = obj2[key2];
       }
     }
 
