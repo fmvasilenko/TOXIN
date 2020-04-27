@@ -1,11 +1,14 @@
-mixin date-dropdown(parameters = {title_1: 'dropdown', title_2: 'dropdown'})
+mixin date-dropdown(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/date-dropdown/date-dropdown.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
   .date-dropdown
     .date-dropdown__wrapper
-      h3.date-dropdown__title= parameters.title_1
-      input.date-dropdown__input(type="date" name=parameters.name_1 value=parameters.value_1)
-      i.material-icons.date-dropdown__expand-more expand_more
+      h3.date-dropdown__title #{config.dropdown1.title}
+      input.date-dropdown__input(type="date" name=config.dropdown1.name value=config.dropdown1.value)
+      i.material-icons.date-dropdown__expand-more #{config.dropdown1.icon}
     .date-dropdown__wrapper
-      h3.date-dropdown__title= parameters.title_2
-      input.date-dropdown__input(type="date" name=parameters.name_2 value=parameters.value_2)
-      i.material-icons.date-dropdown__expand-more expand_more
-    
+      h3.date-dropdown__title #{config.dropdown2.title}
+      input.date-dropdown__input(type="date" name=config.dropdown2.name value=config.dropdown2.value)
+      i.material-icons.date-dropdown__expand-more #{config.dropdown1.icon}

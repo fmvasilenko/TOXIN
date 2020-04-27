@@ -3,7 +3,7 @@
   height: 44px;
   box-sizing: border-box;
   position: relative;
-  padding: 0; //Needed to be checked
+  padding: 0;
 
   line-height: 100%;
   text-align: center;
@@ -18,15 +18,53 @@
   background: $gradient;
 
   cursor: pointer;
-}
 
-.button:disabled {
-  opacity: 0.5;
-  cursor: default;
-}
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
 
-@import "./button_empty.scss";
-@import "./button_size_l.scss";
-@import "./button_no-background.scss";
-@import "./button__arrow.scss";
-@import "button_color_grey";
+  &_empty {
+    color: $mainColor;
+    background: transparent;
+    border: 2px solid $mainColor;
+
+    &:disabled {
+      opacity: 1;
+      border-color: $mainColor50;
+    }
+  }
+
+  &_size_l {
+    width: 100%;
+  }
+
+  &_no-background {
+    width: auto;
+    height: auto;
+    background: none;
+    border: 0;
+  
+    color: $mainColor;
+
+    &:disabled {
+      color: $darkShade50;
+    }
+  }
+
+  &_color_grey {
+    color: $darkShade50;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 44px;
+    height: 44px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

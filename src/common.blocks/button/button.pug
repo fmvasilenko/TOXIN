@@ -1,23 +1,9 @@
-mixin button($name, $type, $disabled)
-  if $disabled=='disabled'
-    case $type
-      when 'empty'
-        button.button.button_empty(disabled)=$name
-      when 'no-background'
-        button.button.button_no-background(disabled)=$name
-      when 'size_l'
-        button.button.button_size_l(disabled)=$name
-          i.material-icons.button__arrow arrow_forward
-      default
-        button.button(disabled)=$name
-  else
-    case $type
-      when 'empty'
-        button.button.button_empty=$name
-      when 'no-background'
-        button.button.button_no-background=$name
-      when 'size_l'
-        button.button.button_size_l=$name
-          i.material-icons.button__arrow arrow_forward
-      default
-        button.button=$name
+mixin button(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/button/button.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - let classes = "button " + config.classes[config.style];
+
+  button(class=classes type=config.type disabled=config.disabled) #{config.value}
+    if config.style == "size_l"
+      i.material-icons.button__arrow #{config.icon}

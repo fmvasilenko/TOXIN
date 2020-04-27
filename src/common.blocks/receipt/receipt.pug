@@ -2,40 +2,40 @@ include ../date-dropdown/date-dropdown.pug
 include ../drop-down/drop-down.pug 
 include ../button/button.pug
 
-mixin receipt(custom_parameters = {})
-  - const blocks = require('@plugins/blocks.js');
-  - var default_parameters = require('@blocks/receipt/receipt.config.json');
-  - var parameters = blocks.mergeConfig(default_parameters, custom_parameters);
+mixin receipt(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/receipt/receipt.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
 
-  .receipt
+  form.receipt
 
     .receipt__title
       h2.receipt__title-number
-        span.receipt__title-number-sign #{parameters.vocabulary.number_sign}
-        |#{parameters.suite_number}
-        if parameters.is_luxury
-          span.receipt__title-lux #{parameters.vocabulary.lux}
+        span.receipt__title-number-sign #{config.vocabulary.number_sign}
+        |#{config.suite_number}
+        if config.is_luxury
+          span.receipt__title-lux #{config.vocabulary.lux}
       p.receipt__title-price
-        |#{parameters.price_per_period}#{parameters.vocabulary.currency_sign}
-        span #{parameters.vocabulary.period}
+        |#{config.price_per_period}#{config.vocabulary.currency_sign}
+        span #{config.vocabulary.period}
 
     .receipt__dates
-      +date-dropdown(parameters.dates_parameters)
+      +date-dropdown(config.dates_parameters)
 
     .receipt__guests
-      +drop-down(parameters.guests_parameters)
+      +drop-down(config.guests_parameters)
 
     .receipt__costs
-      if parameters.costs
-        each cost in parameters.costs
+      if config.costs
+        each cost in config.costs
           .receipt__cost
             .receipt__cost-title #{cost.title}
-            .receipt__cost-price #{cost.price}#{parameters.vocabulary.currency_sign}
+            .receipt__cost-price #{cost.price}#{config.vocabulary.currency_sign}
 
     h2.receipt__total
-      .receipt__total-word #{parameters.vocabulary.total}
+      .receipt__total-word #{config.vocabulary.total}
       .receipt__total-dots
-      .receipt__total-number #{parameters.total_price}#{parameters.vocabulary.currency_sign}
+      .receipt__total-number #{config.total_price}#{config.vocabulary.currency_sign}
 
     .receipt__submit
-      +button(parameters.vocabulary.button_value, 'size_l')
+      +button(config.button)

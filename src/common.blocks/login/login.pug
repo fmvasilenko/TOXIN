@@ -1,7 +1,12 @@
 include ../text-field/text-field.pug 
 include ../button/button.pug 
 
-mixin login()
+mixin login(customConfig = {})
+  - const blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/login/login.config.json');
+  - let config = defaultConfig;
+  - config = blocks.mergeConfig(defaultConfig, customConfig);
+
   .login
     h1.login__title Войти
     .login__text-field
@@ -9,7 +14,7 @@ mixin login()
     .login__text-field
       +text-field('password', '', 'Пароль')
     .login__button
-      +button('Войти', 'size_l')
+      +button(config.buttons[0])
     .login__registration
       p Нет аккаунта на Toxin?
-      +button('Создать', 'empty')
+      +button(config.buttons[1])

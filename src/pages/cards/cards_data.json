@@ -5,8 +5,12 @@
     "price_per_period": "9 990",
     "total_price": "38 081",
     "dates_parameters": {
-      "value_1": "2019-08-19",
-      "value_2": "2019-08-23"
+      "dropdown1": {
+        "value": "2019-08-19"
+      },
+      "dropdown2": {
+        "value": "2019-08-23"
+      }
     },
     "guests_parameters": {
       "options": [

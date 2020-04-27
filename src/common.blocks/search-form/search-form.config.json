@@ -1,13 +1,14 @@
 {
   "title": "Найдем номера под ваши пожелания",
-  "vocabulary": {
-    "button_value": "Подобрать номер"
-  },
   "dates_parameters": {
-    "title_1": "Прибытие",
-    "title_2": "Выезд",
-    "name_1": "arrival",
-    "name_2": "leaving"
+    "dropdown1": {
+      "title": "Прибытие",
+      "name": "arrival"
+    },
+    "dropdown2": {
+      "title": "Выезд",
+      "name": "leaving"
+    }
   },
   "guests_parameters": {
     "title": "Гости",
@@ -33,5 +34,9 @@
         "value": 0
       }
     ]
+  },
+  "button": {
+    "value": "Подобрать номер",
+    "style": "size_l"
   }
 }

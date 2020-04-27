@@ -4,7 +4,11 @@ include ../masked-text-field/masked-text-field.pug
 include ../toggle/toggle.pug 
 include ../button/button.pug 
 
-mixin registration()
+mixin registration(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/registration/registration.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
   form.registration(action="")
     h1.registration__title Регистрация аккаунта
     .registration__field
@@ -27,7 +31,7 @@ mixin registration()
     .registration__field
       +toggle('offers', 'Получать спецпредложения')
     .registration__submit
-      +button('Перейти к оплате', 'size_l')
+      +button()
     .registration__login
       p Уже есть аккаунт на Toxin
       button.button.button_empty Войти

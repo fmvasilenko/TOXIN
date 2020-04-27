@@ -1,0 +1,13 @@
+{
+  "value": "Click me",
+  "style": "default",
+  "type": "",
+  "disabled": false,
+  "icon": "arrow_forward",
+  "classes": {
+    "default": "",
+    "empty": "button_empty",
+    "no-background": "button_no-background",
+    "size_l": "button_size_l"
+  }
+}

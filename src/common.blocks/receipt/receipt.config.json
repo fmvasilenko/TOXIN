@@ -8,10 +8,14 @@
     "button_value": "Забронировать"
   },
   "dates_parameters": {
-    "title_1": "Прибытие",
-    "title_2": "Выезд",
-    "name_1": "arrival",
-    "name_2": "leaving"
+    "dropdown1": {
+      "title": "Прибытие",
+      "name": "arrival"
+    },
+    "dropdown2": {
+      "title": "Выезд",
+      "name": "leaving"
+    }
   },
   "guests_parameters": {
     "title": "Гости",
@@ -37,5 +41,10 @@
         "value": 0
       }
     ]
+  },
+  "button": {
+    "value": "Забронировать",
+    "style": "size_l",
+    "type": "submit"
   }
 }

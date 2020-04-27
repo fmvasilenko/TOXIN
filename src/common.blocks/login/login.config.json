@@ -1,0 +1,12 @@
+{
+  "buttons": [
+    {
+      "value": "Войти",
+      "style": "size_l"
+    },
+    {
+      "value": "Создать",
+      "style": "empty"
+    }
+  ]
+}

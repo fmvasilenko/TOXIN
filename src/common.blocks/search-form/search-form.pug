@@ -2,18 +2,16 @@ include ../date-dropdown/date-dropdown.pug
 include ../drop-down/drop-down.pug 
 include ../button/button.pug 
 
-mixin search-form(custom_parameters = {})
-  - const blocks = require('@plugins/blocks.js');
-  - var default_parameters = require('@blocks/search-form/search-form.config.json');
-  - var parameters = blocks.mergeConfig(default_parameters, custom_parameters);
-  
+mixin search-form(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/search-form/search-form.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
 
   .search-form
-    h1.search-form__title #{parameters.title}
+    h1.search-form__title #{config.title}
     .search-form__dates
-      +date-dropdown(parameters.dates_parameters)
+      +date-dropdown(config.dates_parameters)
     .search-form__guests
-      +drop-down(parameters.guests_parameters)
+      +drop-down(config.guests_parameters)
     .search-form__submit
-      +button(parameters.vocabulary.button_value, 'size_l')
-      
+      +button(config.button)

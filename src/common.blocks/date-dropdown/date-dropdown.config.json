@@ -1,0 +1,14 @@
+{
+  "dropdown1": {
+    "title": "dropdown",
+    "name": "",
+    "value": "",
+    "icon": "expand_more"
+  },
+  "dropdown2": {
+    "title": "dropdown",
+    "name": "",
+    "value": "",
+    "icon": "expand_more"
+  }
+}
