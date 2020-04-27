@@ -1,5 +1,7 @@
 class Blocks 
 {
+  
+  
   mergeConfig(obj1, obj2){
     let finalObject = obj1;
 

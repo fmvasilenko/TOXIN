@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --open --config ./build/webpack.dev.config.js",
-    "build": "webpack --config ./build/webpack.build.config.js"
+    "build": "webpack --config ./build/webpack.build.config.js",
+    "postinstall": "link-module-alias"
+  },
+  "_moduleAliases": {
+    "@plugins": "src/js/plugins",
+    "@blocks": "src/common.blocks"
   },
   "browserslist": [
     "> 1%",
@@ -37,6 +42,7 @@
     "cssnano": "^4.1.10",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.0.3",
+    "link-module-alias": "^1.2.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
     "path": "^0.12.7",

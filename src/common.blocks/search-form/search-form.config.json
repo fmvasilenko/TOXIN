@@ -1,0 +1,37 @@
+{
+  "title": "Найдем номера под ваши пожелания",
+  "vocabulary": {
+    "button_value": "Подобрать номер"
+  },
+  "dates_parameters": {
+    "title_1": "Прибытие",
+    "title_2": "Выезд",
+    "name_1": "arrival",
+    "name_2": "leaving"
+  },
+  "guests_parameters": {
+    "title": "Гости",
+    "default_value": "Сколько гостей",
+    "value_forms": "гость,гостя,гостей",
+    "display_type": "total",
+    "display_submit_button": true,
+    "display_clear_button": true,
+    "options": [
+      {
+        "label": "Взрослые", 
+        "name": "adults",
+        "value": 0
+      }, 
+      {
+        "label": "Дети", 
+        "name": "kids",
+        "value": 0
+      }, 
+      {
+        "label": "Младенцы", 
+        "name": "babies",
+        "value": 0
+      }
+    ]
+  }
+}

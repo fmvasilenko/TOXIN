@@ -1,6 +1,6 @@
 include drop-down__option.pug
 
-mixin drop-down(custom_parameters)
+mixin drop-down(custom_parameters = {})
   - var blocks = require('../../js/plugins/blocks.js');
   - var default_parameters = require('../../common.blocks/drop-down/drop-down.config.json');
   - var parameters = blocks.mergeConfig(default_parameters, custom_parameters);
