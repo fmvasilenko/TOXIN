@@ -7,7 +7,7 @@ mixin receipt(customConfig = {})
   - let defaultConfig = require('@blocks/receipt/receipt.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
-  form.receipt
+  form.receipt(method=config.method action=config.action)
 
     .receipt__title
       h2.receipt__title-number

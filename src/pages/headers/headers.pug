@@ -1,0 +1,11 @@
+extends ../../pug/layout/main
+
+block variables
+  - var title = 'Headers & Footers';
+  - var description = 'Description for Webpack + Pug';
+  - var pageClass = 'index-page';
+
+block content
+  - var data = require("./headers.data.json");
+  
+  .headers

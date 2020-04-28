@@ -1,14 +1,4 @@
-.rate-button__label {
-  background: $gradient;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 
-  cursor: pointer;
-
-  &:before {
-    content: 'star_border';
-  }
-}
 
 .rate-button__label:hover:before,
 .rate-button__label:hover ~ .rate-button__label:before {

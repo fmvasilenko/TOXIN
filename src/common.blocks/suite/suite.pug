@@ -1,24 +1,33 @@
 include ../rate-button/rate-button.pug 
 
-mixin suite()
+mixin suite(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/suite/suite.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
   .suite
 
-    img.suite__image(src='/assets/img/suite_1.png')
+    .suite__gallery
+      each image, index in config.images
+        label
+          input.suite__image-input(type="radio" name="image-gallery" checked=image.checked)
+          .suite__image(style=`background-image: url(${image.link})`)
+          .suite__dot(style=`right: ${(Number.parseInt(index)+1)*11.25+3}px`)
 
     .suite__description
 
       .suite__title
         h2.suite__title-number
-          span.suite__title-number-sign №
-          |888
-          span.suite__title-lux люкс
+          span.suite__title-number-sign #{config.vocabulary.numberSign}
+          |#{config.suiteNumber}
+          span.suite__title-lux #{config.vocabulary.luxury}
         p.suite__title-price
-          |9 990₽
-          span в сутки
+          |#{config.price}#{config.vocabulary.currencySign}
+          span #{config.vocabulary.period}
       
       .suite__rate
-        +rate-button('rate', 'rate1', 5)
+        +rate-button(config.rating)
         p.suite__feedbacks 
-          span 145
-          |Отзывов
+          span #{config.votes}
+          |#{config.vocabulary.feedbacks}
         

@@ -1,8 +1,29 @@
 {
+  "method": "POST",
+  "action": "",
+  "vocabulary": {
+    "title": "Войти",
+    "loginText": "Нет аккаунта на Toxin?"
+  },
+  "textfields": [
+    {
+      "name": "email",
+      "type": "email",
+      "placeholder": "Email",
+      "required": true
+    },
+    {
+      "name": "password",
+      "type": "password",
+      "placeholder": "Пароль",
+      "required": true
+    }
+  ],
   "buttons": [
     {
       "value": "Войти",
-      "style": "size_l"
+      "style": "size_l",
+      "type": "submit"
     },
     {
       "value": "Создать",

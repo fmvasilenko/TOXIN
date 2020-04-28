@@ -45,5 +45,37 @@
         "price": "300"
       }
     ]
-  }
+  },
+  "suites": [
+    {
+      "suiteNumber": 888,
+      "price": "9 990",
+      "votes": 145,
+      "images": [
+        {
+          "link": "/assets/img/suite_2.png",
+          "checked": true
+        },
+        {
+          "link": "/assets/img/suite_1.png",
+          "checked": true
+        }
+      ]
+    },
+    {
+      "suiteNumber": 840,
+      "price": "9 990",
+      "votes": 65,
+      "images": [
+        {
+          "link": "/assets/img/suite_1.png",
+          "checked": true
+        },
+        {
+          "link": "/assets/img/suite_2.png",
+          "checked": true
+        }
+      ]
+    }
+  ]
 }

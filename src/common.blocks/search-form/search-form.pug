@@ -7,7 +7,7 @@ mixin search-form(customConfig = {})
   - let defaultConfig = require('@blocks/search-form/search-form.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
-  .search-form
+  form.search-form(method=config.method action=config.action)
     h1.search-form__title #{config.title}
     .search-form__dates
       +date-dropdown(config.dates_parameters)

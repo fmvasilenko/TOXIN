@@ -1,5 +1,7 @@
 {
   "title": "Найдем номера под ваши пожелания",
+  "method": "GET",
+  "action": "",
   "dates_parameters": {
     "dropdown1": {
       "title": "Прибытие",

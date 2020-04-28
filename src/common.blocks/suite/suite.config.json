@@ -1,0 +1,19 @@
+{
+  "suiteNumber": "",
+  "price": 0,
+  "votes": 0,
+  "vocabulary": {
+    "numberSign": "№",
+    "luxury": "люкс",
+    "period": "в сутки",
+    "feedbacks": "Отзывов",
+    "currencySign": "₽"
+  },
+  "images": [
+    {
+      "link": "",
+      "checked": true
+    }
+  ],
+  "rating": {}
+}

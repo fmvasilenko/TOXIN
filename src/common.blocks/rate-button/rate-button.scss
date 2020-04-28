@@ -1,10 +1,20 @@
 .rate-button {
-  width: 120px;
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row-reverse;
+  &__label {
+    
+  }
+
+  &__input {
+    display: none;
+  }
 }
 
-@import "./rate-button__input.scss";
-@import "./rate-button__label.scss";
+
+/*
+background: $gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+*/

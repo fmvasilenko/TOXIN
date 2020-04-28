@@ -45,11 +45,19 @@ body {
     top: 701px;
   }
 
-  &__suite {
+  &__suite1 {
     width: 270px;
     
     position: absolute;
     left: 980px;
     top: 559.5px;
+  }
+
+  &__suite2 {
+    width: 270px;
+
+    position: absolute;
+    left: 980px;
+    top: 856.5px;
   }
 }
