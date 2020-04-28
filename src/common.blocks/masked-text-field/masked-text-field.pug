@@ -1,4 +1,8 @@
-mixin masked-text-field(name, title)
+mixin masked-text-field(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/masked-text-field/masked-text-field.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
   .masked-text-field
-    h3.masked-text-field__title= title
-    input.masked-text-field__input(type="date" name=name min="1900-01-01" max="2100-01-01")
+    h3.masked-text-field__title #{config.title}
+    input.masked-text-field__input(type="date" name=config.name value=config.value min=config.minValue max=config.maxValue required=config.required)

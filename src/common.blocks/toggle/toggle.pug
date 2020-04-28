@@ -1,7 +1,8 @@
-mixin toggle(name, text, checked)
+mixin toggle(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/toggle/toggle.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
   label
-    if checked=='checked'
-      input.toggle__input(type='checkbox' name=name checked)
-    else
-      input.toggle__input(type='checkbox' name=name)
-    p.toggle__text #{text}
+    input.toggle__input(type='checkbox' name=config.name checked=config.checked)
+    p.toggle__text #{config.label}

@@ -1,5 +1,9 @@
-mixin text-field(name, title, placeholder, value)
+mixin text-field(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/text-field/text-field.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
   .text-field
-    if title
-      h3.text-field__title(class='text-field__title')=title
-    input(type='text', class='text-field__input', name=name, placeholder=placeholder, value=value)
+    if config.title
+      h3.text-field__title #{config.title}
+    input.text-field__input(type=config.type name=config.name placeholder=config.placeholder value=config.value required=config.required)

@@ -1,7 +1,8 @@
-mixin radio-button(name, text, checked)
+mixin radio-button(customConfig)
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/radio-button/radio-button.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
   label
-    if checked=='checked'
-      input.radio-button__input(type='radio' name=name checked)
-    else
-      input.radio-button__input(type='radio' name=name)
-    p.radio-button__text #{text}
+    input.radio-button__input(type='radio' name=config.name value=config.value checked=config.checked)
+    p.radio-button__text #{config.label}

@@ -9,29 +9,36 @@ mixin registration(customConfig = {})
   - let defaultConfig = require('@blocks/registration/registration.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
-  form.registration(action="")
-    h1.registration__title Регистрация аккаунта
+  form.registration(method=config.method action=config.action)
+    h1.registration__title #{config.vocabulary.title}
+
     .registration__field
-      +text-field('name', '', 'Имя')
+      +text-field(config.textfields[0])
     .registration__field
-      +text-field('lastname', '', 'Фамилия')
+      +text-field(config.textfields[1])
+
     .registration__gender
       .registration__gender-radio-button
-        +radio-button('gender', 'Мужчина', 'checked')
+        +radio-button(config.gender[0])
       .registration__gender-radio-button
-        +radio-button('gender', 'Женщина')
+        +radio-button(config.gender[1])
+
     .registration__birth-date
-      +masked-text-field('birth', 'Дата рождения')
+      +masked-text-field(config.birthDate)
+
     .registration__subtitle
-      h3 Данные для входа в сервис
+      h3 #{config.vocabulary.subtitle}
+
     .registration__field
-      +text-field('email', '', 'Email')
+      +text-field(config.textfields[2])
     .registration__field
-      +text-field('password', '', 'Пароль')
+      +text-field(config.textfields[3])
     .registration__field
-      +toggle('offers', 'Получать спецпредложения')
+      +toggle(config.offers)
+
     .registration__submit
-      +button()
+      +button(config.buttons[0])
+
     .registration__login
-      p Уже есть аккаунт на Toxin
-      button.button.button_empty Войти
+      p #{config.vocabulary.loginText}
+      +button(config.buttons[1])

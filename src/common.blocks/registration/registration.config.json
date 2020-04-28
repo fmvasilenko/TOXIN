@@ -1,3 +1,66 @@
 {
-  
+  "method": "POST",
+  "action": "",
+  "vocabulary": {
+    "title": "Регистрация аккаунта",
+    "subtitle": "Данные для входа в сервис",
+    "loginText": "Уже есть аккаунт на Toxin"
+  },
+  "textfields": [
+    {
+      "name": "name",
+      "placeholder": "Имя",
+      "required": true
+    },
+    {
+      "name": "lastname",
+      "placeholder": "Фамилия",
+      "required": true
+    },
+    {
+      "name": "email",
+      "placeholder": "Email",
+      "type": "email",
+      "required": true
+    },
+    {
+      "name": "password",
+      "placeholder": "Пароль",
+      "type": "password",
+      "required": true
+    }
+  ],
+  "gender": [
+    {
+      "name": "gender",
+      "label": "Мужчина",
+      "value": "male",
+      "checked": true
+    },
+    {
+      "name": "gender",
+      "label": "Женщина",
+      "value": "female"
+    }
+  ],
+  "birthDate": {
+    "title": "Дата рождения",
+    "name": "birthdate",
+    "required": true
+  },
+  "offers": {
+    "name": "offers",
+    "label": "Получать спецпредложения"
+  },
+  "buttons": [
+    {
+      "value": "Перейти к оплате",
+      "type": "submit",
+      "style": "size_l"
+    },
+    {
+      "value": "Войти",
+      "style": "empty"
+    }
+  ]
 }
