@@ -1,5 +1,6 @@
 {
   "type": "buttons",
+  "logoHref": "/landing.html",
   "menu": [
     {
       "title": "О нас",
@@ -25,10 +26,14 @@
   "buttons": [
     {
       "value": "Войти",
+      "type": "link",
+      "href": "/login.html",
       "style": "empty"
     },
     {
-      "value": "Зарегистрироваться"
+      "value": "Зарегистрироваться",
+      "type": "link",
+      "href": "/registration.html"
     }
   ]
 }

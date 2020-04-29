@@ -12,7 +12,7 @@ mixin footer(customConfig = {})
       footer.footer
         
         .footer__first-column
-          .footer__logo
+          a.footer__logo(href=config.logoHref)
             +logo()
           p.footer__description #{config.vocabulary.description}
           
@@ -40,7 +40,7 @@ mixin footer(customConfig = {})
       footer.footer
         
         .footer__single-column
-          .footer__logo
+          a.footer__logo(href=config.logoHref)
             +logo()
           p.footer__single-column-desc #{config.vocabulary.description}
           .footer__single-column-social

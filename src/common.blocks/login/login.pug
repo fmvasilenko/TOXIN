@@ -16,4 +16,5 @@ mixin login(customConfig = {})
       +button(config.buttons[0])
     .login__registration
       p #{config.vocabulary.loginText}
-      +button(config.buttons[1])
+      .login__registration-button
+        +button(config.buttons[1])

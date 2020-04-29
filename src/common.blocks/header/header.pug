@@ -9,7 +9,7 @@ mixin header(customConfig = {})
   .header__wrapper
     header.header
 
-      .header__logo
+      a.header__logo(href=config.logoHref)
         +logo()
 
       nav.header__menu

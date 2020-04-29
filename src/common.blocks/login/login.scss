@@ -21,6 +21,7 @@
 
   &__button {
     margin-top: 20px;
+    height: 44px;
   }
 
   &__registration {
@@ -29,5 +30,9 @@
     align-items: center;
 
     margin-top: 30px;
+  }
+
+  &__registration-button {
+    height: 44px;
   }
 }

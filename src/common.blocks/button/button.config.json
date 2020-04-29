@@ -2,6 +2,7 @@
   "value": "Click me",
   "style": "default",
   "type": "",
+  "href": "/",
   "disabled": false,
   "icon": "arrow_forward",
   "classes": {

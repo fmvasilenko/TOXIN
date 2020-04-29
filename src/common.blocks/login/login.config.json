@@ -27,6 +27,8 @@
     },
     {
       "value": "Создать",
+      "type": "link",
+      "href": "/registration.html",
       "style": "empty"
     }
   ]

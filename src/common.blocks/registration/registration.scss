@@ -38,7 +38,8 @@
   }
 
   &__submit {
-    padding: 20px 0;
+    margin: 20px 0;
+    height: 44px;
   }
 
   &__login {
@@ -47,5 +48,9 @@
     align-items: center;
   
     padding: 10px 0 0 0;
+  }
+
+  &__login-button {
+    height: 44px;
   }
 }

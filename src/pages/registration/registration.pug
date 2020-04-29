@@ -1,0 +1,28 @@
+extends ../../pug/layout/landing 
+
+include ../../common.blocks/header/header.pug
+include ../../common.blocks/footer/footer.pug
+include ../../common.blocks/registration/registration.pug  
+
+
+block variables
+  - var title = 'Registration';
+  - var description = 'Description for Webpack + Pug';
+  - var pageClass = 'index-page';
+
+block header
+  +header()
+
+block content
+  - var data = require("./registration.data.json");
+
+  .registration__background
+    .registration__wrapper
+      .registration__registration-form
+        +registration()
+        
+      
+      p.registration__description #{data.description}
+
+block footer
+  +footer()

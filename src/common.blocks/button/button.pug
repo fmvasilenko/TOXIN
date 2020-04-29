@@ -4,6 +4,11 @@ mixin button(customConfig = {})
   - let config = blocks.createConfig(defaultConfig, customConfig);
   - let classes = "button " + config.classes[config.style];
 
-  button(class=classes type=config.type disabled=config.disabled) #{config.value}
-    if config.style == "size_l"
-      i.material-icons.button__arrow #{config.icon}
+  if config.type == "link"
+    a(class=classes href=config.href) #{config.value}
+      if config.style == "size_l"
+        i.material-icons.button__arrow #{config.icon}
+  else
+    button(class=classes type=config.type disabled=config.disabled) #{config.value}
+      if config.style == "size_l"
+        i.material-icons.button__arrow #{config.icon}
