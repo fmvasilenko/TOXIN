@@ -1,0 +1,30 @@
+.landing {
+  width: 1160px;
+  height: 830px;
+  padding-top: 1px;
+  margin: auto;
+  position: relative;
+
+  &__wrapper {
+    width: 100%;
+    background: url(../img/background_1.png);
+    background-position: center;
+    background-size: cover;
+    background-clip: border-box;
+  }
+
+  &__search-form {
+    width: 380px;
+    position: absolute;
+    top: 70px;
+    left: 0;
+  }
+
+  &__description {
+    width: 297px;
+    position: absolute;
+    bottom: 18px;
+    right: 0;
+    text-align: right;
+  }
+}

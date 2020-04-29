@@ -2,6 +2,7 @@ extends ../../pug/layout/main
 
 include ../../common.blocks/header/header.pug
 include ../../common.blocks/footer/footer.pug 
+include ../../common.blocks/search-form/search-form.pug
 
 block variables
   - var title = 'Landing';
@@ -12,6 +13,14 @@ block header
   +header()
 
 block content
+  - var data = require("./landing.data.json");
+
+  .landing__wrapper
+    .landing
+      .landing__search-form
+        +search-form()
+      
+      p.landing__description #{data.description}
 
 block footer
   +footer()
