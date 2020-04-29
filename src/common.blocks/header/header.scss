@@ -1,0 +1,56 @@
+body {
+  background: #e5e5e5;
+}
+
+.header {
+  width: 1160px;
+  height: 70px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+
+  &__logo {
+    height: 40px;
+  }
+
+  &__wrapper {
+    width: 100%;
+    background: #ffffff;
+  }
+
+  &__menu {
+    width: 100%;
+    text-align: right;
+  }
+
+  &__link,
+  &__link:visited,
+  &__link:active {
+    margin-right: 30px;
+    color: $darkShade50;
+
+    &:first-child {
+      font-weight: bold;
+      color: $darkShade75;
+    }
+  }
+
+  &__button {
+    height: 34px;
+    margin-right: 20px;
+    box-sizing: border-box;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__text {
+    white-space: nowrap;
+    line-height: 30px;
+    color: $darkShade50;
+    padding-left: 30px;
+    border-left: 1px solid rgba(31, 32, 65, 0.1);
+  }
+}

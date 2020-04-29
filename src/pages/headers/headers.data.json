@@ -1,3 +1,96 @@
 {
-  
+  "headers": [
+    {
+      "type": "buttons"
+    },
+    {
+      "type": "text"
+    }
+  ],
+  "footers": [
+    {
+      "type": "full",
+      "vocabulary": {
+        "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
+        "subscriptionTitle": "Subscribe to our newsletter",
+        "subscriptionDesc": "Receive our latest news and promotions in your inbox!"
+      },
+      "columns": [
+        [
+          {
+            "title": "Navigation",
+            "link": "/"
+          },
+          {
+            "title": "About us",
+            "link": "/"
+          },
+          {
+            "title": "News",
+            "link": "/"
+          },
+          {
+            "title": "Support",
+            "link": "/"
+          },
+          {
+            "title": "Products",
+            "link": "/"
+          }
+        ],
+        [
+          {
+            "title": "About us",
+            "link": "/"
+          },
+          {
+            "title": "Who we are",
+            "link": "/"
+          },
+          {
+            "title": "Our team",
+            "link": "/"
+          },
+          {
+            "title": "Careers",
+            "link": "/"
+          },
+          {
+            "title": "Investors",
+            "link": "/"
+          }
+        ],
+        [
+          {
+            "title": "Support",
+            "link": "/"
+          },
+          {
+            "title": "Documentation",
+            "link": "/"
+          },
+          {
+            "title": "Community",
+            "link": "/"
+          },
+          {
+            "title": "Get in Touch",
+            "link": "/"
+          }
+        ]
+      ],
+      "subscriptionField": {
+        "placeholder": "Your email address"
+      },
+      "bottom": {
+        "copyright": "Copyright © 2018 Toxin UI Kit. All rights reserved."
+      }
+    },
+    {
+      "type": "light",
+      "vocabulary": {
+        "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis."
+      }
+    }
+  ]
 }

@@ -1,9 +1,10 @@
 .button {
-  width: 99px;
-  height: 44px;
+  //width: 99px;
+  //height: 44px;
+  height: 100%;
   box-sizing: border-box;
   position: relative;
-  padding: 0;
+  padding: 0 20px;
 
   line-height: 100%;
   text-align: center;
@@ -28,6 +29,7 @@
     color: $mainColor;
     background: transparent;
     border: 2px solid $mainColor;
+    padding: 0 18px;
 
     &:disabled {
       opacity: 1;

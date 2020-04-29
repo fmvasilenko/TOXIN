@@ -1,0 +1,26 @@
+.headers {
+
+  &__header1 {
+    position: absolute;
+    top: 150px;
+    width: 100%;
+  }
+
+  &__header2 {
+    position: absolute;
+    top: 260px;
+    width: 100%;
+  }
+
+  &__footer1 {
+    position: absolute;
+    top: 370px;
+    width: 100%;
+  }
+
+  &__footer2 {
+    position: absolute;
+    top: 853px;
+    width: 100%;
+  }
+}

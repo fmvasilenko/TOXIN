@@ -1,11 +1,26 @@
 extends ../../pug/layout/main
 
+include ../../common.blocks/header/header.pug
+include ../../common.blocks/footer/footer.pug 
+
 block variables
   - var title = 'Headers & Footers';
   - var description = 'Description for Webpack + Pug';
   - var pageClass = 'index-page';
 
-block content
+block header
   - var data = require("./headers.data.json");
   
   .headers
+
+    .headers__header1
+      +header(data.headers[0])
+
+    .headers__header2
+      +header(data.headers[1])
+
+    .headers__footer1
+      +footer(data.footers[0])
+
+    .headers__footer2
+      +footer(data.footers[1])

@@ -1,5 +1,9 @@
-mixin subscription-text-field()
-  form.subscription-text-field(action="")
-    input.subscription-text-field__input(type="text" name='Email' placeholder='Email')
+mixin subscription-text-field(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/subscription-text-field/subscription-text-field.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
+  form.subscription-text-field(method=config.method action=config.action)
+    input.subscription-text-field__input(type="email" name='Email' placeholder=config.placeholder)
     button.subscription-text-field__button(type="submit")
-      i.material-icons.subscription-text-field__icon arrow_forward
+      i.material-icons.subscription-text-field__icon #{config.icon}

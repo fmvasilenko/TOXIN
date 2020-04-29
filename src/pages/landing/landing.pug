@@ -1,0 +1,17 @@
+extends ../../pug/layout/main
+
+include ../../common.blocks/header/header.pug
+include ../../common.blocks/footer/footer.pug 
+
+block variables
+  - var title = 'Landing';
+  - var description = 'Description for Webpack + Pug';
+  - var pageClass = 'index-page';
+
+block header
+  +header()
+
+block content
+
+block footer
+  +footer()

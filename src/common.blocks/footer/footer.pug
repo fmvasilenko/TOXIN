@@ -1,0 +1,49 @@
+include ../logo/logo.pug 
+include ../subscription-text-field/subscription-text-field.pug 
+include ../socials/socials.pug 
+
+mixin footer(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/footer/footer.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
+  .footer__wrapper
+    if config.type == "full"
+      footer.footer
+        
+        .footer__first-column
+          .footer__logo
+            +logo()
+          p.footer__description #{config.vocabulary.description}
+          
+        each column in config.columns
+          .footer__column
+            nav
+              each link in column
+                a.footer__link(href=link.link) #{link.title}
+
+        .footer__last-column
+          h3 #{config.vocabulary.subscriptionTitle}
+          p.footer__last-column-desc #{config.vocabulary.subscriptionDesc}
+          .footer__subscription-text-field
+            +subscription-text-field(config.subscriptionField)
+
+      .footer__bottom-wrapper
+        .footer__bottom-part
+          p #{config.bottom.copyright}
+          .footer__social
+            each icon in config.bottom.socials
+              a.footer__icon(href=icon.link)
+                +socials(icon.name)
+
+    else if config.type == "light"
+      footer.footer
+        
+        .footer__single-column
+          .footer__logo
+            +logo()
+          p.footer__single-column-desc #{config.vocabulary.description}
+          .footer__single-column-social
+            each icon in config.bottom.socials
+              a.footer__icon(href=icon.link)
+                +socials(icon.name)

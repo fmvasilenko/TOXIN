@@ -89,8 +89,6 @@ h3 {
   -webkit-font-smoothing: antialiased;
 }
 
-@import "../common.blocks/logo/logo.scss";
-
 @import "./modules/wrapper";
 @import "../common.blocks/text-field/text-field.scss";
 @import "../common.blocks/drop-down/drop-down.scss";
@@ -129,6 +127,8 @@ h3 {
 @import "../common.blocks/suite/suite.scss";
 @import "../common.blocks/color/color.scss";
 @import "../common.blocks/types/types.scss";
+@import "../common.blocks/header/header.scss";
+@import "../common.blocks/footer/footer.scss";
 
 //Pages
 @import "../pages/colors/colors.scss";

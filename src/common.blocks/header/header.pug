@@ -1,0 +1,26 @@
+include ../logo/logo.pug 
+include ../button/button.pug
+
+mixin header(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/header/header.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
+  .header__wrapper
+    header.header
+
+      .header__logo
+        +logo()
+
+      nav.header__menu
+        each item in config.menu
+          a.header__link(href=item.link) #{item.title}
+      
+      if config.type == "buttons"
+        .header__button
+          +button(config.buttons[0])
+        .header__button
+          +button(config.buttons[1])
+          
+      else if config.type == "text"
+        p.header__text Cosmin Negoita
