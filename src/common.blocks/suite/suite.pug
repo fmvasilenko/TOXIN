@@ -7,7 +7,7 @@ mixin suite(customConfig = {})
 
   .suite
 
-    .suite__gallery
+    form.suite__gallery
       each image, index in config.images
         label
           input.suite__image-input(type="radio" name="image-gallery" checked=image.checked)

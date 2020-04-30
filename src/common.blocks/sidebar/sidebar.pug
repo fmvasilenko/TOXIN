@@ -1,0 +1,38 @@
+include ../text-field/text-field 
+include ../drop-down/drop-down 
+include ../checkbox-button/checkbox-button 
+include ../checkbox-button-rich/checkbox-button-rich 
+include ../expandable-checkbox-list/expandable-checkbox-list 
+
+mixin sidebar(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/sidebar/sidebar.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
+  form.sidebar(method=config.method action=config.action)
+    .sidebar__dates
+      +text-field(config.dates)
+
+    .sidebar__guests
+      +drop-down(config.guests)
+
+    .sidebar__checkbox-buttons
+      if config.checkboxButtons[0]
+        h3 Checkbox buttons
+      each checkboxConfig in config.checkboxButtons
+        .sidebar__checkbox-button
+          +checkbox-button(checkboxConfig)
+
+    .sidebar__features
+      if config.features[0]
+        h3 Доступность
+      each featureConfig in config.features
+        .sidebar__feauture
+          +checkbox-button-rich(featureConfig)
+
+    .sidebar__amenities
+      +drop-down(config.amenities)
+
+    .sidebar__convinience
+      +expandable-checkbox-list(config.convinience)
+      

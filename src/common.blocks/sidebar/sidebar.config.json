@@ -1,0 +1,115 @@
+{
+  "method": "GET",
+  "action": "",
+  "dates": {
+    "title": "Даты пребывания в отеле"
+  },
+  "guests": {
+    "title": "Гости",
+    "default_value": "Сколько гостей",
+    "value_forms": "гость,гостя,гостей",
+    "display_type": "total",
+    "display_submit_button": true,
+    "display_clear_button": true,
+    "options": [
+      {
+        "label": "Взрослые", 
+        "name": "adults",
+        "value": 0
+      }, 
+      {
+        "label": "Дети", 
+        "name": "kids",
+        "value": 0
+      }, 
+      {
+        "label": "Младенцы", 
+        "name": "babies",
+        "value": 0
+      }
+    ]
+  },
+  "checkboxButtons": [
+    {
+      "name": "smoke",
+      "label": "Можно курить"
+    },
+    {
+      "name": "pets",
+      "label": "Можно с питомцами"
+    },
+    {
+      "name": "guests_allowed",
+      "label": "Можно пригласить гостей (до 10 человек)"
+    }
+  ],
+  "features": [
+    {
+      "title": "Широкий коридор",
+      "description": "Ширина коридоров в номере не менее 91 см.",
+      "name": "corridor"
+    },
+    {
+      "title": "Помощник для инвалидов",
+      "description": "На 1 этаже вас встретит специалист  и проводит до номера.",
+      "name": "assistant"
+    }
+  ],
+  "amenities": {
+    "title": "Удобства в номере",
+    "default_value": "",
+    "value_forms": "",
+    "display_type": "values",
+    "display_submit_button": false,
+    "display_clear_button": false,
+    "options": [
+      {
+        "label": "Спальни", 
+        "name": "bedrooms",
+        "forms": "Спальня,Спальни,Спален",
+        "value": 2
+      }, 
+      {
+        "label": "Кровати", 
+        "name": "beds",
+        "forms": "Кровать,Кровати,Кроватей",
+        "value": 2
+      }, 
+      {
+        "label": "Ванные комнаты", 
+        "name": "bathrooms",
+        "forms": "Ванная комната,Ванных комнаты,Ванных комнат",
+        "value": 0
+      }
+    ]
+  },
+  "convinience": {
+    "title": "Дополнительные удобства",
+    "checkboxButtons": [
+      {
+        "name": "breakfast",
+        "label": "Завтрак"
+      },
+      {
+        "name": "desk",
+        "label": "Письменный стол"
+      },
+      {
+        "name": "babyChair",
+        "label": "Стул для кормления"
+      },
+      {
+        "name": "babyBed",
+        "label": "Кроватка"
+      },
+      {
+        "name": "TV",
+        "label": "Телевизор"
+      },
+      {
+        "name": "shampoo",
+        "label": "Шампунь"
+      }
+    ]
+  }
+}

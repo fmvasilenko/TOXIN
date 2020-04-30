@@ -1,0 +1,32 @@
+extends ../../pug/layout/withsidebar
+
+include ../../common.blocks/header/header.pug
+include ../../common.blocks/footer/footer.pug 
+include ../../common.blocks/sidebar/sidebar.pug 
+include ../../common.blocks/suite/suite.pug 
+include ../../common.blocks/pagination/pagination.pug 
+
+block variables
+  - var title = 'Search room';
+  - var description = 'Description for Webpack + Pug';
+  - var pageClass = 'index-page';
+
+block header
+  +header()
+
+block sidebar
+  +sidebar()
+
+block content
+  - var data = require("./searchroom.data.json");
+
+  h1.searchroom-title Номера, которые мы для вас подобрали
+  .searchroom
+    each suite in data.suites
+      .searchroom__suite
+        +suite(suite)
+  .searchroom-pagination
+    +pagination()
+
+block footer
+  +footer()

@@ -1,12 +1,10 @@
-mixin checkbox-button(name, text, checked)
-  if checked=='checked'
-    .checkbox-button
-      label
-        input.checkbox-button__input(type='checkbox' name=name checked)
-        p.checkbox-button__text #{text}
-  else
-    .checkbox-button
-      label
-        input.checkbox-button__input(type='checkbox' name=name)
-        p.checkbox-button__text #{text}
+mixin checkbox-button(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/checkbox-button/checkbox-button.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
+  .checkbox-button
+    label
+      input.checkbox-button__input(type='checkbox' name=config.name checked=config.checked)
+      p.checkbox-button__text #{config.label}
       

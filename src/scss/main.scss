@@ -129,6 +129,7 @@ h3 {
 @import "../common.blocks/types/types.scss";
 @import "../common.blocks/header/header.scss";
 @import "../common.blocks/footer/footer.scss";
+@import "../common.blocks/sidebar/sidebar.scss";
 
 //Pages
 @import "../pages/colors/colors.scss";
@@ -138,3 +139,4 @@ h3 {
 @import "../pages/landing/landing.scss";
 @import "../pages/registration/registration.scss";
 @import "../pages/login/login.scss";
+@import "../pages/searchroom/searchroom.scss";

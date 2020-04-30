@@ -1,5 +1,17 @@
 .wrapper {
   position: relative;
-  width: 1440px;
+  width: 1160px;
   margin: auto;
+  display: flex;
+}
+
+.sidebar-wrapper {
+  min-width: 266px;
+  width: 266px;
+  margin-right: 30px;
+}
+
+.content-wrapper {
+  width: 100%;
+  margin-left: 18px;
 }

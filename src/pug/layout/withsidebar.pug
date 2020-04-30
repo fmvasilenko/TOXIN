@@ -1,0 +1,22 @@
+block variables
+block includes
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title #{title}
+    meta(name="description", content=description)
+
+  body
+
+    block header
+
+    .wrapper
+      .sidebar-wrapper
+        block sidebar
+
+      .content-wrapper
+        block content
+
+    block footer

@@ -2,7 +2,6 @@ import 'jquery';
 import 'jquery-ui';
 import 'jquery-ui-touch-punch';
 import './js/common.js';
-import './css/main.css';
 import './scss/main.scss';
 
 import './common.blocks/drop-down/drop-down.js';
