@@ -1,6 +1,10 @@
-mixin benefit(title, description, icon)
+mixin benefit(customConfig ={})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/benefit/benefit.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
   .benefit
-    i.material-icons.benefit__icon= icon
+    i.material-icons.benefit__icon #{config.icon}
     .benefit__text
-      h3.benefit__title= title
-      p= description
+      h3.benefit__title #{config.title}
+      p #{config.description}

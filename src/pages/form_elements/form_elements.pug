@@ -5,7 +5,7 @@ block variables
   - var description = 'Description for Webpack + Pug';
   - var pageClass = 'index-page';
 
-include ../../common.blocks/logo/logo.pug
+include ../../common.blocks/logo/logo.pug 
 include ../../common.blocks/text-field/text-field.pug 
 include ../../common.blocks/drop-down/drop-down.pug 
 include ../../common.blocks/masked-text-field/masked-text-field.pug 
@@ -23,178 +23,125 @@ include ../../common.blocks/checkbox-button-rich/checkbox-button-rich.pug
 
 include ../../common.blocks/button/button.pug 
 include ../../common.blocks/pagination/pagination.pug
-include ../../common.blocks/bullet-list/bullet-list.pug 
+include ../../common.blocks/bullet/bullet.pug 
 include ../../common.blocks/feedback/feedback.pug
 
 block content
+  - let data = require('./form_elements.data.json');
+
   .form-elements__logo
     +logo_blank()
 
   .form-elements__text-field
-    +text-field('text-field', 'Text field', 'Email')
+    +text-field(data.textfields[0])
 
   .form-elements__text-field-hover
-    +text-field('text-field', 'Text field', '', 'This is pretty awesome')
+    +text-field(data.textfields[1])
     
-  - 
-    var drop_down_values = [
-      {label: 'Взрослые', name: 'adults', value: 0}, 
-      {label: 'Дети', name: 'kids', value: 0}, 
-      {label: 'Младенцы', name: 'babies', value: 0}
-    ]
-
-  -
-    var drop_down_parameters = {
-      title: 'dropdown',
-      default_value: 'Сколько гостей',
-      value_forms: 'гость,гостя,гостей',
-      display_type: 'total',
-      display_submit_button: true,
-      display_clear_button: true,
-      options: drop_down_values
-    }
-
   .form-elements__drop-down
-    +drop-down(drop_down_parameters)
+    +drop-down(data.dropdownGuests)
 
   .form-elements__masked-text-field
-    +masked-text-field('masked-text-field', 'Masked text field')
+    +masked-text-field(data.maskedTextField)
 
   .form-elements__date-dropdown
-    +date-dropdown('date-dropdown-1', 'date dropdown', '', 'date-dropdown-2', 'date dropdown', '2019-08-19')
+    +date-dropdown(data.dateDropDown)
 
   .form-elements__subscription-text-field
     +subscription-text-field
 
-  - 
-    var drop_down_values = [
-      {label: 'Спальни', name: 'bedrooms', value: 2, forms: 'Спальня,Спальни,Спален'}, 
-      {label: 'Кровати', name: 'beds', value: 1, forms: 'Кровать,Кровати,Кроватей'}, 
-      {label: 'Ванные комнаты', name: 'bathrooms', value: 0, forms: 'Ванная комната,Ванных комнаты,Ванных комнат'}
-    ]
-
-  -
-    var drop_down_parameters = {
-      title: 'dropdown',
-      default_value: 'Сколько кроватей?',
-      value_forms: 'гость,гостя,гостей',
-      display_type: 'values',
-      display_submit_button: false,
-      display_clear_button: false,
-      options: drop_down_values
-    }
-
   .form-elements__drop-down-default 
-    +drop-down(drop_down_parameters)
+    +drop-down(data.dropdownAmenities)
 
   .form-elements__drop-down-expanded
-    +drop-down(drop_down_parameters)
-
-  -
-    var expandable_checkbox_list_parameters = {
-      title: 'Expandable checkbox list',
-      expanded: false,
-      checkbox_buttons: [
-        {name: 'breakfast', label: 'Завтрак'},
-        {name: 'desk', label: 'Письменный стол', checked: 'checked'},
-        {name: 'baby-chair', label: 'Стул для кормления', checked: 'checked'},
-        {name: 'baby-bed', label: 'Кроватка'},
-        {name: 'TV', label: 'Телевизор'},
-        {name: 'shampoo', label: 'Шампунь'}
-      ]
-    }
+    +drop-down(data.dropdownAmenities)
 
   .form-elements__expandable-checkbox-list
-    +expandable-checkbox-list(expandable_checkbox_list_parameters)
+    +expandable-checkbox-list(data.expandableCheckboxList)
 
-  - expandable_checkbox_list_parameters.expanded = true
+  - data.expandableCheckboxList.expanded = true
 
   .form-elements__expandable-checkbox-list-expanded
-    +expandable-checkbox-list(expandable_checkbox_list_parameters)
+    +expandable-checkbox-list(data.expandableCheckboxList)
 
   .form-elements__benefits
-    +benefit('Комфорт', 'Шумопоглощающие стены', 'insert_emoticon')
-    +benefit('Удобство', 'Окно в каждой из спален', 'location_city')
+    each benefit in data.benefits
+      +benefit(benefit)
 
   .form-elements__checkbox-buttons
-    h3.form-elements__checkbox-buttons-title checkbox buttons
-    .form-elements__checkbox-button
-      +checkbox-button('smoke', 'Можно курить')
-    .form-elements__checkbox-button
-      +checkbox-button('pets', 'Можно с питомцами', 'checked')
-    .form-elements__checkbox-button
-      +checkbox-button('pets', 'Можно пригласить гостей (до 10 человек)', 'checked')
+    h3.form-elements__checkbox-buttons-title #{data.checkboxButtons.title}
+    each button in data.checkboxButtons.buttons
+      .form-elements__checkbox-button
+        +checkbox-button(button)
 
   .form-elements__radio-buttons
-    h3.form-elements__radio-buttons-title Radio buttons
+    h3.form-elements__radio-buttons-title #{data.radioButtons.title}
     .form-elements__radio-buttons-container
-      .form-elements__radio-button
-        +radio-button('gender', 'Мужчина', 'checked')
-      .form-elements__radio-button
-        +radio-button('gender', 'Женщина')
+      each button in data.radioButtons.buttons
+        .form-elements__radio-button
+          +radio-button(button)
 
   .form-elements__toggle
-    h3.form-elements__toggle-title Toggle
-    .form-elements__toggle-item
-      +toggle('toggle', 'Получать спецпредложения', 'checked')
-    .form-elements__toggle-item
-      +toggle('toggle', 'Получать спецпредложения')
+    h3.form-elements__toggle-title #{data.toggles.title}
+    each item in data.toggles.items
+      .form-elements__toggle-item
+        +toggle(item)
 
   .form-elements__like-buttons
-    h3.form-elements__like-buttons-title Like button
+    h3.form-elements__like-buttons-title #{data.likeButtons.title}
     .form-elements__like-button
-      .form-elements__like-button-item
-        +like-button(2)
-      .form-elements__like-button-item
-        +like-button(12, 'liked')
+      each item in data.likeButtons.items
+        .form-elements__like-button-item
+          +like-button(item)
 
   .form-elements__rate-buttons
-    h3.form-elements__rate-buttons-title Rate button
+    h3.form-elements__rate-buttons-title #{data.rateButtons.title}
     .form-elements__rate-button
-      .form-elements__rate-button-item
-        +rate-button('rate-button-1', '', 4)
-      .form-elements__rate-button-item
-        +rate-button('rate-button-2', '', 5)
+      each item in data.rateButtons.items
+        .form-elements__rate-button-item
+          +rate-button(item)
+
+  - data.dropdownGuests.display_submit_button = true;
+  .form-elements__drop-down4
+    +drop-down(data.dropdownGuests)
 
   .form-elements__rich-checkbox-buttons
-    h3.form-elements__rich-checkbox-buttons-title Rich checkbox buttons
-    .form-elements__rich-checkbox-buttons-item
-      +checkbox-button-rich('checkbox-button-rich-1', 'Широкий коридор', 'Ширина коридоров в номере не менее 91 см.')
-    .form-elements__rich-checkbox-buttons-item
-      +checkbox-button-rich('checkbox-button-rich-2', 'Помощник для инвалидов', 'На 1 этаже вас встретит специалист и проводит до номера')
-
+    h3.form-elements__rich-checkbox-buttons-title #{data.richCheckboxButtons.title}
+    each item in data.richCheckboxButtons.items
+      .form-elements__rich-checkbox-buttons-item
+        +checkbox-button-rich(item)
+    
   .form-elements__buttons
-    h3.form-elements__buttons-title Buttons
+    h3.form-elements__buttons-title #{data.buttons.title}
     .form-elements__buttons-line.form-elements__buttons-line_first
       .form-elements__button
-        button.button Click me
+        +button(data.buttons.items[0])
       .form-elements__button
-        button.button(disabled) Click me
+        +button(data.buttons.items[1])
     .form-elements__buttons-line
       .form-elements__button
-        button.button.button_empty Click me
+        +button(data.buttons.items[2])
       .form-elements__button
-        button.button.button_empty(disabled) Click me
+        +button(data.buttons.items[3])
     .form-elements__buttons-line(style="margin-top: 31.5px")
-      .form-elements__button
-        button.button.button_no-background Click me
-      .form-elements__button
-        button.button.button_no-background(disabled) Click me
-    .form-elements__buttons-line(style="margin-top: 32px")
-      +button('Перейти к оплате', 'size_l')
+      .form-elements__button.form-elements__button_empty
+        +button(data.buttons.items[4])
+      .form-elements__button.form-elements__button_empty
+        +button(data.buttons.items[5])
+    .form-elements__buttons-line
+      .form-elements__button.form-elements__button_size_l
+        +button(data.buttons.items[6])
 
   .form-elements__pagination
-    h3.form-elements__pagination-title Pagination
+    h3.form-elements__pagination-title #{data.pagination.title}
     +pagination()
 
   .form-elements__bullet-list
-    h3.form-elements__bullet-list-title Bullet list
-    li.bullet-list__item.form-elements__bullet-list-item 
-      p Нельзя с питомцами
-    li.bullet-list__item.form-elements__bullet-list-item 
-      p Без вечеринок и мероприятий
-    li.bullet-list__item.form-elements__bullet-list-item 
-      p Время прибытия — после 13:00, а выезд до 12:00
+    h3.form-elements__bullet-list-title #{data.bulletList.title}
+    each item in data.bulletList.items
+      .form-elements__bullet-list-item
+        +bullet(item)
+
 
   .form-elements__feedback
-    +feedback()
+    +feedback(data.feedback)

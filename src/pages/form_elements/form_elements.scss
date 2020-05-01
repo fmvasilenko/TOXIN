@@ -158,6 +158,13 @@
   }
 }
 
+.form-elements__drop-down4 {
+  position: absolute;
+  width: 320px;
+  left: 587px;
+  top: 876px;
+}
+
 .form-elements__buttons {
   width: 320px;
 
@@ -181,11 +188,20 @@
 }
 
 .form-elements__button {
+  height: 44px;
   margin-left: 20px;
   line-height: 12px;
 
   &:first-child {
     margin-left: 0;
+  }
+
+  &_size_l {
+    width: 320px;
+  }
+
+  &_empty {
+    height: auto;
   }
 }
 

@@ -1,8 +1,22 @@
 class Blocks 
 {
-  addElement(){
+  constructor(){
+    this.pages2blocks = "../../common.blocks";
+  }
+
+  addElement() {
     let div = "<div> hello </div>";
     return div;
+  }
+
+  includeBlocks(fileNames = []) {
+    let includes = "";
+
+    fileNames.forEach( (name) => {
+      includes += `include ${this.pages2blocks}/${name}/${name}.pug \n`;
+    });
+
+    return includes;
   }
 
   createConfig(...configs) {

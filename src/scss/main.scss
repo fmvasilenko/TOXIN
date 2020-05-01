@@ -35,7 +35,7 @@ body {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6, p { margin: 0; cursor: default;}
+h1, h2, h3, h4, h5, h6, p { margin: 0; }
 
 a { text-decoration: none; }
 
@@ -118,7 +118,7 @@ h3 {
 @import "../common.blocks/registration/registration.scss";
 
 @import "../common.blocks/pagination/pagination.scss";
-@import "../common.blocks/bullet-list/bullet-list.scss";
+@import "../common.blocks/bullet/bullet.scss";
 @import "../common.blocks/benefit/benefit.scss";
 @import "../common.blocks/feedback/feedback.scss";
 @import "../common.blocks/search-form/search-form.scss";
@@ -133,7 +133,7 @@ h3 {
 
 //Pages
 @import "../pages/colors/colors.scss";
-@import "../pages/form_elements/from_elements.scss";
+@import "../pages/form_elements/form_elements.scss";
 @import "../pages/cards/cards.scss";
 @import "../pages/headers/headers.scss";
 @import "../pages/landing/landing.scss";

@@ -1,8 +1,10 @@
 {
   "title": "Dropdown",
-  "display": "total",
+  "display_type": "total",
   "icon": "expand_more",
+  "default_value": "",
   "value": "",
+  "value_forms": "",
   "vocabulary": {
     "clear": "Очистить",
     "submit": "Применить"

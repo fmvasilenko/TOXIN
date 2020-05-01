@@ -1,4 +1,5 @@
 .button {
+  width: 100%;
   display: flex;
   height: 100%;
   box-sizing: border-box;
@@ -47,6 +48,7 @@
     height: auto;
     background: none;
     border: 0;
+    padding: 0;
   
     color: $mainColor;
 

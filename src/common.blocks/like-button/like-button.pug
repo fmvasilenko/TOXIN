@@ -1,9 +1,13 @@
-mixin like-button($number, $liked)
-  if $liked == 'liked'
+mixin like-button(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/like-button/like-button.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+  
+  if config.checked
     .like-button.like-button_liked
-      i.material-icons.like-button__icon.like-button__icon_liked favorite
-      p.like-button__number.like-button__number_liked=$number
+      i.material-icons.like-button__icon.like-button__icon_liked #{config.iconChecked}
+      p.like-button__number.like-button__number_liked #{config.value}
   else
     .like-button
-      i.material-icons.like-button__icon favorite_border
-      p.like-button__number=$number
+      i.material-icons.like-button__icon #{config.icon}
+      p.like-button__number #{config.value}

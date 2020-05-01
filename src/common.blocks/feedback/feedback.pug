@@ -1,10 +1,15 @@
-mixin feedback()
+mixin feedback(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/feedback/feedback.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - let imgAlt = config.img.alt ? config.img.alt : config.name;
+
   .feedback
     .feedback__image-container
-      img.feedback__image(src='/assets/img/feedback-image.png')
+      img.feedback__image(src=config.img.src alt=imgAlt)
       .feedback__like-button
-        +like-button(12, 'liked')
+        +like-button(config.likeButton)
     .feedback__text-container
-      p.feedback__name Мурад Сарафанов
-      p.feedback__last-seen 5 дней назад
-      p Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.
+      p.feedback__name #{config.name}
+      p.feedback__last-seen #{config.lastSeen}
+      p #{config.text}

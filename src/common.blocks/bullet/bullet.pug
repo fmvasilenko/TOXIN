@@ -1,0 +1,6 @@
+mixin bullet(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/bullet/bullet.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
+  .bullet-list__item #{config.value}

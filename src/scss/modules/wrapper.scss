@@ -3,6 +3,10 @@
   width: 1160px;
   margin: auto;
   display: flex;
+
+  &_wide {
+    width: 1440px;
+  }
 }
 
 .sidebar-wrapper {
