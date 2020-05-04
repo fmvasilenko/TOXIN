@@ -4,17 +4,10 @@
   -webkit-text-fill-color: transparent;
 
   &__label {
-    
+    cursor: pointer;
   }
 
   &__input {
     display: none;
   }
 }
-
-
-/*
-background: $gradient;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-*/
