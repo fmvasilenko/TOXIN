@@ -1,4 +1,9 @@
 {
   "value": 0,
-  "name": ""
+  "name": "rating",
+  "maxValue": 5,
+  "vocabulary": {
+    "checkedStar": "star",
+    "uncheckedStar": "star_border"
+  }
 }

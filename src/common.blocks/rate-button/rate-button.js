@@ -1,6 +1,6 @@
 import Component from '../../js/frontend/component.js';
 
-class RateButton extends Component {
+export default class RateButton extends Component {
 
   constructor(rootElement) {
     super();
@@ -8,7 +8,7 @@ class RateButton extends Component {
     this.setConsts();
 
     this.root = rootElement;
-    this.findElements();
+    this.setInitialState();
     this.bindEventListeners();
   }
 
@@ -24,21 +24,28 @@ class RateButton extends Component {
   }
 
   setConsts() {
+    this.STAR_WRAPPER = "rate-button__star-wrapper";
     this.INPUT_CLASS = "rate-button__input";
     this.STAR_CLASS = "rate-button__label";
     this.CHECKED_STAR = "star";
     this.UNCHECKED_STAR = "star_border";
   }
 
-  findElements() {
+  setInitialState() {
     let stars = [];
+    let rating = 0;
 
-    this.root.find(`.${this.STAR_CLASS}`).each( function(index, element) {
+    this.root.find(`.${this.STAR_WRAPPER}`).each( function(index, element) {
       stars[index] = {};
-      stars[index].icon = $(element);
-    });
+      stars[index].icon = $(element).find(`.${this.STAR_CLASS}`);
+
+      let elementChecked = $(element).find(`.${this.INPUT_CLASS}`).attr("checked");
+      if (elementChecked)
+        rating = index + 1;
+    }.bind(this));
 
     this.stars = stars;
+    this.rating = rating;
   }
 
   bindEventListeners() {
@@ -60,11 +67,3 @@ class RateButton extends Component {
     }.bind(this));
   }
 }
-
-let rateButtons = []; 
-
-$('.rate-button').each( function(index, element) {
-  rateButtons[index] = new RateButton($(element));
-});
-
-console.log(rateButtons[0]);

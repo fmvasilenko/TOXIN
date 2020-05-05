@@ -1,8 +1,7 @@
-//import "jquery-ui/ui/widgets/slider"
-//import "jquery-ui/themes/base/slider.css"
+import RateButton from "../common.blocks/rate-button/rate-button";
 
-let add = (a,b) => a+b;
-console.log(add(2,6));
+let rateButtons = []; 
 
-//$('.wrapper').addClass('class');
-//$('.slid').slider();
+$('.rate-button').each( function(index, element) {
+  rateButtons[index] = new RateButton($(element));
+});

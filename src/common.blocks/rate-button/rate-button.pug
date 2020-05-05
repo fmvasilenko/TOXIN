@@ -4,18 +4,12 @@ mixin rate-button(customConfig = {})
   - let config = blocks.createConfig(defaultConfig, customConfig);
   
   form.rate-button
-    label
-      input.rate-button__input(type="radio" name="rating" value="1")
-      i.material-icons.rate-button__label star_border
-    label
-      input.rate-button__input(type="radio" name="rating" value="2")
-      i.material-icons.rate-button__label star_border
-    label
-      input.rate-button__input(type="radio" name="rating" value="3")
-      i.material-icons.rate-button__label star_border
-    label
-      input.rate-button__input(type="radio" name="rating" value="4")
-      i.material-icons.rate-button__label star_border
-    label
-      input.rate-button__input(type="radio" name="rating" value="5")
-      i.material-icons.rate-button__label star_border
+    - for (let i=1; i<=config.maxValue; i++)
+      label.rate-button__star-wrapper
+        if i<=config.value
+          input.rate-button__input(type="radio" name=config.name value=i checked)
+          i.material-icons.rate-button__label #{config.vocabulary.checkedStar}
+        else
+          input.rate-button__input(type="radio" name=config.name value=i)
+          i.material-icons.rate-button__label #{config.vocabulary.uncheckedStar}
+    
