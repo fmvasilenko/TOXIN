@@ -1,3 +1,43 @@
 .calendar {
-  
+  padding: 20px;
+
+  background: #FFFFFF;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  box-sizing: border-box;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  border-radius: 4px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__left-arrow,
+  &__right-arrow {
+    cursor: pointer;
+  }
+
+  &__table {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  &__number {
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__current-date {
+    background: $secondColor;
+    border-radius: 50%;
+  }
+
+  &__date-between {
+    background: #eeeeee;
+  }
+
+  &__chosen-date {
+    background: $mainColor;
+    border-radius: 50%;
+  }
 }
