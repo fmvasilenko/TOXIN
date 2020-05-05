@@ -10,7 +10,8 @@
   },
   "_moduleAliases": {
     "@plugins": "src/js/plugins",
-    "@blocks": "src/common.blocks"
+    "@blocks": "src/common.blocks",
+    "@frontend": "src/js/frontend"
   },
   "browserslist": [
     "> 1%",

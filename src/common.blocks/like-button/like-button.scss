@@ -8,9 +8,54 @@
   border-radius: 10px;
 
   cursor: pointer;
+
+  &_liked {
+    border-color: $mainColor;
+  }
+
+  &__icon {
+    display: inline-block;
+    min-width: 16px;
+    height: 18px;
+  
+    font-size: 10px;
+    color: $darkShade25;
+    line-height: 18px;
+    text-align: center;
+
+    &_liked {
+      color: $mainColor;
+    }
+  }
+
+  &__number {
+    width: 100%;
+    display: inline-block;
+    margin-left: 2px;
+  
+    font-size: 10px;
+    color: $darkShade25;
+    line-height: 100%;
+
+    background: transparent;
+    border: 0;
+
+    cursor: pointer;
+
+    -moz-appearance: textfield;
+  
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    &:focus {
+      outline: 0;
+      background: transparent;
+    }
+
+    &_liked {
+      color: $mainColor;
+    }
+  }
 }
-
-@import "./like-button__icon/like-button__icon.scss";
-@import "./like-button__number/like-button__number.scss";
-
-@import "./like-button_liked.scss";

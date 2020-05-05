@@ -4,10 +4,10 @@ mixin like-button(customConfig = {})
   - let config = blocks.createConfig(defaultConfig, customConfig);
   
   if config.checked
-    .like-button.like-button_liked
+    form.like-button.like-button_liked
       i.material-icons.like-button__icon.like-button__icon_liked #{config.iconChecked}
-      p.like-button__number.like-button__number_liked #{config.value}
+      input.like-button__number.like-button__number_liked(type="number" name=config.name value=config.value readonly)
   else
-    .like-button
+    form.like-button
       i.material-icons.like-button__icon #{config.icon}
-      p.like-button__number #{config.value}
+      input.like-button__number(type="number" name=config.name value=config.value readonly)
