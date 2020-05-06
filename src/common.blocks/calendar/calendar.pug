@@ -1,4 +1,7 @@
-mixin calendar()
+mixin calendar(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/calendar/calendar.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
 
   .calendar
     .calendar__header
@@ -6,14 +9,11 @@ mixin calendar()
       h2.calendar__title Август 2019
       i.material-icons.calendar__right-arrow arrow_forward
 
-    table.calendar__table
-      thead
-        tr
-          th.calendar__day-name Пн
-          th.calendar__day-name Вт
-          th.calendar__day-name Ср
-          th.calendar__day-name Чт
-          th.calendar__day-name Пт
-          th.calendar__day-name Сб
-          th.calendar__day-name Вс
+    .calendar__table-wrapper
+      
+    .calendar__buttons
+      .calendar__button.js-calendar__clear-button
+        +button(config.clearButton)
+      .calendar__button.js-calendar__submit-button
+        +button(config.submitButton)
       
