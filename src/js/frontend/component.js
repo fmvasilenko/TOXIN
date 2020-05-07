@@ -57,4 +57,23 @@ export default class Component {
     }
   }
 
+  isJQueryObject(element) {
+    return element instanceof jQuery;
+  }
+
+  createRootElement(element) {
+    if (this.isJQueryObject(element)) {
+      this.componentRoot = element[0];
+    }
+    else {
+      this.componentRoot = element;
+    }
+  }
+
+  checkComponentRoot() {
+    if (!this.componentRoot) {
+      this.createRootElement(this.root);
+    }
+  }
+
 }
