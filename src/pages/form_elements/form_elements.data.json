@@ -42,6 +42,9 @@
       "value": "2020-05-25"
     }
   },
+  "filterDateDropdown": {
+    "title": "Filter date dropdown"
+  },
   "dropdownAmenities": {
     "title": "Dropdown",
     "default_value": "",

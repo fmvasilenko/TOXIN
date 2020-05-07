@@ -3,6 +3,7 @@ import RateButton from "../common.blocks/rate-button/rate-button";
 import LikeButton from "@blocks/like-button/like-button";
 //import Calendar from "@blocks/calendar/calendar";
 import DateDropdown from "@blocks/date-dropdown/date-dropdown";
+import FilterDateDropdown from "@blocks/filter-date-dropdown/filter-date-dropdown";
 
 class Page extends Component {
 
@@ -16,6 +17,7 @@ class Page extends Component {
     this.initRateButtons();
     this.initLikeButtons();
     this.initDateDropdown();
+    this.initFilterDateDropdown();
     //this.initCalendar();
   }
 
@@ -57,6 +59,16 @@ class Page extends Component {
     });
 
     this.dateDropdowns = dateDropdowns;
+  }
+
+  initFilterDateDropdown() {
+    let filterDateDropdowns = []; 
+
+    $('.filter-date-dropdown').each( function(index, element) {
+      filterDateDropdowns[index] = new FilterDateDropdown($(element));
+    });
+
+    this.filterDateDropdowns = filterDateDropdowns;
   }
 
 }

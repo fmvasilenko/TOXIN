@@ -1,0 +1,18 @@
+include ../calendar/calendar.pug 
+
+mixin filter-date-dropdown(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/filter-date-dropdown/filter-date-dropdown.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
+  .filter-date-dropdown
+    if (config.title)
+      h3.filter-date-dropdown__title #{config.title}
+    .filter-date-dropdown__field
+      input.filter-date-dropdown__input(type="text" name=config.name value=config.value readonly)
+      input.filter-date-dropdown__arrival-date(type="date" name=config.arrivalDate.name value=config.arrivalDate.value)
+      input.filter-date-dropdown__leaving-date(type="date" nmae=config.leavingDate.name value=config.leavingDate.value)
+      i.material-icons.filter-date-dropdown__icon #{config.icon}
+    
+    .filter-date-dropdown__calendar
+      +calendar()

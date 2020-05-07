@@ -10,6 +10,7 @@ include ../../common.blocks/text-field/text-field.pug
 include ../../common.blocks/drop-down/drop-down.pug 
 include ../../common.blocks/masked-text-field/masked-text-field.pug 
 include ../../common.blocks/date-dropdown/date-dropdown.pug
+include ../../common.blocks/filter-date-dropdown/filter-date-dropdown.pug 
 include ../../common.blocks/subscription-text-field/subscription-text-field.pug
 include ../../common.blocks/expandable-checkbox-list/expandable-checkbox-list.pug
 include ../../common.blocks/benefit/benefit.pug
@@ -46,6 +47,9 @@ block content
 
   .form-elements__date-dropdown
     +date-dropdown(data.dateDropDown)
+
+  .form-elements__filter-date-dropdown
+    +filter-date-dropdown(data.filterDateDropdown)
 
   .form-elements__subscription-text-field
     +subscription-text-field
