@@ -15,14 +15,23 @@ export default class Calendar extends Component {
     this.state = {
       arrivalDate: {
         value: null,
+        isGlobal: true,
         subscribers: [
           this.displayMonth.bind(this)
         ]
       },
       leavingDate: {
         value: null,
+        isGlobal: true,
         subscribers: [
           this.displayMonth.bind(this)
+        ]
+      },
+      calendarDisplayed: {
+        value: false,
+        isGlobal: true,
+        subscribers: [
+          
         ]
       },
       monthDisplayed: {
@@ -48,7 +57,7 @@ export default class Calendar extends Component {
       CURRENT_DATE: "calendar__current-date",
       PICKED_DATE: "calendar__chosen-date",
       DATE_BETWEEN: "calendar__date-between",
-      INACTIVE_DAY: "js-calendar__day-inactive",
+      INACTIVE_DAY: "calendar__day-inactive",
       CLEAR_BUTTON: "js-calendar__clear-button",
       SUBMIT_BUTTON: "js-calendar__submit-button"
     };
@@ -78,6 +87,7 @@ export default class Calendar extends Component {
     this.rightArrow.click(this.rightArrowClickHandler.bind(this));
     this.tableContainer.click(this.tableContainerClickHandler.bind(this));
     this.clearButton.click(this.clearButtonClickHandler.bind(this));
+    this.submitButton.click(this.submitButtonClickHandler.bind(this));
   }
 
   leftArrowClickHandler() {
@@ -137,6 +147,10 @@ export default class Calendar extends Component {
   clearButtonClickHandler() {
     this.leavingDate = null;
     this.arrivalDate = null;
+  }
+
+  submitButtonClickHandler() {
+    this.calendarDisplayed = false;
   }
 
   displayMonth(year, month) {

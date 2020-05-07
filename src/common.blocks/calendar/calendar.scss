@@ -1,5 +1,5 @@
 .calendar {
-  padding: 20px;
+  padding: 20px 19px;
 
   background: #FFFFFF;
   border: 1px solid rgba(31, 32, 65, 0.25);
@@ -52,6 +52,10 @@
     &:last-child {
       border-radius: 0 50% 50% 0;
     }
+  }
+
+  &__day-inactive {
+    color: $darkShade25;
   }
 
   &__current-date {

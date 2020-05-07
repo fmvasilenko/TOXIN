@@ -1,7 +1,8 @@
 import Component from "./frontend/component";
 import RateButton from "../common.blocks/rate-button/rate-button";
 import LikeButton from "@blocks/like-button/like-button";
-import Calendar from "@blocks/calendar/calendar";
+//import Calendar from "@blocks/calendar/calendar";
+import DateDropdown from "@blocks/date-dropdown/date-dropdown";
 
 class Page extends Component {
 
@@ -14,7 +15,8 @@ class Page extends Component {
   setInitialState() {
     this.initRateButtons();
     this.initLikeButtons();
-    this.initCalendar();
+    this.initDateDropdown();
+    //this.initCalendar();
   }
 
   initRateButtons() {
@@ -45,6 +47,16 @@ class Page extends Component {
     });
 
     this.calendars = calendars;
+  }
+
+  initDateDropdown() {
+    let dateDropdowns = []; 
+
+    $('.date-dropdown').each( function(index, element) {
+      dateDropdowns[index] = new DateDropdown($(element));
+    });
+
+    this.dateDropdowns = dateDropdowns;
   }
 
 }

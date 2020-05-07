@@ -35,8 +35,11 @@
     "title": "Masked text field"
   },
   "dateDropDown": {
+    "dropdown1": {
+      "value": "2020-05-20"
+    },
     "dropdown2": {
-      "value": "2019-08-19"
+      "value": "2020-05-25"
     }
   },
   "dropdownAmenities": {

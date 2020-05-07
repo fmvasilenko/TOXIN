@@ -1,6 +1,7 @@
 .date-dropdown {
   display: flex;
   align-items: center;
+  position: relative;
 
   &__title {
     margin-bottom: 5px;
@@ -60,5 +61,18 @@
     color: $darkShade50;
   
     cursor: pointer;
+  }
+
+  &__calendar {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 5px;
+    z-index: 2;
+
+    &_dropped {
+      display: block;
+    }
   }
 }
