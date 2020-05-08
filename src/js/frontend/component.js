@@ -1,8 +1,9 @@
 export default class Component {
   
-  constructor(parentState = {}) {
+  constructor(parent = {}) {
     this.setState();
-    this.state = this.mergeStates(this.state, parentState);
+    this.parent = parent;
+    this.state = this.mergeStates(this.state, this.parent.state);
     this.initGetSet();
   }
 

@@ -2,8 +2,8 @@ import Component from '../../js/frontend/component.js';
 
 export default class RateButton extends Component {
 
-  constructor(rootElement) {
-    super();
+  constructor(rootElement, parent = {}) {
+    super(parent);
 
     this.setConsts();
 

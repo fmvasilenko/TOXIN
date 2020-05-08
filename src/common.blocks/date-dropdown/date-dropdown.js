@@ -3,8 +3,8 @@ import Calendar from "@blocks/calendar/calendar";
 
 export default class DateDropdown extends Component {
 
-  constructor(rootElement, parentState = {}) {
-    super(parentState);
+  constructor(rootElement, parent = {}) {
+    super(parent);
 
     this.root = rootElement;
     this.setConsts();
@@ -50,7 +50,7 @@ export default class DateDropdown extends Component {
     let calendar = this.root.find(".calendar");
 
     this.children = [
-      new Calendar(calendar, this.state)
+      new Calendar(calendar, this)
     ]
   }
 

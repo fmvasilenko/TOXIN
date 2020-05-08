@@ -4,6 +4,7 @@ import LikeButton from "@blocks/like-button/like-button";
 //import Calendar from "@blocks/calendar/calendar";
 import DateDropdown from "@blocks/date-dropdown/date-dropdown";
 import FilterDateDropdown from "@blocks/filter-date-dropdown/filter-date-dropdown";
+import Dropdown from "@blocks/drop-down/drop-down";
 
 class Page extends Component {
 
@@ -18,6 +19,7 @@ class Page extends Component {
     this.initLikeButtons();
     this.initDateDropdown();
     this.initFilterDateDropdown();
+    this.initDropdown();
     //this.initCalendar();
   }
 
@@ -69,6 +71,16 @@ class Page extends Component {
     });
 
     this.filterDateDropdowns = filterDateDropdowns;
+  }
+
+  initDropdown() {
+    let dropdowns = []; 
+
+    $('.drop-down').each( function(index, element) {
+      dropdowns[index] = new Dropdown($(element));
+    });
+
+    this.dropdowns = dropdowns;
   }
 
 }

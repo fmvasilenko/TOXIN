@@ -55,7 +55,7 @@ export default class FilterDateDropdown extends Component {
     let calendar = this.root.find(".calendar");
 
     this.children = [
-      new Calendar(calendar, this.state)
+      new Calendar(calendar, this)
     ]
   }
 

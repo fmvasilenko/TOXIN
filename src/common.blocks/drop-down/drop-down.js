@@ -1,210 +1,163 @@
-class DropDown {
+import Component from "@frontend/component";
+import DropdownOption from "./drop-down__option";
 
-  constructor(dropDown) {
-    this.dropDown = dropDown;
-    
-    this.setEnvironment();
-    this.setOptionsEnvironment();
+export default class Dropdown extends Component {
 
+  constructor(rootElement, parent = {}) {
+    super(parent);
+
+    this.root = rootElement;
+    this.setConsts();
+    this.setInitialState();
+    this.setChildren();
     this.bindEventListeners();
   }
 
-  setEnvironment() {
-    this.POPUP_EXPANDED_CLASS = 'drop-down__list_drop';
-    this.FIELD_EXPANDED_CLASS = 'drop-down__field_drop';
-
-    this.expandMoreButton = this.dropDown.find('.drop-down__expand-more');
-    this.popup = this.dropDown.find('.drop-down__list');
-    this.field = this.dropDown.find('.drop-down__field');
-    this.fieldInput = this.dropDown.find('.drop-down__field-input');
-    this.clearButton = this.dropDown.find('.js-drop-down__clear-button');
-    this.fieldDefaultValue = this.fieldInput.val();
-    this.expanded = this.popup.hasClass(this.POPUP_EXPANDED_CLASS);
+  setState() {
+    this.state = {
+      optionValues: {
+        value: [],
+        subscribers: [
+          this.calcSum.bind(this),
+          this.display.bind(this)
+        ]
+      },
+      optionWordForms: {
+        value: []
+      },
+      expanded: {
+        value: false,
+        subscribers: [
+          this.toggleList.bind(this),
+          this.changeFieldStyle.bind(this)
+        ]
+      },
+      displayType: {
+        value: "total"
+      },
+      optionsSum: {
+        value: 0,
+        subscribers: [
+          this.changeWordForm.bind(this)
+        ]
+      }
+    }
   }
 
-  setOptionsEnvironment() {
-    let dropDownOptions = [];
+  setConsts() {
+    this.CLASSES = {
+      OPTION: "drop-down__option",
+      FIELD: "drop-down__field",
+      FIELD_DROPPED: "drop-down__field_drop",
+      ICON: "drop-down__expand-more",
+      INPUT: "drop-down__field-input",
+      LIST: "drop-down__list",
+      LIST_DROPPPED: "drop-down__list_drop"
+    }
+  }
 
-    this.dropDown.find('.drop-down__option').each( function(index, element) {
-      dropDownOptions[index] = {};
-      dropDownOptions[index].input = $(element).find('.drop-down__input');
-      dropDownOptions[index].value = dropDownOptions[index].input.val();
-      dropDownOptions[index].increaseButton = $(element).find('.js-drop-down__button_increase');
-      dropDownOptions[index].decreaseButton = $(element).find('.js-drop-down__button_decrease');
-    });
+  setChildren() {
+    this.children = [];
+    let options = this.root.find(`.${this.CLASSES.OPTION}`);
 
-    this.dropDownOptions = dropDownOptions;
+    options.each( function(index, option) {
+      this.children[index] = new DropdownOption($(option), this, index);
+    }.bind(this));
+  }
+
+  setInitialState() {
+    this.field = this.root.find(`.${this.CLASSES.FIELD}`);
+    this.icon = this.root.find(`.${this.CLASSES.ICON}`);
+    this.input = this.root.find(`.${this.CLASSES.INPUT}`);
+    this.list = this.root.find(`.${this.CLASSES.LIST}`);
+
+    this.displayType = this.root.attr("display_type") ? this.root.attr("display_type") : "total";
+    this.forms = this.input.attr("forms") ? this.input.attr("forms") : null;
+    this.forms = this.forms ? this.forms.split(",") : null;
+    this.defaultInputValue = this.input.val();
   }
 
   bindEventListeners() {
-    this.expandMoreButton.click(this.toggleList.bind(this));
+    this.icon.click(this.iconClickHandler.bind(this));
+  }
 
-    this.dropDown.find('.drop-down__option').each( function(index, element) {
+  iconClickHandler() {
+    this.expanded = !this.expanded;
+  }
 
-      this.dropDownOptions[index].increaseButton.click( function() {
-        this.increase(index);
-        this.display();
-      }.bind(this));
+  display() {
+    switch (this.displayType) {
+      case "total": {
+        this.displayTotal();
+        break;
+      }
+      case "values": {
+        this.displayValues();
+        break;
+      }
+    }
+  }
 
-      this.dropDownOptions[index].decreaseButton.click( function() {
-        this.decrease(index);
-        this.display();
-      }.bind(this));
+  displayTotal() {
+    if (this.optionsSum) this.input.val(`${this.optionsSum} ${this.form}`);
+    else this.input.val(this.defaultInputValue);
+  }
 
+  displayValues() {
+    let str = "";
+
+    this.optionValues.forEach( function(value, index) {
+      if (value > 0) {
+        str += str !== "" ? ", " : "";
+        str += `${value} ${this.optionWordForms[index]}`;
+      }
     }.bind(this));
 
-    this.clearButton.click(this.handlerClearButton.bind(this));
+    this.input.val(str);
+  }
+
+  calcSum() {
+    if (this.optionValues.length)
+      this.optionsSum = this.optionValues.reduce((sum, value) => sum + value);
+    else this.optionsSum = 0;
   }
 
   toggleList() {
-    if (this.expanded)
-      this.shrink();
-    else
-      this.expand();
-  }
-
-  expand() {
-    this.popup.addClass(this.POPUP_EXPANDED_CLASS);
-    this.field.addClass(this.FIELD_EXPANDED_CLASS);
-    this.expanded = true;
-  }
-
-  shrink() {
-    this.popup.removeClass(this.POPUP_EXPANDED_CLASS);
-    this.field.removeClass(this.FIELD_EXPANDED_CLASS);
-    this.expanded = false;
-  }
-
-  increase(index) {
-    if( this.dropDownOptions[index].value == 0 ) {
-      this.dropDownOptions[index].decreaseButton.prop("disabled", false);
+    if (this.expanded) {
+      this.list.addClass(this.CLASSES.LIST_DROPPPED);
     }
-
-    this.dropDownOptions[index].value++;
-    this.dropDownOptions[index].input.val(this.dropDownOptions[index].value);
-  }
-
-  decrease(index) {
-    if( this.dropDownOptions[index].value > 0 ) {
-      this.dropDownOptions[index].value--;
-      this.dropDownOptions[index].input.val(this.dropDownOptions[index].value);
-    }
-
-    if( this.dropDownOptions[index].value == 0 ) {
-      this.dropDownOptions[index].decreaseButton.prop("disabled", true);
+    else {
+      this.list.removeClass(this.CLASSES.LIST_DROPPPED);
     }
   }
 
-  num2str(n, forms) {
+  changeFieldStyle() {
+    if (this.expanded) {
+      this.field.addClass(this.CLASSES.FIELD_DROPPED);
+    }
+    else {
+      this.field.removeClass(this.CLASSES.FIELD_DROPPED);
+    }
+  }
+
+  changeWordForm() {
+    if (!this.forms) {
+      this.form = null;
+      return false;
+    }
+
+    let n = this.optionsSum;
     n %= 100;
 
     if(n < 10 || n > 20) {
       n %= 10;
 
-      if(n == 1) return forms[0];
-      else if (n > 1 && n < 5) return forms[1];
-      else return forms[2];
+      if(n == 1) this.form = this.forms[0];
+      else if (n > 1 && n < 5) this.form = this.forms[1];
+      else this.form = this.forms[2];
     }
-    else return forms[2];
-  } 
+    else this.form = this.forms[2];
 
-  handlerClearButton() {
-    this.dropDownOptions.forEach(function(item) {
-      item.value = 0;
-      item.input.val(0);
-      item.decreaseButton.attr('disabled', true);
-    }.bind(this));
-
-    this.display();
+    return true;
   }
-
-  display() {}
-
 }
-
-class DropDownDisplayTotal extends DropDown {
-
-  constructor(dropDown) {
-    super(dropDown);
-    
-    this.setFieldForms();
-
-    this.display();
-  }
-
-  setFieldForms() {
-    let forms = this.fieldInput.attr('forms');
-
-    if(forms) this.fieldForms = forms.split(',');
-    else {
-      forms = [];
-      forms[0] = forms[1] = forms[2] =this.fieldInput.val();
-      this.fieldForms = forms;
-    }
-  }
-
-  display() {
-    let number = 0;
-
-    this.dropDownOptions.forEach(function(item) {
-      number += parseInt(item.value);
-    }.bind(this));
-
-    if(number){
-      let str = number + ' ' + this.num2str(number, this.fieldForms);
-      this.fieldInput.val(str);
-    }
-    else {
-      this.fieldInput.val(this.fieldDefaultValue);
-    }
-  }
-
-}
-
-class DropDownDisplayValues extends DropDown {
-
-  constructor(dropDown) {
-    super(dropDown);
-    
-    this.setFieldForms();
-
-    this.display();
-  }
-
-  setFieldForms() {
-    this.dropDownOptions.forEach(function(item) {
-      let forms = item.input.attr('forms');
-
-      if(forms) item.forms = forms.split(',');
-      else {
-        forms = [];
-        forms[0] = forms[1] = forms[2] = item.input.val();
-        item.forms = forms;
-      }
-    });
-  }
-
-  display() {
-    let str = '';
-
-    this.dropDownOptions.forEach(function(item) {
-      if(item.value != '0') {
-        if(str) str += ', ';
-        str += item.value + ' ' + this.num2str(item.value, item.forms);
-      }
-    }.bind(this));
-
-    if(str) this.fieldInput.val(str);
-    else this.fieldInput.val(this.fieldDefaultValue);
-  }
-
-}
-
-let dropDowns = []; 
-
-$('.drop-down').each( function(index, element) {
-  if($(element).attr('display_type') == 'total')
-    dropDowns[index] = new DropDownDisplayTotal($(element));
-  else
-    dropDowns[index] = new DropDownDisplayValues($(element));
-});

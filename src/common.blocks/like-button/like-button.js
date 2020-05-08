@@ -2,8 +2,8 @@ import Component from "@frontend/component";
 
 export default class LikeButton extends Component {
 
-  constructor(rootElement, parentState = {}) {
-    super(parentState);
+  constructor(rootElement, parent = {}) {
+    super(parent);
 
     this.root = rootElement;
     this.setConsts();
