@@ -1,55 +1,49 @@
-import Component from '../../js/frontend/component.js';
+import Component from "@frontend/component";
+import RateButtonView from "./rate-button-view";
 
 export default class RateButton extends Component {
 
-  constructor(rootElement, parent = {}) {
-    super(parent);
+  constructor(root, parent) {
+    super({root: root, parent: parent});
 
     this.setConsts();
-
-    this.root = rootElement;
     this.setInitialState();
-    this.bindEventListeners();
+    this.VIEW = new RateButtonView(this);
   }
 
   setState() {
     this.state = {
       rating: {
-        value: 0,
-        subscribers: [
-          this.renderRating.bind(this)
-        ]
+        value: 0
       }
-    };
+    }
   }
 
   setConsts() {
-    this.STAR_WRAPPER = "rate-button__star-wrapper";
-    this.INPUT_CLASS = "rate-button__input";
-    this.STAR_CLASS = "rate-button__label";
-    this.CHECKED_STAR = "star";
-    this.UNCHECKED_STAR = "star_border";
+    this.CLASSES = {
+      STAR_WRAPPER: "rate-button__star-wrapper",
+      INPUT: "rate-button__input",
+      STAR: "rate-button__label"
+    }
+
+    this.DOM = {}
   }
 
   setInitialState() {
     let stars = [];
     let rating = 0;
 
-    this.root.find(`.${this.STAR_WRAPPER}`).each( function(index, element) {
+    this.root.find(`.${this.CLASSES.STAR_WRAPPER}`).each( function(index, element) {
       stars[index] = {};
-      stars[index].icon = $(element).find(`.${this.STAR_CLASS}`);
+      stars[index].icon = $(element).find(`.${this.CLASSES.STAR}`);
 
-      let elementChecked = $(element).find(`.${this.INPUT_CLASS}`).attr("checked");
+      let elementChecked = $(element).find(`.${this.CLASSES.INPUT}`).attr("checked");
       if (elementChecked)
         rating = index + 1;
     }.bind(this));
 
-    this.stars = stars;
+    this.DOM.STARS = stars;
     this.rating = rating;
-  }
-
-  bindEventListeners() {
-    this.root.click(this.clickHandler.bind(this));
   }
 
   clickHandler(event) {
@@ -57,13 +51,4 @@ export default class RateButton extends Component {
       this.rating = $(event.target).val();
   }
 
-  renderRating() {
-    this.stars.forEach( function(star, index) {
-      if (index < this.rating) {
-        star.icon.html(this.CHECKED_STAR);
-      }
-      else
-        star.icon.html(this.UNCHECKED_STAR);
-    }.bind(this));
-  }
 }

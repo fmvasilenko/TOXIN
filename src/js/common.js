@@ -15,7 +15,6 @@ class Page extends Component {
   }
 
   setInitialState() {
-    //this.initRateButtons();
     //this.initDateDropdown();
     //this.initFilterDateDropdown();
     //this.initDropdown();
@@ -25,26 +24,28 @@ class Page extends Component {
   setChildren() {
     this.children = [];
     let likeButtons = this.initLikeButtons();
+    let rateButtons = this.initRateButtons();
 
     this.children = this.children.concat(likeButtons);
+    this.children = this.children.concat(rateButtons);
   }
 
   initRateButtons() {
     let rateButtons = []; 
 
     $('.rate-button').each( function(index, element) {
-      rateButtons[index] = new RateButton($(element));
-    });
+      rateButtons[index] = new RateButton($(element), this);
+    }.bind(this));
 
-    this.rateButtons = rateButtons;
+    return rateButtons;
   }
 
   initLikeButtons() {
     let likeButtons = []; 
 
     $('.like-button').each( function(index, element) {
-      likeButtons[index] = new LikeButton($(element));
-    });
+      likeButtons[index] = new LikeButton($(element), this);
+    }.bind(this));
 
     return likeButtons;
   }
