@@ -85,5 +85,5 @@ class Page extends Component {
 
 }
 
-let page = new Page;
-console.log(page);
+//let page = new Page;
+//console.log(page);

@@ -2,17 +2,15 @@ import Component from './component.js';
 
 class RateButton extends Component {
 
-  constructor(rootElement, parentState = {}) {
-    super(parentState);
-
-    this.root = rootElement;
-    this.bindEventListeners();
+  constructor(rootElement, parent = {}) {
+    super({root: rootElement, parent: parent});
   }
 
   setState() {
     this.state = {
       pressed: {
         value: false,
+        alias: "likeButtonPressed",
         isGlobal: true,
         subscribers: [
           this.changeSomething.bind(this)
@@ -24,19 +22,15 @@ class RateButton extends Component {
     };
   }
 
+  clickHandler() {
+    this.pressed = !this.pressed;
+  }
+
   changeSomething() {
-    if (this.state.pressed.value)
+    if (this.pressed)
       this.root.css("background", "red");
     else
       this.root.css("background", "white");
-  }
-
-  bindEventListeners() {
-    this.root.on("click", this.handler.bind(this));
-  }
-
-  handler() {
-    this.pressed = !this.pressed;
   }
 
 }
@@ -44,11 +38,7 @@ class RateButton extends Component {
 class ParentClass extends Component {
 
   constructor(rootElement) {
-    super();
-
-    this.root = rootElement;
-    this.setChildren();
-    this.bindListeners();
+    super({root: rootElement});
   }
 
   setState() {
@@ -64,25 +54,22 @@ class ParentClass extends Component {
 
   setChildren() {
     this.children = [
-      new RateButton($(".block"), this.state)
+      new RateButton($(".block"), parent = this)
     ];
   }
 
+  clickHandler() {
+    this.pressed = !this.pressed;
+  }
+
   changeSomething() {
-    if (this.state.pressed.value)
-      this.root.css("background", "red");
+    if (this.pressed)
+      this.root.css("background", "green");
     else
       this.root.css("background", "white");
   }
-
-  bindListeners() {
-    this.root.on("click", this.handler.bind(this));
-  }
-
-  handler() {
-    this.pressed = !this.pressed;
-  }
+  
 }
 
-let testComponent = new ParentClass($(".testComponent"));
-console.log(testComponent);
+//let testComponent = new ParentClass($(".testComponent"));
+//console.log(testComponent);
