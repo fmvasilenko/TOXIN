@@ -2,13 +2,13 @@ export default class Component {
   
   constructor(config = {root: null, parent: {}}) {
     this.root = config.root ? config.root : null;
-    this.parent = config.parent;
+    this.PARENT = config.parent;
 
     this.setState();
     this.initGetSet();
     this.checkComponentRoot();
 
-    if (this.parent) this.mergeStates(this.state, this.parent.state);
+    if (this.PARENT) this.mergeStates(this.state, this.PARENT.state);
     this.setChildren();
     this.componentBindEventListeners();
   }
@@ -71,9 +71,11 @@ export default class Component {
   }
 
   componentBindEventListeners() {
-    if (!this.parent) {
+    if (!this.PARENT) {
       this.checkComponentRoot();
-      this.componentRoot.addEventListener("click", this.clickController.bind(this), false);
+      if (this.componentRoot) {
+        this.componentRoot.addEventListener("click", this.clickController.bind(this), false);
+      }
     }
   }
 

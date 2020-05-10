@@ -1,14 +1,14 @@
 import Component from "@frontend/component";
+import LikeButtonView from "./like-button-view";
 
 export default class LikeButton extends Component {
 
   constructor(rootElement, parent = {}) {
-    super(parent);
+    super({root: rootElement, parent: parent});
 
-    this.root = rootElement;
     this.setConsts();
     this.setInitialState();
-    this.bindEventListeners();
+    this.VIEW = new LikeButtonView(this);
   }
 
   setState() {
@@ -16,38 +16,39 @@ export default class LikeButton extends Component {
       liked: {
         value: false,
         subscribers: [
-          this.renderLikeButton.bind(this)
+          
         ]
       },
       likesNumber: {
         value: 0,
         subscribers: [
-          this.changeNumber.bind(this)
+
         ]
       }
     }
   }
 
   setConsts() {
-    this.ICON_CLASS = "like-button__icon";
-    this.INPUT_CLASS = "like-button__number";
-    this.ROOT_CLASS_LIKED = "like-button_liked";
-    this.ICON_CLASS_LIKED = "like-button__icon_liked";
-    this.INPUT_CLASS_LIKED = "like-button__number_liked";
-  }
+    this.CLASSES = {
+      ICON: "like-button__icon",
+      INPUT: "like-button__number",
+      ROOT_LIKED: "like-button_liked",
+      ICON_LIKED: "like-button__icon_liked",
+      INPUT_LIKED: "like-button__number_liked"
+    }
 
-  setInitialState() {
-    this.icon = this.root.find(`.${this.ICON_CLASS}`);
-    this.input = this.root.find(`.${this.INPUT_CLASS}`);
-    this.likesNumber = this.input.val();
-    
-    if (this.root.hasClass(this.ROOT_CLASS_LIKED)){
-      this.liked = true;
+    this.DOM = {
+      ICON: this.root.find(`.${this.CLASSES.ICON}`),
+      INPUT: this.root.find(`.${this.CLASSES.INPUT}`)
     }
   }
 
-  bindEventListeners() {
-    this.root.click(this.clickHandler.bind(this));
+  setInitialState() {    
+    this.likesNumber = this.DOM.INPUT.val();
+    
+    if (this.root.hasClass(this.CLASSES.ROOT_LIKED)){
+      this.liked = true;
+    }
   }
 
   clickHandler() {
@@ -68,23 +69,6 @@ export default class LikeButton extends Component {
   decreaseNumber() {
     if (this.likesNumber > 0)
       this.likesNumber--;
-  }
-
-  renderLikeButton() {
-    if (this.liked) {
-      this.root.addClass(this.ROOT_CLASS_LIKED);
-      this.icon.addClass(this.ICON_CLASS_LIKED);
-      this.input.addClass(this.INPUT_CLASS_LIKED);
-    }
-    else {
-      this.root.removeClass(this.ROOT_CLASS_LIKED);
-      this.icon.removeClass(this.ICON_CLASS_LIKED);
-      this.input.removeClass(this.INPUT_CLASS_LIKED);
-    }
-  }
-
-  changeNumber() {
-    this.input.val(this.likesNumber);
   }
 
 }

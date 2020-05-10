@@ -8,19 +8,25 @@ import Dropdown from "@blocks/drop-down/drop-down";
 
 class Page extends Component {
 
-  constructor() {
-    super();
+  constructor(root) {
+    super({root: root});
 
     this.setInitialState();
   }
 
   setInitialState() {
-    this.initRateButtons();
-    this.initLikeButtons();
-    this.initDateDropdown();
-    this.initFilterDateDropdown();
-    this.initDropdown();
+    //this.initRateButtons();
+    //this.initDateDropdown();
+    //this.initFilterDateDropdown();
+    //this.initDropdown();
     //this.initCalendar();
+  }
+
+  setChildren() {
+    this.children = [];
+    let likeButtons = this.initLikeButtons();
+
+    this.children = this.children.concat(likeButtons);
   }
 
   initRateButtons() {
@@ -40,7 +46,7 @@ class Page extends Component {
       likeButtons[index] = new LikeButton($(element));
     });
 
-    this.likeButtons = likeButtons;
+    return likeButtons;
   }
 
   initCalendar() {
@@ -85,5 +91,5 @@ class Page extends Component {
 
 }
 
-//let page = new Page;
-//console.log(page);
+let page = new Page($(document));
+console.log(page);
