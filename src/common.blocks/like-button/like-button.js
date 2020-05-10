@@ -41,6 +41,11 @@ export default class LikeButton extends Component {
       ICON: this.root.find(`.${this.CLASSES.ICON}`),
       INPUT: this.root.find(`.${this.CLASSES.INPUT}`)
     }
+
+    this.VOCABULARY = {
+      STAR: "favorite",
+      STAR_BORDER: "favorite_border"
+    }
   }
 
   setInitialState() {    
