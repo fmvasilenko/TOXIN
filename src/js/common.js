@@ -5,6 +5,7 @@ import LikeButton from "@blocks/like-button/like-button";
 import DateDropdown from "@blocks/date-dropdown/date-dropdown";
 import FilterDateDropdown from "@blocks/filter-date-dropdown/filter-date-dropdown";
 import Dropdown from "@blocks/drop-down/drop-down";
+import Suite from "@blocks/suite/suite";
 
 class Page extends Component {
 
@@ -26,10 +27,12 @@ class Page extends Component {
     let likeButtons = this.initLikeButtons();
     let rateButtons = this.initRateButtons();
     let dropDowns = this.initDropdown();
+    let suites = this.initSuite();
 
     this.children = this.children.concat(likeButtons);
     this.children = this.children.concat(rateButtons);
     this.children = this.children.concat(dropDowns);
+    this.children = this.children.concat(suites);
   }
 
   initRateButtons() {
@@ -90,6 +93,16 @@ class Page extends Component {
     });
 
     return dropdowns;
+  }
+
+  initSuite() {
+    let suites = []; 
+
+    $('.suite').each( function(index, element) {
+      suites[index] = new Suite($(element), this);
+    });
+
+    return suites;
   }
 
 }

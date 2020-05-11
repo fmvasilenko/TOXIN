@@ -53,6 +53,14 @@
       "votes": 145,
       "images": [
         {
+          "link": "/assets/img/suite_4.png",
+          "checked": true
+        },
+        {
+          "link": "/assets/img/suite_3.png",
+          "checked": true
+        },
+        {
           "link": "/assets/img/suite_2.png",
           "checked": true
         },
@@ -68,7 +76,15 @@
       "votes": 65,
       "images": [
         {
-          "link": "/assets/img/suite_1.png",
+          "link": "/assets/img/suite_5.png",
+          "checked": true
+        },
+        {
+          "link": "/assets/img/suite_4.png",
+          "checked": true
+        },
+        {
+          "link": "/assets/img/suite_3.png",
           "checked": true
         },
         {

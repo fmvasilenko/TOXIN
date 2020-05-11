@@ -11,6 +11,37 @@
     border-radius: 4px 4px 0 0;
   }
 
+  &__arrow {
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    z-index: 3;
+    top: 53px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #FFFFFF;
+    cursor: pointer;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+  }
+
+  &__left-arrow {
+    left: 0;
+    transform: rotate(90deg);
+  }
+
+  &__right-arrow {
+    right: 0;
+    transform: rotate(-90deg);
+  }
+
   &__dot {
     position: absolute;
     z-index: 3;
