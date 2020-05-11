@@ -9,5 +9,15 @@
     "clear": "Очистить",
     "submit": "Применить"
   },
-  "options": []
+  "options": [],
+  "clearButton": {
+    "value": "Очистить",
+    "style": "no-background-grey",
+    "type": "button"
+  },
+  "submitButton": {
+    "value": "Применить",
+    "style": "no-background",
+    "type": "button"
+  }
 }

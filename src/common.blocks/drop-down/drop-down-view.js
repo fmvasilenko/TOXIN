@@ -26,13 +26,18 @@ export default class DropdownView extends ComponentView {
       },
       optionWordForms: {},
       displayType: {},
-      optionsSum: {},
+      optionsSum: {
+        subscribers: [
+          this.renderClearButton.bind(this)
+        ]
+      },
       wordForm: {}
     }
   }
 
   setInitialState() {
     this.display();
+    this.renderClearButton();
   }
 
   toggleList() {
@@ -75,6 +80,17 @@ export default class DropdownView extends ComponentView {
     }.bind(this));
 
     this.DOM.INPUT.val(str);
+  }
+
+  renderClearButton() {
+    if (this.displayType !== "total") return false;
+
+    if (this.optionsSum > 0) {
+      this.DOM.CLEAR_BUTTON.removeClass(this.CLASSES.BUTTON_HIDDEN);
+    }
+    else {
+      this.DOM.CLEAR_BUTTON.addClass(this.CLASSES.BUTTON_HIDDEN);
+    }
   }
 
 }

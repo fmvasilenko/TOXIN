@@ -49,7 +49,10 @@ export default class Dropdown extends Component {
       ICON: "drop-down__expand-more",
       INPUT: "drop-down__field-input",
       LIST: "drop-down__list",
-      LIST_DROPPPED: "drop-down__list_drop"
+      LIST_DROPPPED: "drop-down__list_drop",
+      CLEAR_BUTTON: "js-drop-down__clear-button",
+      SUBMIT_BUTTON: "js-drop-down__submit-button",
+      BUTTON_HIDDEN: "button_hidden"
     }
   }
 
@@ -58,7 +61,9 @@ export default class Dropdown extends Component {
       FIELD: this.root.find(`.${this.CLASSES.FIELD}`),
       ICON: this.root.find(`.${this.CLASSES.ICON}`),
       INPUT: this.root.find(`.${this.CLASSES.INPUT}`),
-      LIST: this.root.find(`.${this.CLASSES.LIST}`)
+      LIST: this.root.find(`.${this.CLASSES.LIST}`),
+      CLEAR_BUTTON: this.root.find(`.${this.CLASSES.CLEAR_BUTTON}`).find("button"),
+      SUBMIT_BUTTON: this.root.find(`.${this.CLASSES.SUBMIT_BUTTON}`).find("button")
     }
   }
 
@@ -88,6 +93,12 @@ export default class Dropdown extends Component {
   clickHandler(event) {
     if (event.target.closest(`.${this.CLASSES.ICON}`) == this.DOM.ICON[0]) {
       this.expanded = !this.expanded;
+    }
+    else if (event.target.closest(`.${this.CLASSES.CLEAR_BUTTON}`) == this.DOM.CLEAR_BUTTON.parent()[0]) {
+      if (this.DOM.CLEAR_BUTTON[0] !== undefined) this.optionValues = this.optionValues.map( () => 0 );
+    }
+    else if (event.target.closest(`.${this.CLASSES.SUBMIT_BUTTON}`) == this.DOM.SUBMIT_BUTTON.parent()[0]) {
+      this.expanded = false;
     }
   }
 

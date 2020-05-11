@@ -12,16 +12,14 @@ export default class DropdownOptionModel extends ComponentModel {
 
   setState() {
     this.state = {
-      optionValues: {},
-      optionWordForms: {},
-      value: {
+      optionValues: {
         subscribers: [
           this.checkDecreaseButton.bind(this),
-          this.changeWordForm.bind(this),
-          this.changeOptionWordForm.bind(this),
-          this.changeOptionValue.bind(this)
+          //this.changeWordForm.bind(this),
+          //this.changeOptionWordForm.bind(this)
         ]
       },
+      optionWordForms: {},
       decreaseButtonDisabled: {}
     }
   }
@@ -30,11 +28,10 @@ export default class DropdownOptionModel extends ComponentModel {
     this.checkDecreaseButton();
     this.changeWordForm();
     this.changeOptionWordForm();
-    this.changeOptionValue();
   }
 
   checkDecreaseButton() {
-    if (this.value > 0) this.decreaseButtonDisabled = false;
+    if (this.optionValues[this.INDEX] > 0) this.decreaseButtonDisabled = false;
     else this.decreaseButtonDisabled = true;
   }
 
@@ -44,7 +41,7 @@ export default class DropdownOptionModel extends ComponentModel {
       return false;
     }
 
-    let n = this.value;
+    let n = this.optionValues[this.INDEX];
     n %= 100;
 
     if(n < 10 || n > 20) {
@@ -55,14 +52,8 @@ export default class DropdownOptionModel extends ComponentModel {
       else this.form = this.VOCABULARY.WORD_FORMS[2];
     }
     else this.form = this.VOCABULARY.WORD_FORMS[2];
-
+    
     return true;
-  }
-
-  changeOptionValue() {
-    let values = this.optionValues;
-    values[this.INDEX] = this.value;
-    this.optionValues = values;
   }
 
   changeOptionWordForm() {

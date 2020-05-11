@@ -5,6 +5,7 @@ export default class DropdownOptionView extends ComponentView {
   constructor(controller) {
     super(controller);
 
+    this.INDEX = this.CONTROLLER.INDEX;
     this.CLASSES = this.CONTROLLER.CLASSES;
     this.DOM = this.CONTROLLER.DOM;
     this.VOCABULARY = this.CONTROLLER.VOCABULARY;
@@ -12,7 +13,7 @@ export default class DropdownOptionView extends ComponentView {
 
   setState() {
     this.state = {
-      value: {
+      optionValues: {
         subscribers: [
           this.changeInput.bind(this)
         ]
@@ -26,7 +27,7 @@ export default class DropdownOptionView extends ComponentView {
   }
 
   changeInput() {
-    this.DOM.INPUT.val(this.value);
+    this.DOM.INPUT.val(this.optionValues[this.INDEX]);
   }
 
   toggleDecreaseButton() {

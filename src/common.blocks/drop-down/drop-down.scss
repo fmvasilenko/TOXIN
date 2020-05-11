@@ -146,7 +146,13 @@
   &__submit-area {
     display: flex;
     justify-content: space-between;
-  
+  }
+
+  &__button-wrapper {
     padding: 19px 0 9px 0;
+  }
+
+  &__button_hidden {
+    display: none;
   }
 }

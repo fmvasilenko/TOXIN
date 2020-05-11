@@ -25,12 +25,6 @@ export default class DropdownOption extends Component {
         value: [],
         isGlobal: true
       },
-      value: {
-        value: 0,
-        subscribers: [
-          
-        ]
-      },
       decreaseButtonDisabled: {
         value: false,
         subscribers: [
@@ -66,15 +60,21 @@ export default class DropdownOption extends Component {
   }
 
   setInitialState() {
-    this.value = this.DOM.INPUT.val() ? parseInt(this.DOM.INPUT.val()) : 0;
+    this.optionValues[this.INDEX] = this.DOM.INPUT.val() ? parseInt(this.DOM.INPUT.val()) : 0;
   }
 
   clickHandler(event) {
     if (event.target.closest(`.${this.CLASSES.INCREASE_BUTTON}`) == this.DOM.INCREASE_BUTTON[0]){
-      this.value++;
+      let optionValues = this.optionValues;
+      optionValues[this.INDEX]++;
+      this.optionValues = optionValues;
     }
     else if (event.target.closest(`.${this.CLASSES.DECREASE_BUTTON}`) == this.DOM.DECREASE_BUTTON[0]){
-      if (this.value > 0) this.value--;
+      if (this.optionValues[this.INDEX] > 0) {
+        let optionValues = this.optionValues;
+        optionValues[this.INDEX]--;
+        this.optionValues = optionValues;
+      }
     }
   }
 
