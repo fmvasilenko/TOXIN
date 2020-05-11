@@ -3,10 +3,9 @@ import Calendar from "@blocks/calendar/calendar";
 
 export default class FilterDateDropdown extends Component {
 
-  constructor(rootElement, parentState = {}) {
-    super(parentState);
+  constructor(rootElement, parent = {}) {
+    super({root: rootElement, parent: parent});
 
-    this.root = rootElement;
     this.setConsts();
     this.setChildren();
     this.setInitialState();

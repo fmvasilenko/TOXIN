@@ -51,4 +51,12 @@ export default class ComponentModel {
     }
   }
 
+  runSubscribers(parameter = {}) {
+    if (parameter.subscribers !== undefined) {
+      parameter.subscribers.forEach( subscriber => {
+        subscriber();
+      });
+    }
+  }
+
 }

@@ -3,9 +3,8 @@ import Component from "@frontend/component";
 export default class Calendar extends Component {
 
   constructor(rootElement, parent = {}) {
-    super(parent);
+    super({root: rootElement, parent: parent});
 
-    this.root = rootElement;
     this.setConsts();
     this.setInitialState();
     this.bindEventListeners();

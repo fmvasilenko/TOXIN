@@ -4,9 +4,9 @@ import Calendar from "@blocks/calendar/calendar";
 export default class DateDropdown extends Component {
 
   constructor(rootElement, parent = {}) {
-    super(parent);
+    super({root: rootElement, parent: parent});
 
-    this.root = rootElement;
+    //this.root = rootElement;
     this.setConsts();
     this.setChildren();
     this.setInitialState();

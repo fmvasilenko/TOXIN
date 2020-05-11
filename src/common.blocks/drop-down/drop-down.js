@@ -1,50 +1,47 @@
 import Component from "@frontend/component";
-import DropdownOption from "./drop-down__option";
+import DropdownModel from "./drop-down-model";
+import DropdownView from "./drop-down-view";
+import DropdownOption from "./__option/drop-down__option";
+import DropdownOptionModel from "./__option/drop-down__option-model";
 
 export default class Dropdown extends Component {
 
-  constructor(rootElement, parent = {}) {
-    super(parent);
+  constructor(root, parent) {
+    super({root: root, parent: parent});
 
-    this.root = rootElement;
     this.setConsts();
     this.setInitialState();
-    this.setChildren();
-    this.bindEventListeners();
+    this.MODEL = new DropdownModel(this);
+    this.VIEW = new DropdownView(this);
   }
 
   setState() {
     this.state = {
       optionValues: {
-        value: [],
-        subscribers: [
-          this.calcSum.bind(this),
-          this.display.bind(this)
-        ]
+        value: []
       },
       optionWordForms: {
         value: []
       },
       expanded: {
         value: false,
-        subscribers: [
-          this.toggleList.bind(this),
-          this.changeFieldStyle.bind(this)
-        ]
       },
       displayType: {
         value: "total"
       },
       optionsSum: {
         value: 0,
-        subscribers: [
-          this.changeWordForm.bind(this)
-        ]
-      }
+      },
+      wordForm: {}
     }
   }
 
   setConsts() {
+    this.setDOM();
+    this.setVocabulary();    
+  }
+
+  setClasses() {
     this.CLASSES = {
       OPTION: "drop-down__option",
       FIELD: "drop-down__field",
@@ -56,6 +53,29 @@ export default class Dropdown extends Component {
     }
   }
 
+  setDOM() {
+    this.DOM = {
+      FIELD: this.root.find(`.${this.CLASSES.FIELD}`),
+      ICON: this.root.find(`.${this.CLASSES.ICON}`),
+      INPUT: this.root.find(`.${this.CLASSES.INPUT}`),
+      LIST: this.root.find(`.${this.CLASSES.LIST}`)
+    }
+  }
+
+  setVocabulary() {
+    let forms = this.DOM.INPUT.attr("forms") ? this.DOM.INPUT.attr("forms") : null;
+    forms = forms ? forms.split(",") : null;
+
+    this.VOCABULARY = {
+      WORD_FORMS: forms,
+      DEFAULT_VALUE: this.DOM.INPUT.val()
+    }
+  }
+
+  setInitialState() {
+    this.displayType = this.root.attr("display_type") ? this.root.attr("display_type") : "total";
+  }
+
   setChildren() {
     this.children = [];
     let options = this.root.find(`.${this.CLASSES.OPTION}`);
@@ -65,99 +85,10 @@ export default class Dropdown extends Component {
     }.bind(this));
   }
 
-  setInitialState() {
-    this.field = this.root.find(`.${this.CLASSES.FIELD}`);
-    this.icon = this.root.find(`.${this.CLASSES.ICON}`);
-    this.input = this.root.find(`.${this.CLASSES.INPUT}`);
-    this.list = this.root.find(`.${this.CLASSES.LIST}`);
-
-    this.displayType = this.root.attr("display_type") ? this.root.attr("display_type") : "total";
-    this.forms = this.input.attr("forms") ? this.input.attr("forms") : null;
-    this.forms = this.forms ? this.forms.split(",") : null;
-    this.defaultInputValue = this.input.val();
-  }
-
-  bindEventListeners() {
-    this.icon.click(this.iconClickHandler.bind(this));
-  }
-
-  iconClickHandler() {
-    this.expanded = !this.expanded;
-  }
-
-  display() {
-    switch (this.displayType) {
-      case "total": {
-        this.displayTotal();
-        break;
-      }
-      case "values": {
-        this.displayValues();
-        break;
-      }
+  clickHandler(event) {
+    if (event.target.closest(`.${this.CLASSES.ICON}`) == this.DOM.ICON[0]) {
+      this.expanded = !this.expanded;
     }
   }
 
-  displayTotal() {
-    if (this.optionsSum) this.input.val(`${this.optionsSum} ${this.form}`);
-    else this.input.val(this.defaultInputValue);
-  }
-
-  displayValues() {
-    let str = "";
-
-    this.optionValues.forEach( function(value, index) {
-      if (value > 0) {
-        str += str !== "" ? ", " : "";
-        str += `${value} ${this.optionWordForms[index]}`;
-      }
-    }.bind(this));
-
-    this.input.val(str);
-  }
-
-  calcSum() {
-    if (this.optionValues.length)
-      this.optionsSum = this.optionValues.reduce((sum, value) => sum + value);
-    else this.optionsSum = 0;
-  }
-
-  toggleList() {
-    if (this.expanded) {
-      this.list.addClass(this.CLASSES.LIST_DROPPPED);
-    }
-    else {
-      this.list.removeClass(this.CLASSES.LIST_DROPPPED);
-    }
-  }
-
-  changeFieldStyle() {
-    if (this.expanded) {
-      this.field.addClass(this.CLASSES.FIELD_DROPPED);
-    }
-    else {
-      this.field.removeClass(this.CLASSES.FIELD_DROPPED);
-    }
-  }
-
-  changeWordForm() {
-    if (!this.forms) {
-      this.form = null;
-      return false;
-    }
-
-    let n = this.optionsSum;
-    n %= 100;
-
-    if(n < 10 || n > 20) {
-      n %= 10;
-
-      if(n == 1) this.form = this.forms[0];
-      else if (n > 1 && n < 5) this.form = this.forms[1];
-      else this.form = this.forms[2];
-    }
-    else this.form = this.forms[2];
-
-    return true;
-  }
 }

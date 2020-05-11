@@ -9,6 +9,7 @@ export default class Component {
     this.checkComponentRoot();
 
     if (this.PARENT) this.mergeStates(this.state, this.PARENT.state);
+    this.setClasses();
     this.setChildren();
     this.componentBindEventListeners();
   }
@@ -19,6 +20,10 @@ export default class Component {
 
   setChildren() {
     this.children = [];
+  }
+
+  setClasses() {
+    this.CLASSES = {}
   }
 
   mergeStates(state1 = {}, state2 = {}) {

@@ -15,8 +15,8 @@ class Page extends Component {
   }
 
   setInitialState() {
-    //this.initDateDropdown();
-    //this.initFilterDateDropdown();
+    this.initDateDropdown();
+    this.initFilterDateDropdown();
     //this.initDropdown();
     //this.initCalendar();
   }
@@ -25,9 +25,11 @@ class Page extends Component {
     this.children = [];
     let likeButtons = this.initLikeButtons();
     let rateButtons = this.initRateButtons();
+    let dropDowns = this.initDropdown();
 
     this.children = this.children.concat(likeButtons);
     this.children = this.children.concat(rateButtons);
+    this.children = this.children.concat(dropDowns);
   }
 
   initRateButtons() {
@@ -64,7 +66,7 @@ class Page extends Component {
     let dateDropdowns = []; 
 
     $('.date-dropdown').each( function(index, element) {
-      dateDropdowns[index] = new DateDropdown($(element));
+      dateDropdowns[index] = new DateDropdown($(element), this);
     });
 
     this.dateDropdowns = dateDropdowns;
@@ -74,7 +76,7 @@ class Page extends Component {
     let filterDateDropdowns = []; 
 
     $('.filter-date-dropdown').each( function(index, element) {
-      filterDateDropdowns[index] = new FilterDateDropdown($(element));
+      filterDateDropdowns[index] = new FilterDateDropdown($(element), this);
     });
 
     this.filterDateDropdowns = filterDateDropdowns;
@@ -84,10 +86,10 @@ class Page extends Component {
     let dropdowns = []; 
 
     $('.drop-down').each( function(index, element) {
-      dropdowns[index] = new Dropdown($(element));
+      dropdowns[index] = new Dropdown($(element), this);
     });
 
-    this.dropdowns = dropdowns;
+    return dropdowns;
   }
 
 }

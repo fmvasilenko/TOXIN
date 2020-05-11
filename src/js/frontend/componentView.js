@@ -5,6 +5,7 @@ export default class ComponentView {
     this.initGetSet();
     this.CONTROLLER = controller;
     this.root = this.CONTROLLER.root;
+    this.componentRoot = this.CONTROLLER.componentRoot;
     this.state = this.mergeStates(this.state, this.CONTROLLER.state);
   }
 
