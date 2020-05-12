@@ -1,4 +1,5 @@
 import Component from "@frontend/component";
+import RateButton from "@blocks/rate-button/rate-button";
 
 export default class Suite extends Component {
 
@@ -18,6 +19,12 @@ export default class Suite extends Component {
         ]
       }
     }
+  }
+
+  setChildren() {
+    this.children = [
+      new RateButton(this.root.find(".rate-button"), this)
+    ]
   }
 
   setConsts() {
