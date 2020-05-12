@@ -9,6 +9,7 @@ import LikeButton from "@blocks/like-button/like-button";
 import DateDropdown from "@blocks/date-dropdown/date-dropdown";
 import FilterDateDropdown from "@blocks/filter-date-dropdown/filter-date-dropdown";
 import Dropdown from "@blocks/drop-down/drop-down";
+import ExpandableCheckboxList from "@blocks/expandable-checkbox-list/expandable-checkbox-list";
 
 class FormElements extends Component {
 
@@ -23,12 +24,14 @@ class FormElements extends Component {
     let dropDowns = this.initDropdown();
     let dateDropdowns = this.initDateDropdown();
     let filterDateDropdowns = this.initFilterDateDropdown();
+    let expandableCheckboxLists = this.initExpandableCheckboxList();
 
     this.children = this.children.concat(likeButtons);
     this.children = this.children.concat(rateButtons);
     this.children = this.children.concat(dropDowns);
     this.children = this.children.concat(dateDropdowns);
     this.children = this.children.concat(filterDateDropdowns);
+    this.children = this.children.concat(expandableCheckboxLists);
   }
 
   initRateButtons() {
@@ -79,6 +82,16 @@ class FormElements extends Component {
     });
 
     return dropdowns;
+  }
+
+  initExpandableCheckboxList() {
+    let ExpandableCheckboxLists = []; 
+
+    $('.expandable-checkbox-list').each( function(index, element) {
+      ExpandableCheckboxLists[index] = new ExpandableCheckboxList($(element), this);
+    });
+
+    return ExpandableCheckboxLists;
   }
 
 }
