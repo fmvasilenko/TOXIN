@@ -21,7 +21,8 @@ module.exports = {
   },
   entry: {
     app: PATHS.src,
-    cards: `${PATHS.src}/pages/cards/cards.js`
+    cards: `${PATHS.src}/pages/cards/cards.js`,
+    formElements: `${PATHS.src}/pages/form_elements/form_elements.js`
   },
   output: {
     filename: `${PATHS.assets}js/[name].js`,

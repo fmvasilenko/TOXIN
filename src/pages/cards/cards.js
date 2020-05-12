@@ -39,4 +39,3 @@ class Cards extends Component {
 }
 
 let cards = new Cards();
-console.log(cards);

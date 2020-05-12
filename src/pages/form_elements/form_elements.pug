@@ -5,6 +5,12 @@ block variables
   - var description = 'Description for Webpack + Pug';
   - var pageClass = 'index-page';
 
+block styles
+  link(rel="stylesheet" href="/assets/css/formElements.css")
+
+block scripts
+  script(type="text/javascript" src="/assets/js/formElements.js")
+
 include ../../common.blocks/logo/logo.pug 
 include ../../common.blocks/text-field/text-field.pug 
 include ../../common.blocks/drop-down/drop-down.pug 
