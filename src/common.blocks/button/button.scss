@@ -22,6 +22,10 @@
 
   cursor: pointer;
 
+  &:hover {
+    opacity: 0.5;
+  }
+
   &:disabled {
     opacity: 0.5;
     cursor: default;
@@ -33,6 +37,7 @@
     border: 2px solid $mainColor;
     padding: 0 18px;
 
+    &:hover,
     &:disabled {
       opacity: 1;
       border-color: $mainColor50;
@@ -52,6 +57,7 @@
   
     color: $mainColor;
 
+    &:hover,
     &:disabled {
       color: $darkShade50;
     }

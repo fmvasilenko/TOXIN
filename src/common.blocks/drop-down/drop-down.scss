@@ -5,6 +5,12 @@
   flex-direction: column;
   justify-content: space-between;
 
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
   &__title {
     margin-bottom: 5px;
   }
@@ -22,6 +28,10 @@
     background: #FFFFFF;
     border: 1px solid $darkShade25;
     border-radius: 4px;
+
+    &:hover {
+      border-color: $darkShade50;
+    }
 
     &_drop {
       border-radius: 4px 4px 0 0;
