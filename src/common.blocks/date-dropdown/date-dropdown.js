@@ -17,12 +17,14 @@ export default class DateDropdown extends Component {
     this.state = {
       arrivalDate: {
         value: null,
+        isGlobal: true,
         subscribers: [
           this.displayArrivalDate.bind(this)
         ]
       },
       leavingDate: {
         value: null,
+        isGlobal: true,
         subscribers: [
           this.displayLeavingDate.bind(this)
         ]

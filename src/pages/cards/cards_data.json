@@ -6,10 +6,10 @@
     "total_price": "38 081",
     "dates_parameters": {
       "dropdown1": {
-        "value": ""
+        "value": "2020-05-20"
       },
       "dropdown2": {
-        "value": ""
+        "value": "2020-05-25"
       }
     },
     "guests_parameters": {
@@ -38,11 +38,13 @@
       },
       {
         "title": "Сбор за услуги: скидка 2 179₽",
-        "price": "0"
+        "price": "0",
+        "hasIcon": true
       },
       {
         "title": "Сбор за дополнительные услуги",
-        "price": "300"
+        "price": "300",
+        "hasIcon": true
       }
     ]
   },
