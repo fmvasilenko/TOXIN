@@ -20,7 +20,8 @@ module.exports = {
     paths: PATHS
   },
   entry: {
-    app: PATHS.src
+    app: PATHS.src,
+    cards: `${PATHS.src}/pages/cards/cards.js`
   },
   output: {
     filename: `${PATHS.assets}js/[name].js`,
@@ -94,7 +95,8 @@ module.exports = {
     }),
     ...PAGES.map(page => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}/${page}.pug`,
-      filename: `./${page}.html`
+      filename: `./${page}.html`,
+      inject: false
     }))
   ]
 };

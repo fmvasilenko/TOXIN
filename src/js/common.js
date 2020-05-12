@@ -31,7 +31,7 @@ class Page extends Component {
 
     this.children = this.children.concat(likeButtons);
     this.children = this.children.concat(rateButtons);
-    this.children = this.children.concat(dropDowns);
+    //this.children = this.children.concat(dropDowns);
     this.children = this.children.concat(suites);
   }
 

@@ -7,14 +7,9 @@ html(lang='en')
     meta(charset='utf-8')
     title #{title}
     meta(name="description", content=description)
-    //script(type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js")
-    //<script src="//ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
-    //<link rel="stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css">
-    //link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+    block styles
 
   body(class=pageClass)
-
-    //include ../../img/svg/icons.svg
 
     block header
 
@@ -22,3 +17,5 @@ html(lang='en')
       block content
 
     block footer
+
+    block scripts

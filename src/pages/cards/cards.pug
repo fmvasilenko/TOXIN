@@ -13,6 +13,12 @@ block variables
   - var description = 'Description for Webpack + Pug';
   - var pageClass = 'index-page';
 
+block styles
+  link(rel="stylesheet" href="/assets/css/cards.css")
+
+block scripts
+  script(type="text/javascript" src="/assets/js/cards.js")
+
 block content
   - var data = require("./cards_data.json");
 
