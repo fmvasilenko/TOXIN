@@ -1,5 +1,11 @@
 extends ../../pug/layout/landing 
 
+block styles
+  link(rel="stylesheet" href="/assets/css/app.css")
+
+block scripts
+  script(type="text/javascript" src="/assets/js/landing.js")
+
 include ../../common.blocks/header/header.pug
 include ../../common.blocks/footer/footer.pug 
 include ../../common.blocks/search-form/search-form.pug

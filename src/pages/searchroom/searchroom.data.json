@@ -4,6 +4,9 @@
       "suiteNumber": "888",
       "price": "9 990",
       "votes": "145",
+      "rating": {
+        "value": 5
+      },
       "images": [
         {
           "link": "/assets/img/suite_1.png"
@@ -14,6 +17,9 @@
       "suiteNumber": "840",
       "price": "9 990",
       "votes": "65",
+      "rating": {
+        "value": 4
+      },
       "images": [
         {
           "link": "/assets/img/suite_2.png"
@@ -24,6 +30,9 @@
       "suiteNumber": "980",
       "price": "8 500",
       "votes": "35",
+      "rating": {
+        "value": 3
+      },
       "images": [
         {
           "link": "/assets/img/suite_3.png"
@@ -34,6 +43,9 @@
       "suiteNumber": "856",
       "price": "7 300",
       "votes": "19",
+      "rating": {
+        "value": 5
+      },
       "images": [
         {
           "link": "/assets/img/suite_4.png"
@@ -44,6 +56,9 @@
       "suiteNumber": "740",
       "price": "6 000",
       "votes": "44",
+      "rating": {
+        "value": 4
+      },
       "images": [
         {
           "link": "/assets/img/suite_5.png"
@@ -54,6 +69,9 @@
       "suiteNumber": "982",
       "price": "5 800",
       "votes": "56",
+      "rating": {
+        "value": 3
+      },
       "images": [
         {
           "link": "/assets/img/suite_6.png"
@@ -64,6 +82,9 @@
       "suiteNumber": "678",
       "price": "5 500",
       "votes": "45",
+      "rating": {
+        "value": 5
+      },
       "images": [
         {
           "link": "/assets/img/suite_7.png"
@@ -74,6 +95,9 @@
       "suiteNumber": "450",
       "price": "5 300",
       "votes": "39",
+      "rating": {
+        "value": 4
+      },
       "images": [
         {
           "link": "/assets/img/suite_8.png"
@@ -84,6 +108,9 @@
       "suiteNumber": "350",
       "price": "5 000",
       "votes": "77",
+      "rating": {
+        "value": 3
+      },
       "images": [
         {
           "link": "/assets/img/suite_9.png"
@@ -94,6 +121,9 @@
       "suiteNumber": "665",
       "price": "5 000",
       "votes": "25",
+      "rating": {
+        "value": 5
+      },
       "images": [
         {
           "link": "/assets/img/suite_10.png"
@@ -104,6 +134,9 @@
       "suiteNumber": "444",
       "price": "5 000",
       "votes": "15",
+      "rating": {
+        "value": 4
+      },
       "images": [
         {
           "link": "/assets/img/suite_11.png"
@@ -114,6 +147,9 @@
       "suiteNumber": "352",
       "price": "5 000",
       "votes": "55",
+      "rating": {
+        "value": 3
+      },
       "images": [
         {
           "link": "/assets/img/suite_12.png"

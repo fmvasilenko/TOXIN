@@ -1,5 +1,11 @@
 extends ../../pug/layout/withsidebar
 
+block styles
+  link(rel="stylesheet" href="/assets/css/searchroom.css")
+
+block scripts
+  script(type="text/javascript" src="/assets/js/searchroom.js")
+
 include ../../common.blocks/header/header.pug
 include ../../common.blocks/footer/footer.pug 
 include ../../common.blocks/sidebar/sidebar.pug 
