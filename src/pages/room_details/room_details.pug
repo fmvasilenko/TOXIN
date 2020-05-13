@@ -1,0 +1,65 @@
+extends ../../pug/layout/landing 
+
+include ../../common.blocks/header/header 
+include ../../common.blocks/footer/footer 
+include ../../common.blocks/receipt/receipt 
+include ../../common.blocks/benefit/benefit 
+include ../../common.blocks/feedback/feedback 
+include ../../common.blocks/bullet/bullet 
+
+block variables
+  - var title = 'Room details';
+  - var description = 'Room details';
+  - var pageClass = '';
+
+block styles
+  link(rel="stylesheet" href="/assets/css/roomDetails.css")
+
+block scripts
+  script(type="text/javascript" src="/assets/js/roomDetails.js")
+
+block header
+  +header()
+
+block footer
+  +footer()
+
+block content
+  - var data = require("./room_details.data.json");
+
+  .room-details
+    .room-details__gallery
+      .room-details__cover-wrapper
+        img.room-details__cover-image(src=data.gallery.coverPhoto)
+      .room-details__mini-images
+        .room-details__mini-image-wrapper
+          img.room-details__mini-image(src=data.gallery.miniImages[0])
+        .room-details__mini-image-wrapper
+          img.room-details__mini-image(src=data.gallery.miniImages[1])
+
+    .room-details__description
+      .room-details__content
+        .room-details__information
+          h2.room-detail__information-title #{data.information.title}
+          each benefit in data.information.benefits
+            +benefit(benefit)
+
+        .room-details__feedbacks
+          h2.room-details__feedback-title #{data.feedbacks.title}
+          each feedback in data.feedbacks.items
+            .room-details__feedback
+              +feedback(feedback)
+
+        .room-details__rools
+          .room-details__bullets
+            h2.room-details__bullets-title #{data.bullets.title}
+            each bullet in data.bullets.items
+              .room-details__bullet
+                +bullet(bullet)
+
+          .room-details__cancellation
+            h2.room-details__cancellation-title #{data.cancellation.title}
+            p.room-details__cancellation-description #{data.cancellation.description}
+      
+      .room-details__sidebar
+        +receipt(data.receipt)

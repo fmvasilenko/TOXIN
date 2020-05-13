@@ -1,0 +1,125 @@
+{
+  "gallery": {
+    "coverPhoto": "/assets/img/suite_1.png",
+    "miniImages": [
+      "/assets/img/suite_1.1.png",
+      "/assets/img/suite_1.2.png"
+    ]
+  },
+  "information": {
+    "title": "Сведения о номере",
+    "benefits": [
+      {
+        "title": "Комфорт",
+        "description": "Шумопоглощающие стены",
+        "icon": "insert_emoticon"
+      },
+      {
+        "title": "Удобство",
+        "description": "Окно в каждой из спален",
+        "icon": "location_city"
+      },
+      {
+        "title": "Уют",
+        "description": "Номер оснащен камином",
+        "icon": "whatshot"
+      }
+    ]
+  },
+  "feedbacks": {
+    "title": "Отзывы посетителей номера",
+    "items": [
+      {
+        "name": "Мурад Сарафанов",
+        "img": {
+          "src": "/assets/img/feedback-image.png"
+        },
+        "likeButton": {
+          "value": 12,
+          "checked": true
+        },
+        "lastSeen": "5 дней назад",
+        "text": "Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей."
+      },
+      {
+        "name": "Патрисия Стёклышкова",
+        "img": {
+          "src": "/assets/img/feedback-image-2.png"
+        },
+        "likeButton": {
+          "value": 2,
+          "checked": false
+        },
+        "lastSeen": "Неделю назад",
+        "text": "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент"
+      }
+    ]
+  },
+  "bullets": {
+    "title": "Правила",
+    "items": [
+      {
+        "value": "Нельзя с питомцами"
+      },
+      {
+        "value": "Без вечеринок и мероприятий"
+      },
+      {
+        "value": "Время прибытия — после 13:00, а выезд до 12:00"
+      }
+    ]
+  },
+  "cancellation": {
+    "title": "Отмена",
+    "description": "Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги."
+  },
+  "receipt": {
+    "suite_number": "888",
+    "is_luxury": true,
+    "price_per_period": "9 990",
+    "total_price": "38 081",
+    "dates_parameters": {
+      "dropdown1": {
+        "value": "2020-05-20"
+      },
+      "dropdown2": {
+        "value": "2020-05-25"
+      }
+    },
+    "guests_parameters": {
+      "options": [
+        {
+          "label": "Взрослые", 
+          "name": "adults",
+          "value": 2
+        }, 
+        {
+          "label": "Дети", 
+          "name": "kids",
+          "value": 2
+        }, 
+        {
+          "label": "Младенцы", 
+          "name": "babies",
+          "value": 0
+        }
+      ]
+    },
+    "costs": [
+      {
+        "title": "9 990₽ х 4 суток",
+        "price": "39 960"
+      },
+      {
+        "title": "Сбор за услуги: скидка 2 179₽",
+        "price": "0",
+        "hasIcon": true
+      },
+      {
+        "title": "Сбор за дополнительные услуги",
+        "price": "300",
+        "hasIcon": true
+      }
+    ]
+  }
+}
