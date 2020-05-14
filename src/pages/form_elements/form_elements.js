@@ -1,9 +1,9 @@
-import 'jquery';
-import 'jquery-ui';
-import 'jquery-ui/ui/widgets/slider';
-import 'jquery-ui-touch-punch';
-import 'jquery-ui/themes/base/slider.css';
-import '../../scss/main.scss';
+import "jquery";
+import "jquery-ui";
+import "jquery-ui/ui/widgets/slider";
+import "jquery-ui-touch-punch";
+import "jquery-ui/themes/base/slider.css";
+import "../../scss/main.scss";
 
 import Component from "@frontend/component";
 import RateButton from "@blocks/rate-button/rate-button";

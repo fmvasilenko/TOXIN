@@ -1,4 +1,3 @@
-@import "utils/libs";
 @import "utils/vars";
 @import "utils/mixins";
 @import "utils/fonts";
@@ -35,19 +34,21 @@ body {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6, p { margin: 0; }
+h1, h2, h3, h4, h5, h6, p { 
+  margin: 0; 
+}
 
-a { text-decoration: none; }
+a { 
+  text-decoration: none; 
+}
 
 ul, li {
   list-style-type: none;
   margin: 0;
 }
 
-
 h1 {
   font-family: $titleFontFamily;
-  font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 30px;
@@ -56,7 +57,6 @@ h1 {
 
 h2 {
   font-family: $titleFontFamily;
-  font-style: normal;
   font-weight: bold;
   font-size: 19px;
   line-height: 24px;
@@ -65,7 +65,6 @@ h2 {
 
 h3 {
   font-family: $textFontFamily;
-  font-style: normal;
   font-weight: bold;
   font-size: 12px;
   line-height: 15px;
@@ -89,34 +88,21 @@ h3 {
   -webkit-font-smoothing: antialiased;
 }
 
-@import "./modules/wrapper";
+//common.blocks
 @import "../common.blocks/text-field/text-field.scss";
 @import "../common.blocks/drop-down/drop-down.scss";
 @import "../common.blocks/checkbox-button/checkbox-button.scss";
 @import "../common.blocks/radio-button/radio-button.scss";
-
-.radio-buttons {
-  display: flex;
-  justify-content: flex-start;
-  
-  width: 266px;
-  height: 30px;
-}
-
 @import "../common.blocks/checkbox-button-rich/checkbox-button-rich.scss";
 @import "../common.blocks/toggle/toggle.scss";
-
 @import "../common.blocks/button/button.scss";
-
 @import "../common.blocks/expandable-checkbox-list/expandable-checkbox-list.scss";
-
 @import "../common.blocks/like-button/like-button.scss";
 @import "../common.blocks/rate-button/rate-button.scss";
 @import "../common.blocks/subscription-text-field/subscription-text-field.scss";
 @import "../common.blocks/masked-text-field/masked-text-field.scss";
 @import "../common.blocks/date-dropdown/date-dropdown.scss";
 @import "../common.blocks/registration/registration.scss";
-
 @import "../common.blocks/pagination/pagination.scss";
 @import "../common.blocks/bullet/bullet.scss";
 @import "../common.blocks/benefit/benefit.scss";
@@ -145,3 +131,15 @@ h3 {
 @import "../pages/login/login.scss";
 @import "../pages/searchroom/searchroom.scss";
 @import "../pages/room_details/room_details.scss";
+
+
+
+@import "./modules/wrapper";
+
+/*.radio-buttons {
+  display: flex;
+  justify-content: flex-start;
+  
+  width: 266px;
+  height: 30px;
+}*/

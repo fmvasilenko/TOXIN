@@ -1,0 +1,23 @@
+block variables
+  - let pageTitle
+  - let pageDescription
+  - let pageKeyWords
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title #{pageTitle}
+    meta(name="description" content= pageDescription)
+    meta(name="keywords" content= pageKeyWords)
+    block styles
+
+  body
+
+    block header
+
+    block content
+
+    block footer
+
+    block scripts

@@ -1,15 +1,4 @@
-extends ../../pug/layout/main
-
-block variables
-  - var title = 'Form Elements';
-  - var description = 'Description for Webpack + Pug';
-  - var pageClass = 'index-page';
-
-block styles
-  link(rel="stylesheet" href="/assets/css/formElements.css")
-
-block scripts
-  script(type="text/javascript" src="/assets/js/formElements.js")
+extends ../../layouts/landing
 
 include ../../common.blocks/logo/logo.pug 
 include ../../common.blocks/text-field/text-field.pug 
@@ -33,6 +22,18 @@ include ../../common.blocks/button/button.pug
 include ../../common.blocks/pagination/pagination.pug
 include ../../common.blocks/bullet/bullet.pug 
 include ../../common.blocks/feedback/feedback.pug
+
+
+block variables
+  - let pageTitle = 'Form Elements';
+  - let pageDescription = 'Form Elements';
+
+block styles
+  link(rel="stylesheet" href="/assets/css/formElements.css")
+
+block scripts
+  script(type="text/javascript" src="/assets/js/formElements.js")
+
 
 block content
   - let data = require('./form_elements.data.json');

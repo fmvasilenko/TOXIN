@@ -1,31 +1,27 @@
-extends ../../pug/layout/landing 
-
-block styles
-  link(rel="stylesheet" href="/assets/css/app.css")
+extends ../../layouts/landing 
 
 include ../../common.blocks/header/header.pug
 include ../../common.blocks/footer/footer.pug
 include ../../common.blocks/login/login.pug  
 
-
 block variables
-  - var title = 'Registration';
-  - var description = 'Description for Webpack + Pug';
-  - var pageClass = 'index-page';
+  - let pageTitle = 'Вход';
+  - let pageDescription = 'Вход';
+  - let data = require("./login.data.json");
+
+block styles
+  link(rel="stylesheet" href="/assets/css/app.css")
 
 block header
   +header()
 
-block content
-  - var data = require("./login.data.json");
+block footer
+  +footer()
 
+block content
   .login__background
     .login__wrapper
       .login__login-form
         +login()
         
-      
       p.registration__description #{data.description}
-
-block footer
-  +footer()

@@ -22,6 +22,8 @@
   :-ms-input-placeholder      {@content}
 }
 
+
+//remove
 @mixin icons_mixin($path) {
   .favorite div {
     clip-path: url($path + '#heart')
