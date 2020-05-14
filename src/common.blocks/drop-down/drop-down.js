@@ -2,7 +2,6 @@ import Component from "@frontend/component";
 import DropdownModel from "./drop-down-model";
 import DropdownView from "./drop-down-view";
 import DropdownOption from "./__option/drop-down__option";
-import DropdownOptionModel from "./__option/drop-down__option-model";
 
 export default class Dropdown extends Component {
 
@@ -34,6 +33,12 @@ export default class Dropdown extends Component {
       },
       wordForm: {}
     }
+  }
+
+  setClosers() {
+    this.closers = [
+      this.closeList.bind(this)
+    ]
   }
 
   setConsts() {
@@ -100,6 +105,10 @@ export default class Dropdown extends Component {
     else if (event.target.closest(`.${this.CLASSES.SUBMIT_BUTTON}`) == this.DOM.SUBMIT_BUTTON.parent()[0]) {
       this.expanded = false;
     }
+  }
+
+  closeList() {
+    this.expanded = false;
   }
 
 }

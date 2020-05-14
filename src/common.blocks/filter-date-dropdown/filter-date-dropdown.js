@@ -35,6 +35,12 @@ export default class FilterDateDropdown extends Component {
     }
   }
 
+  setClosers() {
+    this.closers = [
+      this.closeCalendar.bind(this)
+    ]
+  }
+
   setConsts() {
     this.CLASSES = {
       INPUT: "filter-date-dropdown__input",
@@ -134,6 +140,10 @@ export default class FilterDateDropdown extends Component {
     else str += "__";
 
     this.input.val(str);
+  }
+
+  closeCalendar() {
+    this.calendarDisplayed = false;
   }
 
 }

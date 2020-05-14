@@ -11,6 +11,8 @@ export default class Component {
     if (this.PARENT) this.mergeStates(this.state, this.PARENT.state);
     this.setClasses();
     this.setChildren();
+    this.setClosers();
+    this.setChildrenClosers();
     this.componentBindEventListeners();
   }
 
@@ -24,6 +26,21 @@ export default class Component {
 
   setClasses() {
     this.CLASSES = {}
+  }
+
+  setClosers() {
+    this.closers = []
+  }
+
+  setChildrenClosers() {
+    let childrenClosers = [];
+
+    this.children.forEach( function(child) {
+      childrenClosers = childrenClosers.concat(child.closers);
+      childrenClosers = childrenClosers.concat(child.childrenClosers);
+    });
+
+    this.childrenClosers = childrenClosers;
   }
 
   mergeStates(state1 = {}, state2 = {}) {
@@ -44,6 +61,10 @@ export default class Component {
     }
 
     return state1;
+  }
+
+  mergeClosers(closers1 = [], closers2 = []) {
+    return closers1.concat(closers2);
   }
 
   mergeSubscribers(parameter1 = {}, parameter2 = {}) {
@@ -88,7 +109,9 @@ export default class Component {
     this.children.forEach( function(child) {
       if (this.isChildsEvent(event, child)) {
         child.clickController(event);
-        return;
+      }
+      else {
+        child.runClosers();
       }
     }.bind(this));
 
@@ -96,6 +119,16 @@ export default class Component {
   }
 
   clickHandler(event) {}
+
+  runClosers() {
+    this.closers.forEach(closer => {
+      closer();
+    });
+
+    this.childrenClosers.forEach(closer => {
+      closer();
+    })
+  }
 
   isJQueryObject(element) {
     return element instanceof jQuery;

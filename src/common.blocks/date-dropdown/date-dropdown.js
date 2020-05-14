@@ -38,6 +38,12 @@ export default class DateDropdown extends Component {
     }
   }
 
+  setClosers() {
+    this.closers = [
+      this.closeCalendar.bind(this)
+    ]
+  }
+
   setConsts() {
     this.CLASSES = {
       ARRIVAL_DATE_INPUT: "js-date-dropdown__arrival-date",
@@ -143,6 +149,10 @@ export default class DateDropdown extends Component {
 
   twoDigits(num) {
     return ('0' + num).slice(-2);
+  }
+
+  closeCalendar() {
+    this.calendarDisplayed = false;
   }
 
 }
