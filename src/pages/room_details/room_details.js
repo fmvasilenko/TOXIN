@@ -5,6 +5,7 @@ import '../../scss/main.scss';
 
 import Component from "@frontend/component";
 import Receipt from "@blocks/receipt/receipt";
+import LikeButton from "@blocks/like-button/like-button";
 
 class RoomDetails extends Component {
 
@@ -49,6 +50,19 @@ class RoomDetails extends Component {
     this.children = [
       new Receipt(this.root.find(".receipt"), this)
     ]
+
+    let likeButtons = this.initLikeButtons();
+    this.children = this.children.concat(likeButtons);
+  }
+
+  initLikeButtons() {
+    let likeButtons = []; 
+
+    $('.like-button').each( function(index, element) {
+      likeButtons[index] = new LikeButton($(element), this);
+    }.bind(this));
+
+    return likeButtons;
   }
 
   setDOM() {
