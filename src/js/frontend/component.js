@@ -152,7 +152,7 @@ export default class Component {
   isChildsEvent(event, child) {
     if (!child.componentRoot) return false;
 
-    let className = child.componentRoot.classList.item(0)
+    let className = child.componentRoot.classList.item(0);
     return event.target.closest(`.${className}`) == child.componentRoot;
   }
 

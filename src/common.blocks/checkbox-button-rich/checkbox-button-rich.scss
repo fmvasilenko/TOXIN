@@ -9,6 +9,10 @@
     align-items: center;
     line-height: 18px;
     cursor: pointer;
+
+    &:hover:before {
+      border-color: $mainColor;
+    }
   
     &:before {
       content: "";

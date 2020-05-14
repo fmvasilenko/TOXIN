@@ -7,7 +7,6 @@ export default class Calendar extends Component {
 
     this.setConsts();
     this.setInitialState();
-    this.bindEventListeners();
   }
 
   setState() {
@@ -42,7 +41,7 @@ export default class Calendar extends Component {
     }
   }
 
-  setConsts() {
+  setClasses() {
     this.CLASSES = {
       TABLE_CONTAINER: "calendar__table-wrapper",
       TABLE: "calendar__table",
@@ -60,7 +59,9 @@ export default class Calendar extends Component {
       CLEAR_BUTTON: "js-calendar__clear-button",
       SUBMIT_BUTTON: "js-calendar__submit-button"
     };
+  }
 
+  setConsts() {
     this.VOCABULARY = {
       MONTHS: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
       WEEKDAYS: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
@@ -81,12 +82,32 @@ export default class Calendar extends Component {
     this.displayMonth(arrivalYear, arrivalMonth);
   }
 
-  bindEventListeners() {
-    this.leftArrow.click(this.leftArrowClickHandler.bind(this));
-    this.rightArrow.click(this.rightArrowClickHandler.bind(this));
-    this.tableContainer.click(this.tableContainerClickHandler.bind(this));
-    this.clearButton.click(this.clearButtonClickHandler.bind(this));
-    this.submitButton.click(this.submitButtonClickHandler.bind(this));
+  clickHandler(event) {
+    if (this.leftArrowClicked(event)) this.leftArrowClickHandler();
+    else if (this.rightArrowClicked(event)) this.rightArrowClickHandler();
+    else if (this.tableContainerClicked(event)) this.tableContainerClickHandler(event);
+    else if (this.clearButtonClicked(event)) this.clearButtonClickHandler();
+    else if (this.submitButtonClicked(event)) this.submitButtonClickHandler();
+  }
+
+  leftArrowClicked(event) {
+    return event.target.closest(`.${this.CLASSES.LEFT_ARROW}`) == this.leftArrow[0];
+  }
+
+  rightArrowClicked(event) {
+    return event.target.closest(`.${this.CLASSES.RIGHT_ARROW}`) == this.rightArrow[0];
+  }
+
+  tableContainerClicked(event) {
+    return event.target.closest(`.${this.CLASSES.TABLE_CONTAINER}`) == this.tableContainer[0];
+  }
+
+  clearButtonClicked(event) {
+    return event.target.closest(`.${this.CLASSES.CLEAR_BUTTON}`) == this.clearButton[0];
+  }
+
+  submitButtonClicked(event) {
+    return event.target.closest(`.${this.CLASSES.SUBMIT_BUTTON}`) == this.submitButton[0];
   }
 
   leftArrowClickHandler() {

@@ -13,9 +13,15 @@
     color: $darkShade75;
 
     background: #FFFFFF;
-    border: 1px solid rgba(31, 32, 65, 0.25);
+    border: 1px solid $darkShade25;
     box-sizing: border-box;
     border-radius: 4px;
+
+    cursor: pointer;
+
+    &:hover {
+      border-color: $darkShade50;
+    }
   }
 
   &__field {
@@ -54,4 +60,8 @@
       display: block;
     }
   }
+}
+
+.filter-date-dropdown__icon:hover + .filter-date-dropdown__input {
+  border-color: $darkShade50;
 }

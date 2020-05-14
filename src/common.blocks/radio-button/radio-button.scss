@@ -22,6 +22,14 @@
   color: $darkShade50;
   cursor: pointer;
 
+  &:hover {
+    color: $darkShade75;
+  }
+
+  &:hover:before {
+    border-color: $mainColor;
+  }
+
   &:before {
     content: "";
     box-sizing: border-box;

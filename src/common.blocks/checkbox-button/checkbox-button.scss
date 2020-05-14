@@ -1,2 +1,59 @@
-@import "./checkbox-button__input.scss";
-@import "./checkbox-button__text.scss";
+.checkbox-button__input {
+  display: none;
+
+  &:checked + .checkbox-button__text:before {
+    border-color: $mainColor;
+  }
+  
+  &:checked + .checkbox-button__text:after {
+    display: block;
+  }
+}
+
+.checkbox-button__text {
+  display: flex;
+  align-items: center;
+
+  color: $darkShade50;
+  line-height: 18px;
+
+  cursor: pointer;
+
+  &:hover:before {
+    border-color: $mainColor;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    align-self: start;
+
+    min-width: 20px;
+    height: 20px;
+    margin-right: 10px;
+
+    background-color: #FFFFFF;
+    border: 1px solid $darkShade25;
+    border-radius: 4px;
+  }
+
+  &:after {
+    content: "";
+    display: none;
+    box-sizing: border-box;
+    position: absolute;
+    margin-left: 6px;
+
+    align-self: flex-start;
+    margin-top: 2px;
+
+    width: 8px;
+    height: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-image: $gradient 0 1 1 0;
+
+    transform: rotate(45deg);
+  }
+}

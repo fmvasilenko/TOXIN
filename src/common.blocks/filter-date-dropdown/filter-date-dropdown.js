@@ -9,7 +9,6 @@ export default class FilterDateDropdown extends Component {
     this.setConsts();
     this.setChildren();
     this.setInitialState();
-    this.bindEventListeners();
   }
 
   setState() {
@@ -43,6 +42,7 @@ export default class FilterDateDropdown extends Component {
 
   setConsts() {
     this.CLASSES = {
+      FIELD: "filter-date-dropdown__field",
       INPUT: "filter-date-dropdown__input",
       ARRIVAL_DATE: "filter-date-dropdown__arrival-date",
       LEAVING_DATE: "filter-date-dropdown__leaving-date",
@@ -65,6 +65,7 @@ export default class FilterDateDropdown extends Component {
   }
 
   setInitialState() {
+    this.field = this.root.find(`.${this.CLASSES.FIELD}`);
     this.input = this.root.find(`.${this.CLASSES.INPUT}`);
     this.arrivalDateInput = this.root.find(`.${this.CLASSES.ARRIVAL_DATE}`);
     this.leavingDateInput = this.root.find(`.${this.CLASSES.LEAVING_DATE}`);
@@ -75,11 +76,15 @@ export default class FilterDateDropdown extends Component {
     this.leavingDate = this.getLeavingDate();
   }
 
-  bindEventListeners() {
-    this.icon.click(this.iconClickHandler.bind(this));
+  clickHandler() {
+    if (this.fieldClicked(event)) this.fieldClickHandler();
   }
 
-  iconClickHandler() {
+  fieldClicked(event) {
+    return event.target.closest(`.${this.CLASSES.FIELD}`) == this.field[0];
+  }
+
+  fieldClickHandler() {
     this.calendarDisplayed = !this.calendarDisplayed;
   }
 

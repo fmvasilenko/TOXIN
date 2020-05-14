@@ -9,6 +9,10 @@
 
   cursor: pointer;
 
+  &:hover {
+    border-color: $mainColor;
+  }
+
   &_liked {
     border-color: $mainColor;
   }

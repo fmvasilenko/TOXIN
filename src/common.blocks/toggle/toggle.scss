@@ -19,6 +19,9 @@
   color: $darkShade75;
   cursor: pointer;
 
+  &:hover:before {
+    border-color: $mainColor;
+  }
 
   &:before {
     content: "";

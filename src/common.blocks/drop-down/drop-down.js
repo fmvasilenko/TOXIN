@@ -96,7 +96,7 @@ export default class Dropdown extends Component {
   }
 
   clickHandler(event) {
-    if (event.target.closest(`.${this.CLASSES.ICON}`) == this.DOM.ICON[0]) {
+    if (event.target.closest(`.${this.CLASSES.FIELD}`) == this.DOM.FIELD[0]) {
       this.expanded = !this.expanded;
     }
     else if (event.target.closest(`.${this.CLASSES.CLEAR_BUTTON}`) == this.DOM.CLEAR_BUTTON.parent()[0]) {

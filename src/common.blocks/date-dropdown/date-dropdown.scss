@@ -38,7 +38,6 @@
   
     &:hover,
     &:focus {
-      color: $darkShade75;
       border-color: $darkShade50;
     }
   }
@@ -81,4 +80,8 @@
       display: block;
     }
   }
+}
+
+.date-dropdown__expand-more:hover + .date-dropdown__input{
+  border-color: $darkShade50;
 }

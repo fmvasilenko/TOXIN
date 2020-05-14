@@ -6,11 +6,10 @@ export default class DateDropdown extends Component {
   constructor(rootElement, parent = {}) {
     super({root: rootElement, parent: parent});
 
-    //this.root = rootElement;
     this.setConsts();
     this.setChildren();
     this.setInitialState();
-    this.bindEventListeners();
+    //this.bindEventListeners();
   }
 
   setState() {
@@ -74,6 +73,31 @@ export default class DateDropdown extends Component {
 
   bindEventListeners() {
     this.dropdownIcon.click(this.togglePopupHandler.bind(this));
+  }
+
+  clickHandler(event) {
+    if (this.arrivalDateClicked(event)) {
+      this.togglePopupHandler();
+    }
+    else if (this.leavingDateClicked(event)) {
+      this.togglePopupHandler();
+    }
+    else if (this.iconClicked(event)) {
+      this.togglePopupHandler();
+    }
+  }
+
+  arrivalDateClicked(event) {
+    return event.target.closest(`.${this.CLASSES.ARRIVAL_DATE_INPUT}`) == this.arrivalDateInput[0];
+  }
+
+  leavingDateClicked(event) {
+    return event.target.closest(`.${this.CLASSES.LEAVING_DATE_INPUT}`) == this.leavingDateInput[0];
+  }
+
+  iconClicked(event) {
+    return event.target.closest(`.${this.CLASSES.DROPDOWN_ICON}`) == this.dropdownIcon[0] ||
+           event.target.closest(`.${this.CLASSES.DROPDOWN_ICON}`) == this.dropdownIcon[1];
   }
 
   togglePopupHandler() {
