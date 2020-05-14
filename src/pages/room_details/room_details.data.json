@@ -26,6 +26,38 @@
       }
     ]
   },
+  "chart": {
+    "title": "Впечатления от номера",
+    "parameters": {
+      "totalNumber": 260,
+      "pieces": [
+        {
+          "value": 0,
+          "color": "url(#gradient1)",
+          "colorHex": "linear-gradient(180deg, #919191 0%, #3D4975 100%)",
+          "label": "Разочарован"
+        },
+        {
+          "value": 65,
+          "color": "url(#gradient2)",
+          "colorHex": "linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%)",
+          "label": "Удовлетворительно"
+        },
+        {
+          "value": 65,
+          "color": "url(#gradient3)",
+          "colorHex": "linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%)",
+          "label": "Хорошо"
+        },
+        {
+          "value": 130,
+          "color": "url(#gradient4)",
+          "colorHex": "linear-gradient(180deg, #FFE39C 0%, #FFBA9C 100%)",
+          "label": "Великолепно"
+        }
+      ]
+    }
+  },
   "feedbacks": {
     "title": "Отзывы посетителей номера",
     "items": [

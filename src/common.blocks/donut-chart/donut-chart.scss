@@ -1,0 +1,52 @@
+.donut-chart {
+  display: flex;
+
+  &__svg {
+    width: 120px;
+    height: 120px;
+  }
+
+  &__total {
+    font: 16px/1.4em "Montserrat", Arial, sans-serif;
+    fill: $mainColor;
+    transform: translateY(0.1em);
+  }
+
+  &__total-number {
+    font-size: 0.4em;
+    line-height: 1;
+    text-anchor: middle;
+    -moz-transform: translateY(-0.25em);
+    -ms-transform: translateY(-0.25em);
+    -webkit-transform: translateY(-0.25em);
+    transform: translateY(-0.25em);
+  }
+
+  &__total-text {
+    font-size: 0.2em;
+    text-transform: uppercase;
+    text-anchor: middle;
+    -moz-transform: translateY(0.7em);
+    -ms-transform: translateY(0.7em);
+    -webkit-transform: translateY(0.7em);
+    transform: translateY(0.7em);
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-left: 30px;
+  }
+
+  &__description-line {
+    display: flex;
+    align-items: center;
+  }
+
+  &__description-color {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+  }
+}

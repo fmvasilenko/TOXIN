@@ -4,6 +4,7 @@ include ../../common.blocks/header/header
 include ../../common.blocks/footer/footer 
 include ../../common.blocks/receipt/receipt 
 include ../../common.blocks/benefit/benefit 
+include ../../common.blocks/donut-chart/donut-chart 
 include ../../common.blocks/feedback/feedback 
 include ../../common.blocks/bullet/bullet 
 
@@ -39,10 +40,16 @@ block content
 
     .room-details__description
       .room-details__content
-        .room-details__information
-          h2.room-detail__information-title #{data.information.title}
-          each benefit in data.information.benefits
-            +benefit(benefit)
+        .room-details__first-row
+          .room-details__information
+            h2.room-detail__information-title #{data.information.title}
+            each benefit in data.information.benefits
+              +benefit(benefit)
+
+          .room-details__donut-chart
+            h2.room-details__donut-chart-title #{data.chart.title}
+            .room-details__chart
+              +donut-chart(data.chart.parameters)
 
         .room-details__feedbacks
           h2.room-details__feedback-title #{data.feedbacks.title}
