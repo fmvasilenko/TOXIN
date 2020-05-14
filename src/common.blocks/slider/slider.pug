@@ -1,0 +1,12 @@
+mixin slider(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/slider/slider.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
+  .slider
+    .slider__header
+      h3.slider__title #{config.title}
+      .slider__range
+    .slider__line
+      .ui-slider-handle
+      .ui-slider-handle

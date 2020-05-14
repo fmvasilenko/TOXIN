@@ -1,6 +1,8 @@
 import 'jquery';
 import 'jquery-ui';
+import 'jquery-ui/ui/widgets/slider';
 import 'jquery-ui-touch-punch';
+import 'jquery-ui/themes/base/slider.css';
 import '../../scss/main.scss';
 
 import Component from "@frontend/component";
@@ -10,6 +12,7 @@ import DateDropdown from "@blocks/date-dropdown/date-dropdown";
 import FilterDateDropdown from "@blocks/filter-date-dropdown/filter-date-dropdown";
 import Dropdown from "@blocks/drop-down/drop-down";
 import ExpandableCheckboxList from "@blocks/expandable-checkbox-list/expandable-checkbox-list";
+import Slider from "@blocks/slider/slider";
 
 class FormElements extends Component {
 
@@ -25,6 +28,7 @@ class FormElements extends Component {
     let dateDropdowns = this.initDateDropdown();
     let filterDateDropdowns = this.initFilterDateDropdown();
     let expandableCheckboxLists = this.initExpandableCheckboxList();
+    let sliders = this.initSlider();
 
     this.children = this.children.concat(likeButtons);
     this.children = this.children.concat(rateButtons);
@@ -32,6 +36,7 @@ class FormElements extends Component {
     this.children = this.children.concat(dateDropdowns);
     this.children = this.children.concat(filterDateDropdowns);
     this.children = this.children.concat(expandableCheckboxLists);
+    this.children = this.children.concat(sliders);
   }
 
   initRateButtons() {
@@ -92,6 +97,16 @@ class FormElements extends Component {
     });
 
     return ExpandableCheckboxLists;
+  }
+
+  initSlider() {
+    let sliders = []; 
+
+    $('.slider').each( function(index, element) {
+      sliders[index] = new Slider($(element), this);
+    });
+
+    return sliders;
   }
 
 }
