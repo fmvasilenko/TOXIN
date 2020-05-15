@@ -5,10 +5,6 @@
   "default_value": "",
   "value": "",
   "value_forms": "",
-  "vocabulary": {
-    "clear": "Очистить",
-    "submit": "Применить"
-  },
   "options": [],
   "clearButton": {
     "value": "Очистить",

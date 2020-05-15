@@ -1,0 +1,85 @@
+@import "./__option/dropdown__option.scss";
+
+.drop-down {
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+
+  &__title {
+    margin-bottom: rem(5);
+  }
+
+  &__field {
+    width: 100%;
+    height: rem(44);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid $darkShade25;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $darkShade50;
+    }
+
+    &_drop {
+      border-radius: 4px 4px 0 0;
+      border-color: $darkShade50;
+    }
+  }
+
+  &__field-input {
+    width: rem(160);
+    padding: 0 rem(15);
+    border: 0;
+    background: transparent;
+    font-family: $textFontFamily;
+    color: $darkShade75;
+    text-overflow: ellipsis;
+    cursor: pointer;
+  }
+
+  &__expand-more {
+    width: rem(42);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  &__list {
+    display: none;
+    width: 100%;
+    padding: rem(2) rem(6) rem(4) rem(14);
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    background: #FFFFFF;
+    border: 1px solid $darkShade50;
+    border-top: 0;
+    border-radius: 0 0 4px 4px;
+
+    &_drop {
+      display: block;
+    }
+  }
+
+  &__submit-area {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button-wrapper {
+    padding: rem(19) 0 rem(9) 0;
+  }
+
+  &__button_hidden {
+    display: none;
+  }
+}

@@ -1,0 +1,60 @@
+.form-elements__logo {
+  padding-top: 30px; //should think about a better way to position logo
+  padding-left: 30px;
+}
+
+.form-elements {
+  max-width: 1160px;
+  margin: auto;
+  padding: 60px 0;
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: $desktopWidth) {
+    max-width: 95%;
+  }
+
+  &__column {
+    min-width: 27.59%;
+
+    @media screen and (max-width: $desktopWidth) {
+      min-width: 32%;
+    }
+  }
+
+  &__text-field-hover {
+    margin-top: rem(20);
+  }
+
+  &__dropdown {
+    margin-top: rem(20);
+  }
+
+  &__masked-text-field {
+    margin-top: rem(22);
+  }
+
+  &__date-dropdown {
+    margin-top: rem(40);
+  }
+
+  &__filter-date-dropdown {
+    width: rem(266);
+    margin-top: rem(40);
+  }
+
+  &__subscription-text-field {
+    width: rem(266);
+    margin-top: rem(61);
+  }
+
+  &__dropdown-default {
+    width: rem(266);
+    margin-top: rem(100);
+  }
+
+  &__dropdown-expanded {
+    width: rem(266);
+    margin-top: rem(20);
+  }
+}

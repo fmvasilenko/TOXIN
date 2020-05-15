@@ -1,6 +1,6 @@
 import Component from "@frontend/component";
 import FilterDateDropdown from "@blocks/filter-date-dropdown/filter-date-dropdown";
-import Dropdown from "@blocks/drop-down/drop-down";
+import Dropdown from "@blocks/dropdown/dropdown";
 import ExpandableCheckboxList from "@blocks/expandable-checkbox-list/expandable-checkbox-list";
 
 export default class Sidebar extends Component {

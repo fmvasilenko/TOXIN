@@ -1,7 +1,7 @@
 import Component from "@frontend/component";
-import DropdownModel from "./drop-down-model";
-import DropdownView from "./drop-down-view";
-import DropdownOption from "./__option/drop-down__option";
+import DropdownModel from "./dropdown-model";
+import DropdownView from "./dropdown-view";
+import DropdownOption from "./__option/dropdown__option";
 
 export default class Dropdown extends Component {
 

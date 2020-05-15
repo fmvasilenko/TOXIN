@@ -1,6 +1,6 @@
 import Component from "@frontend/component";
 import DateDropdown from "@blocks/date-dropdown/date-dropdown";
-import Dropdown from "@blocks/drop-down/drop-down";
+import Dropdown from "@blocks/dropdown/dropdown";
 
 export default class Receipt extends Component {
 

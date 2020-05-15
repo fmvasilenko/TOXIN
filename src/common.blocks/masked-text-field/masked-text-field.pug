@@ -4,5 +4,6 @@ mixin masked-text-field(customConfig = {})
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
   .masked-text-field
-    h3.masked-text-field__title #{config.title}
+    if config.title
+      h3.masked-text-field__title #{config.title}
     input.masked-text-field__input(type="date" name=config.name value=config.value min=config.minValue max=config.maxValue required=config.required)

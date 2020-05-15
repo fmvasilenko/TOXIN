@@ -1,6 +1,6 @@
 import Component from "@frontend/component";
-import DropdownOptionView from "./drop-down__option-view";
-import DropdownOptionModel from "./drop-down__option-model";
+import DropdownOptionView from "./dropdown__option-view";
+import DropdownOptionModel from "./dropdown__option-model";
 
 export default class DropdownOption extends Component {
 
@@ -36,7 +36,7 @@ export default class DropdownOption extends Component {
 
   setClasses() {
     this.CLASSES = {
-      INPUT: "drop-down__input",
+      INPUT: "drop-down__option-input",
       DECREASE_BUTTON: "js-drop-down__button_decrease",
       INCREASE_BUTTON: "js-drop-down__button_increase"
     }

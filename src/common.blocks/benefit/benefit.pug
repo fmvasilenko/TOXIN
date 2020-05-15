@@ -1,9 +1,9 @@
-mixin benefit(customConfig ={})
+mixin benefit(customConfig = {})
   - let blocks = require('@plugins/blocks.js');
   - let defaultConfig = require('@blocks/benefit/benefit.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
-  .benefit
+  div(class=`benefit ${config.withBottomLine ? "benefit_border-bottom" : ""}`)
     i.material-icons.benefit__icon #{config.icon}
     .benefit__text
       h3.benefit__title #{config.title}

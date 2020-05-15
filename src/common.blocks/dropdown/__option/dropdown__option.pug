@@ -1,0 +1,9 @@
+mixin drop-down__option(parameters = {name: '', label: '', value: 0})
+  - let decreaseButtonDisabled = parameters.value ? false : true;
+
+  li.drop-down__option
+    h3 #{parameters.label}
+    .drop-down__option-number
+      button.drop-down__option-button.js-drop-down__button_decrease(type="button" disabled=decreaseButtonDisabled) -
+      input.drop-down__option-input(type="number" name=parameters.name value=parameters.value forms=parameters.forms readonly)
+      button.drop-down__option-button.js-drop-down__button_increase(type="button") +

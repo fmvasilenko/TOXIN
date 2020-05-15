@@ -1,22 +1,19 @@
 .filter-date-dropdown {
   width: 100%;
+  position: relative;
 
   &__title {
-    margin-bottom: 5px;
+    margin-bottom: rem(5);
   }
 
-  &__input {
+  &__field {
+    position: relative;
     width: 100%;
-    height: 44px;
-
-    padding-left: 15px;
-    color: $darkShade75;
-
+    height: rem(44);
+    display: flex;
     background: #FFFFFF;
     border: 1px solid $darkShade25;
-    box-sizing: border-box;
     border-radius: 4px;
-
     cursor: pointer;
 
     &:hover {
@@ -24,21 +21,21 @@
     }
   }
 
-  &__field {
-    position: relative;
-  }
-
   &__icon {
-    width: 42px;
+    width: rem(42);
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+  }
 
-    position: absolute;
-    top: 0;
-    right: 0;
-
+  &__input {
+    width: 100%;
+    padding: 0 rem(15);
+    border: 0;
+    color: $darkShade75;
+    background: transparent;
     cursor: pointer;
   }
 
@@ -49,19 +46,14 @@
 
   &__calendar {
     display: none;
-    width: 320px;
+    width: rem(320);
     position: absolute;
-    //top: 100%;
     left: 0;
     z-index: 2;
-    margin-top: 5px;
+    margin-top: rem(5);
 
     &_dropped {
       display: block;
     }
   }
-}
-
-.filter-date-dropdown__icon:hover + .filter-date-dropdown__input {
-  border-color: $darkShade50;
 }

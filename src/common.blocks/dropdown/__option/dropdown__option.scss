@@ -1,0 +1,54 @@
+.drop-down {
+
+  &__option {
+    width: 100%;
+    height: rem(37);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__option-number {
+    display: flex;
+    align-items: center;
+  }
+
+  &__option-button {
+    width: rem(30);
+    height: rem(30);
+    background: white;
+    border: 1px solid $darkShade25;
+    border-radius: 50%;
+    font-family: $textFontFamily;
+    font-size: rem(18);
+    line-height: rem(18);
+    color: $darkShade50;
+    cursor: pointer;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+
+  &__option-input {
+    all: unset;
+    width: rem(32);
+    border: 0;
+    padding: 0;
+    text-align: center;
+    font-family: $textFontFamily;
+    font-weight: bold;
+    font-size: rem(12);
+    line-height: rem(15);
+    text-transform: uppercase;
+    color: $darkShade100;
+
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+}

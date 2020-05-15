@@ -1,0 +1,76 @@
+{
+  "textfields": [
+    {
+      "title": "Text field",
+      "placeholder": "Email"
+    },
+    {
+      "title": "Text field",
+      "placeholder": "Email",
+      "value": "This is pretty awesome"
+    }
+  ],
+  "dropdownGuests": {
+    "default_value": "Сколько гостей",
+    "value_forms": "Гость,Гостя,Гостей",
+    "options": [
+      {
+        "label": "Взрослые", 
+        "name": "adults",
+        "value": 0
+      }, 
+      {
+        "label": "Дети", 
+        "name": "kids",
+        "value": 0
+      }, 
+      {
+        "label": "Младенцы", 
+        "name": "babies",
+        "value": 0
+      }
+    ]
+  },
+  "maskedTextField": {
+    "title": "Masked text field"
+  },
+  "dateDropDown": {
+    "dropdown1": {
+      "value": "2020-05-20"
+    },
+    "dropdown2": {
+      "value": "2020-05-25"
+    }
+  },
+  "filterDateDropdown": {
+    "title": "Filter date dropdown"
+  },
+  "dropdownAmenities": {
+    "title": "Dropdown",
+    "default_value": "",
+    "value_forms": "",
+    "display_type": "values",
+    "display_submit_button": false,
+    "display_clear_button": false,
+    "options": [
+      {
+        "label": "Спальни", 
+        "name": "bedrooms",
+        "forms": "Спальня,Спальни,Спален",
+        "value": 2
+      }, 
+      {
+        "label": "Кровати", 
+        "name": "beds",
+        "forms": "Кровать,Кровати,Кроватей",
+        "value": 2
+      }, 
+      {
+        "label": "Ванные комнаты", 
+        "name": "bathrooms",
+        "forms": "Ванная комната,Ванных комнаты,Ванных комнат",
+        "value": 0
+      }
+    ]
+  }
+}

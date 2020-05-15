@@ -1,0 +1,57 @@
+extends ../../layout/landing
+
+include ../../common.blocks/logo/logo 
+include ../../common.blocks/text-field/text-field 
+include ../../common.blocks/dropdown/dropdown 
+include ../../common.blocks/masked-text-field/masked-text-field 
+include ../../common.blocks/date-dropdown/date-dropdown 
+include ../../common.blocks/filter-date-dropdown/filter-date-dropdown 
+include ../../common.blocks/subscription-text-field/subscription-text-field 
+include ../../common.blocks/expandable-checkbox-list/expandable-checkbox-list 
+include ../../common.blocks/benefit/benefit 
+
+block variables
+  - let pageTitle = 'Form Elements';
+  - let pageDescription = 'Form Elements';
+  - let data = require('./form-elements.data.json');
+
+block styles
+  link(rel="stylesheet" href="/assets/css/formElements.css")
+
+block scripts
+  script(type="text/javascript" src="/assets/js/formElements.js")
+
+block header
+  .form-elements__logo
+    +logo_blank()
+
+block content
+  .form-elements
+    section.form-elements__column
+      
+      .form-elements__text-field
+        +text-field(data.textfields[0])
+
+      .form-elements__text-field-hover
+        +text-field(data.textfields[1])
+
+      .form-elements__dropdown
+        +drop-down(data.dropdownGuests)
+
+      .form-elements__masked-text-field
+        +masked-text-field(data.maskedTextField)
+
+      .form-elements__date-dropdown
+        +date-dropdown(data.dateDropDown)
+
+      .form-elements__filter-date-dropdown
+        +filter-date-dropdown(data.filterDateDropdown)
+
+      .form-elements__subscription-text-field
+        +subscription-text-field()
+
+      .form-elements__dropdown-default 
+        +drop-down(data.dropdownAmenities)
+
+      .form-elements__dropdown-expanded
+        +drop-down(data.dropdownAmenities)

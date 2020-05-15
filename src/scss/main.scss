@@ -19,15 +19,22 @@
   }
 }*/
 
+html {
+  font-family: $textFontFamily;
+  font-size: normal;
+  font-weight: normal;
+  font-size: $mainFontSize;
+  line-height: $mainLineHeight;
+  color: $darkShade75;
+
+  @media screen and (max-width: $desktopWidth) {
+    //font-size: 12px;
+  }
+}
+
 body {
   padding: 0;
   margin: 0;
-  font-family: $textFontFamily;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 24px;
-  color: $darkShade75;
 }
 
 *, *:before, *:after { 
@@ -53,6 +60,7 @@ h1 {
   font-size: 24px;
   line-height: 30px;
   color: $darkShade100;
+  cursor: default;
 }
 
 h2 {
@@ -61,6 +69,7 @@ h2 {
   font-size: 19px;
   line-height: 24px;
   color: $darkShade100;
+  cursor: default;
 }
 
 h3 {
@@ -70,6 +79,7 @@ h3 {
   line-height: 15px;
   text-transform: uppercase;
   color: $darkShade100;
+  cursor: default;
 }
 
 .material-icons {
@@ -90,7 +100,7 @@ h3 {
 
 //common.blocks
 @import "../common.blocks/text-field/text-field.scss";
-@import "../common.blocks/drop-down/drop-down.scss";
+@import "../common.blocks/dropdown/dropdown.scss";
 @import "../common.blocks/checkbox-button/checkbox-button.scss";
 @import "../common.blocks/radio-button/radio-button.scss";
 @import "../common.blocks/checkbox-button-rich/checkbox-button-rich.scss";
@@ -122,19 +132,19 @@ h3 {
 @import "../common.blocks/donut-chart/donut-chart.scss";
 
 //Pages
-@import "../pages/colors/colors.scss";
-@import "../pages/form_elements/form_elements.scss";
-@import "../pages/cards/cards.scss";
+//@import "../pages/colors/colors.scss";
+@import "../pages/form-elements/form-elements.scss";
+/*@import "../pages/cards/cards.scss";
 @import "../pages/headers/headers.scss";
 @import "../pages/landing/landing.scss";
 @import "../pages/registration/registration.scss";
 @import "../pages/login/login.scss";
 @import "../pages/searchroom/searchroom.scss";
-@import "../pages/room_details/room_details.scss";
+@import "../pages/room_details/room_details.scss";*/
 
 
 
-@import "./modules/wrapper";
+//@import "./modules/wrapper";
 
 /*.radio-buttons {
   display: flex;
