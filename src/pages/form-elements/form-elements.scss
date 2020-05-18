@@ -9,16 +9,27 @@
   padding: 60px 0;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 
   @media screen and (max-width: $desktopWidth) {
-    max-width: 95%;
+    max-width: 90%;
   }
 
   &__column {
-    min-width: 27.59%;
+    width: 27.59%;
+    margin-bottom: rem(100);
 
     @media screen and (max-width: $desktopWidth) {
-      min-width: 32%;
+      width: 32%;
+    }
+
+    @media screen and (max-width: $smDesktopWidth) {
+      width: 48%;
+    }
+
+    @media screen and (max-width: $phoneWidth) {
+      width: 100%;
+      margin-bottom: rem(20);
     }
   }
 
@@ -41,20 +52,223 @@
   &__filter-date-dropdown {
     width: rem(266);
     margin-top: rem(40);
+
+    @media screen and (max-width: $smDesktopWidth) {
+      width: 100%;
+    }
   }
 
   &__subscription-text-field {
     width: rem(266);
     margin-top: rem(61);
+
+    @media screen and (max-width: $smDesktopWidth) {
+      width: 100%;
+    }
+  }
+
+  &__checkbox-buttons {
+    width: rem(200);
+  }
+
+  &__checkbox-buttons-title {
+    margin-bottom: rem(6);
+  }
+
+  &__checkbox-button {
+    margin-top: rem(10);
+  }
+
+  &__radio-buttons {
+    margin-top: rem(40);
+  }
+
+  &__radio-buttons-container {
+    display: flex;
+    margin-top: rem(16);
+  }
+
+  &__radio-button {
+    margin-left: rem(20);
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__toggle {
+    margin-top: rem(40);
+  }
+
+  &__toggle-item {
+    margin-top: rem(14);
+  }
+
+  &__like-buttons {
+    margin-top: rem(44);
+  }
+
+  &__like-buttons-container {
+    margin-top: rem(16);
+    display: flex;
+  }
+
+  &__like-button {
+    margin-left: rem(10);
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__rate-buttons {
+    margin-top: rem(44);
+  }
+
+  &__rate-buttons-container {
+    margin-top: rem(16);
+    display: flex;
+  }
+
+  &__rate-button {
+    margin-left: rem(20);
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  &__buttons {
+    margin-top: rem(43.56);
+  }
+  
+  &__buttons-title {
+    margin-bottom: rem(16);
+  }
+  
+  &__buttons-line {
+    display: flex;
+    margin-top: rem(30);
+  
+    &_first {
+      margin-top: 0;
+    }
+  }
+  
+  &__button {
+    height: rem(44);
+    margin-left: rem(20);
+    line-height: rem(12);
+  
+    &:first-child {
+      margin-left: 0;
+    }
+  
+    &_size_l {
+      width: 100%;
+    }
+  
+    &_empty {
+      height: auto;
+    }
+  }
+
+  &__pagination {
+    margin-top: rem(40);
+  }
+
+  &__pagination-title {
+    margin-bottom: rem(16);
   }
 
   &__dropdown-default {
     width: rem(266);
-    margin-top: rem(100);
+
+    @media screen and (max-width: $smDesktopWidth) {
+      width: 100%;
+    }
   }
 
   &__dropdown-expanded {
     width: rem(266);
     margin-top: rem(20);
+
+    @media screen and (max-width: $smDesktopWidth) {
+      width: 100%;
+    }
+  }
+
+  &__drop-down4 {
+    width: 100%;
+  }
+
+  &__drop-down5 {
+    width: 100%;
+  }
+
+  &__expandable-checkbox-list {
+    width: 83.125%;
+    
+    @media screen and (max-width: $smDesktopWidth) {
+      width: 100%;
+    }
+  }
+
+  &__expandable-checkbox-list-expanded {
+    width: 83.125%;
+    margin-top: rem(20);
+
+    @media screen and (max-width: $smDesktopWidth) {
+      width: 100%;
+    }
+  }
+
+  &__rich-checkbox-buttons {
+    width: 73.75%;
+    
+    @media screen and (max-width: $smDesktopWidth) {
+      width: 100%;
+    }
+  }
+
+  &__rich-checkbox-buttons-title {
+    margin-bottom: rem(6);
+  }
+
+  &__rich-checkbox-button {
+    margin-top: rem(10);
+  }
+
+  &__bullet-list {
+    width: 100%;
+  }
+
+  &__bullet-list-title {
+    margin-bottom: rem(6);
+  }
+
+  &__bullet {
+    margin-top: rem(10);
+  }
+
+  &__benefit {
+    margin-top: 20px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__feedback {
+    width: 63.795%;
+    margin-bottom: rem(100);
+
+    @media screen and (max-width: $desktopWidth) {
+      width: 65%;
+    }
+
+    @media screen and (max-width: $smDesktopWidth) {
+      width: 100%;
+    }
   }
 }

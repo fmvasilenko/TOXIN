@@ -22,15 +22,17 @@ export default class ExpandableCheckboxList extends Component {
 
   setClasses() {
     this.CLASSES = {
+      FIELD: "expandable-checkbox-list__field",
       TITLE: "expandable-checkbox-list__title",
-      ICON: "expandable-checkbox-list__expand-more",
-      ICON_EXPANDED: "expandable-checkbox-list__expand-more_expanded",
+      ICON: "expandable-checkbox-list__icon",
+      ICON_EXPANDED: "expandable-checkbox-list__icon_expanded",
       LIST: "expandable-checkbox-list__list"
     }
   }
 
   setDOM() {
     this.DOM = {
+      FIELD: this.root.find(`.${this.CLASSES.FIELD}`),
       TITLE: this.root.find(`.${this.CLASSES.TITLE}`),
       ICON: this.root.find(`.${this.CLASSES.ICON}`),
       LIST: this.root.find(`.${this.CLASSES.LIST}`)
@@ -43,13 +45,13 @@ export default class ExpandableCheckboxList extends Component {
   }
 
   clickHandler(event) {
-    if (this.titleClicked(event)) {
+    if (this.fieldClicked(event)) {
       this.expanded = !this.expanded;
     }
   }
 
-  titleClicked(event) {
-    return event.target.closest(`.${this.CLASSES.TITLE}`) == this.DOM.TITLE[0];
+  fieldClicked(event) {
+    return event.target.closest(`.${this.CLASSES.FIELD}`) == this.DOM.FIELD[0];
   }
 
   toggleList() {

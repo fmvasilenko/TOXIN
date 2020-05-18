@@ -4,11 +4,10 @@
   
     &:before {
       content: "";
-  
-      min-width: 10px;
-      height: 10px;
-      margin-top: 5px;
-      margin-right: 10.43px;
+      min-width: rem(10);
+      height: rem(10);
+      margin-top: rem(5);
+      margin-right: rem(10);
   
       background: $darkShade25;
       border-radius: 50%;

@@ -1,7 +1,9 @@
 {
   "value": 0,
   "name": "",
-  "checked": false,
-  "icon": "favorite_border",
-  "iconChecked": "favorite"
+  "liked": false,
+  "vocabulary": {
+    "icon": "favorite_border",
+    "iconLiked": "favorite"
+  }
 }

@@ -2,21 +2,16 @@ mixin expandable-checkbox-list(customConfig = {})
   - let blocks = require('@plugins/blocks.js');
   - let defaultConfig = require('@blocks/expandable-checkbox-list/expandable-checkbox-list.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
+  - let iconClasses = config.expanded ? "expandable-checkbox-list__icon_expanded" : "";
   
   .expandable-checkbox-list
 
-    h3.expandable-checkbox-list__title #{config.title}
-
-      if config.expanded
-        i.material-icons.expandable-checkbox-list__expand-more.expandable-checkbox-list__expand-more_expanded #{config.icon}
-      else
-        i.material-icons.expandable-checkbox-list__expand-more #{config.icon}
-    
+    .expandable-checkbox-list__field
+      h3.expandable-checkbox-list__title #{config.title}
+      i.material-icons.expandable-checkbox-list__icon(class=iconClasses) #{config.icon}    
 
     .expandable-checkbox-list__list
-
       if config.checkboxButtons
         each button in config.checkboxButtons
-
           .expandable-checkbox-list__list-item
             +checkbox-button(button)

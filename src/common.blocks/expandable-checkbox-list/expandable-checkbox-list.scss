@@ -1,9 +1,26 @@
 .expandable-checkbox-list {
-  position: relative;
+
+  &__field {
+    width: 100%;
+    height: rem(44);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
 
   &__title {
-    line-height: 44px;
     cursor: pointer;
+  }
+
+  &__icon {
+    width: rem(44);
+    text-align: center;
+    color: $darkShade50;
+
+    &_expanded {
+      transform: rotate(-180deg);
+    }
   }
 
   &__list {
@@ -11,22 +28,6 @@
   }
 
   &__list-item {
-    padding: 5px 0;
-  }
-
-  &__expand-more {
-    width: 44px;
-    height: 44px;
-    position: absolute;
-    top: 0;
-    right: 0;
-  
-    line-height: 44px;
-    text-align: center;
-    color: $darkShade50;
-
-    &_expanded {
-      transform: rotate(-180deg);
-    }
+    padding: rem(5) 0;
   }
 }

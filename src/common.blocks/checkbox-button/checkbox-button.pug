@@ -3,8 +3,7 @@ mixin checkbox-button(customConfig = {})
   - let defaultConfig = require('@blocks/checkbox-button/checkbox-button.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
-  .checkbox-button
-    label
-      input.checkbox-button__input(type='checkbox' name=config.name checked=config.checked)
-      p.checkbox-button__text #{config.label}
+  label.checkbox-button
+    input.checkbox-button__input(type='checkbox' name=config.name checked=config.checked)
+    p.checkbox-button__text #{config.label}
       

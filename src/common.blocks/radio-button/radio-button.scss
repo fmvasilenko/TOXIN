@@ -1,62 +1,57 @@
-.radio-button__input {
-  display: none;
-
-  &:checked + .radio-button__text {
-    color: $darkShade75;
-  }
-  
-  &:checked + .radio-button__text:before {
-    border-color: $mainColor;
-  }
-  
-  &:checked + .radio-button__text:after {
-    display: block;
-  }
-}
-
-.radio-button__text {
-  display: flex;
-  align-items: center;
-  line-height: 18px;
-
-  color: $darkShade50;
-  cursor: pointer;
-
-  &:hover {
-    color: $darkShade75;
-  }
-
-  &:hover:before {
-    border-color: $mainColor;
-  }
-
-  &:before {
-    content: "";
-    box-sizing: border-box;
-    align-self: start;
-
-    min-width: 20px;
-    height: 20px;
-    margin-right: 10px;
-
-    background-color: #FFFFFF;
-    border: 1px solid $darkShade25;
-    border-radius: 10px;
-  }
-
-  &:after {
-    content: "";
+.radio-button {
+  &__input {
     display: none;
-    box-sizing: border-box;
-    position: absolute;
-    margin-left: 4px;
 
-    align-self: flex-start;
-    margin-top: 4px;
+    &:checked + .radio-button__text {
+      color: $darkShade75;
+    }
+    
+    &:checked + .radio-button__text:before {
+      border-color: $mainColor;
+    }
+    
+    &:checked + .radio-button__text:after {
+      display: block;
+    }
+  }
 
-    width: 12px;
-    height: 12px;
-    background: $gradient;
-    border-radius: 6px;
+  &__text {
+    display: flex;
+    align-items: center;
+    line-height: rem(18);
+    color: $darkShade50;
+    cursor: pointer;
+
+    &:hover {
+      color: $darkShade75;
+    }
+
+    &:hover:before {
+      border-color: $mainColor;
+    }
+
+    &:before {
+      content: "";
+      align-self: start;
+      min-width: rem(20);
+      height: rem(20);
+      margin-right: rem(10);
+      background-color: #FFFFFF;
+      border: 1px solid $darkShade25;
+      border-radius: 50%;
+    }
+
+    &:after {
+      content: "";
+      width: rem(12);
+      height: rem(12);
+      display: none;
+      position: absolute;
+      margin-left: rem(4);
+      align-self: flex-start;
+      margin-top: 4px;
+      background: $gradient;
+      border-radius: 50%;
+    }
   }
 }

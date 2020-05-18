@@ -2,9 +2,9 @@ mixin rate-button(customConfig = {})
   - let blocks = require('@plugins/blocks.js');
   - let defaultConfig = require('@blocks/rate-button/rate-button.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
-  
-  form.rate-button
-    - for (let i=1; i<=config.maxValue; i++)
+
+  .rate-button
+    - for (let i = 1; i <= config.maxValue; i++)
       label.rate-button__star-wrapper
         if i<=config.value
           input.rate-button__input(type="radio" name=config.name value=i checked)

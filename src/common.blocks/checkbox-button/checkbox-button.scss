@@ -1,59 +1,53 @@
-.checkbox-button__input {
-  display: none;
+.checkbox-button {
+  width: 100%;
 
-  &:checked + .checkbox-button__text:before {
-    border-color: $mainColor;
-  }
-  
-  &:checked + .checkbox-button__text:after {
-    display: block;
-  }
-}
-
-.checkbox-button__text {
-  display: flex;
-  align-items: center;
-
-  color: $darkShade50;
-  line-height: 18px;
-
-  cursor: pointer;
-
-  &:hover:before {
-    border-color: $mainColor;
-  }
-
-  &:before {
-    content: "";
-    display: block;
-    box-sizing: border-box;
-    align-self: start;
-
-    min-width: 20px;
-    height: 20px;
-    margin-right: 10px;
-
-    background-color: #FFFFFF;
-    border: 1px solid $darkShade25;
-    border-radius: 4px;
-  }
-
-  &:after {
-    content: "";
+  &__input {
     display: none;
-    box-sizing: border-box;
-    position: absolute;
-    margin-left: 6px;
 
-    align-self: flex-start;
-    margin-top: 2px;
+    &:checked + .checkbox-button__text:before {
+      border-color: $mainColor;
+    }
+    
+    &:checked + .checkbox-button__text:after {
+      display: block;
+    }
+  }
 
-    width: 8px;
-    height: 10px;
-    border-width: 2px;
-    border-style: solid;
-    border-image: $gradient 0 1 1 0;
-
-    transform: rotate(45deg);
+  &__text {
+    display: flex;
+    align-items: center;
+    color: $darkShade50;
+    line-height: rem(18);
+    cursor: pointer;
+  
+    &:hover:before {
+      border-color: $mainColor;
+    }
+  
+    &:before {
+      content: "";
+      align-self: start;
+      display: inline-block;
+      min-width: rem(20);
+      height: rem(20);
+      margin-right: rem(10);
+      border: 1px solid $darkShade25;
+      border-radius: 4px;
+    }
+  
+    &:after {
+      content: "";
+      display: none;
+      position: absolute;
+      margin-left: rem(6);
+      align-self: flex-start;
+      margin-top: rem(2);
+      width: rem(8);
+      height: rem(10);
+      border-width: rem(2);
+      border-style: solid;
+      border-image: $gradient 0 1 1 0;
+      transform: rotate(45deg);
+    }
   }
 }

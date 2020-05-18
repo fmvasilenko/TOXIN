@@ -3,6 +3,6 @@ mixin radio-button(customConfig)
   - let defaultConfig = require('@blocks/radio-button/radio-button.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
-  label
+  label.radio-button
     input.radio-button__input(type='radio' name=config.name value=config.value checked=config.checked)
     p.radio-button__text #{config.label}

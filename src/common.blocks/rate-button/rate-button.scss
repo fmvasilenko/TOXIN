@@ -10,6 +10,8 @@
   user-select: none;
 
   &__label {
+    width: rem(24);
+    height: rem(24);
     cursor: pointer;
   }
 

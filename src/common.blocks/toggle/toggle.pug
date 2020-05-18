@@ -3,6 +3,6 @@ mixin toggle(customConfig = {})
   - let defaultConfig = require('@blocks/toggle/toggle.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
-  label
+  label.toggle
     input.toggle__input(type='checkbox' name=config.name checked=config.checked)
     p.toggle__text #{config.label}
