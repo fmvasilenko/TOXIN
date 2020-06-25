@@ -1,5 +1,5 @@
 .login {
-  padding: 30px;
+  padding: rem(30);
 
   background: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -8,20 +8,20 @@
   border-radius: 4px;
 
   &__title {
-    margin-top: 10px;
+    margin-top: rem(10);
   }
 
   &__text-field {
-    margin-top: 10px;
+    margin-top: rem(10);
 
     &:first-of-type {
-      margin-top: 20px;
+      margin-top: rem(20);
     }
   }
 
   &__button {
-    margin-top: 20px;
-    height: 44px;
+    margin-top: rem(20);
+    height: rem(44);
   }
 
   &__registration {
@@ -29,10 +29,10 @@
     justify-content: space-between;
     align-items: center;
 
-    margin-top: 30px;
+    margin-top: rem(30);
   }
 
   &__registration-button {
-    height: 44px;
+    height: rem(44);
   }
 }

@@ -1,6 +1,6 @@
 import 'jquery';
-import 'jquery-ui';
-import 'jquery-ui-touch-punch';
+//import 'jquery-ui';
+//import 'jquery-ui-touch-punch';
 import '../../scss/main.scss';
 
 import Component from "@frontend/component";

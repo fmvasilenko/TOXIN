@@ -1,5 +1,5 @@
 .calendar {
-  padding: 20px 19px;
+  padding: rem(20) rem(19);
 
   background: #FFFFFF;
   border: 1px solid rgba(31, 32, 65, 0.25);
@@ -19,8 +19,8 @@
   }
 
   &__day-name {
-    height: 40px;
-    font-size: 12px;
+    height: rem(40);
+    font-size: rem(12);
     color: $mainColor;
   }
 
@@ -33,7 +33,7 @@
 
   &__table-wrapper {
     width: 100%;
-    margin-top: 30px;
+    margin-top: rem(30);
   }
 
   &__table {
@@ -42,11 +42,11 @@
   }
 
   &__number {
-    min-width: 40px;
-    height: 40px;
+    min-width: rem(40);
+    height: rem(40);
     padding: 0;
 
-    font-size: 12px;
+    font-size: rem(12);
     color: $darkShade50;
     text-align: center;
     cursor: pointer;
@@ -66,7 +66,7 @@
 
   &__current-date {
     height: 100%;
-    line-height: 40px;
+    line-height: rem(40);
 
     font-weight: bold;
     color: white;
@@ -80,7 +80,7 @@
 
   &__chosen-date {
     height: 100%;
-    line-height: 40px;
+    line-height: rem(40);
 
     font-weight: bold;
     color: white;
@@ -105,7 +105,7 @@
   }
 
   &__buttons {
-    margin-top: 20px;
+    margin-top: rem(20);
     display: flex;
     justify-content: space-between;
   }

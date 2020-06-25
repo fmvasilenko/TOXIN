@@ -8,21 +8,21 @@
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2);
 
   &__title {
-    font-size: 25px;
-    padding: 10px 0 15px 0;
+    font-size: rem(25);
+    padding: rem(10) 0 rem(15) 0;
   }
 
   &__field {
-    padding: 5px 0;
+    padding: rem(5) 0;
   }
 
   &__gender {
     display: flex;
-    padding: 5px 0;
+    padding: rem(5) 0;
   }
 
   &__gender-radio-button {
-    margin-left: 20px;
+    margin-left: rem(20);
 
     &:first-child {
       margin-left: 0;
@@ -30,16 +30,16 @@
   }
 
   &__birth-date {
-    padding: 20px 0 0 0;
+    padding: rem(20) 0 0 0;
   }
 
   &__subtitle {
-    padding: 20px 0 0 0;
+    padding: rem(20) 0 0 0;
   }
 
   &__submit {
-    margin: 20px 0;
-    height: 44px;
+    margin: rem(20) 0;
+    height: rem(44);
   }
 
   &__login {
@@ -47,10 +47,10 @@
     justify-content: space-between;
     align-items: center;
   
-    padding: 10px 0 0 0;
+    padding-top: rem(10);
   }
 
   &__login-button {
-    height: 44px;
+    height: rem(44);
   }
 }

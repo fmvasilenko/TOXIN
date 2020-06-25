@@ -1,70 +1,80 @@
-body {
+.cards__logo {
+  padding-top: 30px; //should think about a better way to position logo
+  padding-left: 30px;
+}
+
+.cards__wrapper {
+  min-width: 100%;
   background: #F4F4F6;
 }
 
 .cards {
-  
-  &__logo {
-    width: 48px;
-    height: 48px;
-  
-    position: absolute;
-    top: 30px;
-    left: 30px;
+  max-width: 1160px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 60px 0;
+
+  @media screen and (max-width: $desktopWidth) {
+    justify-content: space-evenly;
+  }
+
+  &__column {
+    width: 32.76%;
+
+    &:last-child {
+      width: 27.59%;
+    }
+
+    @media screen and (max-width: $desktopWidth) {
+      width: 38.78%;
+
+      &:last-child {
+        width: rem(320);
+      }
+    }
+
+    @media screen and (max-width: $smDesktopWidth) {
+      width: 48%;
+    }
+
+    @media screen and (max-width: $tableWidth) {
+      width: 80%;
+    }
+
+    @media screen and (max-width: $phoneWidth) {
+      width: 100%;
+      margin-bottom: rem(20);
+
+      &:last-child {
+        width: 100%;
+      }
+    }
   }
 
   &__search-form {
-    width: 380px;
-
-    position: absolute;
-    left: 140px;
-    top: 150px;
+    margin-bottom: rem(40);
   }
 
   &__registration {
-    width: 380px;
-
-    position: absolute;
-    left: 140px;
-    top: 564px;
+    margin-bottom: rem(40);
   }
 
   &__receipt {
-    width: 380px;
-
-    position: absolute;
-    left: 560px;
-    top: 150px;
+    margin-bottom: rem(40);
   }
 
   &__login {
-    width: 380px;
-
-    position: absolute;
-    left: 560px;
-    top: 701px;
+    margin-bottom: rem(40);
   }
 
   &__calendar {
-    width: 320px;
-    position: absolute;
-    left: 980px;
-    top: 150px;
+    margin-bottom: rem(40);
   }
 
-  &__suite1 {
-    width: 270px;
-    
-    position: absolute;
-    left: 980px;
-    top: 559.5px;
-  }
-
-  &__suite2 {
-    width: 270px;
-
-    position: absolute;
-    left: 980px;
-    top: 856.5px;
+  &__suite {
+    width: 84.375%;
+    margin-bottom: rem(40);
   }
 }

@@ -1,17 +1,17 @@
-extends ../../pug/layout/main
+extends ../../pug/layout/landing 
 
-include ../../common.blocks/logo/logo.pug 
-include ../../common.blocks/search-form/search-form.pug 
-include ../../common.blocks/registration/registration.pug 
-include ../../common.blocks/receipt/receipt.pug 
-include ../../common.blocks/login/login.pug 
-include ../../common.blocks/suite/suite.pug 
-include ../../common.blocks/calendar/calendar.pug 
+include ../../common.blocks/logo/logo 
+include ../../common.blocks/search-form/search-form 
+include ../../common.blocks/registration/registration 
+include ../../common.blocks/receipt/receipt 
+include ../../common.blocks/login/login 
+include ../../common.blocks/suite/suite 
+include ../../common.blocks/calendar/calendar 
 
 block variables
   - var title = 'Cards';
-  - var description = 'Description for Webpack + Pug';
-  - var pageClass = 'index-page';
+  - var description = 'Cards';
+  - var data = require("./cards_data.json");
 
 block styles
   link(rel="stylesheet" href="/assets/css/cards.css")
@@ -19,30 +19,33 @@ block styles
 block scripts
   script(type="text/javascript" src="/assets/js/cards.js")
 
+block header 
+  .cards__logo
+    +logo_blank()
+
 block content
-  - var data = require("./cards_data.json");
+  .cards-wrapper
+    .cards
+      .cards__column
+        .cards__search-form
+          +search-form()
 
-  .cards
-    .cards__logo
-      +logo_blank()
+        .cards__registration
+          +registration()
 
-    .cards__search-form
-      +search-form()
+      .cards__column
+        .cards__receipt 
+          +receipt(data.receipt_parameters)
 
-    .cards__registration
-      +registration({})
+        .cards__login
+          +login()
 
-    .cards__receipt 
-      +receipt(data.receipt_parameters)
+      .cards__column
+        .cards__calendar
+          +calendar()
 
-    .cards__login
-      +login()
+        .cards__suite
+          +suite(data.suites[0])
 
-    .cards__calendar
-      +calendar()
-
-    .cards__suite1
-      +suite(data.suites[0])
-
-    .cards__suite2
-      +suite(data.suites[1])
+        .cards__suite
+          +suite(data.suites[1])
