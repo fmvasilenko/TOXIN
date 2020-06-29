@@ -1,7 +1,4 @@
-extends ../../pug/layout/main
-
-block styles
-  link(rel="stylesheet" href="/assets/css/app.css")
+extends ../../pug/layout/landing
 
 include ../../common.blocks/header/header.pug
 include ../../common.blocks/footer/footer.pug 
@@ -10,6 +7,9 @@ block variables
   - var title = 'Headers & Footers';
   - var description = 'Description for Webpack + Pug';
   - var pageClass = 'index-page';
+
+block styles
+  link(rel="stylesheet" href="/assets/css/app.css")
 
 block header
   - var data = require("./headers.data.json");
