@@ -6,25 +6,22 @@
   &__gallery {
     position: relative;
     width: 100%;
-    height: 151px;
+    height: rem(151);
     overflow: hidden;
     border-radius: 4px 4px 0 0;
   }
 
   &__arrow {
-    width: 44px;
-    height: 44px;
+    width: rem(44);
+    height: rem(44);
     position: absolute;
     z-index: 3;
-    top: 53px;
-
+    top: rem(53);
     display: flex;
     justify-content: center;
     align-items: center;
-
     color: #FFFFFF;
     cursor: pointer;
-
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -45,15 +42,12 @@
   &__dot {
     position: absolute;
     z-index: 3;
-    top: 128.4px;
-    right: 15.11px;
-
-    width: 7.5px;
-    height: 7.5px;
-
+    top: rem(128.4);
+    right: rem(15.11);
+    width: rem(7.5);
+    height: rem(7.5);
     border: 1px solid #FFFFFF;
     border-radius: 50%;
-    //box-sizing: border-box;
     box-shadow: 0px 5px 5px rgba(31, 32, 65, 0.3);
     cursor: pointer;
   }
@@ -81,52 +75,49 @@
   }
 
   &__description {
-    padding: 17px 20px 14px 20px;
+    padding: rem(17) rem(20) rem(14) rem(20);
   }
 
   &__title {
-    padding-bottom: 4px;
+    padding-bottom: rem(4);
     border-bottom: 1px solid rgba(31, 32, 65, 0.1);
-
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
   }
 
   &__title-number {
-    font-size: 20px;
-    line-height: 30px;
+    font-size: rem(20);
+    line-height: rem(30);
   }
 
   &__title-number-sign {
-    margin-right: 5px;
-    font-size: 14px;
+    margin-right: rem(5);
+    font-size: rem(14);
   }
 
   &__title-lux {
-    margin-left: 5px;
-
-    //font-family: $textFontFamily;
+    margin-left: rem(5);
     font-size: 12px;
     color: $mainColor;
     text-transform: uppercase;
   }
 
   &__title-price {
-    font-size: 14px;
+    font-size: rem(14);
     font-weight: bold;
-    line-height: 30px;
+    line-height: rem(30);
     color: $darkShade50;
 
     & > span {
-      margin-left: 5px;
-      font-size: 11px;
+      margin-left: rem(5);
+      font-size: rem(11);
       font-weight: normal;
     }
   }
 
   &__line {
-    padding: 0 20px;
+    padding: 0 rem(20);
 
     & > hr {
       background: rgba(31, 32, 65, 0.1);
@@ -134,7 +125,7 @@
   }
 
   &__rate {
-    margin-top: 8px;
+    margin-top: rem(8);
 
     display: flex;
     justify-content: space-between;
@@ -143,7 +134,7 @@
   &__feedbacks {
     & > span {
       font-weight: bold;
-      margin-right: 5px;
+      margin-right: rem(5);
     }
   }
 }
