@@ -1,26 +1,16 @@
 .headers {
-
-  &__header1 {
-    position: absolute;
-    top: 150px;
-    width: 100%;
-  }
+  padding: rem(140) 0;
+  background: #e5e5e5;
 
   &__header2 {
-    position: absolute;
-    top: 260px;
-    width: 100%;
+    margin-top: rem(40);
   }
 
   &__footer1 {
-    position: absolute;
-    top: 370px;
-    width: 100%;
+    margin-top: rem(40);
   }
 
   &__footer2 {
-    position: absolute;
-    top: 853px;
-    width: 100%;
+    margin-top: rem(40);
   }
 }

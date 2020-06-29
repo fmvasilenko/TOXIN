@@ -1,52 +1,108 @@
-.header {
-  width: 1160px;
-  height: 70px;
-  margin: auto;
+.header__wrapper {
+  min-width: rem(1160);
+  background: #ffffff;
 
+  @media screen and (max-width: $desktopWidth) {
+    min-width: 100%;
+  }
+}
+
+.header {
+  max-width: rem(1160);
+  height: rem(70);
+  margin: auto;
   display: flex;
   align-items: center;
 
-  &__logo {
-    height: 40px;
+  @media screen and (max-width: $desktopWidth) {
+    width: 96%;
   }
 
-  &__wrapper {
-    min-width: 1160px;
-    background: #ffffff;
+  @media screen and (max-width: $tableWidth) {
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+    padding: rem(20) 0;
+  }
+
+  @media screen and (max-width: $phoneWidth) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__logo {
+    height: rem(40);
   }
 
   &__menu {
     width: 100%;
+    padding: 0 rem(30);
     text-align: right;
+    display: flex;
+    justify-content: flex-end;
+
+    @media screen and (max-width: $smDesktopWidth) {
+      flex-wrap: wrap;
+    }
+
+    @media screen and (max-width: $tableWidth) {
+      justify-content: center;
+      margin-top: rem(10);
+    }
+
+    @media screen and (max-width: $phoneWidth) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__link,
   &__link:visited,
   &__link:active {
-    margin-right: 30px;
+    margin-left: rem(30);
     color: $darkShade50;
+    display: flex;
+    align-items: center;
 
     &:first-child {
+      margin-left: 0;
       font-weight: bold;
       color: $darkShade75;
+    }
+
+    @media screen and (max-width: $phoneWidth) {
+      margin-left: 0;
     }
   }
 
   &__button {
-    height: 34px;
-    margin-right: 20px;
+    height: rem(34);
+    margin-right: rem(20);
     box-sizing: border-box;
 
     &:last-child {
+      margin-right: 0;
+    }
+
+    @media screen and (max-width: $tableWidth) {
+      margin-top: rem(10);
+    }
+
+    @media screen and (max-width: $phoneWidth) {
       margin-right: 0;
     }
   }
 
   &__text {
     white-space: nowrap;
-    line-height: 30px;
+    line-height: rem(30);
     color: $darkShade50;
-    padding-left: 30px;
+    padding-left: rem(30);
     border-left: 1px solid rgba(31, 32, 65, 0.1);
+
+    @media screen and (max-width: $tableWidth) {
+      border-left: 0;
+      padding-left: 0;
+    }
   }
 }

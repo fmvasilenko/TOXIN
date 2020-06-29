@@ -1,6 +1,9 @@
 {
   "type": "buttons",
   "logoHref": "/landing.html",
+  "vocabulary": {
+    "expand_more_icon": "expand_more"
+  },
   "menu": [
     {
       "title": "О нас",
@@ -8,7 +11,13 @@
     },
     {
       "title": "Услуги",
-      "link": "/"
+      "link": "/",
+      "submenu": [
+        {
+          "name": "submenu 1",
+          "href": ""
+        }
+      ]
     },
     {
       "title": "Вакансии",
@@ -20,7 +29,13 @@
     },
     {
       "title": "Соглашения",
-      "link": "/"
+      "link": "/",
+      "submenu": [
+        {
+          "name": "submenu 1",
+          "href": ""
+        }
+      ]
     }
   ],
   "buttons": [
@@ -35,5 +50,6 @@
       "type": "link",
       "href": "/registration.html"
     }
-  ]
+  ],
+  "right_text": "Юлий Цезарь"
 }
