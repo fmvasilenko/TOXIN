@@ -11,15 +11,14 @@ include ../../common.blocks/footer/footer.pug
 include ../../common.blocks/search-form/search-form.pug
 
 block variables
-  - var title = 'Landing';
-  - var description = 'Description for Webpack + Pug';
-  - var pageClass = 'index-page';
+  - let title = 'Landing';
+  - let description = 'Search page for TOXIN';
 
 block header
   +header()
 
 block content
-  - var data = require("./landing.data.json");
+  - let data = require("./landing.data.json");
 
   .landing__wrapper
     .landing
