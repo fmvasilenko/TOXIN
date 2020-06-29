@@ -1,23 +1,22 @@
 extends ../../pug/layout/landing 
 
-block styles
-  link(rel="stylesheet" href="/assets/css/app.css")
-
 include ../../common.blocks/header/header.pug
 include ../../common.blocks/footer/footer.pug
 include ../../common.blocks/registration/registration.pug  
 
+block styles
+  link(rel="stylesheet" href="/assets/css/app.css")
 
 block variables
-  - var title = 'Registration';
-  - var description = 'Description for Webpack + Pug';
-  - var pageClass = 'index-page';
+  - let title = 'Registration';
+  - let description = 'Registration';
+  - let pageClass = 'index-page';
 
 block header
   +header()
 
 block content
-  - var data = require("./registration.data.json");
+  - let data = require("./registration.data.json");
 
   .registration__background
     .registration__wrapper

@@ -9,18 +9,22 @@
   }
 
   &__wrapper{
-    width: 1160px;
-    height: 702px;
+    max-width: rem(1160);
+    height: rem(702);
     margin: auto;
     position: relative;
   }
 
   &__registration-form {
-    width: 380px;
+    width: rem(380);
     position: absolute;
-    top: 30px;
+    top: rem(30);
     left: 0;
     right: 0;
     margin: 0 auto;
+
+    @media screen and (max-width: rem(380)) {
+      width: 100%;
+    }
   }
 }

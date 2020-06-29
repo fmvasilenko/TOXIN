@@ -30,6 +30,10 @@ html {
   @media screen and (max-width: $desktopWidth) {
     //font-size: 12px;
   }
+
+  @media screen and (max-width: 350px) {
+    font-size: 12px;
+  }
 }
 
 body {
@@ -137,8 +141,8 @@ h3 {
 @import "../pages/cards/cards.scss";
 @import "../pages/headers/headers.scss";
 @import "../pages/landing/landing.scss";
-/*@import "../pages/registration/registration.scss";
-@import "../pages/login/login.scss";
+@import "../pages/registration/registration.scss";
+/*@import "../pages/login/login.scss";
 @import "../pages/searchroom/searchroom.scss";
 @import "../pages/room_details/room_details.scss";*/
 
