@@ -1,10 +1,4 @@
-extends ../../pug/layout/leftsidebar
-
-block styles
-  link(rel="stylesheet" href="/assets/css/searchroom.css")
-
-block scripts
-  script(type="text/javascript" src="/assets/js/searchroom.js")
+extends ../../layout/leftsidebar
 
 include ../../common.blocks/header/header.pug
 include ../../common.blocks/footer/footer.pug 
@@ -12,10 +6,15 @@ include ../../common.blocks/sidebar/sidebar.pug
 include ../../common.blocks/suite/suite.pug 
 include ../../common.blocks/pagination/pagination.pug 
 
+block styles
+  link(rel="stylesheet" href="/assets/css/searchroom.css")
+
+block scripts
+  script(type="text/javascript" src="/assets/js/searchroom.js")
+
 block variables
-  - var title = 'Search room';
-  - var description = 'Description for Webpack + Pug';
-  - var pageClass = 'index-page';
+  - let title = 'Search room'
+  - let description = 'Description for Webpack + Pug'
 
 block header
   +header()
@@ -24,7 +23,7 @@ block sidebar
   +sidebar()
 
 block content
-  - var data = require("./searchroom.data.json");
+  - let data = require("./searchroom.data.json");
 
   h1.searchroom-title Номера, которые мы для вас подобрали
   .searchroom

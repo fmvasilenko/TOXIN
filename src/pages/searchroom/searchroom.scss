@@ -6,6 +6,7 @@
 .searchroom {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 
   &__suite {
     width: 270px;
