@@ -1,8 +1,24 @@
 .room-details {
 
   &__gallery {
-    height: 485px;
+    height: rem(485);
     display: flex;
+
+    @media screen and (min-width: rem(901)) and (max-width: rem(1160)) {
+      height: rem(400);
+    }
+
+    @media screen and (min-width: rem(769)) and (max-width: rem(900)) {
+      height: rem(350);
+    }
+
+    @media screen and (min-width: rem(0)) and (max-width: rem(768)) {
+      flex-direction: column;
+    }
+
+    @media screen and (max-width: rem(480)) {
+      height: rem(300);
+    }
   }
 
   &__cover-wrapper {
@@ -10,20 +26,34 @@
     height: 100%;
     overflow: hidden;
     position: relative;
+
+    @media screen and (min-width: rem(0)) and (max-width: rem(768)) {
+      width: 100%;
+      height: 60%;
+    }
   }
 
   &__cover-image {
     width: 100%;
+    height: 100%;
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
+    object-fit: cover;
+    object-position: 50% 50%;
   }
 
   &__mini-images {
     width: 30%;
+
+    @media screen and (min-width: rem(0)) and (max-width: rem(768)) {
+      width: 100%;
+      height: 40%;
+      display: flex;
+    }
   }
 
   &__mini-image-wrapper {
@@ -31,73 +61,176 @@
     height: 50%;
     overflow: hidden;
     position: relative;
+
+    @media screen and (min-width: rem(0)) and (max-width: rem(768)) {
+      width: 50%;
+      height: 100%;
+    }
   }
 
   &__mini-image {
-    min-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    cursor: pointer;
   }
 
   &__description {
-    width: 1160px;
+    max-width: rem(1160);
     margin: auto;
-    padding: 70px 0;
-
+    padding: rem(70) 0;
     display: flex;
     justify-content: space-between;
+
+    @media screen and (max-width: rem(1160)){
+      justify-content: space-around;
+    }
+
+    @media screen and (max-width: rem(800)){
+      flex-direction: column-reverse;
+      align-items: center;
+    }
   }
 
   &__content {
-    width: 710px;
+    width: rem(710);
+
+    @media screen and (min-width: rem(981)) and (max-width: rem(1160)){
+      width: 60%;
+    }
+
+    @media screen and (min-width: rem(801)) and (max-width: rem(980)){
+      width: 48%;
+    }
+
+    @media screen and (max-width: rem(800)){
+      width: 96%;
+      margin-top: rem(40);
+    }
   }
 
   &__sidebar {
-    width: 380px;
+    width: rem(380);
+
+    @media screen and (min-width: rem(981)) and (max-width: rem(1160)){
+      width: 35%;
+    }
+
+    @media screen and (min-width: rem(801)) and (max-width: rem(980)){
+      width: 48%;
+    }
+
+    @media screen and (min-width: rem(401)) and (max-width: rem(800)){
+      width: 96%;
+    }
+
+    @media screen and (max-width: rem(400)){
+      width: 100%;
+    }
   }
 
   &__first-row {
     display: flex;
+
+    @media screen and (min-width: rem(801)) and (max-width: rem(980)){
+      flex-direction: column;
+    }
+
+    @media screen and (min-width: rem(640)) and (max-width: rem(800)){
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    @media screen and  (max-width: rem(640)){
+      flex-direction: column;
+    }
   }
 
   &__information {
-    width: 280px;
+    width: rem(280);
+
+    @media screen and (min-width: rem(801)) and (max-width: rem(980)){
+      width: 100%;
+    }
+
+    @media screen and (min-width: rem(641)) and (max-width: rem(800)){
+      width: 60%;
+    }
+
+    @media screen and  (max-width: rem(640)){
+      width: 100%;
+    }
+  }
+
+  &__benefit {
+    padding-top: rem(20);
   }
 
   &__donut-chart {
-    margin-left: 81px;
+    margin-left: rem(81);
+
+    @media screen and (min-width: rem(801)) and (max-width: rem(980)){
+      margin-left: 0;
+      margin-top: rem(40);
+    }
+
+    @media screen and (min-width: rem(640)) and (max-width: rem(800)){
+      margin-top: 0;
+    }
+
+    @media screen and (max-width: rem(640)){
+      width: 100%;
+      margin-top: rem(40);
+      margin-left: 0;
+    }
   }
 
   &__chart {
-    margin-top: 21px;
+    margin-top: rem(21);
   }
 
   &__feedbacks {
-    margin-top: 10px;
+    margin-top: rem(10);
+
+    @media screen and (max-width: rem(980)){
+      margin-top: rem(60);
+    }
   }
 
   &__feedback {
-    margin-top: 20px;
+    margin-top: rem(20);
   }
 
   &__rools {
-    margin-top: 30px;
+    margin-top: rem(30);
     display: flex;
+
+    @media screen and (max-width: rem(768)){
+      flex-direction: column;
+    }
   }
 
   &__bullets {
     min-width: 40%;
-    margin-right: 70px;
+    margin-right: rem(70);
   }
 
   &__bullets-title {
-    margin-bottom: 20px;
+    margin-bottom: rem(20);
   }
 
   &__bullet {
-    margin-top: 10px;
+    margin-top: rem(10);
+  }
+
+  &__cancellation {
+    @media screen and (max-width: rem(768)){
+      margin-top: rem(20);
+    }
   }
 
   &__cancellation-description {
-    margin-top: 20px;
+    margin-top: rem(20);
   }
 }

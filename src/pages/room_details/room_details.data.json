@@ -22,7 +22,8 @@
       {
         "title": "Уют",
         "description": "Номер оснащен камином",
-        "icon": "whatshot"
+        "icon": "whatshot",
+        "withBottomLine": false
       }
     ]
   },
