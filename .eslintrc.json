@@ -1,0 +1,8 @@
+{
+  "extends": ["airbnb", "plugin:fsd/all"],
+  "plugins": ["fsd"],
+  "rules": {
+    "linebreak-style": "off",
+    "import/no-extraneous-dependencies": "off"
+  }
+}

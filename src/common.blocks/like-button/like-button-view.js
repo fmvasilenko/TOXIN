@@ -1,7 +1,6 @@
-import ComponentView from "@frontend/componentView";
+import ComponentView from '@frontend/componentView';
 
 export default class LikeButtonView extends ComponentView {
-
   constructor(controller = {}) {
     super(controller);
 
@@ -15,16 +14,16 @@ export default class LikeButtonView extends ComponentView {
       liked: {
         value: true,
         subscribers: [
-          this.renderLikeButton.bind(this)
-        ]
+          this.renderLikeButton.bind(this),
+        ],
       },
       likesNumber: {
         value: 0,
         subscribers: [
-          this.changeNumber.bind(this)
-        ]
-      }
-    }
+          this.changeNumber.bind(this),
+        ],
+      },
+    };
   }
 
   renderLikeButton() {
@@ -33,8 +32,7 @@ export default class LikeButtonView extends ComponentView {
       this.DOM.ICON.addClass(this.CLASSES.ICON_LIKED);
       this.DOM.INPUT.addClass(this.CLASSES.INPUT_LIKED);
       this.DOM.ICON.html(this.VOCABULARY.STAR);
-    }
-    else {
+    } else {
       this.root.removeClass(this.CLASSES.ROOT_LIKED);
       this.DOM.ICON.removeClass(this.CLASSES.ICON_LIKED);
       this.DOM.INPUT.removeClass(this.CLASSES.INPUT_LIKED);
@@ -45,5 +43,4 @@ export default class LikeButtonView extends ComponentView {
   changeNumber() {
     this.DOM.INPUT.val(this.likesNumber);
   }
-
 }
