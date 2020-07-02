@@ -3,13 +3,12 @@ mixin rate-button(customConfig = {})
   - let defaultConfig = require('@blocks/rate-button/rate-button.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
-  .rate-button
+  .rate-button.js-rate-button
     - for (let i = 1; i <= config.maxValue; i++)
-      label.rate-button__star-wrapper
+      label.rate-button__star-wrapper.js-rate-button__star-wrapper
         if i<=config.value
-          input.rate-button__input(type="radio" name=config.name value=i checked)
-          i.material-icons.rate-button__label #{config.vocabulary.checkedStar}
+          input.rate-button__input.js-rate-button__input(type="radio" name=config.name value=i checked)
+          i.material-icons.rate-button__label.js-rate-button__label #{config.vocabulary.checkedStar}
         else
-          input.rate-button__input(type="radio" name=config.name value=i)
-          i.material-icons.rate-button__label #{config.vocabulary.uncheckedStar}
-    
+          input.rate-button__input.js-rate-button__input(type="radio" name=config.name value=i)
+          i.material-icons.rate-button__label.js-rate-button__label #{config.vocabulary.uncheckedStar}

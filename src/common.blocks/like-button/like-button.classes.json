@@ -1,0 +1,7 @@
+{
+  "ICON": "js-like-button__icon",
+  "INPUT": "js-like-button__number",
+  "ROOT_LIKED": "like-button_liked",
+  "ICON_LIKED": "like-button__icon_liked",
+  "INPUT_LIKED": "like-button__number_liked"
+}

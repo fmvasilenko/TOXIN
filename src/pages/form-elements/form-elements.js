@@ -1,34 +1,33 @@
-import "jquery";
-import "jquery-ui";
-import "jquery-ui/ui/widgets/slider";
-import "jquery-ui-touch-punch";
-import "jquery-ui/themes/base/slider.css";
-import "../../scss/main.scss";
+import 'jquery';
+import 'jquery-ui';
+import 'jquery-ui/ui/widgets/slider';
+import 'jquery-ui-touch-punch';
+import 'jquery-ui/themes/base/slider.css';
+import '../../scss/main.scss';
 
-import Component from "@frontend/component";
-import RateButton from "@blocks/rate-button/rate-button";
-import LikeButton from "@blocks/like-button/like-button";
-import DateDropdown from "@blocks/date-dropdown/date-dropdown";
-import FilterDateDropdown from "@blocks/filter-date-dropdown/filter-date-dropdown";
-import Dropdown from "@blocks/dropdown/dropdown";
-import ExpandableCheckboxList from "@blocks/expandable-checkbox-list/expandable-checkbox-list";
-import Slider from "@blocks/slider/slider";
+import Component from '@frontend/component';
+import RateButton from '@blocks/rate-button/rate-button';
+import LikeButton from '@blocks/like-button/like-button';
+import DateDropdown from '@blocks/date-dropdown/date-dropdown';
+import FilterDateDropdown from '@blocks/filter-date-dropdown/filter-date-dropdown';
+import Dropdown from '@blocks/dropdown/dropdown';
+import ExpandableCheckboxList from '@blocks/expandable-checkbox-list/expandable-checkbox-list';
+import Slider from '@blocks/slider/slider';
 
 class FormElements extends Component {
-
   constructor() {
-    super({root: $(document), parent: null});
+    super({ root: $(document), parent: null });
   }
 
   setChildren() {
     this.children = [];
-    let likeButtons = this.initLikeButtons();
-    let rateButtons = this.initRateButtons();
-    let dropDowns = this.initDropdown();
-    let dateDropdowns = this.initDateDropdown();
-    let filterDateDropdowns = this.initFilterDateDropdown();
-    let expandableCheckboxLists = this.initExpandableCheckboxList();
-    let sliders = this.initSlider();
+    const likeButtons = this.initLikeButtons();
+    const rateButtons = this.initRateButtons();
+    const dropDowns = this.initDropdown();
+    const dateDropdowns = this.initDateDropdown();
+    const filterDateDropdowns = this.initFilterDateDropdown();
+    const expandableCheckboxLists = this.initExpandableCheckboxList();
+    const sliders = this.initSlider();
 
     this.children = this.children.concat(likeButtons);
     this.children = this.children.concat(rateButtons);
@@ -40,21 +39,21 @@ class FormElements extends Component {
   }
 
   initRateButtons() {
-    let rateButtons = []; 
+    const rateButtons = [];
 
-    $('.rate-button').each( function(index, element) {
-      rateButtons[index] = new RateButton($(element), this);
-    }.bind(this));
+    this.root[0].querySelectorAll('.js-rate-button').forEach((element, index) => {
+      rateButtons[index] = new RateButton(element, this);
+    });
 
     return rateButtons;
   }
 
   initLikeButtons() {
-    let likeButtons = []; 
+    const likeButtons = [];
 
-    $('.like-button').each( function(index, element) {
-      likeButtons[index] = new LikeButton($(element), this);
-    }.bind(this));
+    this.root[0].querySelectorAll('.js-like-button').forEach((element) => {
+      likeButtons.push(new LikeButton(element, this));
+    });
 
     return likeButtons;
   }

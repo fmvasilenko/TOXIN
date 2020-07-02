@@ -1,6 +1,5 @@
 export default class Component {
-  
-  constructor(config = {root: null, parent: {}}) {
+  constructor(config = { root: null, parent: {} }) {
     this.root = config.root ? config.root : null;
     this.PARENT = config.parent;
 
@@ -17,7 +16,7 @@ export default class Component {
   }
 
   setState() {
-    this.state = {}
+    this.state = {};
   }
 
   setChildren() {
@@ -25,17 +24,17 @@ export default class Component {
   }
 
   setClasses() {
-    this.CLASSES = {}
+    this.CLASSES = {};
   }
 
   setClosers() {
-    this.closers = []
+    this.closers = [];
   }
 
   setChildrenClosers() {
     let childrenClosers = [];
 
-    this.children.forEach( function(child) {
+    this.children.forEach((child) => {
       childrenClosers = childrenClosers.concat(child.closers);
       childrenClosers = childrenClosers.concat(child.childrenClosers);
     });
@@ -63,9 +62,11 @@ export default class Component {
     return state1;
   }
 
+  /*
   mergeClosers(closers1 = [], closers2 = []) {
     return closers1.concat(closers2);
   }
+  */
 
   mergeSubscribers(parameter1 = {}, parameter2 = {}) {
     if (parameter1.subscribers === undefined) parameter1.subscribers = [];

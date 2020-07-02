@@ -4,9 +4,9 @@ export default class LikeButtonView extends ComponentView {
   constructor(controller = {}) {
     super(controller);
 
-    this.CLASSES = this.CONTROLLER.CLASSES;
+    this.CLASSES = require('./like-button.classes');
+    this.VOCABULARY = require('./like-button.config').vocabulary;
     this.DOM = this.CONTROLLER.DOM;
-    this.VOCABULARY = this.CONTROLLER.VOCABULARY;
   }
 
   setState() {
@@ -28,19 +28,19 @@ export default class LikeButtonView extends ComponentView {
 
   renderLikeButton() {
     if (this.liked) {
-      this.root.addClass(this.CLASSES.ROOT_LIKED);
-      this.DOM.ICON.addClass(this.CLASSES.ICON_LIKED);
-      this.DOM.INPUT.addClass(this.CLASSES.INPUT_LIKED);
-      this.DOM.ICON.html(this.VOCABULARY.STAR);
+      this.root.classList.add(this.CLASSES.ROOT_LIKED);
+      this.DOM.ICON.classList.add(this.CLASSES.ICON_LIKED);
+      this.DOM.INPUT.classList.add(this.CLASSES.INPUT_LIKED);
+      this.DOM.ICON.innerHTML = this.VOCABULARY.iconLiked;
     } else {
-      this.root.removeClass(this.CLASSES.ROOT_LIKED);
-      this.DOM.ICON.removeClass(this.CLASSES.ICON_LIKED);
-      this.DOM.INPUT.removeClass(this.CLASSES.INPUT_LIKED);
-      this.DOM.ICON.html(this.VOCABULARY.STAR_BORDER);
+      this.root.classList.remove(this.CLASSES.ROOT_LIKED);
+      this.DOM.ICON.classList.remove(this.CLASSES.ICON_LIKED);
+      this.DOM.INPUT.classList.remove(this.CLASSES.INPUT_LIKED);
+      this.DOM.ICON.innerHTML = this.VOCABULARY.icon;
     }
   }
 
   changeNumber() {
-    this.DOM.INPUT.val(this.likesNumber);
+    this.DOM.INPUT.value = this.likesNumber;
   }
 }

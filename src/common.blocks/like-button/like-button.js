@@ -5,7 +5,9 @@ export default class LikeButton extends Component {
   constructor(root, parent = {}) {
     super({ root, parent });
 
-    this.setConsts();
+    this.CLASSES = require('./like-button.classes');
+    this.DOM = this.getDOM();
+
     this.setInitialState();
     this.VIEW = new LikeButtonView(this);
   }
@@ -23,40 +25,24 @@ export default class LikeButton extends Component {
     };
   }
 
-  setConsts() {
-    this.CLASSES = {
-      ICON: 'like-button__icon',
-      INPUT: 'like-button__number',
-      ROOT_LIKED: 'like-button_liked',
-      ICON_LIKED: 'like-button__icon_liked',
-      INPUT_LIKED: 'like-button__number_liked',
-    };
-
-    this.DOM = {
-      ICON: this.root.find(`.${this.CLASSES.ICON}`),
-      INPUT: this.root.find(`.${this.CLASSES.INPUT}`),
-    };
-
-    this.VOCABULARY = {
-      STAR: 'favorite',
-      STAR_BORDER: 'favorite_border',
+  getDOM() {
+    return {
+      ICON: this.root.querySelector(`.${this.CLASSES.ICON}`),
+      INPUT: this.root.querySelector(`.${this.CLASSES.INPUT}`),
     };
   }
 
   setInitialState() {
-    this.likesNumber = this.DOM.INPUT.val();
+    this.likesNumber = parseInt(this.DOM.INPUT.value, 10);
 
-    if (this.root.hasClass(this.CLASSES.ROOT_LIKED)) {
+    if (this.root.classList.contains(this.CLASSES.ROOT_LIKED)) {
       this.liked = true;
     }
   }
 
   clickHandler() {
-    if (this.liked) {
-      this.decreaseNumber();
-    } else {
-      this.increaseNumber();
-    }
+    if (this.liked) this.decreaseNumber();
+    else this.increaseNumber();
 
     this.liked = !this.liked;
   }
