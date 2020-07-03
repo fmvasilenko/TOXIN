@@ -1,6 +1,6 @@
 import ComponentView from '@frontend/componentView';
 
-export default class LikeButtonView extends ComponentView {
+class LikeButtonView extends ComponentView {
   constructor(controller = {}) {
     super(controller);
 
@@ -44,3 +44,5 @@ export default class LikeButtonView extends ComponentView {
     this.DOM.INPUT.value = this.likesNumber;
   }
 }
+
+export default LikeButtonView;

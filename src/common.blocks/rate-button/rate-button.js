@@ -1,7 +1,7 @@
 import Component from '@frontend/component';
 import RateButtonView from './rate-button-view';
 
-export default class RateButton extends Component {
+class RateButton extends Component {
   constructor(root, parent) {
     super({ root, parent });
 
@@ -40,3 +40,5 @@ export default class RateButton extends Component {
     if (event.target.tagName === 'INPUT') this.rating = event.target.value;
   }
 }
+
+export default RateButton;

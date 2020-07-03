@@ -89,10 +89,10 @@ class FormElements extends Component {
   }
 
   initExpandableCheckboxList() {
-    let ExpandableCheckboxLists = []; 
+    const ExpandableCheckboxLists = [];
 
-    $('.expandable-checkbox-list').each( function(index, element) {
-      ExpandableCheckboxLists[index] = new ExpandableCheckboxList($(element), this);
+    this.root[0].querySelectorAll('.js-expandable-checkbox-list').forEach((element, index) => {
+      ExpandableCheckboxLists[index] = new ExpandableCheckboxList(element, this);
     });
 
     return ExpandableCheckboxLists;

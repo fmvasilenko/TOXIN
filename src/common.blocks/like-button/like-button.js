@@ -1,7 +1,7 @@
 import Component from '@frontend/component';
 import LikeButtonView from './like-button-view';
 
-export default class LikeButton extends Component {
+class LikeButton extends Component {
   constructor(root, parent = {}) {
     super({ root, parent });
 
@@ -55,3 +55,5 @@ export default class LikeButton extends Component {
     if (this.likesNumber > 0) this.likesNumber -= 1;
   }
 }
+
+export default LikeButton;

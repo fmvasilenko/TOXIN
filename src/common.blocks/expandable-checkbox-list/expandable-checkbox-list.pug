@@ -4,13 +4,13 @@ mixin expandable-checkbox-list(customConfig = {})
   - let config = blocks.createConfig(defaultConfig, customConfig);
   - let iconClasses = config.expanded ? "expandable-checkbox-list__icon_expanded" : "";
   
-  .expandable-checkbox-list
+  .expandable-checkbox-list.js-expandable-checkbox-list
 
-    .expandable-checkbox-list__field
-      h3.expandable-checkbox-list__title #{config.title}
-      i.material-icons.expandable-checkbox-list__icon(class=iconClasses) #{config.icon}    
+    .expandable-checkbox-list__field.js-expandable-checkbox-list__field
+      h3.expandable-checkbox-list__title.js-expandable-checkbox-list__title #{config.title}
+      i.material-icons.expandable-checkbox-list__icon.js-expandable-checkbox-list__icon(class=iconClasses) #{config.icon}    
 
-    .expandable-checkbox-list__list
+    .expandable-checkbox-list__list.js-expandable-checkbox-list__list
       if config.checkboxButtons
         each button in config.checkboxButtons
           .expandable-checkbox-list__list-item

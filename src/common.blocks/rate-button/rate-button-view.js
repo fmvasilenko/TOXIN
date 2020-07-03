@@ -1,6 +1,6 @@
 import ComponentView from '@frontend/componentView';
 
-export default class RateButtonView extends ComponentView {
+class RateButtonView extends ComponentView {
   constructor(controller = {}) {
     super(controller);
 
@@ -27,3 +27,5 @@ export default class RateButtonView extends ComponentView {
     });
   }
 }
+
+export default RateButtonView;
