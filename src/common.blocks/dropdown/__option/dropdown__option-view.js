@@ -1,7 +1,6 @@
-import ComponentView from "@frontend/componentView";
+import ComponentView from '@frontend/componentView';
 
-export default class DropdownOptionView extends ComponentView {
-
+class DropdownOptionView extends ComponentView {
   constructor(controller) {
     super(controller);
 
@@ -15,24 +14,25 @@ export default class DropdownOptionView extends ComponentView {
     this.state = {
       optionValues: {
         subscribers: [
-          this.changeInput.bind(this)
-        ]
+          this.changeInput.bind(this),
+        ],
       },
       decreaseButtonDisabled: {
         subscribers: [
-          this.toggleDecreaseButton.bind(this)
-        ]
-      }
-    }
+          this.toggleDecreaseButton.bind(this),
+        ],
+      },
+    };
   }
 
   changeInput() {
-    this.DOM.INPUT.val(this.optionValues[this.INDEX]);
+    this.DOM.INPUT.value = this.optionValues[this.INDEX];
   }
 
   toggleDecreaseButton() {
-    if (this.decreaseButtonDisabled) this.DOM.DECREASE_BUTTON.attr("disabled", true);
-    else this.DOM.DECREASE_BUTTON.attr("disabled", false);
+    if (this.decreaseButtonDisabled) this.DOM.DECREASE_BUTTON.disabled = true;
+    else this.DOM.DECREASE_BUTTON.disabled = false;
   }
-
 }
+
+export default DropdownOptionView;

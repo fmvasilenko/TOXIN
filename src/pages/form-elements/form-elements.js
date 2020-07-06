@@ -79,10 +79,10 @@ class FormElements extends Component {
   }
 
   initDropdown() {
-    let dropdowns = []; 
+    const dropdowns = [];
 
-    $('.drop-down').each( function(index, element) {
-      dropdowns[index] = new Dropdown($(element), this);
+    this.root[0].querySelectorAll('.drop-down').forEach((element, index) => {
+      dropdowns[index] = new Dropdown(element, this);
     });
 
     return dropdowns;

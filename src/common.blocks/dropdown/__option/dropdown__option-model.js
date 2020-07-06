@@ -1,7 +1,6 @@
-import ComponentModel from "@frontend/componentModel";
+import ComponentModel from '@frontend/componentModel';
 
-export default class DropdownOptionModel extends ComponentModel {
-
+class DropdownOptionModel extends ComponentModel {
   constructor(controller) {
     super(controller);
 
@@ -15,13 +14,11 @@ export default class DropdownOptionModel extends ComponentModel {
       optionValues: {
         subscribers: [
           this.checkDecreaseButton.bind(this),
-          //this.changeWordForm.bind(this),
-          //this.changeOptionWordForm.bind(this)
-        ]
+        ],
       },
       optionWordForms: {},
-      decreaseButtonDisabled: {}
-    }
+      decreaseButtonDisabled: {},
+    };
   }
 
   setInitialState() {
@@ -44,22 +41,23 @@ export default class DropdownOptionModel extends ComponentModel {
     let n = this.optionValues[this.INDEX];
     n %= 100;
 
-    if(n < 10 || n > 20) {
+    if (n < 10 || n > 20) {
       n %= 10;
 
-      if(n == 1) this.form = this.VOCABULARY.WORD_FORMS[0];
+      if (n === 1) this.form = this.VOCABULARY.WORD_FORMS[0];
       else if (n > 1 && n < 5) this.form = this.VOCABULARY.WORD_FORMS[1];
       else this.form = this.VOCABULARY.WORD_FORMS[2];
     }
     else this.form = this.VOCABULARY.WORD_FORMS[2];
-    
+
     return true;
   }
 
   changeOptionWordForm() {
-    let forms = this.optionWordForms;
+    const forms = this.optionWordForms;
     forms[this.INDEX] = this.form;
     this.optionWordForms = forms;
   }
-
 }
+
+export default DropdownOptionModel;

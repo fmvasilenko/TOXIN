@@ -1,7 +1,6 @@
-import ComponentModel from "@frontend/componentModel";
+import ComponentModel from '@frontend/componentModel';
 
-export default class DropdownModel extends ComponentModel {
-
+class DropdownModel extends ComponentModel {
   constructor(controller) {
     super(controller);
 
@@ -13,17 +12,17 @@ export default class DropdownModel extends ComponentModel {
     this.state = {
       optionValues: {
         subscribers: [
-          this.calcSum.bind(this)
-        ]
+          this.calcSum.bind(this),
+        ],
       },
       optionWordForms: {},
       optionsSum: {
         subscribers: [
-          this.changeWordForm.bind(this)
-        ]
+          this.changeWordForm.bind(this),
+        ],
       },
-      wordForm: {}
-    }
+      wordForm: {},
+    };
   }
 
   setInitialState() {
@@ -31,8 +30,7 @@ export default class DropdownModel extends ComponentModel {
   }
 
   calcSum() {
-    if (this.optionValues.length)
-      this.optionsSum = this.optionValues.reduce((sum, value) => sum + value);
+    if (this.optionValues.length) this.optionsSum = this.optionValues.reduce((sum, value) => sum + value);
     else this.optionsSum = 0;
   }
 
@@ -45,10 +43,10 @@ export default class DropdownModel extends ComponentModel {
     let n = this.optionsSum;
     n %= 100;
 
-    if(n < 10 || n > 20) {
+    if (n < 10 || n > 20) {
       n %= 10;
 
-      if(n == 1) this.wordForm = this.VOCABULARY.WORD_FORMS[0];
+      if (n === 1) this.wordForm = this.VOCABULARY.WORD_FORMS[0];
       else if (n > 1 && n < 5) this.wordForm = this.VOCABULARY.WORD_FORMS[1];
       else this.wordForm = this.VOCABULARY.WORD_FORMS[2];
     }
@@ -56,5 +54,6 @@ export default class DropdownModel extends ComponentModel {
 
     return true;
   }
-
 }
+
+export default DropdownModel;

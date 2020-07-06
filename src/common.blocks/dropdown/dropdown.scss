@@ -73,6 +73,10 @@
   &__submit-area {
     display: flex;
     justify-content: space-between;
+
+    &_hidden {
+      display: none;
+    }
   }
 
   &__button-wrapper {

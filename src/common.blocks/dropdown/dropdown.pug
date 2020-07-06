@@ -5,23 +5,23 @@ mixin drop-down(customConfig = {})
   - let blocks = require('@plugins/blocks.js');
   - let defaultConfig = require('@blocks/dropdown/dropdown.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
+  - let submitAreaClass = config.display_type === "values" ? "drop-down__submit-area_hidden": "";
 
-  .drop-down(display_type=config.display_type)
+  .drop-down.js-drop-down(display_type=config.display_type)
 
     h3.drop-down__title #{config.title}
     
-    .drop-down__field
-      input.drop-down__field-input(value=config.default_value forms=config.value_forms disabled)
-      i.material-icons.drop-down__expand-more #{config.icon}
+    .drop-down__field.js-drop-down__field
+      input.drop-down__field-input.js-drop-down__field-input(value=config.default_value forms=config.value_forms disabled)
+      i.material-icons.drop-down__expand-more.js-drop-down__expand-more #{config.icon}
 
-    ul.drop-down__list
+    ul.drop-down__list.js-drop-down__list
       if config.options
         each option in config.options
           +drop-down__option(option)
 
-      if config.display_type=="total"
-        .drop-down__submit-area
-          .drop-down__button-wrapper.js-drop-down__clear-button
-            +button(config.clearButton)
-          .drop-down__button-wrapper.js-drop-down__submit-button
-            +button(config.submitButton)
+      .drop-down__submit-area
+        .drop-down__button-wrapper.js-drop-down__clear-button
+          +button(config.clearButton)
+        .drop-down__button-wrapper.js-drop-down__submit-button
+          +button(config.submitButton)

@@ -1,11 +1,10 @@
-import Component from "@frontend/component";
-import DropdownOptionView from "./dropdown__option-view";
-import DropdownOptionModel from "./dropdown__option-model";
+import Component from '@frontend/component';
+import DropdownOptionView from './dropdown__option-view';
+import DropdownOptionModel from './dropdown__option-model';
 
-export default class DropdownOption extends Component {
-
+class DropdownOption extends Component {
   constructor(root, parent, index) {
-    super({root: root, parent: parent});
+    super({ root, parent });
 
     this.INDEX = index;
     this.setDOM();
@@ -19,57 +18,55 @@ export default class DropdownOption extends Component {
     this.state = {
       optionValues: {
         value: [],
-        isGlobal: true
+        isGlobal: true,
       },
       optionWordForms: {
         value: [],
-        isGlobal: true
+        isGlobal: true,
       },
       decreaseButtonDisabled: {
         value: false,
-        subscribers: [
-          
-        ]
-      }
-    }
+        subscribers: [],
+      },
+    };
   }
 
   setClasses() {
     this.CLASSES = {
-      INPUT: "drop-down__option-input",
-      DECREASE_BUTTON: "js-drop-down__button_decrease",
-      INCREASE_BUTTON: "js-drop-down__button_increase"
-    }
+      INPUT: 'js-drop-down__option-input',
+      DECREASE_BUTTON: 'js-drop-down__button_decrease',
+      INCREASE_BUTTON: 'js-drop-down__button_increase',
+    };
   }
 
   setDOM() {
     this.DOM = {
-      INPUT: this.root.find(`.${this.CLASSES.INPUT}`),
-      DECREASE_BUTTON: this.root.find(`.${this.CLASSES.DECREASE_BUTTON}`),
-      INCREASE_BUTTON: this.root.find(`.${this.CLASSES.INCREASE_BUTTON}`)
-    }
+      INPUT: this.root.querySelector(`.${this.CLASSES.INPUT}`),
+      DECREASE_BUTTON: this.root.querySelector(`.${this.CLASSES.DECREASE_BUTTON}`),
+      INCREASE_BUTTON: this.root.querySelector(`.${this.CLASSES.INCREASE_BUTTON}`),
+    };
   }
 
   setVocabulary() {
-    let forms = this.DOM.INPUT.attr("forms");
-    forms = forms ? forms.split(",") : null;
+    let forms = this.DOM.INPUT.getAttribute('forms');
+    forms = forms ? forms.split(',') : null;
 
     this.VOCABULARY = {
-      WORD_FORMS: forms
-    }
+      WORD_FORMS: forms,
+    };
   }
 
   setInitialState() {
-    this.optionValues[this.INDEX] = this.DOM.INPUT.val() ? parseInt(this.DOM.INPUT.val()) : 0;
+    this.optionValues[this.INDEX] = this.DOM.INPUT.value ? parseInt(this.DOM.INPUT.value, 10) : 0;
   }
 
   clickHandler(event) {
-    if (event.target.closest(`.${this.CLASSES.INCREASE_BUTTON}`) == this.DOM.INCREASE_BUTTON[0]){
-      let optionValues = this.optionValues;
+    if (event.target.closest(`.${this.CLASSES.INCREASE_BUTTON}`) === this.DOM.INCREASE_BUTTON) {
+      const optionValues = this.optionValues;
       optionValues[this.INDEX]++;
       this.optionValues = optionValues;
     }
-    else if (event.target.closest(`.${this.CLASSES.DECREASE_BUTTON}`) == this.DOM.DECREASE_BUTTON[0]){
+    else if (event.target.closest(`.${this.CLASSES.DECREASE_BUTTON}`) === this.DOM.DECREASE_BUTTON) {
       if (this.optionValues[this.INDEX] > 0) {
         let optionValues = this.optionValues;
         optionValues[this.INDEX]--;
@@ -77,5 +74,6 @@ export default class DropdownOption extends Component {
       }
     }
   }
-
 }
+
+export default DropdownOption;

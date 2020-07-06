@@ -1,15 +1,16 @@
-import Component from "@frontend/component";
-import DropdownModel from "./dropdown-model";
-import DropdownView from "./dropdown-view";
-import DropdownOption from "./__option/dropdown__option";
+import Component from '@frontend/component';
+import DropdownModel from './dropdown-model';
+import DropdownView from './dropdown-view';
+import DropdownOption from './__option/dropdown__option';
 
-export default class Dropdown extends Component {
-
+class Dropdown extends Component {
   constructor(root, parent) {
-    super({root: root, parent: parent});
+    super({ root, parent });
 
-    this.setConsts();
+    this.setDOM();
+    this.setVocabulary();
     this.setInitialState();
+
     this.MODEL = new DropdownModel(this);
     this.VIEW = new DropdownView(this);
   }
@@ -17,92 +18,90 @@ export default class Dropdown extends Component {
   setState() {
     this.state = {
       optionValues: {
-        value: []
+        value: [],
       },
       optionWordForms: {
-        value: []
+        value: [],
       },
       expanded: {
         value: false,
       },
       displayType: {
-        value: "total"
+        value: 'total',
       },
       optionsSum: {
         value: 0,
       },
-      wordForm: {}
-    }
+      wordForm: {},
+    };
   }
 
   setClosers() {
     this.closers = [
-      this.closeList.bind(this)
-    ]
+      this.closeList.bind(this),
+    ];
   }
 
   setConsts() {
     this.setDOM();
-    this.setVocabulary();    
+    this.setVocabulary();
   }
 
   setClasses() {
     this.CLASSES = {
-      OPTION: "drop-down__option",
-      FIELD: "drop-down__field",
-      FIELD_DROPPED: "drop-down__field_drop",
-      ICON: "drop-down__expand-more",
-      INPUT: "drop-down__field-input",
-      LIST: "drop-down__list",
-      LIST_DROPPPED: "drop-down__list_drop",
-      CLEAR_BUTTON: "js-drop-down__clear-button",
-      SUBMIT_BUTTON: "js-drop-down__submit-button",
-      BUTTON_HIDDEN: "button_hidden"
-    }
+      OPTION: 'js-drop-down__option',
+      FIELD: 'js-drop-down__field',
+      FIELD_DROPPED: 'drop-down__field_drop',
+      ICON: 'js-drop-down__expand-more',
+      INPUT: 'js-drop-down__field-input',
+      LIST: 'js-drop-down__list',
+      LIST_DROPPPED: 'drop-down__list_drop',
+      CLEAR_BUTTON: 'js-drop-down__clear-button',
+      SUBMIT_BUTTON: 'js-drop-down__submit-button',
+      BUTTON_HIDDEN: 'button_hidden',
+    };
   }
 
   setDOM() {
     this.DOM = {
-      FIELD: this.root.find(`.${this.CLASSES.FIELD}`),
-      ICON: this.root.find(`.${this.CLASSES.ICON}`),
-      INPUT: this.root.find(`.${this.CLASSES.INPUT}`),
-      LIST: this.root.find(`.${this.CLASSES.LIST}`),
-      CLEAR_BUTTON: this.root.find(`.${this.CLASSES.CLEAR_BUTTON}`).find("button"),
-      SUBMIT_BUTTON: this.root.find(`.${this.CLASSES.SUBMIT_BUTTON}`).find("button")
-    }
+      FIELD: this.root.querySelector(`.${this.CLASSES.FIELD}`),
+      ICON: this.root.querySelector(`.${this.CLASSES.ICON}`),
+      INPUT: this.root.querySelector(`.${this.CLASSES.INPUT}`),
+      LIST: this.root.querySelector(`.${this.CLASSES.LIST}`),
+      CLEAR_BUTTON: this.root.querySelector(`.${this.CLASSES.CLEAR_BUTTON}`).querySelector('button'),
+      SUBMIT_BUTTON: this.root.querySelector(`.${this.CLASSES.SUBMIT_BUTTON}`).querySelector('button'),
+    };
   }
 
   setVocabulary() {
-    let forms = this.DOM.INPUT.attr("forms") ? this.DOM.INPUT.attr("forms") : null;
-    forms = forms ? forms.split(",") : null;
+    let forms = this.DOM.INPUT.hasAttribute('forms') ? this.DOM.INPUT.getAttribute('forms') : null;
+    forms = forms ? forms.split(',') : null;
 
     this.VOCABULARY = {
       WORD_FORMS: forms,
-      DEFAULT_VALUE: this.DOM.INPUT.val()
-    }
-  }
-
-  setInitialState() {
-    this.displayType = this.root.attr("display_type") ? this.root.attr("display_type") : "total";
+      DEFAULT_VALUE: this.DOM.INPUT.value,
+    };
   }
 
   setChildren() {
     this.children = [];
-    let options = this.root.find(`.${this.CLASSES.OPTION}`);
+    const options = this.root.querySelectorAll(`.${this.CLASSES.OPTION}`);
 
-    options.each( function(index, option) {
-      this.children[index] = new DropdownOption($(option), this, index);
-    }.bind(this));
+    options.forEach((option, index) => {
+      this.children[index] = new DropdownOption(option, this, index);
+    });
+  }
+
+  setInitialState() {
+    this.displayType = this.root.hasAttribute('display_type') ? this.root.getAttribute('display_type') : 'total';
   }
 
   clickHandler(event) {
-    if (event.target.closest(`.${this.CLASSES.FIELD}`) == this.DOM.FIELD[0]) {
+    if (event.target.closest(`.${this.CLASSES.FIELD}`) === this.DOM.FIELD) {
       this.expanded = !this.expanded;
-    }
-    else if (event.target.closest(`.${this.CLASSES.CLEAR_BUTTON}`) == this.DOM.CLEAR_BUTTON.parent()[0]) {
-      if (this.DOM.CLEAR_BUTTON[0] !== undefined) this.optionValues = this.optionValues.map( () => 0 );
-    }
-    else if (event.target.closest(`.${this.CLASSES.SUBMIT_BUTTON}`) == this.DOM.SUBMIT_BUTTON.parent()[0]) {
+    } else if (event.target.closest(`.${this.CLASSES.CLEAR_BUTTON}`) === this.DOM.CLEAR_BUTTON.parentNode) {
+      if (this.DOM.CLEAR_BUTTON !== undefined) this.optionValues = this.optionValues.map(() => 0);
+    } else if (event.target.closest(`.${this.CLASSES.SUBMIT_BUTTON}`) === this.DOM.SUBMIT_BUTTON.parentNode) {
       this.expanded = false;
     }
   }
@@ -110,5 +109,6 @@ export default class Dropdown extends Component {
   closeList() {
     this.expanded = false;
   }
-
 }
+
+export default Dropdown;
