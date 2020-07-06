@@ -16,7 +16,8 @@ import Slider from '@blocks/slider/slider';
 
 class FormElements extends Component {
   constructor() {
-    super({ root: $(document), parent: null });
+    // eslint-disable-next-line no-undef
+    super({ root: document, parent: null });
   }
 
   setChildren() {
@@ -41,7 +42,7 @@ class FormElements extends Component {
   initRateButtons() {
     const rateButtons = [];
 
-    this.root[0].querySelectorAll('.js-rate-button').forEach((element, index) => {
+    this.root.querySelectorAll('.js-rate-button').forEach((element, index) => {
       rateButtons[index] = new RateButton(element, this);
     });
 
@@ -51,7 +52,7 @@ class FormElements extends Component {
   initLikeButtons() {
     const likeButtons = [];
 
-    this.root[0].querySelectorAll('.js-like-button').forEach((element) => {
+    this.root.querySelectorAll('.js-like-button').forEach((element) => {
       likeButtons.push(new LikeButton(element, this));
     });
 
@@ -59,20 +60,20 @@ class FormElements extends Component {
   }
 
   initDateDropdown() {
-    let dateDropdowns = []; 
+    const dateDropdowns = [];
 
-    $('.date-dropdown').each( function(index, element) {
-      dateDropdowns[index] = new DateDropdown($(element), this);
+    this.root.querySelectorAll('.js-date-dropdown').forEach((element, index) => {
+      dateDropdowns[index] = new DateDropdown(element, this);
     });
 
     return dateDropdowns;
   }
 
   initFilterDateDropdown() {
-    let filterDateDropdowns = []; 
+    const filterDateDropdowns = [];
 
-    $('.filter-date-dropdown').each( function(index, element) {
-      filterDateDropdowns[index] = new FilterDateDropdown($(element), this);
+    this.root.querySelectorAll('.js-filter-date-dropdown').forEach((element, index) => {
+      filterDateDropdowns[index] = new FilterDateDropdown(element, this);
     });
 
     return filterDateDropdowns;
@@ -81,7 +82,7 @@ class FormElements extends Component {
   initDropdown() {
     const dropdowns = [];
 
-    this.root[0].querySelectorAll('.drop-down').forEach((element, index) => {
+    this.root.querySelectorAll('.js-drop-down').forEach((element, index) => {
       dropdowns[index] = new Dropdown(element, this);
     });
 
@@ -91,7 +92,7 @@ class FormElements extends Component {
   initExpandableCheckboxList() {
     const ExpandableCheckboxLists = [];
 
-    this.root[0].querySelectorAll('.js-expandable-checkbox-list').forEach((element, index) => {
+    this.root.querySelectorAll('.js-expandable-checkbox-list').forEach((element, index) => {
       ExpandableCheckboxLists[index] = new ExpandableCheckboxList(element, this);
     });
 
@@ -99,16 +100,15 @@ class FormElements extends Component {
   }
 
   initSlider() {
-    let sliders = []; 
+    const sliders = [];
 
-    $('.slider').each( function(index, element) {
-      sliders[index] = new Slider($(element), this);
+    this.root.querySelectorAll('.js-slider').forEach((element, index) => {
+      sliders[index] = new Slider(element, this);
     });
 
     return sliders;
   }
-
 }
 
-let formElements = new FormElements();
-console.log(formElements);
+// eslint-disable-next-line no-unused-vars
+const formElements = new FormElements();

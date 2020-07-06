@@ -1,10 +1,9 @@
-import Component from "@frontend/component";
-import Calendar from "@blocks/calendar/calendar";
+import Component from '@frontend/component';
+import Calendar from '@blocks/calendar/calendar';
 
-export default class FilterDateDropdown extends Component {
-
-  constructor(rootElement, parent = {}) {
-    super({root: rootElement, parent: parent});
+class FilterDateDropdown extends Component {
+  constructor(root, parent = {}) {
+    super({ root, parent });
 
     this.setConsts();
     this.setChildren();
@@ -16,72 +15,72 @@ export default class FilterDateDropdown extends Component {
       arrivalDate: {
         value: null,
         subscribers: [
-          this.changeField.bind(this)
-        ]
+          this.changeField.bind(this),
+        ],
       },
       leavingDate: {
         value: null,
         subscribers: [
-          this.changeField.bind(this)
-        ]
+          this.changeField.bind(this),
+        ],
       },
       calendarDisplayed: {
         value: false,
         subscribers: [
-          this.toggleCalendar.bind(this)
-        ]
-      }
-    }
+          this.toggleCalendar.bind(this),
+        ],
+      },
+    };
   }
 
   setClosers() {
     this.closers = [
-      this.closeCalendar.bind(this)
-    ]
+      this.closeCalendar.bind(this),
+    ];
   }
 
   setConsts() {
     this.CLASSES = {
-      FIELD: "filter-date-dropdown__field",
-      INPUT: "filter-date-dropdown__input",
-      ARRIVAL_DATE: "filter-date-dropdown__arrival-date",
-      LEAVING_DATE: "filter-date-dropdown__leaving-date",
-      ICON: "filter-date-dropdown__icon",
-      CALENDAR: "filter-date-dropdown__calendar",
-      CALENDAR_POPUP_DROPPED: "filter-date-dropdown__calendar_dropped"
-    }
+      FIELD: 'js-filter-date-dropdown__field',
+      INPUT: 'js-filter-date-dropdown__input',
+      ARRIVAL_DATE: 'js-filter-date-dropdown__arrival-date',
+      LEAVING_DATE: 'js-filter-date-dropdown__leaving-date',
+      ICON: 'js-filter-date-dropdown__icon',
+      CALENDAR: 'js-filter-date-dropdown__calendar',
+      CALENDAR_POPUP_DROPPED: 'filter-date-dropdown__calendar_dropped',
+    };
 
     this.VOCABULARY = {
-      MONTHS: ["янв", "фев", "март", "апр", "мая", "июня", "июля", "авг", "сент", "окт", "нояб", "дек"]
-    }
+      MONTHS: ['янв', 'фев', 'март', 'апр', 'мая', 'июня', 'июля', 'авг', 'сент', 'окт', 'нояб', 'дек'],
+    };
   }
 
   setChildren() {
-    let calendar = this.root.find(".calendar");
+    const calendar = this.root.querySelector('.js-calendar');
 
     this.children = [
-      new Calendar(calendar, this)
-    ]
+      new Calendar(calendar, this),
+    ];
   }
 
   setInitialState() {
-    this.field = this.root.find(`.${this.CLASSES.FIELD}`);
-    this.input = this.root.find(`.${this.CLASSES.INPUT}`);
-    this.arrivalDateInput = this.root.find(`.${this.CLASSES.ARRIVAL_DATE}`);
-    this.leavingDateInput = this.root.find(`.${this.CLASSES.LEAVING_DATE}`);
-    this.icon = this.root.find(`.${this.CLASSES.ICON}`);
-    this.calendar = this.root.find(`.${this.CLASSES.CALENDAR}`);
+    this.field = this.root.querySelector(`.${this.CLASSES.FIELD}`);
+    this.input = this.root.querySelector(`.${this.CLASSES.INPUT}`);
+    this.arrivalDateInput = this.root.querySelector(`.${this.CLASSES.ARRIVAL_DATE}`);
+    this.leavingDateInput = this.root.querySelector(`.${this.CLASSES.LEAVING_DATE}`);
+    this.icon = this.root.querySelector(`.${this.CLASSES.ICON}`);
+    this.calendar = this.root.querySelector(`.${this.CLASSES.CALENDAR}`);
 
     this.arrivalDate = this.getArrivalDate();
     this.leavingDate = this.getLeavingDate();
   }
 
-  clickHandler() {
+  clickHandler(event) {
     if (this.fieldClicked(event)) this.fieldClickHandler();
   }
 
   fieldClicked(event) {
-    return event.target.closest(`.${this.CLASSES.FIELD}`) == this.field[0];
+    return event.target.closest(`.${this.CLASSES.FIELD}`) === this.field;
   }
 
   fieldClickHandler() {
@@ -89,7 +88,7 @@ export default class FilterDateDropdown extends Component {
   }
 
   getArrivalDate() {
-    let date = this.arrivalDateInput.val();
+    let date = this.arrivalDateInput.value;
 
     if (!date) return null;
 
@@ -98,7 +97,7 @@ export default class FilterDateDropdown extends Component {
   }
 
   getLeavingDate() {
-    let date = this.leavingDateInput.val();
+    let date = this.leavingDateInput.value;
 
     if (!date) return null;
 
@@ -106,12 +105,13 @@ export default class FilterDateDropdown extends Component {
     return date;
   }
 
-  parseDate(date) {
-    date = date.split("-");
+  // eslint-disable-next-line class-methods-use-this
+  parseDate(givenDate) {
+    let date = givenDate.split('-');
 
-    let year = date[0];
-    let month = date[1] - 1;
-    let day = date[2];
+    const year = date[0];
+    const month = date[1] - 1;
+    const day = date[2];
 
     date = new Date(year, month, day);
 
@@ -120,35 +120,33 @@ export default class FilterDateDropdown extends Component {
 
   toggleCalendar() {
     if (this.calendarDisplayed) {
-      this.calendar.addClass(this.CLASSES.CALENDAR_POPUP_DROPPED);
-    }
-    else {
-      this.calendar.removeClass(this.CLASSES.CALENDAR_POPUP_DROPPED);
+      this.calendar.classList.add(this.CLASSES.CALENDAR_POPUP_DROPPED);
+    } else {
+      this.calendar.classList.remove(this.CLASSES.CALENDAR_POPUP_DROPPED);
     }
   }
 
   changeField() {
-    let str = "";
+    let str = '';
 
     if (this.arrivalDate) {
-      let monthNumber = this.arrivalDate.getMonth();
+      const monthNumber = this.arrivalDate.getMonth();
       str += `${this.arrivalDate.getDate()} ${this.VOCABULARY.MONTHS[monthNumber]}`;
-    }
-    else str += "__";
+    } else str += '__';
 
-    str += " - ";
+    str += ' - ';
 
     if (this.leavingDate) {
-      let monthNumber = this.leavingDate.getMonth();
+      const monthNumber = this.leavingDate.getMonth();
       str += `${this.leavingDate.getDate()} ${this.VOCABULARY.MONTHS[monthNumber]}`;
-    }
-    else str += "__";
+    } else str += '__';
 
-    this.input.val(str);
+    this.input.value = str;
   }
 
   closeCalendar() {
     this.calendarDisplayed = false;
   }
-
 }
+
+export default FilterDateDropdown;

@@ -1,32 +1,32 @@
-import Component from "@frontend/component";
-import FilterDateDropdown from "@blocks/filter-date-dropdown/filter-date-dropdown";
-import Dropdown from "@blocks/dropdown/dropdown";
-import ExpandableCheckboxList from "@blocks/expandable-checkbox-list/expandable-checkbox-list";
+import Component from '@frontend/component';
+import FilterDateDropdown from '@blocks/filter-date-dropdown/filter-date-dropdown';
+import Dropdown from '@blocks/dropdown/dropdown';
+import ExpandableCheckboxList from '@blocks/expandable-checkbox-list/expandable-checkbox-list';
 
-export default class Sidebar extends Component {
-
+class Sidebar extends Component {
   constructor(root, parent = {}) {
-    super({root: root, parent: parent});
+    super({ root, parent });
   }
 
   setChildren() {
     this.children = [
-      new FilterDateDropdown(this.root.find(".filter-date-dropdown"), this),
-      new ExpandableCheckboxList(this.root.find(".expandable-checkbox-list"), this)
-    ]
+      new FilterDateDropdown(this.root.querySelector('.js-filter-date-dropdown'), this),
+      new ExpandableCheckboxList(this.root.querySelector('.js-expandable-checkbox-list'), this),
+    ];
 
-    let dropdowns = this.initDropdown();
+    const dropdowns = this.initDropdown();
     this.children = this.children.concat(dropdowns);
   }
 
   initDropdown() {
-    let dropdowns = []; 
+    const dropdowns = [];
 
-    $('.drop-down').each( function(index, element) {
-      dropdowns[index] = new Dropdown($(element), this);
+    this.root.querySelectorAll('.js-drop-down').forEach((element, index) => {
+      dropdowns[index] = new Dropdown(element, this);
     });
 
     return dropdowns;
   }
-
 }
+
+export default Sidebar;

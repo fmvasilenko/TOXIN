@@ -62,17 +62,16 @@ export default class Component {
     return state1;
   }
 
-  /*
-  mergeClosers(closers1 = [], closers2 = []) {
-    return closers1.concat(closers2);
-  }
-  */
-
+  // eslint-disable-next-line class-methods-use-this
   mergeSubscribers(parameter1 = {}, parameter2 = {}) {
-    if (parameter1.subscribers === undefined) parameter1.subscribers = [];
-    if (parameter2.subscribers === undefined) parameter2.subscribers = [];
+    // if (parameter1.subscribers === undefined) parameter1.subscribers = [];
+    // if (parameter2.subscribers === undefined) parameter2.subscribers = [];
 
-    return parameter1.subscribers.concat(parameter2.subscribers);
+    const subscribers1 = parameter1.subscribers || [];
+    const subscribers2 = parameter2.subscribers || [];
+
+    // return parameter1.subscribers.concat(parameter2.subscribers);
+    return [...subscribers1, ...subscribers2];
   }
 
   initGetSet() {

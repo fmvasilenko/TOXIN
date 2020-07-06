@@ -3,36 +3,35 @@ import 'jquery-ui';
 import 'jquery-ui-touch-punch';
 import '../../scss/main.scss';
 
-import Component from "@frontend/component";
-import Sidebar from "@blocks/sidebar/sidebar";
-import Suite from "@blocks/suite/suite";
+import Component from '@frontend/component';
+import Sidebar from '@blocks/sidebar/sidebar';
+import Suite from '@blocks/suite/suite';
 
 class Searchroom extends Component {
-
   constructor() {
-    super({root: $(document), parent: null});
+    // eslint-disable-next-line no-undef
+    super({ root: document, parent: null });
   }
 
   setChildren() {
     this.children = [
-      new Sidebar(this.root.find(".sidebar"), this)
+      new Sidebar(this.root.querySelector('.sidebar'), this),
     ];
 
-    let suites = this.initSuite();
-    this.children = this.children = this.children.concat(suites);
+    const suites = this.initSuite();
+    this.children = this.children.concat(suites);
   }
 
   initSuite() {
-    let suites = []; 
+    const suites = [];
 
-    $('.suite').each( function(index, element) {
-      suites[index] = new Suite($(element), this);
+    this.root.querySelectorAll('.js-suite').forEach((element, index) => {
+      suites[index] = new Suite(element, this);
     });
 
     return suites;
   }
-
 }
 
-let searchroom = new Searchroom();
-console.log(searchroom);
+// eslint-disable-next-line no-unused-vars
+const searchroom = new Searchroom();
