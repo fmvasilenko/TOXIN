@@ -1,11 +1,10 @@
-import Component from "@frontend/component";
-import DateDropdown from "@blocks/date-dropdown/date-dropdown";
-import Dropdown from "@blocks/dropdown/dropdown";
+import Component from '@frontend/component';
+import DateDropdown from '@blocks/date-dropdown/date-dropdown';
+import Dropdown from '@blocks/dropdown/dropdown';
 
-export default class Receipt extends Component {
-
+class Receipt extends Component {
   constructor(root, parent = {}) {
-    super({root: root, parent: parent});
+    super({ root, parent });
 
     this.setDOM();
     this.setInitialState();
@@ -15,72 +14,72 @@ export default class Receipt extends Component {
     this.state = {
       leavingDate: {
         subscribers: [
-          this.calculateDaysBetween.bind(this)
-        ]
+          this.calculateDaysBetween.bind(this),
+        ],
       },
       arrivalDate: {
         subscribers: [
-          this.calculateDaysBetween.bind(this)
-        ]
+          this.calculateDaysBetween.bind(this),
+        ],
       },
       daysNumber: {
         value: 0,
         subscribers: [
-          this.changeCost.bind(this)
-        ]
+          this.changeCost.bind(this),
+        ],
       },
       cost: {
         value: 0,
         subscribers: [
           this.displayCost.bind(this),
           this.displayCostTitle.bind(this),
-          this.calculateTotalAmount.bind(this)
-        ]
+          this.calculateTotalAmount.bind(this),
+        ],
       },
       total: {
         value: 0,
         subscribers: [
-          this.displayTotal.bind(this)
-        ]
-      }
-    }
+          this.displayTotal.bind(this),
+        ],
+      },
+    };
   }
 
   setClasses() {
     this.CLASSES = {
-      DROPDOWN: "drop-down",
-      DATE_DROPDOWN: "date-dropdown",
-      PRICE_PER_NIGHT: "receipt__title-price",
-      COST_TITLE: "receipt__cost-title",
-      COST: "receipt__cost-price",
-      DISCOUNT: "receipt__cost-title",
-      EXTRA_COSTS: "receipt__cost-price",
-      TOTAL: "receipt__total-number"
-    }
+      DROPDOWN: 'js-drop-down',
+      DATE_DROPDOWN: 'js-date-dropdown',
+      PRICE_PER_NIGHT: 'js-receipt__title-price',
+      COST_TITLE: 'js-receipt__cost-title',
+      COST: 'js-receipt__cost-price',
+      DISCOUNT: 'js-receipt__cost-title',
+      EXTRA_COSTS: 'js-receipt__cost-price',
+      TOTAL: 'js-receipt__total-number',
+    };
   }
 
   setDOM() {
     this.DOM = {
-      PRICE_PER_NIGHT: this.root.find(`.${this.CLASSES.PRICE_PER_NIGHT}`),
-      COST_TITLE: this.root.find(`.${this.CLASSES.COST_TITLE}`).first(),
-      COST: this.root.find(`.${this.CLASSES.COST}`).first(),
-      DISCOUNT: this.root.find(`.${this.CLASSES.DISCOUNT}`).eq(1),
-      EXTRA_COSTS: this.root.find(`.${this.CLASSES.EXTRA_COSTS}`).eq(2),
-      TOTAL: this.root.find(`.${this.CLASSES.TOTAL}`)
-    }
+      PRICE_PER_NIGHT: this.root.querySelector(`.${this.CLASSES.PRICE_PER_NIGHT}`),
+      COST_TITLE: this.root.querySelector(`.${this.CLASSES.COST_TITLE}`),
+      COST: this.root.querySelector(`.${this.CLASSES.COST}`),
+      DISCOUNT: this.root.querySelectorAll(`.${this.CLASSES.DISCOUNT}`)[1],
+      EXTRA_COSTS: this.root.querySelectorAll(`.${this.CLASSES.EXTRA_COSTS}`)[2],
+      TOTAL: this.root.querySelector(`.${this.CLASSES.TOTAL}`),
+    };
   }
 
   setChildren() {
     this.children = [
-      new DateDropdown(this.root.find(`.${this.CLASSES.DATE_DROPDOWN}`), this),
-      new Dropdown(this.root.find(`.${this.CLASSES.DROPDOWN}`), this)
-    ]
+      new DateDropdown(this.root.querySelector(`.${this.CLASSES.DATE_DROPDOWN}`), this),
+      new Dropdown(this.root.querySelector(`.${this.CLASSES.DROPDOWN}`), this),
+    ];
   }
 
   setInitialState() {
-    this.pricePerNight = parseInt(this.DOM.PRICE_PER_NIGHT.html().replace(/[^\d]/g, ''));
-    this.discount = parseInt(this.DOM.DISCOUNT.html().replace(/[^\d]/g, ''));
-    this.extraCosts = parseInt(this.DOM.EXTRA_COSTS.html().replace(/[^\d]/g, ''));
+    this.pricePerNight = parseInt(this.DOM.PRICE_PER_NIGHT.innerHTML.replace(/[^\d]/g, ''), 10);
+    this.discount = parseInt(this.DOM.DISCOUNT.innerHTML.replace(/[^\d]/g, ''), 10);
+    this.extraCosts = parseInt(this.DOM.EXTRA_COSTS.innerHTML.replace(/[^\d]/g, ''), 10);
     this.changeCost();
   }
 
@@ -88,10 +87,11 @@ export default class Receipt extends Component {
     this.daysNumber = this.daysBetween(this.arrivalDate, this.leavingDate);
   }
 
+  // eslint-disable-next-line class-methods-use-this
   daysBetween(arrivalDate, leavingDate) {
-    let date1 = new Date(arrivalDate);
-    let date2 = new Date(leavingDate);
-    let daysLag = Math.ceil(Math.abs(date2.getTime() - date1.getTime()) / (1000 * 3600 * 24));
+    const date1 = new Date(arrivalDate);
+    const date2 = new Date(leavingDate);
+    const daysLag = Math.ceil(Math.abs(date2.getTime() - date1.getTime()) / (1000 * 3600 * 24));
     return daysLag;
   }
 
@@ -103,14 +103,14 @@ export default class Receipt extends Component {
     let str = `${this.cost}₽`;
     str = str.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
 
-    if (this.DOM) this.DOM.COST.html(str);
+    if (this.DOM) this.DOM.COST.innerHTML = str;
   }
 
   displayCostTitle() {
     let str = `${this.pricePerNight}₽ x ${this.daysNumber} суток`;
     str = str.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
-    
-    if (this.DOM) this.DOM.COST_TITLE.html(str);
+
+    if (this.DOM) this.DOM.COST_TITLE.innerHTML = str;
   }
 
   calculateTotalAmount() {
@@ -121,8 +121,9 @@ export default class Receipt extends Component {
   displayTotal() {
     let str = `${this.total}₽`;
     str = str.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
-    
-    if (this.DOM) this.DOM.TOTAL.html(str);
-  }
 
+    if (this.DOM) this.DOM.TOTAL.innerHTML = str;
+  }
 }
+
+export default Receipt;

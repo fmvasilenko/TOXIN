@@ -3,13 +3,13 @@ mixin calendar(customConfig = {})
   - let defaultConfig = require('@blocks/calendar/calendar.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
-  .calendar
+  .calendar.js-calendar
     .calendar__header
-      i.material-icons.calendar__left-arrow arrow_back
-      h2.calendar__title Август 2019
-      i.material-icons.calendar__right-arrow arrow_forward
+      i.material-icons.calendar__left-arrow.js-calendar__left-arrow arrow_back
+      h2.calendar__title.js-calendar__title Август 2019
+      i.material-icons.calendar__right-arrow.js-calendar__right-arrow arrow_forward
 
-    .calendar__table-wrapper
+    .calendar__table-wrapper.js-calendar__table-wrapper
       
     .calendar__buttons
       .calendar__button.js-calendar__clear-button

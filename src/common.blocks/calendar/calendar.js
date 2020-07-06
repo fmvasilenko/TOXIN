@@ -1,9 +1,8 @@
-import Component from "@frontend/component";
+import Component from '@frontend/component';
 
-export default class Calendar extends Component {
-
-  constructor(rootElement, parent = {}) {
-    super({root: rootElement, parent: parent});
+class Calendar extends Component {
+  constructor(root, parent = {}) {
+    super({ root, parent });
 
     this.setConsts();
     this.setInitialState();
@@ -15,70 +14,67 @@ export default class Calendar extends Component {
         value: null,
         isGlobal: true,
         subscribers: [
-          this.displayMonth.bind(this)
-        ]
+          this.displayMonth.bind(this),
+        ],
       },
       leavingDate: {
         value: null,
         isGlobal: true,
         subscribers: [
-          this.displayMonth.bind(this)
-        ]
+          this.displayMonth.bind(this),
+        ],
       },
       calendarDisplayed: {
         value: false,
         isGlobal: true,
-        subscribers: [
-          
-        ]
+        subscribers: [],
       },
       monthDisplayed: {
         value: new Date(),
         subscribers: [
-          this.displayMonth.bind(this)
-        ]
-      }
-    }
+          this.displayMonth.bind(this),
+        ],
+      },
+    };
   }
 
   setClasses() {
     this.CLASSES = {
-      TABLE_CONTAINER: "calendar__table-wrapper",
-      TABLE: "calendar__table",
-      TITLE: "calendar__title",
-      LEFT_ARROW: "calendar__left-arrow",
-      RIGHT_ARROW: "calendar__right-arrow",
-      DAY_NAME: "calendar__day-name",
-      CELL: "calendar__number",
-      ARRIVAL_DATE: "calendar__arrival-date",
-      LEAVING_DATE: "calendar__leaving-date",
-      CURRENT_DATE: "calendar__current-date",
-      PICKED_DATE: "calendar__chosen-date",
-      DATE_BETWEEN: "calendar__date-between",
-      INACTIVE_DAY: "calendar__day-inactive",
-      CLEAR_BUTTON: "js-calendar__clear-button",
-      SUBMIT_BUTTON: "js-calendar__submit-button"
+      TABLE_CONTAINER: 'js-calendar__table-wrapper',
+      TABLE: 'calendar__table',
+      TITLE: 'js-calendar__title',
+      LEFT_ARROW: 'js-calendar__left-arrow',
+      RIGHT_ARROW: 'js-calendar__right-arrow',
+      DAY_NAME: 'calendar__day-name',
+      CELL: 'calendar__number',
+      ARRIVAL_DATE: 'calendar__arrival-date',
+      LEAVING_DATE: 'calendar__leaving-date',
+      CURRENT_DATE: 'calendar__current-date',
+      PICKED_DATE: 'calendar__chosen-date',
+      DATE_BETWEEN: 'calendar__date-between',
+      INACTIVE_DAY: 'calendar__day-inactive',
+      CLEAR_BUTTON: 'js-calendar__clear-button',
+      SUBMIT_BUTTON: 'js-calendar__submit-button',
     };
   }
 
   setConsts() {
     this.VOCABULARY = {
-      MONTHS: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
-      WEEKDAYS: ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
-    }
+      MONTHS: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+      WEEKDAYS: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+    };
   }
 
   setInitialState() {
-    this.tableContainer = this.root.find(`.${this.CLASSES.TABLE_CONTAINER}`);
-    this.table = this.root.find(`.${this.CLASSES.TABLE}`);
-    this.title = this.root.find(`.${this.CLASSES.TITLE}`);
-    this.leftArrow = this.root.find(`.${this.CLASSES.LEFT_ARROW}`);
-    this.rightArrow = this.root.find(`.${this.CLASSES.RIGHT_ARROW}`);
-    this.clearButton = this.root.find(`.${this.CLASSES.CLEAR_BUTTON}`);
-    this.submitButton = this.root.find(`.${this.CLASSES.SUBMIT_BUTTON}`);
+    this.tableContainer = this.root.querySelector(`.${this.CLASSES.TABLE_CONTAINER}`);
+    this.title = this.root.querySelector(`.${this.CLASSES.TITLE}`);
+    this.leftArrow = this.root.querySelector(`.${this.CLASSES.LEFT_ARROW}`);
+    this.rightArrow = this.root.querySelector(`.${this.CLASSES.RIGHT_ARROW}`);
+    this.clearButton = this.root.querySelector(`.${this.CLASSES.CLEAR_BUTTON}`);
+    this.submitButton = this.root.querySelector(`.${this.CLASSES.SUBMIT_BUTTON}`);
 
-    let arrivalYear = this.arrivalDate ? this.arrivalDate.getFullYear() : null;
-    let arrivalMonth = this.arrivalDate ? this.arrivalDate.getMonth() : null;
+    const arrivalYear = this.arrivalDate ? this.arrivalDate.getFullYear() : null;
+    const arrivalMonth = this.arrivalDate ? this.arrivalDate.getMonth() : null;
     this.displayMonth(arrivalYear, arrivalMonth);
   }
 
@@ -91,77 +87,64 @@ export default class Calendar extends Component {
   }
 
   leftArrowClicked(event) {
-    return event.target.closest(`.${this.CLASSES.LEFT_ARROW}`) == this.leftArrow[0];
+    return event.target.closest(`.${this.CLASSES.LEFT_ARROW}`) === this.leftArrow;
   }
 
   rightArrowClicked(event) {
-    return event.target.closest(`.${this.CLASSES.RIGHT_ARROW}`) == this.rightArrow[0];
+    return event.target.closest(`.${this.CLASSES.RIGHT_ARROW}`) === this.rightArrow;
   }
 
   tableContainerClicked(event) {
-    return event.target.closest(`.${this.CLASSES.TABLE_CONTAINER}`) == this.tableContainer[0];
+    return event.target.closest(`.${this.CLASSES.TABLE_CONTAINER}`) === this.tableContainer;
   }
 
   clearButtonClicked(event) {
-    return event.target.closest(`.${this.CLASSES.CLEAR_BUTTON}`) == this.clearButton[0];
+    return event.target.closest(`.${this.CLASSES.CLEAR_BUTTON}`) === this.clearButton;
   }
 
   submitButtonClicked(event) {
-    return event.target.closest(`.${this.CLASSES.SUBMIT_BUTTON}`) == this.submitButton[0];
+    return event.target.closest(`.${this.CLASSES.SUBMIT_BUTTON}`) === this.submitButton;
   }
 
   leftArrowClickHandler() {
-    /** 
-     * Looks like this function could be optimized 
+    /**
+     * Looks like this function could be optimized
      * but it`s critical for Component.js to use an assignment operator
      * instead of a direct 'setMonth()' function
     */
-    
-    let year = this.monthDisplayed.getFullYear();
-    let month = this.monthDisplayed.getMonth();
-    let newDate = new Date(year, month);
+
+    const year = this.monthDisplayed.getFullYear();
+    const month = this.monthDisplayed.getMonth();
+    const newDate = new Date(year, month);
 
     newDate.setMonth(newDate.getMonth() - 1);
     this.monthDisplayed = newDate;
   }
 
   rightArrowClickHandler() {
-    /** 
+    /**
      * Check 'leftArrowClickHandler()' description
      * before trying to optimize this function
     */
 
-    let year = this.monthDisplayed.getFullYear();
-    let month = this.monthDisplayed.getMonth();
-    let newDate = new Date(year, month);
+    const year = this.monthDisplayed.getFullYear();
+    const month = this.monthDisplayed.getMonth();
+    const newDate = new Date(year, month);
 
     newDate.setMonth(newDate.getMonth() + 1);
     this.monthDisplayed = newDate;
   }
 
   tableContainerClickHandler(event) {
-    let cellValue;
-    switch (event.target.tagName) {
-      case "TD": {
-        cellValue = $(event.target).html();
-        break;
-      }
+    const cellValue = parseInt(event.target.textContent, 10);
 
-      case "DIV": {
-        cellValue = $(event.target).find("div").html();
-        break;
-      }
-    }
-
-    if (!this.isDayActive($(event.target))) return false;
+    if (!this.isDayActive(event.target)) return;
 
     if (!this.arrivalDate) {
       this.pickArrivalDate(cellValue);
-    }
-    else if (!this.leavingDate) {
+    } else if (!this.leavingDate) {
       this.pickLeavingDate(cellValue);
-    }
-    else this.changeDates(cellValue);
+    } else this.changeDates(cellValue);
   }
 
   clearButtonClickHandler() {
@@ -173,106 +156,109 @@ export default class Calendar extends Component {
     this.calendarDisplayed = false;
   }
 
-  displayMonth(year, month) {
-    if (!year) year = this.monthDisplayed.getFullYear();
-    if (!month) month = this.monthDisplayed.getMonth();
+  displayMonth(givenYear, givenMonth) {
+    const month = givenMonth || this.monthDisplayed.getMonth();
+    const year = givenYear || this.monthDisplayed.getFullYear();
 
     this.renderTable(year, month);
     this.changeTitle();
   }
 
   changeTitle() {
-    let monthName = this.VOCABULARY.MONTHS[this.monthDisplayed.getMonth()];
-    let year = this.monthDisplayed.getFullYear();
+    const monthName = this.VOCABULARY.MONTHS[this.monthDisplayed.getMonth()];
+    const year = this.monthDisplayed.getFullYear();
 
-    this.title.html(`${monthName} ${year}`);
+    this.title.innerHTML = `${monthName} ${year}`;
   }
 
   pickArrivalDate(day = 1) {
-    let year = this.monthDisplayed.getFullYear();
-    let month = this.monthDisplayed.getMonth();
-    let arrivalDate = new Date(year, month, day);
-    let currentDate = new Date();
+    const year = this.monthDisplayed.getFullYear();
+    const month = this.monthDisplayed.getMonth();
+    const arrivalDate = new Date(year, month, day);
+    const currentDate = new Date();
 
-    if (arrivalDate < currentDate) return false;
+    if (arrivalDate < currentDate) return;
 
     this.arrivalDate = arrivalDate;
   }
 
   pickLeavingDate(day = 1) {
-    let year = this.monthDisplayed.getFullYear();
-    let month = this.monthDisplayed.getMonth();
-    let leavingDate = new Date(year, month, day);
+    const year = this.monthDisplayed.getFullYear();
+    const month = this.monthDisplayed.getMonth();
+    const leavingDate = new Date(year, month, day);
 
-    if (leavingDate < this.arrivalDate) return false;
+    if (leavingDate < this.arrivalDate) return;
 
     this.leavingDate = leavingDate;
   }
 
   changeDates(pickedDay = 0) {
-    let year = this.monthDisplayed.getFullYear();
-    let month = this.monthDisplayed.getMonth();
-    let middleDateMs = (this.arrivalDate.getTime() + (this.leavingDate.getTime() - this.arrivalDate.getTime())/2);
+    const year = this.monthDisplayed.getFullYear();
+    const month = this.monthDisplayed.getMonth();
+    const middleDateMs = (this.arrivalDate.getTime() + (this.leavingDate.getTime() - this.arrivalDate.getTime()) / 2);
 
-    let date = new Date(year, month, pickedDay);
-    let middleDate = new Date(middleDateMs);
-    let currentDate = new Date();
+    const date = new Date(year, month, pickedDay);
+    const middleDate = new Date(middleDateMs);
+    const currentDate = new Date();
 
-    if (date <= currentDate) return false;
+    if (date <= currentDate) return;
 
     if (date < this.arrivalDate) {
       this.arrivalDate = date;
-    }
-    else if (date > this.leavingDate) {
+    } else if (date > this.leavingDate) {
       this.leavingDate = date;
-    }
-    else if (date > middleDate) {
+    } else if (date > middleDate) {
       this.leavingDate = date;
-    }
-    else {
+    } else {
       this.arrivalDate = date;
     }
   }
 
   renderTable(year = 0, month = 0) {
-    let date = new Date(year, month);
-    let table = $("<table>", {class: this.CLASSES.TABLE});
-    
-    date.setDate(2-date.getDay()); //going few days back to make the first week complete
+    const date = new Date(year, month);
+    // eslint-disable-next-line no-undef
+    const table = document.createElement('table');
+    table.classList.add(this.CLASSES.TABLE);
 
-    let tableHeader = this.createTableHeader();
-    table.append(tableHeader);
+    date.setDate(2 - date.getDay()); // going few days back to make the first week complete
+
+    const tableHeader = this.createTableHeader();
+    table.appendChild(tableHeader);
 
     while (date.getMonth() <= month) {
-      let row = this.createTableRow(date);
-      table.append(row);
+      const row = this.createTableRow(date);
+      table.appendChild(row);
     }
 
-    this.tableContainer.empty();
-    this.tableContainer.append(table);
+    this.tableContainer.innerHTML = '';
+    this.tableContainer.appendChild(table);
   }
 
   createTableHeader() {
-    let header = $("<tr>");
+    // eslint-disable-next-line no-undef
+    const header = document.createElement('tr');
 
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < 7; i++) {
-      let cell = $("<th>", {
-        text: this.VOCABULARY.WEEKDAYS[i],
-        class: this.CLASSES.DAY_NAME
-      });
+      // eslint-disable-next-line no-undef
+      const cell = document.createElement('th');
+      cell.classList.add(this.CLASSES.DAY_NAME);
+      cell.innerHTML = this.VOCABULARY.WEEKDAYS[i];
 
-      header.append(cell);
+      header.appendChild(cell);
     }
 
     return header;
   }
 
   createTableRow(date) {
-    let row = $("<tr>");
+    // eslint-disable-next-line no-undef
+    const row = document.createElement('tr');
 
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < 7; i++) {
-      let cell = this.createTableCell(date);
-      row.append(cell);
+      const cell = this.createTableCell(date);
+      row.appendChild(cell);
 
       date.setDate(date.getDate() + 1);
     }
@@ -281,49 +267,51 @@ export default class Calendar extends Component {
   }
 
   createTableCell(date) {
-    let cellValue = date.getDate();
-    let cell = $("<td>", {class: this.CLASSES.CELL});
-    let circle = $("<div>", {text: cellValue});
-    
-    if (this.isDateBetween(date))
-      cell.addClass(this.CLASSES.DATE_BETWEEN);
+    const cellValue = date.getDate();
 
-    if (date.getMonth() != this.monthDisplayed.getMonth())
-      cell.addClass(this.CLASSES.INACTIVE_DAY);
-    
+    // eslint-disable-next-line no-undef
+    const cell = document.createElement('td');
+    cell.classList.add(this.CLASSES.CELL);
+
+    // eslint-disable-next-line no-undef
+    const circle = document.createElement('div');
+    circle.innerHTML = cellValue;
+
+    if (this.isDateBetween(date)) cell.classList.add(this.CLASSES.DATE_BETWEEN);
+
+    if (date.getMonth() !== this.monthDisplayed.getMonth()) cell.classList.add(this.CLASSES.INACTIVE_DAY);
+
     if (this.isArrivalDate(date)) {
-      circle.addClass(this.CLASSES.PICKED_DATE);
-      cell.addClass(this.CLASSES.ARRIVAL_DATE);
-      cell.append(circle);
-    }
-    else if (this.isLeavingDate(date)) {
-      circle.addClass(this.CLASSES.PICKED_DATE);
-      cell.addClass(this.CLASSES.LEAVING_DATE);
-      cell.append(circle);
-    }
-    else if (this.isCurrentDate(date)) {
-      circle.addClass(this.CLASSES.CURRENT_DATE);
-      cell.append(circle);
-    }
-    else {
-      cell.html(cellValue);
+      circle.classList.add(this.CLASSES.PICKED_DATE);
+      cell.classList.add(this.CLASSES.ARRIVAL_DATE);
+      cell.appendChild(circle);
+    } else if (this.isLeavingDate(date)) {
+      circle.classList.add(this.CLASSES.PICKED_DATE);
+      cell.classList.add(this.CLASSES.LEAVING_DATE);
+      cell.appendChild(circle);
+    } else if (this.isCurrentDate(date)) {
+      circle.classList.add(this.CLASSES.CURRENT_DATE);
+      cell.appendChild(circle);
+    } else {
+      cell.innerHTML = cellValue;
     }
 
     return cell;
   }
 
-  areDatesTheSame (date1, date2) {
+  // eslint-disable-next-line class-methods-use-this
+  areDatesTheSame(date1, date2) {
     if (!date1) return false;
     if (!date2) return false;
 
-    return date1.getFullYear() == date2.getFullYear() &&
-           date1.getMonth() == date2.getMonth() &&
-           date1.getDate() == date2.getDate();
+    return date1.getFullYear() === date2.getFullYear()
+        && date1.getMonth() === date2.getMonth()
+        && date1.getDate() === date2.getDate();
   }
 
   isDateBetween(date) {
-    return date >= this.arrivalDate &&
-           date <= this.leavingDate;
+    return date >= this.arrivalDate
+        && date <= this.leavingDate;
   }
 
   isArrivalDate(date) {
@@ -335,12 +323,13 @@ export default class Calendar extends Component {
   }
 
   isCurrentDate(date) {
-    let currentDate = new Date();
+    const currentDate = new Date();
     return this.areDatesTheSame(date, currentDate);
   }
 
   isDayActive(day) {
-    return !day.hasClass(this.CLASSES.INACTIVE_DAY);
+    return !day.classList.contains(this.CLASSES.INACTIVE_DAY);
   }
-
 }
+
+export default Calendar;

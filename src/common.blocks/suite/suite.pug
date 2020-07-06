@@ -5,16 +5,16 @@ mixin suite(customConfig = {})
   - let defaultConfig = require('@blocks/suite/suite.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
-  .suite
+  .suite.js-suite
 
     form.suite__gallery
-      i.material-icons.suite__arrow.suite__left-arrow #{config.vocabulary.arrowIcon}
-      i.material-icons.suite__arrow.suite__right-arrow #{config.vocabulary.arrowIcon}
+      i.material-icons.suite__arrow.suite__left-arrow.js-suite__left-arrow #{config.vocabulary.arrowIcon}
+      i.material-icons.suite__arrow.suite__right-arrow.js-suite__right-arrow #{config.vocabulary.arrowIcon}
       each image, index in config.images
         label
-          input.suite__image-input(type="radio" name="image-gallery" checked=image.checked value=index)
+          input.suite__image-input.js-suite__image-input(type="radio" name="image-gallery" checked=image.checked value=index)
           .suite__image(style=`background-image: url(${image.link})`)
-          .suite__dot(style=`right: ${(Number.parseInt(index)+1)*11.25+3}px`)
+          .suite__dot.js-suite__dot(style=`right: ${(Number.parseInt(index)+1)*11.25+3}px`)
 
     .suite__description
 

@@ -7,7 +7,7 @@ mixin receipt(customConfig = {})
   - let defaultConfig = require('@blocks/receipt/receipt.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
-  form.receipt(method=config.method action=config.action)
+  form.receipt.js-receipt(method=config.method action=config.action)
 
     .receipt__title
       h2.receipt__title-number
@@ -15,7 +15,7 @@ mixin receipt(customConfig = {})
         |#{config.suite_number}
         if config.is_luxury
           span.receipt__title-lux #{config.vocabulary.lux}
-      p.receipt__title-price
+      p.receipt__title-price.js-receipt__title-price
         |#{config.price_per_period}#{config.vocabulary.currency_sign}
         span #{config.vocabulary.period}
 
@@ -29,16 +29,16 @@ mixin receipt(customConfig = {})
       if config.costs
         each cost in config.costs
           .receipt__cost
-            .receipt__cost-title #{cost.title}
+            .receipt__cost-title.js-receipt__cost-title #{cost.title}
             if (cost.hasIcon)
               .receipt__cost-icon-wrapper
                 .receipt__cost-icon i
-            .receipt__cost-price #{cost.price}#{config.vocabulary.currency_sign}
+            .receipt__cost-price.js-receipt__cost-price #{cost.price}#{config.vocabulary.currency_sign}
 
     h2.receipt__total
       .receipt__total-word #{config.vocabulary.total}
       .receipt__total-dots
-      .receipt__total-number #{config.total_price}#{config.vocabulary.currency_sign}
+      .receipt__total-number.js-receipt__total-number #{config.total_price}#{config.vocabulary.currency_sign}
 
     .receipt__submit
       +button(config.button)

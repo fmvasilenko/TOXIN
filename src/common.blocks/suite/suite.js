@@ -1,10 +1,9 @@
-import Component from "@frontend/component";
-import RateButton from "@blocks/rate-button/rate-button";
+import Component from '@frontend/component';
+import RateButton from '@blocks/rate-button/rate-button';
 
-export default class Suite extends Component {
-
+class Suite extends Component {
   constructor(root, parent = {}) {
-    super({root: root, parent: parent});
+    super({ root, parent });
 
     this.setConsts();
     this.setInitialState();
@@ -15,32 +14,32 @@ export default class Suite extends Component {
       imageDisplayed: {
         value: 0,
         subscribers: [
-          this.changeImage.bind(this)
-        ]
-      }
-    }
+          this.changeImage.bind(this),
+        ],
+      },
+    };
   }
 
   setChildren() {
     this.children = [
-      new RateButton(this.root.find(".rate-button"), this)
-    ]
+      new RateButton(this.root.querySelector('.rate-button'), this),
+    ];
   }
 
   setConsts() {
     this.CLASSES = {
-      DOT: "suite__dot",
-      LEFT_ARROW: "suite__left-arrow",
-      RIGHT_ARROW: "suite__right-arrow",
-      IMAGE_INPUT: "suite__image-input"
-    }
+      DOT: 'js-suite__dot',
+      LEFT_ARROW: 'js-suite__left-arrow',
+      RIGHT_ARROW: 'js-suite__right-arrow',
+      IMAGE_INPUT: 'js-suite__image-input',
+    };
 
     this.DOM = {
-      LEFT_ARROW: this.root.find(`.${this.CLASSES.LEFT_ARROW}`),
-      RIGHT_ARROW: this.root.find(`.${this.CLASSES.RIGHT_ARROW}`),
-      DOTS: this.root.find(`.${this.CLASSES.DOT}`),
-      IMAGES_INPUTS: this.root.find(`.${this.CLASSES.IMAGE_INPUT}`)
-    }
+      LEFT_ARROW: this.root.querySelector(`.${this.CLASSES.LEFT_ARROW}`),
+      RIGHT_ARROW: this.root.querySelector(`.${this.CLASSES.RIGHT_ARROW}`),
+      DOTS: this.root.querySelectorAll(`.${this.CLASSES.DOT}`),
+      IMAGES_INPUTS: this.root.querySelectorAll(`.${this.CLASSES.IMAGE_INPUT}`),
+    };
   }
 
   setInitialState() {
@@ -50,14 +49,17 @@ export default class Suite extends Component {
 
   clickHandler(event) {
     switch (event.target) {
-      case this.DOM.LEFT_ARROW[0]: {
-        if (this.imageDisplayed == this.imagesNumber) this.imageDisplayed = 0;
-        else this.imageDisplayed++;
+      case this.DOM.LEFT_ARROW: {
+        if (this.imageDisplayed === this.imagesNumber) this.imageDisplayed = 0;
+        else this.imageDisplayed += 1;
         break;
       }
-      case this.DOM.RIGHT_ARROW[0]: {
-        if (this.imageDisplayed == 0) this.imageDisplayed = this.imagesNumber;
-        else this.imageDisplayed--;
+      case this.DOM.RIGHT_ARROW: {
+        if (this.imageDisplayed === 0) this.imageDisplayed = this.imagesNumber;
+        else this.imageDisplayed -= 1;
+        break;
+      }
+      default: {
         break;
       }
     }
@@ -66,5 +68,6 @@ export default class Suite extends Component {
   changeImage() {
     this.DOM.IMAGES_INPUTS[this.imageDisplayed].checked = true;
   }
-
 }
+
+export default Suite;
