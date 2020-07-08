@@ -9,15 +9,15 @@ const PATHS = {
   root: __dirname,
   src: path.join(__dirname, '../src'),
   dist: path.join(__dirname, '../dist'),
-  assets: 'assets/'
+  assets: 'assets/',
 };
 
 const PAGES_DIR = `${PATHS.src}/pages/`;
-const PAGES = fs.readdirSync(PAGES_DIR);   //.filter(fileName => fileName.endsWith('.pug'));
+const PAGES = fs.readdirSync(PAGES_DIR);
 
 module.exports = {
   externals: {
-    paths: PATHS
+    paths: PATHS,
   },
   entry: {
     app: PATHS.src,
@@ -25,33 +25,33 @@ module.exports = {
     formElements: `${PATHS.src}/pages/form-elements/form-elements.js`,
     landing: `${PATHS.src}/pages/landing/landing.js`,
     searchroom: `${PATHS.src}/pages/searchroom/searchroom.js`,
-    roomDetails: `${PATHS.src}/pages/room_details/room_details.js`
+    roomDetails: `${PATHS.src}/pages/room_details/room_details.js`,
   },
   output: {
     filename: `${PATHS.assets}js/[name].js`,
     path: PATHS.dist,
-    publicPath: '/'
+    publicPath: '/TOXIN/dist/',
   },
   module: {
     rules: [{
       test: /\.js$/,
       loader: 'babel-loader',
-      exclude: '/node_modules/'
+      exclude: '/node_modules/',
     }, {
       test: /\.pug$/,
-      loader: 'pug-loader'
-    },{
+      loader: 'pug-loader',
+    }, {
       test: /\.(png|jpg|gif|svg)$/,
       loader: 'file-loader',
       options: {
-        name: '[name].[ext]'
-      }
+        name: '[name].[ext]',
+      },
     }, {
       test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
       loader: 'file-loader',
       options: {
-        name: '[name].[ext]'
-      }
+        name: '[name].[ext]',
+      },
     }, {
       test: /\.scss$/,
       use: [
@@ -59,15 +59,15 @@ module.exports = {
         MiniCssExtractPlugin.loader,
         {
           loader: 'css-loader',
-          options: {sourceMap: true}
+          options: { sourceMap: true },
         }, {
           loader: 'postcss-loader',
-          options: {sourceMap: true, config: {path: `${PATHS.root}/postcss.config.js`}}
+          options: { sourceMap: true, config: { path: `${PATHS.root}/postcss.config.js` } },
         }, {
           loader: 'sass-loader',
-          options: {sourceMap: true}
-        }
-      ]
+          options: { sourceMap: true },
+        },
+      ],
     }, {
       test: /\.css$/,
       use: [
@@ -75,32 +75,32 @@ module.exports = {
         MiniCssExtractPlugin.loader,
         {
           loader: 'css-loader',
-          options: {sourceMap: true}
+          options: { sourceMap: true },
         }, {
           loader: 'postcss-loader',
-          options: {sourceMap: true}
-        }
-      ]
-    }]
+          options: { sourceMap: true },
+        },
+      ],
+    }],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: `${PATHS.assets}css/[name].css`
+      filename: `${PATHS.assets}css/[name].css`,
     }),
     new CopyWebpackPlugin([
-      { from: `${PATHS.src}/img`, to: `${PATHS.assets}img`  },
-      { from: `${PATHS.src}/fonts`, to: `${PATHS.assets}fonts`  },
-      { from: `${PATHS.src}/static`, to: ''  }
+      { from: `${PATHS.src}/img`, to: `${PATHS.assets}img` },
+      { from: `${PATHS.src}/fonts`, to: `${PATHS.assets}fonts` },
+      { from: `${PATHS.src}/static`, to: '' },
     ]),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
-      'window.jQuery': 'jquery'
+      'window.jQuery': 'jquery',
     }),
-    ...PAGES.map(page => new HtmlWebpackPlugin({
+    ...PAGES.map((page) => new HtmlWebpackPlugin({
       template: `${PAGES_DIR}/${page}/${page}.pug`,
       filename: `./${page}.html`,
-      inject: false
-    }))
-  ]
+      inject: false,
+    })),
+  ],
 };
