@@ -2,23 +2,6 @@
 @import "utils/mixins";
 @import "utils/fonts";
 
-/*html {
-  line-height: $mainLineHeight;
-  font-size: $mainFontSize;
-  font-family: $textFontFamily;
-  font-weight: $mainFontWeight;
-  height: 100%;
-  @media screen and (max-width: $desktopWidth) {
-    font-size: 16px;
-  }
-  @media screen and (max-width: $tableWidth) {
-    font-size: 15px;
-  }
-  @media screen and (max-width: $phoneWidth) {
-    font-size: 14px;
-  }
-}*/
-
 html {
   font-family: $textFontFamily;
   font-size: normal;
@@ -26,10 +9,6 @@ html {
   font-size: $mainFontSize;
   line-height: $mainLineHeight;
   color: $darkShade75;
-
-  @media screen and (max-width: $desktopWidth) {
-    //font-size: 12px;
-  }
 
   @media screen and (max-width: 350px) {
     font-size: 12px;
@@ -103,7 +82,6 @@ h3 {
 }
 
 .wrapper {
-  //position: relative;
   max-width: 1160px;
   margin: auto;
   display: flex;
@@ -183,15 +161,3 @@ h3 {
 @import "../pages/login/login.scss";
 @import "../pages/searchroom/searchroom.scss";
 @import "../pages/room_details/room_details.scss";
-
-
-
-//@import "./modules/wrapper";
-
-/*.radio-buttons {
-  display: flex;
-  justify-content: flex-start;
-  
-  width: 266px;
-  height: 30px;
-}*/
