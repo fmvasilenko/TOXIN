@@ -1,5 +1,4 @@
-export default class ComponentView {
-
+class ComponentView {
   constructor(controller = {}) {
     this.setState();
     this.initGetSet();
@@ -10,46 +9,45 @@ export default class ComponentView {
   }
 
   setState() {
-    this.state = {}
+    this.state = {};
   }
 
   mergeStates(state1 = {}, state2 = {}) {
-    for (let key in state1) {
-        let id = state1[key].alias ? state1[key].alias : key;
-        if (state2[id] !== undefined){
-          state2[id].subscribers = this.mergeSubscribers(state2[id], state1[key]);
-          state1[key] = state2[id];
-        }
-        else {
-          state2[id] = state1[key];
-        }
+    Object.entries(state1).forEach(([key]) => {
+      const id = state1[key].alias ? state1[key].alias : key;
+      if (state2[id] !== undefined) {
+        state2[id].subscribers = this.mergeSubscribers(state2[id], state1[key]);
+        state1[key] = state2[id];
+      } else {
+        state2[id] = state1[key];
+      }
 
       delete state1[key].isGlobal;
       delete state1[key].alias;
-    }
+    });
 
     return state1;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   mergeSubscribers(parameter1 = {}, parameter2 = {}) {
-    if (parameter1.subscribers === undefined) parameter1.subscribers = [];
-    if (parameter2.subscribers === undefined) parameter2.subscribers = [];
+    const subscribers1 = parameter1.subscribers || [];
+    const subscribers2 = parameter2.subscribers || [];
 
-    return parameter1.subscribers.concat(parameter2.subscribers);
+    return [...subscribers1, ...subscribers2];
   }
 
   initGetSet() {
-    for (let key in this.state) {
+    Object.entries(this.state).forEach(([key]) => {
       Object.defineProperty(this, key, {
-        get: function() {
-          return this.state[key].value;
-        },
-        set: function(value) {
+        get: () => this.state[key].value,
+        set: (value) => {
           this.state[key].value = value;
           this.runSubscribers(this.state[key]);
-        }
+        },
       });
-    }
+    });
   }
-
 }
+
+export default ComponentView;

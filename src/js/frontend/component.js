@@ -1,4 +1,4 @@
-export default class Component {
+class Component {
   constructor(config = { root: null, parent: {} }) {
     this.root = config.root ? config.root : null;
     this.PARENT = config.parent;
@@ -43,54 +43,48 @@ export default class Component {
   }
 
   mergeStates(state1 = {}, state2 = {}) {
-    for (let key in state1) {
+    Object.entries(state1).forEach(([key]) => {
       if (state1[key].isGlobal) {
-        let id = state1[key].alias ? state1[key].alias : key;
-        if (state2[id] !== undefined){
+        const id = state1[key].alias || key;
+        if (state2[id] !== undefined) {
           state2[id].subscribers = this.mergeSubscribers(state2[id], state1[key]);
           state1[key] = state2[id];
-        }
-        else {
+        } else {
           state2[id] = state1[key];
         }
-      }
 
-      delete state1[key].isGlobal;
-      delete state1[key].alias;
-    }
+        delete state1[key].isGlobal;
+        delete state1[key].alias;
+      }
+    });
 
     return state1;
   }
 
   // eslint-disable-next-line class-methods-use-this
   mergeSubscribers(parameter1 = {}, parameter2 = {}) {
-    // if (parameter1.subscribers === undefined) parameter1.subscribers = [];
-    // if (parameter2.subscribers === undefined) parameter2.subscribers = [];
-
     const subscribers1 = parameter1.subscribers || [];
     const subscribers2 = parameter2.subscribers || [];
 
-    // return parameter1.subscribers.concat(parameter2.subscribers);
     return [...subscribers1, ...subscribers2];
   }
 
   initGetSet() {
-    for (let key in this.state) {
+    Object.entries(this.state).forEach(([key]) => {
       Object.defineProperty(this, key, {
-        get: function() {
-          return this.state[key].value;
-        },
-        set: function(value) {
-          this.state[key].value = value;
+        get: () => this.state[key].value,
+        set: (newValue) => {
+          this.state[key].value = newValue;
           this.runSubscribers(this.state[key]);
-        }
+        },
       });
-    }
+    });
   }
 
+  // eslint-disable-next-line class-methods-use-this
   runSubscribers(parameter = {}) {
     if (parameter.subscribers !== undefined) {
-      parameter.subscribers.forEach( subscriber => {
+      parameter.subscribers.forEach((subscriber) => {
         subscriber();
       });
     }
@@ -100,45 +94,46 @@ export default class Component {
     if (!this.PARENT) {
       this.checkComponentRoot();
       if (this.componentRoot) {
-        this.componentRoot.addEventListener("click", this.clickController.bind(this), false);
+        this.componentRoot.addEventListener('click', this.clickController.bind(this), false);
       }
     }
   }
 
   clickController(event) {
-    this.children.forEach( function(child) {
+    this.children.forEach((child) => {
       if (this.isChildsEvent(event, child)) {
         child.clickController(event);
-      }
-      else {
+      } else {
         child.runClosers();
       }
-    }.bind(this));
+    });
 
     this.clickHandler(event);
   }
 
+  // eslint-disable-next-line class-methods-use-this, no-unused-vars
   clickHandler(event) {}
 
   runClosers() {
-    this.closers.forEach(closer => {
+    this.closers.forEach((closer) => {
       closer();
     });
 
-    this.childrenClosers.forEach(closer => {
+    this.childrenClosers.forEach((closer) => {
       closer();
-    })
+    });
   }
 
+  // eslint-disable-next-line class-methods-use-this
   isJQueryObject(element) {
+    // eslint-disable-next-line no-undef
     return element instanceof jQuery;
   }
 
   createRootElement(element) {
     if (this.isJQueryObject(element)) {
-      this.componentRoot = element[0];
-    }
-    else {
+      [this.componentRoot] = element;
+    } else {
       this.componentRoot = element;
     }
   }
@@ -149,11 +144,13 @@ export default class Component {
     }
   }
 
+  // eslint-disable-next-line class-methods-use-this
   isChildsEvent(event, child) {
     if (!child.componentRoot) return false;
 
-    let className = child.componentRoot.classList.item(0);
-    return event.target.closest(`.${className}`) == child.componentRoot;
+    const className = child.componentRoot.classList.item(0);
+    return event.target.closest(`.${className}`) === child.componentRoot;
   }
-
 }
+
+export default Component;
