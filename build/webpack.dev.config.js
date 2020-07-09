@@ -8,15 +8,15 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devServer: {
     contentBase: baseWebpackConfig.externals.paths.dist,
     port: 8081,
-    overlay: true
+    overlay: true,
   },
   plugins: [
     new webpack.SourceMapDevToolPlugin({
-      filename: '[file].map'
-    })
-  ]
+      filename: '[file].map',
+    }),
+  ],
 });
 
-module.exports = new Promise((resolve, reject) => {
+module.exports = new Promise((resolve) => {
   resolve(devWebpackConfig);
 });

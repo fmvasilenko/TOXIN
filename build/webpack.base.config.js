@@ -89,7 +89,6 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: `${PATHS.src}/img`, to: `${PATHS.assets}img` },
-      // { from: `${PATHS.src}/fonts`, to: '' },
       { from: `${PATHS.src}/static`, to: '' },
     ]),
     new webpack.ProvidePlugin({
