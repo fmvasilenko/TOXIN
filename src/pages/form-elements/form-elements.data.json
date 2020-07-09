@@ -250,7 +250,7 @@
   "feedback": {
     "name": "Мурад Сарафанов",
     "img": {
-      "src": "/assets/img/feedback-image.png"
+      "src": "assets/img/feedback-image.png"
     },
     "likeButton": {
       "value": 12,
