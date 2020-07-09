@@ -41,7 +41,7 @@ module.exports = {
       test: /\.pug$/,
       loader: 'pug-loader',
     }, {
-      test: /\.(png|jpg|gif|svg)$/,
+      test: /\.(png|jpg|gif)$/,
       loader: 'file-loader',
       options: {
         name: '[name].[ext]',
@@ -50,7 +50,7 @@ module.exports = {
       test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
       loader: 'file-loader',
       options: {
-        name: '[name].[ext]',
+        name: 'assets/fonts/[name].[ext]',
       },
     }, {
       test: /\.scss$/,
@@ -89,7 +89,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       { from: `${PATHS.src}/img`, to: `${PATHS.assets}img` },
-      { from: `${PATHS.src}/fonts`, to: `${PATHS.assets}fonts` },
+      // { from: `${PATHS.src}/fonts`, to: '' },
       { from: `${PATHS.src}/static`, to: '' },
     ]),
     new webpack.ProvidePlugin({
