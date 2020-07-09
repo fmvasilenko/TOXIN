@@ -9,7 +9,7 @@
       },
       "images": [
         {
-          "link": "/assets/img/suite_1.png"
+          "link": "assets/img/suite_1.png"
         }
       ]
     },
@@ -22,7 +22,7 @@
       },
       "images": [
         {
-          "link": "/assets/img/suite_2.png"
+          "link": "./assets/img/suite_2.png"
         }
       ]
     },
