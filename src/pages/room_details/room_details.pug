@@ -26,17 +26,20 @@ block footer
   +footer()
 
 block content
-  - var data = require("./room_details.data.json");
+  - let data = require("./room_details.data.json");
+  - let coverPhotoAlt = data.gallery.coverPhoto.alt || data.gallery.coverPhoto.src;
+  - let miniImage1Alt = data.gallery.miniImages[0].alt || data.gallery.miniImages[0].src;
+  - let miniImage2Alt = data.gallery.miniImages[1].alt || data.gallery.miniImages[1].src;
 
   .room-details
     .room-details__gallery
       .room-details__cover-wrapper
-        img.room-details__cover-image.js-room-details__cover-image(src=data.gallery.coverPhoto)
+        img.room-details__cover-image.js-room-details__cover-image(src=data.gallery.coverPhoto.src, alt=coverPhotoAlt)
       .room-details__mini-images
         .room-details__mini-image-wrapper
-          img.room-details__mini-image.js-room-details__mini-image(src=data.gallery.miniImages[0])
+          img.room-details__mini-image.js-room-details__mini-image(src=data.gallery.miniImages[0].src, alt=miniImage1Alt)
         .room-details__mini-image-wrapper
-          img.room-details__mini-image.js-room-details__mini-image(src=data.gallery.miniImages[1])
+          img.room-details__mini-image.js-room-details__mini-image(src=data.gallery.miniImages[1].src, alt=miniImage2Alt)
 
     .room-details__description
       .room-details__content

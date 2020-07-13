@@ -1,9 +1,18 @@
 {
   "gallery": {
-    "coverPhoto": "assets/img/suite_1.png",
+    "coverPhoto": {
+      "src": "assets/img/suite_1.png",
+      "alt": ""
+    },
     "miniImages": [
-      "assets/img/suite_1.1.png",
-      "assets/img/suite_1.2.png"
+      {
+        "src": "assets/img/suite_1.1.png",
+        "alt": ""
+      },
+      {
+        "src": "assets/img/suite_1.2.png",
+        "alt": ""
+      }
     ]
   },
   "information": {
