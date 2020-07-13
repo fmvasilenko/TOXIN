@@ -14,6 +14,8 @@ class DropdownOptionModel extends ComponentModel {
       optionValues: {
         subscribers: [
           this.checkDecreaseButton.bind(this),
+          this.changeWordForm.bind(this),
+          this.changeOptionWordForm.bind(this),
         ],
       },
       optionWordForms: {},
