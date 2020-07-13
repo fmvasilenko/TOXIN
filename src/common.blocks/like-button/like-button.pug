@@ -9,6 +9,6 @@ mixin like-button(customConfig = {})
   - let iconLikedClass = config.liked ? classes.ICON_LIKED : "";
   - let icon = config.liked ? config.vocabulary.iconLiked : config.vocabulary.icon;
 
-  label.like-button.js-like-button(class=buttonLikedClass) 
+  .like-button.js-like-button(class=buttonLikedClass) 
     i.material-icons.like-button__icon.js-like-button__icon(class=iconLikedClass) #{icon}
     input.like-button__number.js-like-button__number(class=numberLikedClass type="number" name=config.name value=config.value readonly)
