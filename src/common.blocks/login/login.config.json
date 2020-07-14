@@ -28,7 +28,7 @@
     {
       "value": "Создать",
       "type": "link",
-      "href": "/registration.html",
+      "href": "registration.html",
       "style": "empty"
     }
   ]

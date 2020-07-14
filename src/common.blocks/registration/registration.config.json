@@ -61,7 +61,7 @@
     {
       "value": "Войти",
       "type": "link",
-      "href": "/login.html",
+      "href": "login.html",
       "style": "empty"
     }
   ]

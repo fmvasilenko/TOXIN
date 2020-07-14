@@ -1,6 +1,6 @@
 {
   "type": "buttons",
-  "logoHref": "/landing.html",
+  "logoHref": "landing.html",
   "vocabulary": {
     "expand_more_icon": "expand_more"
   },
@@ -42,13 +42,13 @@
     {
       "value": "Войти",
       "type": "link",
-      "href": "/login.html",
+      "href": "login.html",
       "style": "empty"
     },
     {
       "value": "Зарегистрироваться",
       "type": "link",
-      "href": "/registration.html"
+      "href": "registration.html"
     }
   ],
   "right_text": "Юлий Цезарь"
