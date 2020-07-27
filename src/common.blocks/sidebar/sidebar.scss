@@ -1,31 +1,40 @@
 .sidebar {
-  padding-top: 30px;
+  padding-top: rem(30);
 
   &__guests {
-    margin-top: 20px;
+    margin-top: rem(20);
+  }
+
+  &__slider {
+    margin-top: rem(30);
+  }
+
+  &__slider-text {
+    font-size: rem(12);
+    margin-top: rem(13.56);
   }
 
   &__checkbox-buttons {
-    margin-top: 30px;
+    margin-top: rem(30);
   }
 
   &__checkbox-button {
-    margin-top: 10.56px;
+    margin-top: rem(10.56);
   }
 
   &__features {
-    margin-top: 30px;
+    margin-top: rem(30);
   }
 
   &__feauture {
-    margin-top: 10px;
+    margin-top: rem(10);
   }
 
   &__amenities {
-    margin-top: 30px;
+    margin-top: rem(30);
   }
 
   &__convinience {
-    margin-top: 30px;
+    margin-top: rem(30);
   }
 }

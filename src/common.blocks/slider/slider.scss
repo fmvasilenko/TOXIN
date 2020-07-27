@@ -1,26 +1,17 @@
-.slider {
+.range-slider {
   width: 100%;
 
-  &__line {
-    height: 6px;
-    background: #FFFFFF;
-    border: 1px solid $darkShade25;
-    box-sizing: border-box;
-    border-radius: 3px;
+  &__header {
+    display: flex;
+    justify-content: space-between;
   }
-}
 
-.ui-slider-handle {
-  width: 12px;
-  height: 12px;
+  &__range {
+    font-size: rem(12);
+    line-height: rem(15);
+  }
 
-  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
-  border: 2px solid #FFFFFF;
-  border-radius: 10px;
-}
-
-.ui-slider-range {
-  height: 6px;
-  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
-  border-radius: 3px;
+  &__line {
+    margin-top: rem(23);
+  }
 }

@@ -1,8 +1,4 @@
 import 'jquery';
-import 'jquery-ui';
-import 'jquery-ui/ui/widgets/slider';
-import 'jquery-ui-touch-punch';
-import 'jquery-ui/themes/base/slider.css';
 import '../../scss/main.scss';
 
 import Component from '@frontend/component';
@@ -99,6 +95,7 @@ class FormElements extends Component {
     return ExpandableCheckboxLists;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   initSlider() {
     const sliders = [];
 

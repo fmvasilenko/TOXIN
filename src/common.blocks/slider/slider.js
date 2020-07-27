@@ -1,9 +1,12 @@
-import Component from "@frontend/component";
+import Component from '@frontend/component';
+import 'fsd4-slider';
+import 'fsd4-slider/slider.css';
 
 export default class Slider extends Component {
-
   constructor(root, parent = {}) {
-    super({root: root, parent: parent});
+    super({ root, parent });
+
+    this.config = require('./slider.config.json');
 
     this.setDOM();
     this.setInitialState();
@@ -12,36 +15,66 @@ export default class Slider extends Component {
   setState() {
     this.state = {
       valueFrom: {
-        value: 0
+        value: 0,
       },
       valueTo: {
-        value: 0
-      }
-    }
+        value: 10000,
+      },
+    };
   }
 
   setClasses() {
     this.CLASSES = {
-      LINE: "slider__line"
-    }
+      LINE: 'js-range-slider__line',
+      RANGE: 'js-range-slider__range',
+      FIRST_VALUE: 'js-range-slider__first-value',
+      SECOND_VALUE: 'js-range-slider__second-value',
+    };
   }
 
   setDOM() {
     this.DOM = {
-      LINE: this.root.find(`.${this.CLASSES.LINE}`)
-    }
+      LINE: this.root.querySelector(`.${this.CLASSES.LINE}`),
+      RANGE: this.root.querySelector(`.${this.CLASSES.RANGE}`),
+      FIRST_VALUE: this.root.querySelector(`.${this.CLASSES.FIRST_VALUE}`),
+      SECOND_VALUE: this.root.querySelector(`.${this.CLASSES.SECOND_VALUE}`),
+    };
   }
 
   setInitialState() {
-    this.DOM.LINE.slider({
-      range: true,
-      min: 0,
-      max: 500,
-      values: [ 75, 300 ],
-      slide: function( event, ui ) {
-        //$( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-      }
-    });
+    this.valueFrom = this.config.firstValue;
+    this.valueTo = this.config.secondValue;
+
+    $(this.DOM.LINE).slider({
+      limitsDisplayed: false,
+      valueLabelDisplayed: false,
+      isRange: true,
+      minValue: this.config.minValue,
+      maxValue: this.config.maxValue,
+      leftHandleValue: this.valueFrom,
+      rightHandleValue: this.valueTo,
+      step: this.config.step,
+    }, this.update.bind(this));
+
+    this.update(this.valueFrom, this.valueTo);
   }
 
+  update(leftHandleValue, rightHandleValue) {
+    this.updateRange(leftHandleValue, rightHandleValue);
+    this.updateInputs(leftHandleValue, rightHandleValue);
+  }
+
+  updateRange(leftHandleValue, rightHandleValue) {
+    const firstValue = `${leftHandleValue}`.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
+    const secondValue = `${rightHandleValue}`.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
+
+    const range = `${firstValue + this.config.currency_sign} - ${secondValue + this.config.currency_sign}`;
+
+    this.DOM.RANGE.innerHTML = range;
+  }
+
+  updateInputs(leftHandleValue, rightHandleValue) {
+    this.DOM.FIRST_VALUE.value = `${leftHandleValue}`;
+    this.DOM.SECOND_VALUE.value = `${rightHandleValue}`;
+  }
 }

@@ -4,6 +4,7 @@ include ../dropdown/dropdown
 include ../checkbox-button/checkbox-button 
 include ../checkbox-button-rich/checkbox-button-rich 
 include ../expandable-checkbox-list/expandable-checkbox-list 
+include ../slider/slider
 
 mixin sidebar(customConfig = {})
   - let blocks = require('@plugins/blocks.js');
@@ -16,6 +17,10 @@ mixin sidebar(customConfig = {})
 
     .sidebar__guests
       +drop-down(config.guests)
+
+    .sidebar__slider
+      +slider(config.slider)
+      .sidebar__slider-text #{config.slider.text}
 
     .sidebar__checkbox-buttons
       if config.checkboxButtons[0]

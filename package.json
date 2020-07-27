@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/fmvasilenko/TOXIN#readme",
   "dependencies": {
+    "fsd4-slider": "^1.0.6",
     "jquery": "^3.5.1",
     "jquery-ui": "^1.12.1",
     "jquery-ui-touch-punch": "^0.2.3"

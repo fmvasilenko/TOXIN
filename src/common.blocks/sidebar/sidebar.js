@@ -1,6 +1,7 @@
 import Component from '@frontend/component';
 import FilterDateDropdown from '@blocks/filter-date-dropdown/filter-date-dropdown';
 import Dropdown from '@blocks/dropdown/dropdown';
+import Slider from '@blocks/slider/slider';
 import ExpandableCheckboxList from '@blocks/expandable-checkbox-list/expandable-checkbox-list';
 
 class Sidebar extends Component {
@@ -12,6 +13,7 @@ class Sidebar extends Component {
     this.children = [
       new FilterDateDropdown(this.root.querySelector('.js-filter-date-dropdown'), this),
       new ExpandableCheckboxList(this.root.querySelector('.js-expandable-checkbox-list'), this),
+      new Slider(this.root.querySelector('.js-slider')),
     ];
 
     const dropdowns = this.initDropdown();

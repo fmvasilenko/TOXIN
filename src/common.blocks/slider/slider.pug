@@ -3,10 +3,11 @@ mixin slider(customConfig = {})
   - let defaultConfig = require('@blocks/slider/slider.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
-  .slider
-    .slider__header
-      h3.slider__title #{config.title}
-      .slider__range
-    .slider__line
-      .ui-slider-handle
-      .ui-slider-handle
+  .range-slider.js-slider
+    .range-slider__header
+      h3.range-slider__title #{config.title}
+      .range-slider__range.js-range-slider__range
+      input.js-range-slider__first-value(value=config.firstValue type="number" hidden)
+      input.js-range-slider__second-value(value=config.secondValue type="number" hidden)
+    .range-slider__line.js-range-slider__line
+      
