@@ -191,7 +191,7 @@
   }
 
   &__feedbacks {
-    margin-top: rem(10);
+    margin-top: rem(13);
 
     @media screen and (max-width: rem(980)){
       margin-top: rem(60);
@@ -199,11 +199,11 @@
   }
 
   &__feedback {
-    margin-top: rem(20);
+    margin-top: rem(22);
   }
 
   &__rools {
-    margin-top: rem(30);
+    margin-top: rem(32);
     display: flex;
 
     @media screen and (max-width: rem(768)){
@@ -213,11 +213,12 @@
 
   &__bullets {
     min-width: 40%;
-    margin-right: rem(70);
+    margin-right: rem(78);
   }
 
   &__bullets-title {
-    margin-bottom: rem(20);
+    margin-bottom: rem(18);
+    margin-left: rem(21);
   }
 
   &__bullet {
@@ -231,6 +232,6 @@
   }
 
   &__cancellation-description {
-    margin-top: rem(20);
+    margin-top: rem(18);
   }
 }

@@ -1,21 +1,25 @@
 .sidebar {
-  padding-top: rem(30);
+  padding-top: rem(31);
 
   &__guests {
-    margin-top: rem(20);
+    margin-top: rem(21);
   }
 
   &__slider {
-    margin-top: rem(30);
+    margin-top: rem(31);
   }
 
   &__slider-text {
     font-size: rem(12);
-    margin-top: rem(13.56);
+    margin-top: rem(10);
   }
 
   &__checkbox-buttons {
-    margin-top: rem(30);
+    margin-top: rem(25);
+  }
+
+  &__checkbox-buttons-title {
+    margin-bottom: rem(14);
   }
 
   &__checkbox-button {
@@ -23,18 +27,22 @@
   }
 
   &__features {
-    margin-top: rem(30);
+    margin-top: rem(35);
   }
 
-  &__feauture {
+  &__features-title {
+    margin-bottom: rem(14);
+  }
+
+  &__feature {
     margin-top: rem(10);
   }
 
   &__amenities {
-    margin-top: rem(30);
+    margin-top: rem(32);
   }
 
   &__convinience {
-    margin-top: rem(30);
+    margin-top: rem(18);
   }
 }

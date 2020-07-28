@@ -1,6 +1,6 @@
 .searchroom-title{
-  margin-left: 12px;
-  margin-top: 30px;
+  margin-left: rem(12);
+  margin-top: rem(30);
 }
 
 .searchroom {
@@ -9,15 +9,15 @@
   justify-content: center;
 
   &__suite {
-    width: 270px;
-    margin-left: 12px;
-    margin-top: 21px;
+    width: rem(270);
+    margin-left: rem(12);
+    margin-top: rem(19);
   }
 }
 
 .searchroom-pagination {
   display: flex;
   justify-content: center;
-  margin-top: 41px;
-  margin-bottom: 70px;
+  margin-top: rem(37);
+  margin-bottom: rem(70);
 }

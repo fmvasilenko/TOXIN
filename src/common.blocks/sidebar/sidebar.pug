@@ -24,16 +24,16 @@ mixin sidebar(customConfig = {})
 
     .sidebar__checkbox-buttons
       if config.checkboxButtons[0]
-        h3 Checkbox buttons
+        h3.sidebar__checkbox-buttons-title Checkbox buttons
       each checkboxConfig in config.checkboxButtons
         .sidebar__checkbox-button
           +checkbox-button(checkboxConfig)
 
     .sidebar__features
       if config.features[0]
-        h3 Доступность
+        h3.sidebar__features-title Доступность
       each featureConfig in config.features
-        .sidebar__feauture
+        .sidebar__feature
           +checkbox-button-rich(featureConfig)
 
     .sidebar__amenities
