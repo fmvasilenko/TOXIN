@@ -2,11 +2,11 @@
 Test task for FSD.
 
 ## Table of contents
-1. Initialization
-2. Github pages
-3. Architecture
+1. [Initialization](#initialization)
+2. [Github pages](#githubPages)
+3. [Architecture](#architecture)
 
-
+<a name="initialization"></a>
 
 ## 1. Initialization
 After downloading the project run
@@ -19,7 +19,7 @@ npm postinstall
 > Notice!
 > `npm postinstall` adds `@plugins, @blocks and @frontend` directories to node_modules, that must be removed before running `npm install`. Otherwise it might lead to losing files from mentioned directories.
 
-
+<a name="githubPages"></a>
 
 ## 2. Github pages
 1. [Colors & Types](https://fmvasilenko.github.io/TOXIN/dist/colors)
@@ -32,7 +32,7 @@ npm postinstall
 8. [Registration](https://fmvasilenko.github.io/TOXIN/dist/registration)
 9. [Login](https://fmvasilenko.github.io/TOXIN/dist/login)
 
-
+<a name="architecture"></a>
 
 ## 3. Architecture
 
@@ -43,14 +43,28 @@ To achieve it each instance of `Component` has `this.state` variable.
 For example for `LikeButton` we have the following state:
 
 ```js
-this.state = {
-  liked: {
-    value: true,
-    alias: "likeButtonPressed",
-    isGlobal: true,
-    subscribers: [
-      this.someFunction.bind(this)
-    ]
+class LikeButton {
+  state = {
+    liked: {
+      value: true,
+      alias: "likeButtonPressed",
+      isGlobal: true,
+      subscribers: [
+        this.someFunction.bind(this)
+      ]
+    }
+  }
+}
+```
+```js
+class Feedback {
+  state = {
+    likeButtonPressed: {
+      value: true,
+      subscribers: [
+        this.someOtherFunction
+      ]
+    }
   }
 }
 ```
@@ -68,8 +82,14 @@ parent class - `this.likeButtonPressed`.
 this.liked = true;
 ```
 
+> Basically `likeButton.liked` and `feedback.likedButtonPressed` are refering to the same object.
+> And in case of any implementation `this.liked = true` or `this.likedButtonPressed = true` 
+> both `someFunction` and `someOtherFunction` will be called.
+
+
 ### this.children
 All children classes are supposed to be added to `this.children` to keep data binding.
+Otherwise `states` won`t be connected.
 
 
 ### clickHandler()
@@ -77,8 +97,6 @@ All children classes are supposed to be added to `this.children` to keep data bi
 Any component that does not have parent will add eventListener to itself. And depending on what part of it`s body was clicked - 
 will delegate this event to children by calling their `clickHandler()`.
 
+
 ### this.closers
 `this.closers` contains functions that will be called when click event happend out of the element.
-
-### P.S.
-This architecture probably is not the best solution but any try to fix it would require changing all the classes that extend Component.js.
