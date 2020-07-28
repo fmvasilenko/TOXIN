@@ -198,6 +198,15 @@
     }
   }
 
+  &__feedbacks-title {
+    display: flex;
+    justify-content: space-between;
+
+    & > span {
+      color: $darkShade50;
+    }
+  }
+
   &__feedback {
     margin-top: rem(22);
   }

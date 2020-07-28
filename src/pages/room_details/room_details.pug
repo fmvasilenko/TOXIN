@@ -56,7 +56,9 @@ block content
               +donut-chart(data.chart.parameters)
 
         .room-details__feedbacks
-          h2.room-details__feedback-title #{data.feedbacks.title}
+          .room-details__feedbacks-title
+            h2 #{data.feedbacks.title}
+            span #{data.feedbacks.quantity}
           each feedback in data.feedbacks.items
             .room-details__feedback
               +feedback(feedback)
