@@ -88,8 +88,7 @@ class DropdownView extends ComponentView {
 
     if (this.optionsSum > 0) {
       this.DOM.CLEAR_BUTTON.classList.remove(this.CLASSES.BUTTON_HIDDEN);
-    }
-    else {
+    } else {
       this.DOM.CLEAR_BUTTON.classList.add(this.CLASSES.BUTTON_HIDDEN);
     }
   }

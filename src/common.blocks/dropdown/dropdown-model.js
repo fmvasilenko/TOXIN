@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 import ComponentModel from '@frontend/componentModel';
 
 class DropdownModel extends ComponentModel {
@@ -49,8 +50,7 @@ class DropdownModel extends ComponentModel {
       if (n === 1) this.wordForm = this.VOCABULARY.WORD_FORMS[0];
       else if (n > 1 && n < 5) this.wordForm = this.VOCABULARY.WORD_FORMS[1];
       else this.wordForm = this.VOCABULARY.WORD_FORMS[2];
-    }
-    else this.wordForm = this.VOCABULARY.WORD_FORMS[2];
+    } else this.wordForm = this.VOCABULARY.WORD_FORMS[2];
 
     return true;
   }
