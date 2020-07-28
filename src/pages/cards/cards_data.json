@@ -53,6 +53,9 @@
       "suiteNumber": 888,
       "price": "9 990",
       "votes": 145,
+      "rating": {
+        "value": 5
+      },
       "images": [
         {
           "link": "assets/img/suite_4.png",
@@ -76,6 +79,9 @@
       "suiteNumber": 840,
       "price": "9 990",
       "votes": 65,
+      "rating": {
+        "value": 4
+      },
       "images": [
         {
           "link": "assets/img/suite_5.png",
