@@ -9,12 +9,12 @@
 }
 
 .cards {
-  max-width: 1160px;
+  max-width: rem(1160);
   margin: auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 60px 0;
+  padding: rem(65) 0;
 
   @media screen and (max-width: $desktopWidth) {
     justify-content: space-evenly;
@@ -54,7 +54,7 @@
   }
 
   &__search-form {
-    margin-bottom: rem(40);
+    margin-bottom: rem(39);
   }
 
   &__registration {

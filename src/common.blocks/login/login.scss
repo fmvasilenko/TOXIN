@@ -8,7 +8,7 @@
   border-radius: 4px;
 
   &__title {
-    margin-top: rem(10);
+    margin-top: rem(9);
   }
 
   &__text-field {
@@ -29,10 +29,11 @@
     justify-content: space-between;
     align-items: center;
 
-    margin-top: rem(30);
+    margin-top: rem(29);
   }
 
   &__registration-button {
     height: rem(44);
+    width: rem(99);
   }
 }

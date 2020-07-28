@@ -47,10 +47,11 @@
     justify-content: space-between;
     align-items: center;
   
-    padding-top: rem(10);
+    padding-top: rem(9);
   }
 
   &__login-button {
     height: rem(44);
+    width: rem(99);
   }
 }
