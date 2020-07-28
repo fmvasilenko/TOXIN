@@ -37,7 +37,7 @@
 
   &__menu {
     width: 100%;
-    padding: 0 rem(30);
+    padding: 0 rem(10);
     text-align: right;
     display: flex;
     justify-content: flex-end;
@@ -60,7 +60,7 @@
   &__link,
   &__link:visited,
   &__link:active {
-    margin-left: rem(30);
+    margin-left: rem(20);
     color: $darkShade50;
     display: flex;
     align-items: center;
@@ -78,7 +78,7 @@
 
   &__button {
     height: rem(34);
-    margin-right: rem(20);
+    margin: 0 rem(10);
     box-sizing: border-box;
 
     &:last-child {

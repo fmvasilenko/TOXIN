@@ -9,7 +9,7 @@
   margin: auto;
   display: flex;
   justify-content: center;
-  padding: rem(100) 0;
+  padding: rem(100) 0 rem(102) 0;
 
   @media screen and (max-width: rem(1160)) {
     width: 96%;
@@ -145,6 +145,7 @@
 
   &__single-column {
     text-align: center;
+    margin-top: rem(20);
   }
 
   &__single-column-desc {
@@ -153,6 +154,6 @@
   }
 
   &__single-column-social {
-    margin-top: rem(30);
+    margin-top: rem(20);
   }
 }

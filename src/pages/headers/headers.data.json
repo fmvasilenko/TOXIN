@@ -11,70 +11,70 @@
     {
       "type": "full",
       "vocabulary": {
-        "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
-        "subscriptionTitle": "Subscribe to our newsletter",
-        "subscriptionDesc": "Receive our latest news and promotions in your inbox!"
+        "description": "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",
+        "subscriptionTitle": "Подписка",
+        "subscriptionDesc": "Получайте специальные предложения и новости сервиса"
       },
       "columns": [
         [
           {
-            "title": "Navigation",
+            "title": "Навигация",
             "link": "/"
           },
           {
-            "title": "About us",
+            "title": "О нас",
             "link": "/"
           },
           {
-            "title": "News",
+            "title": "Новости",
             "link": "/"
           },
           {
-            "title": "Support",
+            "title": "Служба поддержки",
             "link": "/"
           },
           {
-            "title": "Products",
+            "title": "Услуги",
             "link": "/"
           }
         ],
         [
           {
-            "title": "About us",
+            "title": "О нас",
             "link": "/"
           },
           {
-            "title": "Who we are",
+            "title": "О сервисе",
             "link": "/"
           },
           {
-            "title": "Our team",
+            "title": "Наша команда",
             "link": "/"
           },
           {
-            "title": "Careers",
+            "title": "Вакансии",
             "link": "/"
           },
           {
-            "title": "Investors",
+            "title": "Инвесторы",
             "link": "/"
           }
         ],
         [
           {
-            "title": "Support",
+            "title": "Служба поддержки",
             "link": "/"
           },
           {
-            "title": "Documentation",
+            "title": "Соглашения",
             "link": "/"
           },
           {
-            "title": "Community",
+            "title": "Сообщества",
             "link": "/"
           },
           {
-            "title": "Get in Touch",
+            "title": "Связь с нами",
             "link": "/"
           }
         ]
@@ -83,13 +83,13 @@
         "placeholder": "Your email address"
       },
       "bottom": {
-        "copyright": "Copyright © 2018 Toxin UI Kit. All rights reserved."
+        "copyright": "Copyright © 2018 Toxin отель. Все права зачищены."
       }
     },
     {
       "type": "light",
       "vocabulary": {
-        "description": "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis."
+        "description": "Copyright © 2018 Toxin отель. Все права зачищены."
       }
     }
   ]
