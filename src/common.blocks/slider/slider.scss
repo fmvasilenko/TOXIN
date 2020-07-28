@@ -15,3 +15,13 @@
     margin-top: rem(23);
   }
 }
+
+.slider {
+  &__range-line {
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  }
+
+  &__handle {
+    background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  }
+}

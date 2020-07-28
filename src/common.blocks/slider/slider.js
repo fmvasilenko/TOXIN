@@ -1,6 +1,5 @@
 import Component from '@frontend/component';
 import 'fsd4-slider';
-import 'fsd4-slider/slider.css';
 
 export default class Slider extends Component {
   constructor(root, parent = {}) {
