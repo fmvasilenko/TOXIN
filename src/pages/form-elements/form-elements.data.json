@@ -36,14 +36,17 @@
   },
   "dateDropDown": {
     "dropdown1": {
-      "value": "2020-05-20"
+      "value": "2020-08-20"
     },
     "dropdown2": {
-      "value": "2020-05-25"
+      "value": "2020-08-25"
     }
   },
   "filterDateDropdown": {
     "title": "Filter date dropdown"
+  },
+  "subscription": {
+    "title": "Subscription text field"
   },
   "dropdownAmenities": {
     "title": "Dropdown",
@@ -82,15 +85,18 @@
       },
       {
         "name": "desk",
-        "label": "Письменный стол"
+        "label": "Письменный стол",
+        "checked": true
       },
       {
         "name": "babyChair",
-        "label": "Стул для кормления"
+        "label": "Стул для кормления",
+        "checked": true
       },
       {
         "name": "babyBed",
-        "label": "Кроватка"
+        "label": "Кроватка",
+        "checked": true
       },
       {
         "name": "TV",

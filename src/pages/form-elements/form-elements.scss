@@ -4,9 +4,9 @@
 }
 
 .form-elements {
-  max-width: 1160px;
+  max-width: rem(1160);
   margin: auto;
-  padding: 60px 0;
+  padding: rem(58.5) 0;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -17,50 +17,63 @@
 
   &__column {
     width: 27.59%;
-    margin-bottom: rem(100);
+    margin-bottom: rem(90);
 
     @media screen and (max-width: $desktopWidth) {
       width: 32%;
     }
 
-    @media screen and (max-width: $smDesktopWidth) {
+    @media screen and (min-width: 670px) and (max-width: $smDesktopWidth) {
       width: 48%;
     }
 
-    @media screen and (max-width: $phoneWidth) {
+    @media screen and (max-width: 670px) {
       width: 100%;
       margin-bottom: rem(20);
     }
   }
 
+  &__text-field {
+    margin-left: rem(1);
+  }
+
   &__text-field-hover {
-    margin-top: rem(20);
+    margin-top: rem(21.4);
+    margin-left: rem(1);
   }
 
   &__dropdown {
-    margin-top: rem(20);
+    margin-top: rem(21);
+    margin-left: rem(1);
   }
 
   &__masked-text-field {
-    margin-top: rem(22);
+    margin-top: rem(23);
+    margin-left: rem(1);
   }
 
   &__date-dropdown {
     margin-top: rem(40);
+    margin-left: rem(1);
   }
 
   &__filter-date-dropdown {
     width: rem(266);
-    margin-top: rem(40);
+    margin-top: rem(42);
+    margin-left: rem(1);
 
     @media screen and (max-width: $smDesktopWidth) {
       width: 100%;
     }
   }
 
+  &__subscription-title {
+    margin-bottom: rem(5);
+  }
+
   &__subscription-text-field {
     width: rem(266);
-    margin-top: rem(61);
+    margin-top: rem(41);
 
     @media screen and (max-width: $smDesktopWidth) {
       width: 100%;
@@ -72,11 +85,11 @@
   }
 
   &__checkbox-buttons-title {
-    margin-bottom: rem(6);
+    margin-bottom: rem(11);
   }
 
   &__checkbox-button {
-    margin-top: rem(10);
+    padding: rem(5) 0;
   }
 
   &__radio-buttons {
@@ -97,7 +110,7 @@
   }
 
   &__toggle {
-    margin-top: rem(40);
+    margin-top: rem(41);
   }
 
   &__toggle-item {
@@ -105,7 +118,7 @@
   }
 
   &__like-buttons {
-    margin-top: rem(44);
+    margin-top: rem(46);
   }
 
   &__like-buttons-container {
@@ -122,7 +135,7 @@
   }
 
   &__rate-buttons {
-    margin-top: rem(44);
+    margin-top: rem(41);
   }
 
   &__rate-buttons-container {
@@ -143,16 +156,16 @@
   }
 
   &__buttons {
-    margin-top: rem(43.56);
+    margin-top: rem(44);
   }
   
   &__buttons-title {
-    margin-bottom: rem(16);
+    margin-bottom: rem(15);
   }
   
   &__buttons-line {
     display: flex;
-    margin-top: rem(30);
+    margin-top: rem(32);
   
     &_first {
       margin-top: 0;
@@ -178,7 +191,7 @@
   }
 
   &__pagination {
-    margin-top: rem(40);
+    margin-top: rem(41);
   }
 
   &__pagination-title {
@@ -187,6 +200,7 @@
 
   &__dropdown-default {
     width: rem(266);
+    margin-top: rem(10);
 
     @media screen and (max-width: $smDesktopWidth) {
       width: 100%;
@@ -195,7 +209,7 @@
 
   &__dropdown-expanded {
     width: rem(266);
-    margin-top: rem(20);
+    margin-top: rem(21);
 
     @media screen and (max-width: $smDesktopWidth) {
       width: 100%;
@@ -204,14 +218,17 @@
 
   &__drop-down4 {
     width: 100%;
+    margin-top: rem(10);
   }
 
   &__drop-down5 {
     width: 100%;
+    margin-top: rem(10);
   }
 
   &__expandable-checkbox-list {
     width: 83.125%;
+    margin-top: rem(69);
     
     @media screen and (max-width: $smDesktopWidth) {
       width: 100%;
@@ -220,7 +237,7 @@
 
   &__expandable-checkbox-list-expanded {
     width: 83.125%;
-    margin-top: rem(20);
+    margin-top: rem(21);
 
     @media screen and (max-width: $smDesktopWidth) {
       width: 100%;
@@ -229,6 +246,7 @@
 
   &__rich-checkbox-buttons {
     width: 73.75%;
+    margin-top: rem(82);
     
     @media screen and (max-width: $smDesktopWidth) {
       width: 100%;
@@ -236,27 +254,32 @@
   }
 
   &__rich-checkbox-buttons-title {
-    margin-bottom: rem(6);
+    margin-bottom: rem(11);
   }
 
   &__rich-checkbox-button {
-    margin-top: rem(10);
+    padding: rem(5) 0;
   }
 
   &__bullet-list {
     width: 100%;
+    margin-top: rem(82.5);
   }
 
   &__bullet-list-title {
-    margin-bottom: rem(6);
+    margin-bottom: rem(9);
   }
 
   &__bullet {
-    margin-top: rem(10);
+    padding: rem(5) 0;
+  }
+
+  &__benefits {
+    margin-top: rem(7);
   }
 
   &__benefit {
-    margin-top: 20px;
+    margin-top: rem(20);
 
     &:first-child {
       margin-top: 0;
@@ -265,6 +288,7 @@
 
   &__feedback {
     width: 63.795%;
+    margin-top: rem(16);
     margin-bottom: rem(100);
 
     @media screen and (max-width: $desktopWidth) {
