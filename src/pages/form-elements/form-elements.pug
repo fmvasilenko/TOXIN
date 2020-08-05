@@ -27,6 +27,7 @@ include ../../common.blocks/feedback/feedback
 block variables
   - let pageTitle = 'Form Elements';
   - let pageDescription = 'Form Elements';
+  - let pageClass = 'form-elements';
   - let data = require('./form-elements.data.json');
 
 block styles
@@ -40,7 +41,7 @@ block header
     +logo_blank()
 
 block content
-  .form-elements
+  .form-elements__content
     section.form-elements__column
       
       .form-elements__text-field

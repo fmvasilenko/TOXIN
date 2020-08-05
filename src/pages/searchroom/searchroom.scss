@@ -1,23 +1,25 @@
-.searchroom-title{
-  margin-left: rem(12);
-  margin-top: rem(30);
-}
-
 .searchroom {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  &__title{
+    margin-left: rem(12);
+    margin-top: rem(30);
+  }
+
+  &__suites {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
   &__suite {
     width: rem(270);
     margin-left: rem(12);
     margin-top: rem(19);
   }
-}
 
-.searchroom-pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: rem(37);
-  margin-bottom: rem(70);
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: rem(37);
+    margin-bottom: rem(70);
+  }
 }

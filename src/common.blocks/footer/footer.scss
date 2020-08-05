@@ -1,26 +1,26 @@
-.footer__wrapper {
+.footer {
   width: 100%;
   background: #FFFFFF;
   border-top: 1px solid rgba(31, 32, 65, 0.25);
-}
 
-.footer {
-  max-width: rem(1160);
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  padding: rem(100) 0 rem(102) 0;
+  &__inner-wrapper {
+    max-width: rem(1160);
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding: rem(100) 0 rem(102) 0;
 
-  @media screen and (max-width: rem(1160)) {
-    width: 96%;
-  }
+    @media screen and (max-width: rem(1160)) {
+      width: 96%;
+    }
 
-  @media screen and (max-width: rem(980)) {
-    flex-wrap: wrap;
-  }
+    @media screen and (max-width: rem(980)) {
+      flex-wrap: wrap;
+    }
 
-  @media screen and (max-width: rem(480)) {
-    flex-direction: column;
+    @media screen and (max-width: rem(480)) {
+      flex-direction: column;
+    }
   }
 
   &__first-column {

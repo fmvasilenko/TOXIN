@@ -1,23 +1,26 @@
-.cards__logo {
-  padding-top: 30px; //should think about a better way to position logo
-  padding-left: 30px;
-}
-
-.cards__wrapper {
-  min-width: 100%;
-  background: #F4F4F6;
-}
-
 .cards {
-  max-width: rem(1160);
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: rem(65) 0;
+  background: #F4F4F6;
 
-  @media screen and (max-width: $desktopWidth) {
-    justify-content: space-evenly;
+  &__logo {
+    padding-top: 30px; //should think about a better way to position logo
+    padding-left: 30px;
+  }
+  
+  &__wrapper {
+    min-width: 100%;
+  }
+
+  &__content {
+    max-width: rem(1160);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: rem(65) 0;
+
+    @media screen and (max-width: $desktopWidth) {
+      justify-content: space-evenly;
+    }
   }
 
   &__column {

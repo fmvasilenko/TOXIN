@@ -1,18 +1,20 @@
-.form-elements__logo {
-  padding-top: 30px; //should think about a better way to position logo
-  padding-left: 30px;
-}
-
 .form-elements {
-  max-width: rem(1160);
-  margin: auto;
-  padding: rem(58.5) 0;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  &__logo {
+    padding-top: 30px; //should think about a better way to position logo
+    padding-left: 30px;
+  }
 
-  @media screen and (max-width: $desktopWidth) {
-    max-width: 90%;
+  &__content {
+    max-width: rem(1160);
+    margin: auto;
+    padding: rem(58.5) 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: $desktopWidth) {
+      max-width: 90%;
+    }
   }
 
   &__column {

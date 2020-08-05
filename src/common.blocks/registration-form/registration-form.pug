@@ -4,42 +4,42 @@ include ../masked-text-field/masked-text-field.pug
 include ../toggle/toggle.pug 
 include ../button/button.pug 
 
-mixin registration(customConfig = {})
+mixin registration-form(customConfig = {})
   - let blocks = require('@plugins/blocks.js');
-  - let defaultConfig = require('@blocks/registration/registration.config.json');
+  - let defaultConfig = require('@blocks/registration-form/registration-form.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
-  form.registration(method=config.method action=config.action)
-    h1.registration__title #{config.vocabulary.title}
+  form.registration-form(method=config.method action=config.action)
+    h1.registration-form__title #{config.vocabulary.title}
 
-    .registration__field
+    .registration-form__field
       +text-field(config.textfields[0])
-    .registration__field
+    .registration-form__field
       +text-field(config.textfields[1])
 
-    .registration__gender
-      .registration__gender-radio-button
+    .registration-form__gender
+      .registration-form__gender-radio-button
         +radio-button(config.gender[0])
-      .registration__gender-radio-button
+      .registration-form__gender-radio-button
         +radio-button(config.gender[1])
 
-    .registration__birth-date
+    .registration-form__birth-date
       +masked-text-field(config.birthDate)
 
-    .registration__subtitle
+    .registration-form__subtitle
       h3 #{config.vocabulary.subtitle}
 
-    .registration__field
+    .registration-form__field
       +text-field(config.textfields[2])
-    .registration__field
+    .registration-form__field
       +text-field(config.textfields[3])
-    .registration__field
+    .registration-form__field
       +toggle(config.offers)
 
-    .registration__submit
+    .registration-form__submit
       +button(config.buttons[0])
 
-    .registration__login
+    .registration-form__login
       p #{config.vocabulary.loginText}
-      .registration__login-button
+      .registration-form__login-button
         +button(config.buttons[1])

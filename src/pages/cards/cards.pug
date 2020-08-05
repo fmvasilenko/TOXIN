@@ -2,15 +2,16 @@ extends ../../layout/landing
 
 include ../../common.blocks/logo/logo 
 include ../../common.blocks/search-form/search-form 
-include ../../common.blocks/registration/registration 
+include ../../common.blocks/registration-form/registration-form 
 include ../../common.blocks/receipt/receipt 
-include ../../common.blocks/login/login 
+include ../../common.blocks/login-form/login-form 
 include ../../common.blocks/suite/suite 
 include ../../common.blocks/calendar/calendar 
 
 block variables
   - let pageTitle = 'Cards';
   - let pageDescription = 'Cards';
+  - let pageClass = 'cards';
   - let data = require("./cards_data.json");
 
 block styles
@@ -24,21 +25,21 @@ block header
     +logo_blank()
 
 block content
-  .cards-wrapper
-    .cards
+  .cards__wrapper
+    .cards__content
       .cards__column
         .cards__search-form
           +search-form()
 
         .cards__registration
-          +registration()
+          +registration-form()
 
       .cards__column
         .cards__receipt 
           +receipt(data.receipt_parameters)
 
         .cards__login
-          +login()
+          +login-form()
 
       .cards__column
         .cards__calendar.js-cards__calendar

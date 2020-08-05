@@ -1,14 +1,23 @@
 .colors {
-  position: absolute;
-  top: 145px;
-  left: 150px;
-}
+  &__logo {
+    width: 48px;
+    height: 48px;
 
-.colors__logo {
-  width: 48px;
-  height: 48px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+  }
 
-  position: absolute;
-  top: 30px;
-  left: 30px;
+  &__color-wrapper {
+    position: absolute;
+    top: 145px;
+    left: 150px;
+  }
+
+  &__types {
+    width: 402px;
+    position: absolute;
+    top: 145px;
+    left: 833px;
+  }
 }

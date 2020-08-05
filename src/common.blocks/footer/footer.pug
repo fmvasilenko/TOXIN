@@ -7,9 +7,9 @@ mixin footer(customConfig = {})
   - let defaultConfig = require('@blocks/footer/footer.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
-  .footer__wrapper
+  footer.footer
     if config.type == "full"
-      footer.footer
+      .footer__inner-wrapper
         
         .footer__first-column
           a.footer__logo(href=config.logoHref)
@@ -37,7 +37,7 @@ mixin footer(customConfig = {})
                 +socials(icon.name)
 
     else if config.type == "light"
-      footer.footer
+      .footer__inner-wrapper
         
         .footer__single-column
           a.footer__logo(href=config.logoHref)

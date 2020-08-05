@@ -6,8 +6,8 @@ mixin header(customConfig = {})
   - let defaultConfig = require('@blocks/header/header.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
-  .header__wrapper
-    header.header
+  header.header
+    .header__inner-wrapper
 
       a.header__logo(href=config.logoHref)
         +logo()

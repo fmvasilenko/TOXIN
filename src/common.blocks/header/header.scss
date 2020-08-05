@@ -1,4 +1,4 @@
-.header__wrapper {
+.header {
   min-width: rem(1160);
   background: #ffffff;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
@@ -6,29 +6,29 @@
   @media screen and (max-width: $desktopWidth) {
     min-width: 100%;
   }
-}
 
-.header {
-  max-width: rem(1160);
-  height: rem(70);
-  margin: auto;
-  display: flex;
-  align-items: center;
-
-  @media screen and (max-width: $desktopWidth) {
-    width: 96%;
-  }
-
-  @media screen and (max-width: $tableWidth) {
-    flex-wrap: wrap;
-    justify-content: center;
-    height: auto;
-    padding: rem(20) 0;
-  }
-
-  @media screen and (max-width: $phoneWidth) {
-    flex-direction: column;
+  &__inner-wrapper {
+    max-width: rem(1160);
+    height: rem(70);
+    margin: auto;
+    display: flex;
     align-items: center;
+
+    @media screen and (max-width: $desktopWidth) {
+      width: 96%;
+    }
+
+    @media screen and (max-width: $tableWidth) {
+      flex-wrap: wrap;
+      justify-content: center;
+      height: auto;
+      padding: rem(20) 0;
+    }
+
+    @media screen and (max-width: $phoneWidth) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   &__logo {

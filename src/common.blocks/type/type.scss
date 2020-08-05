@@ -1,0 +1,25 @@
+.type {
+  width: 100%;
+  padding-top: 50px;
+
+  display: flex;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &__title {
+    min-width: 12%;
+  
+    font-weight: normal;
+    text-align: right;
+
+    &_uppercase {
+      text-transform: uppercase;
+    }
+  }
+
+  &__description {
+    padding-left: 31px;
+  }
+}

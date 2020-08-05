@@ -3,18 +3,20 @@ extends ../../layout/landing
 block styles
   link(rel="stylesheet" href="assets/css/app.css")
 
-include ../../common.blocks/logo/logo.pug
-include ../../common.blocks/color/color.pug
+include ../../common.blocks/logo/logo
+include ../../common.blocks/color/color
+include ../../common.blocks/type/type
 
 block variables
   - let pageTitle = 'Colors & Type';
   - let pageDescription = 'Colors';
+  - let pageClass = 'colors'
 
 block content
   .colors__logo
     +logo_blank()
 
-  .colors
+  .colors__color-wrapper
     +color('#1F2041', 'Dark Shade 100%', '#1F2041')
     +color('rgba(31, 32, 65, 0.75)', 'Dark Shade 75%', '#1F2041')
     +color('rgba(31, 32, 65, 0.50)', 'Dark Shade 50%', '#1F2041')
@@ -23,16 +25,8 @@ block content
     +color('#BC9CFF', 'Purple', '#BC9CFF')
     +color('#6FCF97', 'Green', '#6FCF97')
 
-  .types
-    .types__line
-      h1.types__title.types__title_uppercase h1
-      h1.types__description.types__description_no-padding This one is the sub-section or widget title
-    .types__line
-      h2.types__title.types__title_uppercase h2
-      h2.types__description Next one is the item title inside widgets
-    .types__line
-      h3.types__title h3
-      h3.types__description This is a label or CTA text
-    .types__line
-      p.types__title Body
-      p.types__description This is the body text which is used for most of the design, like paragraphs, lists, etc
+  .colors__types
+    +type("h1", "This one is the sub-section or widget title", true, false)
+    +type("h2", "Next one is the item title inside widgets", true)
+    +type("h3", "This is a label or CTA text")
+    +type("Body", "This is the body text which is used for most of the design, like paragraphs, lists, etc")

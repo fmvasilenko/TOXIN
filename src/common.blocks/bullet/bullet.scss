@@ -1,16 +1,14 @@
-.bullet-list {
-  &__item {
-    display: flex;
-  
-    &:before {
-      content: "";
-      min-width: rem(10);
-      height: rem(10);
-      margin-top: rem(5);
-      margin-right: rem(10);
-  
-      background: $darkShade25;
-      border-radius: 50%;
-    }
+.bullet {
+  display: flex;
+
+  &:before {
+    content: "";
+    min-width: rem(10);
+    height: rem(10);
+    margin-top: rem(5);
+    margin-right: rem(10);
+
+    background: $darkShade25;
+    border-radius: 50%;
   }
 }

@@ -2,11 +2,12 @@ extends ../../layout/landing
 
 include ../../common.blocks/header/header.pug
 include ../../common.blocks/footer/footer.pug
-include ../../common.blocks/login/login.pug  
+include ../../common.blocks/login-form/login-form.pug  
 
 block variables
   - let pageTitle = 'Вход';
   - let pageDescription = 'Вход';
+  - let pageClass = 'login-page'
   - let data = require("./login.data.json");
 
 block styles
@@ -19,9 +20,7 @@ block footer
   +footer()
 
 block content
-  .login__background
-    .login__wrapper
-      .login__login-form
-        +login()
-        
-      p.registration__description #{data.description}
+  .login-page__background
+    .login-page__wrapper
+      .login-page__login-form
+        +login-form()

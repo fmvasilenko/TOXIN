@@ -2,7 +2,7 @@ extends ../../layout/landing
 
 include ../../common.blocks/header/header.pug
 include ../../common.blocks/footer/footer.pug
-include ../../common.blocks/registration/registration.pug  
+include ../../common.blocks/registration-form/registration-form.pug  
 
 block styles
   link(rel="stylesheet" href="assets/css/app.css")
@@ -10,6 +10,7 @@ block styles
 block variables
   - let pageTitle = 'Registration';
   - let pageDescription = 'Registration';
+  - let pageClass = 'registration';
 
 block header
   +header()
@@ -20,10 +21,7 @@ block content
   .registration__background
     .registration__wrapper
       .registration__registration-form
-        +registration()
-        
-      
-      p.registration__description #{data.description}
+        +registration-form()
 
 block footer
   +footer()

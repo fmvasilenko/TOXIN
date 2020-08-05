@@ -1,0 +1,7 @@
+mixin type(title, description, isUpperCase = false, hasPadding = false)
+  - let titleClass = isUpperCase ? "type__title_uppercase" : "";
+  - let descriptionClass = hasPadding ? "" : "type__description_no-padding";
+
+  .type
+    h1.type__title(class=titleClass) #{title}
+    h1.type__description(class=descriptionClass) #{description}

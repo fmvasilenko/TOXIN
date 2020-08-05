@@ -1,26 +1,28 @@
 .landing {
-  max-width: rem(1160);
-  height: rem(830);
-  padding-top: rem(1);
-  margin: auto;
-  position: relative;
-
-  @media screen and (min-width: rem(381)) and (max-width: rem(1160)) {
-    width: 96%;
-    height: rem(600);
-  }
-
-  @media screen and (max-width: rem(380)) {
-    width: 100%;
-    height: rem(550);
-  }
-
   &__wrapper {
     width: 100%;
     background: url(../img/background_1.png);
     background-position: center;
     background-size: cover;
     background-clip: border-box;
+  }
+
+  &__content {
+    max-width: rem(1160);
+    height: rem(830);
+    padding-top: rem(1);
+    margin: auto;
+    position: relative;
+
+    @media screen and (min-width: rem(381)) and (max-width: rem(1160)) {
+      width: 96%;
+      height: rem(600);
+    }
+
+    @media screen and (max-width: rem(380)) {
+      width: 100%;
+      height: rem(550);
+    }
   }
 
   &__search-form {

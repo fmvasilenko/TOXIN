@@ -1,0 +1,20 @@
+include ../text-field/text-field.pug 
+include ../button/button.pug 
+
+mixin login-form(customConfig = {})
+  - let blocks = require('@plugins/blocks.js');
+  - let defaultConfig = require('@blocks/login-form/login-form.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
+  form.login-form(method=config.method action=config.action)
+    h1.login-form__title #{config.vocabulary.title}
+    .login-form__text-field
+      +text-field(config.textfields[0])
+    .login-form__text-field
+      +text-field(config.textfields[1])
+    .login-form__button
+      +button(config.buttons[0])
+    .login-form__registration
+      p #{config.vocabulary.login-formText}
+      .login-form__registration-button
+        +button(config.buttons[1])

@@ -13,6 +13,7 @@ include ../../common.blocks/search-form/search-form.pug
 block variables
   - let pageTitle = 'Landing';
   - let pageDescription = 'Search page for TOXIN';
+  - let pageClass = 'landing';
 
 block header
   +header()
@@ -21,7 +22,7 @@ block content
   - let data = require("./landing.data.json");
 
   .landing__wrapper
-    .landing
+    .landing__content
       .landing__search-form
         +search-form()
       

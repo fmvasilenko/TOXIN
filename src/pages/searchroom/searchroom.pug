@@ -15,6 +15,7 @@ block scripts
 block variables
   - let pageTitle = 'Search room'
   - let pageDescription = 'Searchroom'
+  - let pageClass = 'searchroom'
 
 block header
   +header()
@@ -25,12 +26,12 @@ block sidebar
 block content
   - let data = require("./searchroom.data.json");
 
-  h1.searchroom-title Номера, которые мы для вас подобрали
-  .searchroom
+  h1.searchroom__title #{data.title}
+  .searchroom__suites
     each suite in data.suites
       .searchroom__suite
         +suite(suite)
-  .searchroom-pagination
+  .searchroom__pagination
     +pagination()
 
 block footer
