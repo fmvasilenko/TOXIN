@@ -1,5 +1,5 @@
-import Component from '@frontend/component';
-import RateButton from '@blocks/rate-button/rate-button';
+import Component from '@frontend/Component';
+import RateButton from '@blocks/rate-button/RateButton';
 
 class Suite extends Component {
   constructor(root, parent = {}) {

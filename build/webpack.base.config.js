@@ -25,7 +25,7 @@ module.exports = {
     formElements: `${PATHS.src}/pages/form-elements/form-elements.js`,
     landing: `${PATHS.src}/pages/landing/landing.js`,
     searchroom: `${PATHS.src}/pages/searchroom/searchroom.js`,
-    roomDetails: `${PATHS.src}/pages/room_details/room_details.js`,
+    roomDetails: `${PATHS.src}/pages/room-details/room-details.js`,
   },
   output: {
     filename: `${PATHS.assets}js/[name].js`,

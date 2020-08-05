@@ -1,11 +1,11 @@
 import 'jquery';
 import '../../scss/main.scss';
 
-import Component from '@frontend/component';
-import SearchForm from '@blocks/search-form/search-form';
-import Receipt from '@blocks/receipt/receipt';
-import Calendar from '@blocks/calendar/calendar';
-import Suite from '@blocks/suite/suite';
+import Component from '@frontend/Component';
+import SearchForm from '@blocks/search-form/SearchForm';
+import Receipt from '@blocks/receipt/Receipt';
+import Calendar from '@blocks/calendar/Calendar';
+import Suite from '@blocks/suite/Suite';
 
 class Cards extends Component {
   constructor() {

@@ -1,4 +1,4 @@
-import ComponentView from '@frontend/componentView';
+import ComponentView from '@frontend/ComponentView';
 
 class DropdownView extends ComponentView {
   constructor(controller) {

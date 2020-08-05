@@ -1,8 +1,8 @@
 import '../../scss/main.scss';
 
-import Component from '@frontend/component';
-import Receipt from '@blocks/receipt/receipt';
-import LikeButton from '@blocks/like-button/like-button';
+import Component from '@frontend/Component';
+import Receipt from '@blocks/receipt/Receipt';
+import LikeButton from '@blocks/like-button/LikeButton';
 
 class RoomDetails extends Component {
   constructor() {

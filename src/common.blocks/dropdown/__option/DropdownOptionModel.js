@@ -1,5 +1,5 @@
 /* eslint-disable prefer-destructuring */
-import ComponentModel from '@frontend/componentModel';
+import ComponentModel from '@frontend/ComponentModel';
 
 class DropdownOptionModel extends ComponentModel {
   constructor(controller) {

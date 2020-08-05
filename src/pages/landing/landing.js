@@ -3,8 +3,8 @@ import 'jquery-ui';
 import 'jquery-ui-touch-punch';
 import '../../scss/main.scss';
 
-import Component from '@frontend/component';
-import SearchForm from '@blocks/search-form/search-form';
+import Component from '@frontend/Component';
+import SearchForm from '@blocks/search-form/SearchForm';
 
 class Landing extends Component {
   constructor() {

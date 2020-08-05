@@ -1,5 +1,5 @@
-import Component from '@frontend/component';
-import RateButtonView from './rate-button-view';
+import Component from '@frontend/Component';
+import RateButtonView from './RateButtonView';
 
 class RateButton extends Component {
   constructor(root, parent) {

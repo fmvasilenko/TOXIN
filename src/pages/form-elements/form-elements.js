@@ -1,14 +1,14 @@
 import 'jquery';
 import '../../scss/main.scss';
 
-import Component from '@frontend/component';
-import RateButton from '@blocks/rate-button/rate-button';
-import LikeButton from '@blocks/like-button/like-button';
-import DateDropdown from '@blocks/date-dropdown/date-dropdown';
-import FilterDateDropdown from '@blocks/filter-date-dropdown/filter-date-dropdown';
-import Dropdown from '@blocks/dropdown/dropdown';
-import ExpandableCheckboxList from '@blocks/expandable-checkbox-list/expandable-checkbox-list';
-import Slider from '@blocks/slider/slider';
+import Component from '@frontend/Component';
+import RateButton from '@blocks/rate-button/RateButton';
+import LikeButton from '@blocks/like-button/LikeButton';
+import DateDropdown from '@blocks/date-dropdown/DateDropdown';
+import FilterDateDropdown from '@blocks/filter-date-dropdown/FilterDateDropdown';
+import Dropdown from '@blocks/dropdown/Dropdown';
+import ExpandableCheckboxList from '@blocks/expandable-checkbox-list/ExpandableCheckboxList';
+import Slider from '@blocks/slider/Slider';
 
 class FormElements extends Component {
   constructor() {

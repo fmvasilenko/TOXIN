@@ -28,7 +28,7 @@ npm postinstall
 4. [Headers & Footers](https://fmvasilenko.github.io/TOXIN/dist/headers)
 5. [Landing page](https://fmvasilenko.github.io/TOXIN/dist/landing)
 6. [Search room](https://fmvasilenko.github.io/TOXIN/dist/searchroom)
-7. [Room details](https://fmvasilenko.github.io/TOXIN/dist/room_details)
+7. [Room details](https://fmvasilenko.github.io/TOXIN/dist/room-details)
 8. [Registration](https://fmvasilenko.github.io/TOXIN/dist/registration)
 9. [Login](https://fmvasilenko.github.io/TOXIN/dist/login)
 

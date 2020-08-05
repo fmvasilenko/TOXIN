@@ -1,9 +1,9 @@
 import 'jquery';
 import '../../scss/main.scss';
 
-import Component from '@frontend/component';
-import Sidebar from '@blocks/sidebar/sidebar';
-import Suite from '@blocks/suite/suite';
+import Component from '@frontend/Component';
+import Sidebar from '@blocks/sidebar/Sidebar';
+import Suite from '@blocks/suite/Suite';
 
 class Searchroom extends Component {
   constructor() {

@@ -1,6 +1,6 @@
-import Component from '@frontend/component';
-import DateDropdown from '@blocks/date-dropdown/date-dropdown';
-import Dropdown from '@blocks/dropdown/dropdown';
+import Component from '@frontend/Component';
+import DateDropdown from '@blocks/date-dropdown/DateDropdown';
+import Dropdown from '@blocks/dropdown/Dropdown';
 
 class Receipt extends Component {
   constructor(root, parent = {}) {

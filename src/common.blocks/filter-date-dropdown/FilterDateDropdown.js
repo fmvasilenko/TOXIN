@@ -1,5 +1,5 @@
-import Component from '@frontend/component';
-import Calendar from '@blocks/calendar/calendar';
+import Component from '@frontend/Component';
+import Calendar from '@blocks/calendar/Calendar';
 
 class FilterDateDropdown extends Component {
   constructor(root, parent = {}) {

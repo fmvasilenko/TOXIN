@@ -1,4 +1,4 @@
-import Component from '@frontend/component';
+import Component from '../../js/frontend/Component';
 
 class Calendar extends Component {
   constructor(root, parent = {}) {

@@ -1,5 +1,5 @@
-import Component from '@frontend/component';
-import LikeButtonView from './like-button-view';
+import Component from '@frontend/Component';
+import LikeButtonView from './LikeButtonView';
 
 class LikeButton extends Component {
   constructor(root, parent = {}) {

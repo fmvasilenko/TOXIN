@@ -1,7 +1,7 @@
-import Component from '@frontend/component';
+import Component from '@frontend/Component';
 import 'fsd4-slider';
 
-export default class Slider extends Component {
+class Slider extends Component {
   constructor(root, parent = {}) {
     super({ root, parent });
 
@@ -77,3 +77,5 @@ export default class Slider extends Component {
     this.DOM.SECOND_VALUE.value = `${rightHandleValue}`;
   }
 }
+
+export default Slider;

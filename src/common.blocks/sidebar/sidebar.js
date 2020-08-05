@@ -1,8 +1,8 @@
-import Component from '@frontend/component';
-import FilterDateDropdown from '@blocks/filter-date-dropdown/filter-date-dropdown';
-import Dropdown from '@blocks/dropdown/dropdown';
-import Slider from '@blocks/slider/slider';
-import ExpandableCheckboxList from '@blocks/expandable-checkbox-list/expandable-checkbox-list';
+import Component from '@frontend/Component';
+import FilterDateDropdown from '@blocks/filter-date-dropdown/FilterDateDropdown';
+import Dropdown from '@blocks/dropdown/Dropdown';
+import Slider from '@blocks/slider/Slider';
+import ExpandableCheckboxList from '@blocks/expandable-checkbox-list/ExpandableCheckboxList';
 
 class Sidebar extends Component {
   constructor(root, parent = {}) {

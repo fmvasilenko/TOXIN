@@ -1,4 +1,4 @@
-import Component from '@frontend/component';
+import Component from '@frontend/Component';
 
 class ExpandableCheckboxList extends Component {
   constructor(root, parent = {}) {
