@@ -1,8 +1,10 @@
+@import "../../scss/utils/vars.scss";
+
 .registration {
 
   &__background {
     width: 100%;
-    background: url(../img/background_2.png);
+    background: url(../../img/background_2.png);
     background-position: center;
     background-size: cover;
     background-clip: border-box;
