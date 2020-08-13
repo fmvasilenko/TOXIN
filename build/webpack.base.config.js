@@ -24,7 +24,7 @@ module.exports = {
     cards: `${PATHS.src}/pages/cards/cards.js`,
     formElements: `${PATHS.src}/pages/form-elements/form-elements.js`,
     landing: `${PATHS.src}/pages/landing/landing.js`,
-    searchroom: `${PATHS.src}/pages/searchroom/searchroom.js`,
+    searchRoom: `${PATHS.src}/pages/search-room/search-room.js`,
     roomDetails: `${PATHS.src}/pages/room-details/room-details.js`,
   },
   output: {
