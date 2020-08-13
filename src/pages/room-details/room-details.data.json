@@ -1,16 +1,16 @@
 {
   "gallery": {
     "coverPhoto": {
-      "src": "assets/img/suite_1.png",
+      "src": "assets/img/suites/suite888/suite888-1.png",
       "alt": ""
     },
     "miniImages": [
       {
-        "src": "assets/img/suite_1.1.png",
+        "src": "assets/img/suites/suite888/suite888-2.png",
         "alt": ""
       },
       {
-        "src": "assets/img/suite_1.2.png",
+        "src": "assets/img/suites/suite888/suite888-3.png",
         "alt": ""
       }
     ]
@@ -75,7 +75,7 @@
       {
         "name": "Мурад Сарафанов",
         "img": {
-          "src": "assets/img/feedback-image.png"
+          "src": "assets/img/users/user1/user1-1.png"
         },
         "likeButton": {
           "value": 12,
@@ -87,7 +87,7 @@
       {
         "name": "Патрисия Стёклышкова",
         "img": {
-          "src": "assets/img/feedback-image-2.png"
+          "src": "assets/img/users/user2/user2-1.png"
         },
         "likeButton": {
           "value": 2,

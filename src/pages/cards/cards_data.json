@@ -58,19 +58,19 @@
       },
       "images": [
         {
-          "link": "assets/img/suite_4.png",
+          "link": "assets/img/suites/suite840/suite840-1.png",
           "checked": true
         },
         {
-          "link": "assets/img/suite_3.png",
+          "link": "assets/img/suites/suite888/suite888-3.png",
           "checked": true
         },
         {
-          "link": "assets/img/suite_2.png",
+          "link": "assets/img/suites/suite888/suite888-2.png",
           "checked": true
         },
         {
-          "link": "assets/img/suite_1.png",
+          "link": "assets/img/suites/suite888/suite888-1.png",
           "checked": true
         }
       ]
@@ -84,19 +84,19 @@
       },
       "images": [
         {
-          "link": "assets/img/suite_5.png",
+          "link": "assets/img/suites/suite888/suite888-3.png",
           "checked": true
         },
         {
-          "link": "assets/img/suite_4.png",
+          "link": "assets/img/suites/suite888/suite888-2.png",
           "checked": true
         },
         {
-          "link": "assets/img/suite_3.png",
+          "link": "assets/img/suites/suite888/suite888-1.png",
           "checked": true
         },
         {
-          "link": "assets/img/suite_2.png",
+          "link": "assets/img/suites/suite840/suite840-1.png",
           "checked": true
         }
       ]
