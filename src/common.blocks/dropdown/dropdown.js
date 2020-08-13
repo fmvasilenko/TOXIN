@@ -1,7 +1,7 @@
 import Component from '@frontend/Component';
 import DropdownModel from './DropdownModel';
 import DropdownView from './DropdownView';
-import DropdownOption from './__option/DropdownOption';
+import DropdownOption from '../dropdown-option/DropdownOption';
 
 class Dropdown extends Component {
   constructor(root, parent) {
