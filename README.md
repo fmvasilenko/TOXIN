@@ -11,13 +11,24 @@ Test task for FSD.
 ## 1. Initialization
 After downloading the project run
 ```
-npm init
-npm postinstall
+npm install
 ```
 
-`npm postinstall` is used to provide aliases for some pathes.
-> Notice!
-> `npm postinstall` adds `@plugins, @blocks and @frontend` directories to node_modules, that must be removed before running `npm install`. Otherwise it might lead to losing files from mentioned directories.
+To build the project use
+```
+npm run build
+```
+To run development mode use
+```
+npm run dev
+```
+
+### Adding new modules to node_modules
+Before installing new modules to `node_modules` - remove `@plugins, @frontend and @blocks` directories. 
+Those are links for `js/plugins, js/frontend and common.blocks` 
+and if you have them while running `npm install...` - you lose all the files in mentioned directories.  
+
+After installing all needed modules run `npm postinstall` to put the links back.
 
 <a name="githubPages"></a>
 
