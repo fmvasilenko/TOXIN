@@ -1,13 +1,11 @@
 {
   "dropdown1": {
     "title": "Date dropdown",
-    "name": "",
     "value": "",
     "icon": "expand_more"
   },
   "dropdown2": {
     "title": "Date dropdown",
-    "name": "",
     "value": "",
     "icon": "expand_more"
   }

@@ -43,8 +43,7 @@ class DateDropdown extends Component {
 
   setConsts() {
     this.CLASSES = {
-      ARRIVAL_DATE_INPUT: 'js-date-dropdown__arrival-date',
-      LEAVING_DATE_INPUT: 'js-date-dropdown__leaving-date',
+      DATE_INPUT: 'js-date-dropdown__input',
       CALENDAR_POPUP: 'js-date-dropdown__calendar',
       CALENDAR_POPUP_DROPPED: 'date-dropdown__calendar_dropped',
       DROPDOWN_ICON: 'js-date-dropdown__expand-more',
@@ -60,8 +59,8 @@ class DateDropdown extends Component {
   }
 
   setInitialState() {
-    this.arrivalDateInput = this.root.querySelector(`.${this.CLASSES.ARRIVAL_DATE_INPUT}`);
-    this.leavingDateInput = this.root.querySelector(`.${this.CLASSES.LEAVING_DATE_INPUT}`);
+    this.arrivalDateInput = this.root.querySelector(`.${this.CLASSES.DATE_INPUT}[name="arrivalDate"]`);
+    this.leavingDateInput = this.root.querySelector(`.${this.CLASSES.DATE_INPUT}[name="leavingDate"]`);
     this.calendarPopup = this.root.querySelector(`.${this.CLASSES.CALENDAR_POPUP}`);
     this.dropdownIcon = this.root.querySelectorAll(`.${this.CLASSES.DROPDOWN_ICON}`);
 
