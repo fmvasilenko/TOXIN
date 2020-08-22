@@ -9,7 +9,7 @@
     "postinstall": "link-module-alias"
   },
   "_moduleAliases": {
-    "@plugins": "src/js/plugins",
+    "@backend": "src/js/backend",
     "@blocks": "src/common.blocks",
     "@frontend": "src/js/frontend"
   },

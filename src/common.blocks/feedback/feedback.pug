@@ -1,7 +1,7 @@
 include ../like-button/like-button 
 
 mixin feedback(customConfig = {})
-  - let blocks = require('@plugins/blocks.js');
+  - let blocks = require('@backend/Blocks.js');
   - let defaultConfig = require('@blocks/feedback/feedback.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
   - let imgAlt = config.img.alt ? config.img.alt : config.name;

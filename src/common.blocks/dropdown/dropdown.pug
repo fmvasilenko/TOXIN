@@ -2,7 +2,7 @@ include ../dropdown-option/dropdown-option
 include ../button/button 
 
 mixin drop-down(customConfig = {})
-  - let blocks = require('@plugins/blocks.js');
+  - let blocks = require('@backend/Blocks.js');
   - let defaultConfig = require('@blocks/dropdown/dropdown.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
   - let submitAreaClass = config.display_type === "values" ? "drop-down__submit-area_hidden": "";

@@ -2,7 +2,7 @@ include ../text-field/text-field.pug
 include ../button/button.pug 
 
 mixin login-form(customConfig = {})
-  - let blocks = require('@plugins/blocks.js');
+  - let blocks = require('@backend/Blocks.js');
   - let defaultConfig = require('@blocks/login-form/login-form.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 

@@ -3,7 +3,7 @@ include ../dropdown/dropdown.pug
 include ../button/button.pug 
 
 mixin search-form(customConfig = {})
-  - let blocks = require('@plugins/blocks.js');
+  - let blocks = require('@backend/Blocks.js');
   - let defaultConfig = require('@blocks/search-form/search-form.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 

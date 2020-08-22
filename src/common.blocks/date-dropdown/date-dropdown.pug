@@ -1,7 +1,7 @@
 include ../calendar/calendar 
 
 mixin date-dropdown(customConfig = {})
-  - let blocks = require('@plugins/blocks.js');
+  - let blocks = require('@backend/Blocks.js');
   - let defaultConfig = require('@blocks/date-dropdown/date-dropdown.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
