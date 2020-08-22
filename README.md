@@ -12,6 +12,7 @@ Test task for FSD.
 After downloading the project run
 ```
 npm install
+npm run postinstall
 ```
 
 To build the project use
@@ -28,7 +29,7 @@ Before installing new modules to `node_modules` - remove `@plugins, @frontend an
 Those are links for `js/plugins, js/frontend and common.blocks` 
 and if you have them while running `npm install...` - you lose all the files in mentioned directories.  
 
-After installing all needed modules run `npm postinstall` to put the links back.
+After installing all needed modules run `npm run postinstall` to put the links back.
 
 <a name="githubPages"></a>
 
