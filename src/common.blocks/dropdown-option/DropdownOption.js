@@ -42,7 +42,7 @@ class DropdownOption extends Component {
     this.DOM = {
       INPUT: this.root.querySelector(`.${this.CLASSES.INPUT}`),
       DECREASE_BUTTON: this.root.querySelector(`.${this.CLASSES.BUTTON}[name="decreaseButton"]`),
-      INCREASE_BUTTON: this.root.querySelector(`.${this.CLASSES.BUTTON}[name="increaseButton]`),
+      INCREASE_BUTTON: this.root.querySelector(`.${this.CLASSES.BUTTON}[name="increaseButton"]`),
     };
   }
 
@@ -60,12 +60,12 @@ class DropdownOption extends Component {
   }
 
   clickHandler(event) {
-    if (event.target.closest(`.${this.CLASSES.INCREASE_BUTTON}`) === this.DOM.INCREASE_BUTTON) {
+    if (event.target.closest(`.${this.CLASSES.BUTTON}`) === this.DOM.INCREASE_BUTTON) {
       const optionValues = this.optionValues;
       optionValues[this.INDEX]++;
       this.optionValues = optionValues;
     }
-    else if (event.target.closest(`.${this.CLASSES.DECREASE_BUTTON}`) === this.DOM.DECREASE_BUTTON) {
+    else if (event.target.closest(`.${this.CLASSES.BUTTON}`) === this.DOM.DECREASE_BUTTON) {
       if (this.optionValues[this.INDEX] > 0) {
         let optionValues = this.optionValues;
         optionValues[this.INDEX]--;
