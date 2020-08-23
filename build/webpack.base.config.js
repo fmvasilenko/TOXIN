@@ -41,11 +41,30 @@ module.exports = {
       test: /\.pug$/,
       loader: 'pug-loader',
     }, {
-      test: /\.(png|jpg|gif)$/,
-      loader: 'file-loader',
-      options: {
-        name: '[name].[ext]',
-      },
+      test: /\.(png|jpe?g|gif)$/i,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+          },
+        }, {
+          loader: 'image-webpack-loader',
+          options: {
+            mozjpeg: {
+              progressive: true,
+              quality: 65,
+            },
+            optipng: {
+              enabled: true,
+            },
+            pngquant: {
+              quality: [0.65, 0.90],
+              speed: 4,
+            },
+          },
+        },
+      ],
     }, {
       test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
       loader: 'file-loader',
