@@ -3,7 +3,7 @@
   "action": "",
   "vocabulary": {
     "title": "Войти",
-    "loginText": "Нет аккаунта на Toxin?"
+    "registrationText": "Нет аккаунта на Toxin?"
   },
   "textfields": [
     {
