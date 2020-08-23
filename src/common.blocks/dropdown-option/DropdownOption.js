@@ -33,17 +33,16 @@ class DropdownOption extends Component {
 
   setClasses() {
     this.CLASSES = {
-      INPUT: 'js-drop-down__option-input',
-      DECREASE_BUTTON: 'js-drop-down__button_decrease',
-      INCREASE_BUTTON: 'js-drop-down__button_increase',
+      INPUT: 'js-dropdown-option__input',
+      BUTTON: 'js-dropdown-option__button',
     };
   }
 
   setDOM() {
     this.DOM = {
       INPUT: this.root.querySelector(`.${this.CLASSES.INPUT}`),
-      DECREASE_BUTTON: this.root.querySelector(`.${this.CLASSES.DECREASE_BUTTON}`),
-      INCREASE_BUTTON: this.root.querySelector(`.${this.CLASSES.INCREASE_BUTTON}`),
+      DECREASE_BUTTON: this.root.querySelector(`.${this.CLASSES.BUTTON}[name="decreaseButton"]`),
+      INCREASE_BUTTON: this.root.querySelector(`.${this.CLASSES.BUTTON}[name="increaseButton]`),
     };
   }
 

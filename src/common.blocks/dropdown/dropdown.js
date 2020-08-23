@@ -49,7 +49,7 @@ class Dropdown extends Component {
 
   setClasses() {
     this.CLASSES = {
-      OPTION: 'js-drop-down__option',
+      OPTION: 'js-dropdown-option',
       FIELD: 'js-drop-down__field',
       FIELD_DROPPED: 'drop-down__field_drop',
       ICON: 'js-drop-down__expand-more',

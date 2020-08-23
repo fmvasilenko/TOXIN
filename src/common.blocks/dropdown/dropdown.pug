@@ -18,7 +18,7 @@ mixin drop-down(customConfig = {})
     ul.drop-down__list.js-drop-down__list
       if config.options
         each option in config.options
-          +drop-down__option(option)
+          +dropdown-option(option)
 
       .drop-down__submit-area
         .drop-down__button-wrapper.js-drop-down__clear-button

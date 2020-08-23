@@ -1,22 +1,19 @@
 @import "../../scss/utils/vars.scss";
 @import "../../scss/utils/mixins.scss";
 
-.drop-down {
+.dropdown-option {
+  width: 100%;
+  height: rem(37);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  &__option {
-    width: 100%;
-    height: rem(37);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &__option-number {
+  &__number {
     display: flex;
     align-items: center;
   }
 
-  &__option-button {
+  &__button {
     width: rem(30);
     height: rem(30);
     background: white;
@@ -34,7 +31,7 @@
     }
   }
 
-  &__option-input {
+  &__input {
     all: unset;
     width: rem(32);
     border: 0;
