@@ -23,7 +23,7 @@ class Sidebar extends Component {
   initDropdown() {
     const dropdowns = [];
 
-    this.root.querySelectorAll('.js-drop-down').forEach((element, index) => {
+    this.root.querySelectorAll('.js-dropdown').forEach((element, index) => {
       dropdowns[index] = new Dropdown(element, this);
     });
 

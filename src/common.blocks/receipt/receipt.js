@@ -47,7 +47,7 @@ class Receipt extends Component {
 
   setClasses() {
     this.CLASSES = {
-      DROPDOWN: 'js-drop-down',
+      DROPDOWN: 'js-dropdown',
       DATE_DROPDOWN: 'js-date-dropdown',
       PRICE_PER_NIGHT: 'js-receipt__title-price',
       COST_TITLE: 'js-receipt__cost-title',

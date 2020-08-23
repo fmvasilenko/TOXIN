@@ -51,7 +51,7 @@ block content
         +text-field(data.textfields[1])
 
       .form-elements__dropdown
-        +drop-down(data.dropdownGuests)
+        +dropdown(data.dropdownGuests)
 
       .form-elements__masked-text-field
         +masked-text-field(data.maskedTextField)
@@ -131,20 +131,20 @@ block content
 
     section.form-elements__column
       .form-elements__dropdown-default 
-        +drop-down(data.dropdownAmenities)
+        +dropdown(data.dropdownAmenities)
 
       .form-elements__dropdown-expanded
-        +drop-down(data.dropdownAmenities)
+        +dropdown(data.dropdownAmenities)
 
     section.form-elements__column
       - data.dropdownGuests.display_submit_button = true;
-      .form-elements__drop-down4
-        +drop-down(data.dropdownGuests)
+      .form-elements__dropdown4
+        +dropdown(data.dropdownGuests)
 
     section.form-elements__column
       - data.dropdownGuests.display_submit_button = true;
-      .form-elements__drop-down5
-        +drop-down(data.dropdownGuests)
+      .form-elements__dropdown5
+        +dropdown(data.dropdownGuests)
 
     section.form-elements__column
       .form-elements__expandable-checkbox-list

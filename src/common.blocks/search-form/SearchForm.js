@@ -9,7 +9,7 @@ class SearchForm extends Component {
 
   setClasses() {
     this.CLASSES = {
-      DROPDOWN: 'js-drop-down',
+      DROPDOWN: 'js-dropdown',
       DATE_DROPDOWN: 'js-date-dropdown',
     };
   }
