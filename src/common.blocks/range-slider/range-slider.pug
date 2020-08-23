@@ -1,6 +1,6 @@
-mixin slider(customConfig = {})
+mixin range-slider(customConfig = {})
   - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/slider/slider.config.json');
+  - let defaultConfig = require('@blocks/range-slider/range-slider.config.json');
   - let config = blocks.createConfig(defaultConfig, customConfig);
 
   .range-slider.js-slider

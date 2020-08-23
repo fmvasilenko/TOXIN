@@ -4,7 +4,7 @@ include ../dropdown/dropdown
 include ../checkbox-button/checkbox-button 
 include ../checkbox-button-rich/checkbox-button-rich 
 include ../expandable-checkbox-list/expandable-checkbox-list 
-include ../slider/slider
+include ../range-slider/range-slider
 
 mixin sidebar(customConfig = {})
   - let blocks = require('@backend/Blocks.js');
@@ -19,7 +19,7 @@ mixin sidebar(customConfig = {})
       +drop-down(config.guests)
 
     .sidebar__slider
-      +slider(config.slider)
+      +range-slider(config.slider)
       .sidebar__slider-text #{config.slider.text}
 
     .sidebar__checkbox-buttons

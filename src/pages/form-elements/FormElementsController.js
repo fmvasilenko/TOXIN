@@ -5,7 +5,7 @@ import DateDropdown from '@blocks/date-dropdown/DateDropdown';
 import FilterDateDropdown from '@blocks/filter-date-dropdown/FilterDateDropdown';
 import Dropdown from '@blocks/dropdown/Dropdown';
 import ExpandableCheckboxList from '@blocks/expandable-checkbox-list/ExpandableCheckboxList';
-import Slider from '@blocks/slider/Slider';
+import RangeSlider from '@blocks/range-slider/RangeSlider';
 
 class FormElementsController extends Component {
   constructor() {
@@ -97,7 +97,7 @@ class FormElementsController extends Component {
     const sliders = [];
 
     this.root.querySelectorAll('.js-slider').forEach((element, index) => {
-      sliders[index] = new Slider(element, this);
+      sliders[index] = new RangeSlider(element, this);
     });
 
     return sliders;

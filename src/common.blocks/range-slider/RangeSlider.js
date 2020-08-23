@@ -1,11 +1,11 @@
 import Component from '@frontend/Component';
 import 'fsd4-slider';
 
-class Slider extends Component {
+class RangeSlider extends Component {
   constructor(root, parent = {}) {
     super({ root, parent });
 
-    this.config = require('./slider.config.json');
+    this.config = require('./range-slider.config.json');
 
     this.setDOM();
     this.setInitialState();
@@ -78,4 +78,4 @@ class Slider extends Component {
   }
 }
 
-export default Slider;
+export default RangeSlider;

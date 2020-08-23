@@ -16,7 +16,7 @@ include ../../common.blocks/like-button/like-button
 include ../../common.blocks/rate-button/rate-button 
 include ../../common.blocks/checkbox-button-rich/checkbox-button-rich 
 
-include ../../common.blocks/slider/slider  
+include ../../common.blocks/range-slider/range-slider  
 include ../../common.blocks/button/button 
 include ../../common.blocks/pagination/pagination 
 include ../../common.blocks/bullet/bullet 
@@ -102,7 +102,7 @@ block content
 
     section.form-elements__column
       .form-elements__slider
-        +slider(data.slider)
+        +range-slider(data.slider)
 
       .form-elements__buttons
         h3.form-elements__buttons-title #{data.buttons.title}
