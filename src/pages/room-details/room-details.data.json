@@ -144,7 +144,9 @@
         {
           "label": "Младенцы", 
           "name": "babies",
-          "value": 0
+          "value": 0,
+          "countedSeparately": true,
+          "wordForms": "Младенец,Младенца,Младенцев"
         }
       ]
     },

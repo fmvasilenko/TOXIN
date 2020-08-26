@@ -11,12 +11,11 @@ class DropdownModel extends ComponentModel {
 
   setState() {
     this.state = {
-      optionValues: {
+      options: {
         subscribers: [
           this.calcSum.bind(this),
         ],
       },
-      optionWordForms: {},
       optionsSum: {
         subscribers: [
           this.changeWordForm.bind(this),
@@ -31,8 +30,12 @@ class DropdownModel extends ComponentModel {
   }
 
   calcSum() {
-    if (this.optionValues.length) this.optionsSum = this.optionValues.reduce((sum, value) => sum + value);
-    else this.optionsSum = 0;
+    if (this.options.length) {
+      this.optionsSum = this.options.reduce((sum, option) => {
+        if (!option.countedSeparately) return sum + option.value;
+        return sum;
+      }, 0);
+    } else this.optionsSum = 0;
   }
 
   changeWordForm() {

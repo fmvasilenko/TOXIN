@@ -17,6 +17,9 @@ class Dropdown extends Component {
 
   setState() {
     this.state = {
+      options: {
+        value: [],
+      },
       optionValues: {
         value: [],
       },
@@ -100,9 +103,18 @@ class Dropdown extends Component {
     if (event.target.closest(`.${this.CLASSES.FIELD}`) === this.DOM.FIELD) {
       this.expanded = !this.expanded;
     } else if (event.target.closest(`.${this.CLASSES.CLEAR_BUTTON}`) === this.DOM.CLEAR_BUTTON.parentNode) {
-      if (this.DOM.CLEAR_BUTTON !== undefined) this.optionValues = this.optionValues.map(() => 0);
+      this.clearButtonHandler();
     } else if (event.target.closest(`.${this.CLASSES.SUBMIT_BUTTON}`) === this.DOM.SUBMIT_BUTTON.parentNode) {
       this.expanded = false;
+    }
+  }
+
+  clearButtonHandler() {
+    if (this.DOM.CLEAR_BUTTON !== undefined) {
+      this.options = this.options.map((option) => {
+        option.value = 0;
+        return option;
+      });
     }
   }
 

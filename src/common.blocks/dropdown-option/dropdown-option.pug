@@ -1,9 +1,12 @@
-mixin dropdown-option(parameters = {name: '', label: '', value: 0})
-  - let decreaseButtonDisabled = parameters.value ? false : true;
+mixin dropdown-option(customConfig = {})
+  - let blocks = require('@backend/Blocks.js');
+  - let defaultConfig = require('@blocks/dropdown-option/dropdown-option.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - let decreaseButtonDisabled = config.value !== 0 ? false : true;
 
-  li.dropdown-option.js-dropdown-option
-    h3 #{parameters.label}
+  li.dropdown-option.js-dropdown-option(data-word-forms=config.wordForms data-counted-separately=`${config.countedSeparately}`)
+    h3 #{config.label}
     .dropdown-option__number
       button.dropdown-option__button.js-dropdown-option__button(type="button" disabled=decreaseButtonDisabled name="decreaseButton") -
-      input.dropdown-option__input.js-dropdown-option__input(type="number" name=parameters.name value=parameters.value forms=parameters.forms readonly)
+      input.dropdown-option__input.js-dropdown-option__input(type="number" name=config.name value=config.value readonly)
       button.dropdown-option__button.js-dropdown-option__button(type="button" name="increaseButton") +

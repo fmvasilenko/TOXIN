@@ -13,17 +13,16 @@ class DropdownView extends ComponentView {
 
   setState() {
     this.state = {
+      options: {
+        subscribers: [
+          this.display.bind(this),
+        ],
+      },
       expanded: {
         subscribers: [
           this.toggleList.bind(this),
         ],
       },
-      optionValues: {
-        subscribers: [
-          this.display.bind(this),
-        ],
-      },
-      optionWordForms: {},
       displayType: {},
       optionsSum: {
         subscribers: [
@@ -66,17 +65,28 @@ class DropdownView extends ComponentView {
   }
 
   displayTotal() {
-    if (this.optionsSum) this.DOM.INPUT.value = `${this.optionsSum} ${this.wordForm}`;
+    let str = '';
+
+    if (this.optionsSum) str += `${this.optionsSum} ${this.wordForm}`;
+
+    this.options.forEach((option) => {
+      if (option.countedSeparately && option.value > 0) {
+        if (str !== '') str += ', ';
+        str += `${option.value} ${option.wordForm}`;
+      }
+    });
+
+    if (str !== '') this.DOM.INPUT.value = str;
     else this.DOM.INPUT.value = this.VOCABULARY.DEFAULT_VALUE;
   }
 
   displayValues() {
     let str = '';
 
-    this.optionValues.forEach((value, index) => {
-      if (value > 0) {
+    this.options.forEach((option) => {
+      if (option.value > 0) {
         str += str !== '' ? ', ' : '';
-        str += `${value} ${this.optionWordForms[index]}`;
+        str += `${option.value} ${option.wordForm}`;
       }
     });
 
@@ -86,7 +96,9 @@ class DropdownView extends ComponentView {
   renderClearButton() {
     if (this.displayType !== 'total') return;
 
-    if (this.optionsSum > 0) {
+    const optionsSum = this.options.reduce((sum, option) => sum + option.value, 0);
+
+    if (optionsSum > 0) {
       this.DOM.CLEAR_BUTTON.classList.remove(this.CLASSES.BUTTON_HIDDEN);
     } else {
       this.DOM.CLEAR_BUTTON.classList.add(this.CLASSES.BUTTON_HIDDEN);

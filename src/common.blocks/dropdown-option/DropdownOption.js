@@ -1,6 +1,4 @@
 import Component from '@frontend/Component';
-import DropdownOptionView from './DropdownOptionView';
-import DropdownOptionModel from './DropdownOptionModel';
 
 class DropdownOption extends Component {
   constructor(root, parent, index) {
@@ -10,23 +8,17 @@ class DropdownOption extends Component {
     this.setDOM();
     this.setVocabulary();
     this.setInitialState();
-    this.MODEL = new DropdownOptionModel(this);
-    this.VIEW = new DropdownOptionView(this);
   }
 
   setState() {
     this.state = {
-      optionValues: {
+      options: {
         value: [],
         isGlobal: true,
-      },
-      optionWordForms: {
-        value: [],
-        isGlobal: true,
-      },
-      decreaseButtonDisabled: {
-        value: false,
-        subscribers: [],
+        subscribers: [
+          this.updateInput.bind(this),
+          this.checkDecreaseButton.bind(this),
+        ],
       },
     };
   }
@@ -47,7 +39,7 @@ class DropdownOption extends Component {
   }
 
   setVocabulary() {
-    let forms = this.DOM.INPUT.getAttribute('forms');
+    let forms = this.root.getAttribute('data-word-forms');
     forms = forms ? forms.split(',') : null;
 
     this.VOCABULARY = {
@@ -56,22 +48,68 @@ class DropdownOption extends Component {
   }
 
   setInitialState() {
-    this.optionValues[this.INDEX] = this.DOM.INPUT.value ? parseInt(this.DOM.INPUT.value, 10) : 0;
+    const value = this.DOM.INPUT.value ? parseInt(this.DOM.INPUT.value, 10) : 0;
+    this.updateOption(value, this.getWordForm(value));
+
+    this.options[this.INDEX].countedSeparately = this.root.getAttribute('data-counted-separately') === 'true';
   }
 
   clickHandler(event) {
     if (event.target.closest(`.${this.CLASSES.BUTTON}`) === this.DOM.INCREASE_BUTTON) {
-      const optionValues = this.optionValues;
-      optionValues[this.INDEX]++;
-      this.optionValues = optionValues;
+      this.increaseValue();
+    } else if (event.target.closest(`.${this.CLASSES.BUTTON}`) === this.DOM.DECREASE_BUTTON) {
+      this.decreaseValue();
     }
-    else if (event.target.closest(`.${this.CLASSES.BUTTON}`) === this.DOM.DECREASE_BUTTON) {
-      if (this.optionValues[this.INDEX] > 0) {
-        let optionValues = this.optionValues;
-        optionValues[this.INDEX]--;
-        this.optionValues = optionValues;
-      }
+  }
+
+  increaseValue() {
+    let value = this.getCurrentValue();
+
+    value += 1;
+    this.updateOption(value, this.getWordForm(value));
+  }
+
+  decreaseValue() {
+    let value = this.getCurrentValue();
+
+    if (value > 0) value -= 1;
+    this.updateOption(value, this.getWordForm(value));
+  }
+
+  getCurrentValue() {
+    return this.options[this.INDEX].value;
+  }
+
+  updateInput() {
+    this.DOM.INPUT.value = this.options[this.INDEX].value;
+  }
+
+  checkDecreaseButton() {
+    if (this.options[this.INDEX].value <= 0) this.DOM.DECREASE_BUTTON.disabled = true;
+    else this.DOM.DECREASE_BUTTON.disabled = false;
+  }
+
+  updateOption(value, wordForm) {
+    const options = this.options;
+    if (!options[this.INDEX]) options[this.INDEX] = {};
+    options[this.INDEX].value = value;
+    options[this.INDEX].wordForm = wordForm;
+    this.options = options;
+  }
+
+  getWordForm(value) {
+    if (!this.VOCABULARY.WORD_FORMS) return '';
+
+    let n = value % 100;
+
+    if (n < 10 || n > 20) {
+      n %= 10;
+
+      if (n === 1) return this.VOCABULARY.WORD_FORMS[0];
+      if (n > 1 && n < 5) return this.VOCABULARY.WORD_FORMS[1];
     }
+
+    return this.VOCABULARY.WORD_FORMS[2];
   }
 }
 
