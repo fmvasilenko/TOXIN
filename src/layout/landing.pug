@@ -2,7 +2,7 @@ block variables
   - let pageTitle
   - let pageDescription
   - let pageKeyWords
-  - ;et pageClass
+  - let pageClass
 
 doctype html
 html(lang='en')
@@ -15,6 +15,7 @@ html(lang='en')
     meta(name="keywords" content= pageKeyWords)
     link(rel="icon" href="favicon.ico" type="image/x-icon")
     block styles
+    block extraHead
 
   body(class=pageClass)
 

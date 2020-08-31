@@ -1,9 +1,10 @@
 extends ../../layout/landing
 
 block variables
-  - var title = 'Webpack + Pug';
-  - var description = 'Description for Webpack + Pug';
-  - var pageClass = 'index-page';
+  - let pageTitle = 'indexPage';
+
+block extraHead
+  meta(http-equiv="refresh" content="0;/landing.html")
 
 block content
   
