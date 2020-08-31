@@ -12,7 +12,6 @@ Test task for FSD.
 After downloading the project run
 ```
 npm install
-npm run postinstall
 ```
 
 To build the project use
