@@ -54,11 +54,11 @@ class Dropdown extends Component {
     this.CLASSES = {
       OPTION: 'js-dropdown-option',
       FIELD: 'js-dropdown__field',
-      FIELD_DROPPED: 'dropdown__field_drop',
+      FIELD_DROPPED: 'dropdown__field_dropped',
       ICON: 'js-dropdown__expand-more',
       INPUT: 'js-dropdown__field-input',
       LIST: 'js-dropdown__list',
-      LIST_DROPPPED: 'dropdown__list_drop',
+      LIST_DROPPPED: 'dropdown__list_dropped',
       CLEAR_BUTTON: 'js-dropdown__button-wrapper[data-button-type="clearButton"]',
       SUBMIT_BUTTON: 'js-dropdown__button-wrapper[data-button-type="submitButton"]',
       BUTTON_HIDDEN: 'button_hidden',

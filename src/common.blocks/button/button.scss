@@ -66,6 +66,10 @@
     color: $darkShade50;
   }
 
+  &_hidden {
+    display: none;
+  }
+
   &__arrow {
     position: absolute;
     top: 0;
@@ -75,9 +79,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  &_hidden {
-    display: none;
   }
 }
