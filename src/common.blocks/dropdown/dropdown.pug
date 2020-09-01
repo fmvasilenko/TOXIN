@@ -7,12 +7,12 @@ mixin dropdown(customConfig = {})
   - let config = blocks.createConfig(defaultConfig, customConfig);
   - let submitAreaClass = config.displayType === "values" ? "dropdown__submit-area_hidden": "";
 
-  .dropdown.js-dropdown(display_type=config.displayType)
+  .dropdown.js-dropdown(data-display-type=config.displayType)
 
     h3.dropdown__title #{config.title}
     
     .dropdown__field.js-dropdown__field
-      input.dropdown__field-input.js-dropdown__field-input(value=config.defaultValue forms=config.valueForms disabled)
+      input.dropdown__field-input.js-dropdown__field-input(value=config.defaultValue data-word-forms=config.valueForms disabled)
       i.material-icons.dropdown__expand-more.js-dropdown__expand-more #{config.icon}
 
     ul.dropdown__list.js-dropdown__list
