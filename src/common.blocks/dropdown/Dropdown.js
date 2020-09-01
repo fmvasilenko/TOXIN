@@ -59,8 +59,8 @@ class Dropdown extends Component {
       INPUT: 'js-dropdown__field-input',
       LIST: 'js-dropdown__list',
       LIST_DROPPPED: 'dropdown__list_drop',
-      CLEAR_BUTTON: 'js-dropdown__clear-button',
-      SUBMIT_BUTTON: 'js-dropdown__submit-button',
+      CLEAR_BUTTON: 'js-dropdown__button-wrapper[data-button-type="clearButton"]',
+      SUBMIT_BUTTON: 'js-dropdown__button-wrapper[data-button-type="submitButton"]',
       BUTTON_HIDDEN: 'button_hidden',
     };
   }

@@ -21,7 +21,7 @@ mixin dropdown(customConfig = {})
           +dropdown-option(option)
 
       .dropdown__submit-area(class=submitAreaClass)
-        .dropdown__button-wrapper.js-dropdown__clear-button
+        .dropdown__button-wrapper.js-dropdown__button-wrapper(data-button-type="clearButton")
           +button(config.clearButton)
-        .dropdown__button-wrapper.js-dropdown__submit-button
+        .dropdown__button-wrapper.js-dropdown__button-wrapper(data-button-type="submitButton")
           +button(config.submitButton)
