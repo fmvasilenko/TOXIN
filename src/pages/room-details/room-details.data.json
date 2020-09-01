@@ -117,11 +117,11 @@
     "description": "Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги."
   },
   "receipt": {
-    "suite_number": "888",
-    "is_luxury": true,
-    "price_per_period": "9 990",
-    "total_price": "38 081",
-    "dates_parameters": {
+    "suiteNumber": "888",
+    "isLuxury": true,
+    "pricePerPeriod": "9 990",
+    "totalPrice": "38 081",
+    "datesParameters": {
       "dropdown1": {
         "value": "2020-08-20"
       },
@@ -129,7 +129,7 @@
         "value": "2020-08-25"
       }
     },
-    "guests_parameters": {
+    "guestsParameters": {
       "options": [
         {
           "label": "Взрослые", 

@@ -10,8 +10,8 @@ mixin search-form(customConfig = {})
   form.search-form.js-search-form(method=config.method action=config.action)
     h1.search-form__title #{config.title}
     .search-form__dates
-      +date-dropdown(config.dates_parameters)
+      +date-dropdown(config.datesParameters)
     .search-form__guests
-      +dropdown(config.guests_parameters)
+      +dropdown(config.guestsParameters)
     .search-form__submit
       +button(config.button)

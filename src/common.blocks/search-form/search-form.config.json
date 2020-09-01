@@ -2,7 +2,7 @@
   "title": "Найдем номера под ваши пожелания",
   "method": "GET",
   "action": "",
-  "dates_parameters": {
+  "datesParameters": {
     "dropdown1": {
       "title": "Прибытие",
       "name": "arrival"
@@ -12,13 +12,11 @@
       "name": "leaving"
     }
   },
-  "guests_parameters": {
+  "guestsParameters": {
     "title": "Гости",
-    "default_value": "Сколько гостей",
-    "value_forms": "гость,гостя,гостей",
-    "display_type": "total",
-    "display_submit_button": true,
-    "display_clear_button": true,
+    "defaultValue": "Сколько гостей",
+    "valueForms": "гость,гостя,гостей",
+    "displayType": "total",
     "options": [
       {
         "label": "Взрослые", 
@@ -41,6 +39,6 @@
   },
   "button": {
     "value": "Подобрать номер",
-    "style": "size_l"
+    "style": "sizeL"
   }
 }

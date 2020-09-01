@@ -1,6 +1,6 @@
 {
   "title": "Range slider",
-  "currency_sign": "₽",
+  "currencySign": "₽",
   "minValue": 0,
   "maxValue": 15000,
   "firstValue": 5000,

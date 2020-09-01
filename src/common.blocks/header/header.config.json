@@ -2,7 +2,7 @@
   "type": "buttons",
   "logoHref": "landing.html",
   "vocabulary": {
-    "expand_more_icon": "expand_more"
+    "expandMoreIcon": "expand_more"
   },
   "menu": [
     {
@@ -51,5 +51,5 @@
       "href": "registration.html"
     }
   ],
-  "right_text": "Юлий Цезарь"
+  "rightText": "Юлий Цезарь"
 }

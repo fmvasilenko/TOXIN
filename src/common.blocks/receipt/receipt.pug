@@ -11,19 +11,19 @@ mixin receipt(customConfig = {})
 
     .receipt__title
       h2.receipt__title-number
-        span.receipt__title-number-sign #{config.vocabulary.number_sign}
-        |#{config.suite_number}
-        if config.is_luxury
+        span.receipt__title-number-sign #{config.vocabulary.numberSign}
+        |#{config.suiteNumber}
+        if config.isLuxury
           span.receipt__title-lux #{config.vocabulary.lux}
       p.receipt__title-price.js-receipt__title-price
-        |#{config.price_per_period}#{config.vocabulary.currency_sign}
+        |#{config.pricePerPeriod}#{config.vocabulary.currencySign}
         span #{config.vocabulary.period}
 
     .receipt__dates
-      +date-dropdown(config.dates_parameters)
+      +date-dropdown(config.datesParameters)
 
     .receipt__guests
-      +dropdown(config.guests_parameters)
+      +dropdown(config.guestsParameters)
 
     .receipt__costs
       if config.costs
@@ -33,12 +33,12 @@ mixin receipt(customConfig = {})
             if (cost.hasIcon)
               .receipt__cost-icon-wrapper
                 .receipt__cost-icon i
-            .receipt__cost-price.js-receipt__cost-price #{cost.price}#{config.vocabulary.currency_sign}
+            .receipt__cost-price.js-receipt__cost-price #{cost.price}#{config.vocabulary.currencySign}
 
     h2.receipt__total
       .receipt__total-word #{config.vocabulary.total}
       .receipt__total-dots
-      .receipt__total-number.js-receipt__total-number #{config.total_price}#{config.vocabulary.currency_sign}
+      .receipt__total-number.js-receipt__total-number #{config.total_price}#{config.vocabulary.currencySign}
 
     .receipt__submit
       +button(config.button)

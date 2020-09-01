@@ -11,8 +11,8 @@
     }
   ],
   "dropdownGuests": {
-    "default_value": "Сколько гостей",
-    "value_forms": "Гость,Гостя,Гостей",
+    "defaultValue": "Сколько гостей",
+    "valueForms": "Гость,Гостя,Гостей",
     "options": [
       {
         "label": "Взрослые", 
@@ -52,11 +52,9 @@
   },
   "dropdownAmenities": {
     "title": "Dropdown",
-    "default_value": "",
-    "value_forms": "",
-    "display_type": "values",
-    "display_submit_button": false,
-    "display_clear_button": false,
+    "defaultValue": "",
+    "valueForms": "",
+    "displayType": "values",
     "options": [
       {
         "label": "Спальни", 
@@ -214,14 +212,14 @@
         "disabled": true
       },
       {
-        "style": "no-background"
+        "style": "noBackground"
       },
       {
-        "style": "no-background",
+        "style": "noBackground",
         "disabled": true
       },
       {
-        "style": "size_l",
+        "style": "sizeL",
         "value": "Перейти к оплате"
       }
     ]

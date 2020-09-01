@@ -1,15 +1,19 @@
 {
   "method": "GET",
   "action": "",
+  "suiteNumber": "000",
+  "isLuxury": false,
+  "pricePerPeriod": "1000",
+  "totalPrice": "1000",
   "vocabulary": {
-    "number_sign": "№",
+    "numberSign": "№",
     "lux": "люкс",
-    "currency_sign": "₽",
+    "currencySign": "₽",
     "period": "в сутки",
     "total": "Итого",
-    "button_value": "Забронировать"
+    "buttonValue": "Забронировать"
   },
-  "dates_parameters": {
+  "datesParameters": {
     "dropdown1": {
       "title": "Прибытие",
       "name": "arrival"
@@ -19,13 +23,11 @@
       "name": "leaving"
     }
   },
-  "guests_parameters": {
+  "guestsParameters": {
     "title": "Гости",
-    "default_value": "Сколько гостей",
-    "value_forms": "гость,гостя,гостей",
-    "display_type": "total",
-    "display_submit_button": true,
-    "display_clear_button": true,
+    "defaultValue": "Сколько гостей",
+    "valueForms": "гость,гостя,гостей",
+    "displayType": "total",
     "options": [
       {
         "label": "Взрослые", 
@@ -46,7 +48,7 @@
   },
   "button": {
     "value": "Забронировать",
-    "style": "size_l",
+    "style": "sizeL",
     "type": "submit"
   }
 }

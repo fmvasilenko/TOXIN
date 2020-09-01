@@ -6,11 +6,9 @@
   },
   "guests": {
     "title": "Гости",
-    "default_value": "Сколько гостей",
-    "value_forms": "гость,гостя,гостей",
-    "display_type": "total",
-    "display_submit_button": true,
-    "display_clear_button": true,
+    "defaultValue": "Сколько гостей",
+    "valueForms": "гость,гостя,гостей",
+    "displayType": "total",
     "options": [
       {
         "label": "Взрослые", 
@@ -63,28 +61,26 @@
   ],
   "amenities": {
     "title": "Удобства в номере",
-    "default_value": "",
-    "value_forms": "",
-    "display_type": "values",
-    "display_submit_button": false,
-    "display_clear_button": false,
+    "defaultValue": "",
+    "valueForms": "",
+    "displayType": "values",
     "options": [
       {
         "label": "Спальни", 
         "name": "bedrooms",
-        "forms": "Спальня,Спальни,Спален",
+        "wordForms": "Спальня,Спальни,Спален",
         "value": 2
       }, 
       {
         "label": "Кровати", 
         "name": "beds",
-        "forms": "Кровать,Кровати,Кроватей",
+        "wordForms": "Кровать,Кровати,Кроватей",
         "value": 2
       }, 
       {
         "label": "Ванные комнаты", 
         "name": "bathrooms",
-        "forms": "Ванная комната,Ванных комнаты,Ванных комнат",
+        "wordForms": "Ванная комната,Ванных комнаты,Ванных комнат",
         "value": 0
       }
     ]

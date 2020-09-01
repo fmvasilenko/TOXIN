@@ -67,7 +67,7 @@ class RangeSlider extends Component {
     const firstValue = `${leftHandleValue}`.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
     const secondValue = `${rightHandleValue}`.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
 
-    const range = `${firstValue + this.config.currency_sign} - ${secondValue + this.config.currency_sign}`;
+    const range = `${firstValue + this.config.currencySign} - ${secondValue + this.config.currencySign}`;
 
     this.DOM.RANGE.innerHTML = range;
   }

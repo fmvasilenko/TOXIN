@@ -16,7 +16,7 @@ mixin header(customConfig = {})
         each item in config.menu
           a.header__link(href=item.link) #{item.title}
             if item.submenu
-              i.material-icons.header__menu-icon #{config.vocabulary.expand_more_icon}
+              i.material-icons.header__menu-icon #{config.vocabulary.expandMoreIcon}
       
       if config.type == "buttons"
         .header__button
@@ -25,4 +25,4 @@ mixin header(customConfig = {})
           +button(config.buttons[1])
           
       else if config.type == "text"
-        p.header__text #{config.right_text}
+        p.header__text #{config.rightText}

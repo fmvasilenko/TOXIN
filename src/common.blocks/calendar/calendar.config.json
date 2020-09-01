@@ -1,12 +1,12 @@
 {
   "clearButton": {
     "value": "Очистить",
-    "style": "no-background-grey",
+    "style": "noBackgroundGrey",
     "type": "button"
   },
   "submitButton": {
     "value": "Применить",
-    "style": "no-background",
+    "style": "noBackground",
     "type": "button"
   }
 }
