@@ -1,6 +1,6 @@
 mixin color(color, name, code)
   .color
-    .color__example(style="background: "+color)
-    h2.color__title= name
-      br
-      span.color__code= code
+    .color__example(style=`background: ${color}`)
+    .color__description
+      h2.color__title #{name}
+      .color__code #{code}

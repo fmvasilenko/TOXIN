@@ -23,6 +23,11 @@
   }
 
   &__code {
-    font-weight: normal;
+    font-family: $titleFontFamily;
+    font-size: 19px;
+    line-height: 24px;
+    color: $darkShade100;
+    cursor: default;
+    padding: 1px 0 0 40px;
   }
 }
