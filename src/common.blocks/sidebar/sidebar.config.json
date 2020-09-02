@@ -1,6 +1,10 @@
 {
   "method": "GET",
   "action": "",
+  "vocabulary": {
+    "checkboxButtonsTitle": "Checkbox buttons",
+    "featuresTitle": "Доступность"
+  },
   "dates": {
     "title": "Даты пребывания в отеле"
   },

@@ -1,4 +1,8 @@
-mixin pagination
+mixin pagination(customConfig = {})
+  - let blocks = require('@backend/Blocks.js');
+  - let defaultConfig = require('@blocks/pagination/pagination.config.json');
+  - let config = blocks.createConfig(defaultConfig, customConfig);
+
   .pagination
     nav.pagination__list
       a.pagination__link.pagination__link_active 1
@@ -7,5 +11,5 @@ mixin pagination
       a.pagination__link ...
       a.pagination__link 15
       a.pagination__link.pagination__arrow
-        i.material-icons arrow_forward
-    .pagination__description 1 – 12 из 100+ вариантов аренды
+        i.material-icons #{config.vocabulary.arrow}
+    .pagination__description #{config.vocabulary.description}

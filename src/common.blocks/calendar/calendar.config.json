@@ -1,4 +1,8 @@
 {
+  "vocabulary": {
+    "arrowForward": "arrow_forward",
+    "arrowBack": "arrow_back"
+  },
   "clearButton": {
     "value": "Очистить",
     "style": "noBackgroundGrey",
