@@ -3,5 +3,16 @@ mixin type(title, description, isUpperCase = false, hasPadding = false)
   - let descriptionClass = hasPadding ? "" : "type__description_no-padding";
 
   .type
-    h1.type__title(class=titleClass) #{title}
-    h1.type__description(class=descriptionClass) #{description}
+    case title
+      when 'h1'
+        h1.type__title(class=titleClass) #{title}
+        h1.type__description(class=descriptionClass) #{description}
+      when 'h2'
+        h2.type__title(class=titleClass) #{title}
+        h2.type__description(class=descriptionClass) #{description}
+      when 'h3'
+        h3.type__title(class=titleClass) #{title}
+        h3.type__description(class=descriptionClass) #{description}
+      default
+        p.type__title(class=titleClass) #{title}
+        p.type__description(class=descriptionClass) #{description}
