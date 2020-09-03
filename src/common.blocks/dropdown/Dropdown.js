@@ -77,7 +77,7 @@ class Dropdown extends Component {
   }
 
   setVocabulary() {
-    let forms = this.DOM.INPUT.hasAttribute('data-word-forms') ? this.DOM.INPUT.getAttribute('data-word-forms') : null;
+    let forms = this.DOM.INPUT.dataset.wordForms || null;
     forms = forms ? forms.split(',') : null;
 
     this.VOCABULARY = {
@@ -96,7 +96,7 @@ class Dropdown extends Component {
   }
 
   setInitialState() {
-    this.displayType = this.root.hasAttribute('data-display-type') ? this.root.getAttribute('data-display-type') : 'total';
+    this.displayType = this.root.dataset.displayType || 'total';
   }
 
   clickHandler(event) {
