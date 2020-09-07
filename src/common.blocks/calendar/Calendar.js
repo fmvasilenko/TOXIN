@@ -279,7 +279,7 @@ class Calendar extends Component {
 
     if (this.isDateBetween(date)) cell.classList.add(this.CLASSES.DATE_BETWEEN);
 
-    if (date.getMonth() !== this.monthDisplayed.getMonth()) cell.classList.add(this.CLASSES.INACTIVE_DAY);
+    if (this.dayShouldBeInactive(date)) cell.classList.add(this.CLASSES.INACTIVE_DAY);
 
     if (this.isArrivalDate(date)) {
       circle.classList.add(this.CLASSES.PICKED_DATE);
@@ -329,6 +329,10 @@ class Calendar extends Component {
 
   isDayActive(day) {
     return !day.classList.contains(this.CLASSES.INACTIVE_DAY);
+  }
+
+  dayShouldBeInactive(date) {
+    return date < new Date() || date.getMonth() !== this.monthDisplayed.getMonth();
   }
 }
 
