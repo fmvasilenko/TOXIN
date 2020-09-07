@@ -1,5 +1,6 @@
-include ../logo/logo.pug 
-include ../button/button.pug
+include ../logo/logo 
+include ../menu-icon/menu-icon 
+include ../button/button 
 
 mixin header(customConfig = {})
   - let blocks = require('@backend/Blocks.js');
@@ -11,6 +12,11 @@ mixin header(customConfig = {})
 
       a.header__logo(href=config.logoHref)
         +logo()
+
+      label.header__sandwich-icon(for="header-menu-toggle")
+        +menu-icon()
+
+      input.header__sandwich-input(id="header-menu-toggle" type="checkbox")
 
       nav.header__menu
         each item in config.menu

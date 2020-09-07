@@ -21,7 +21,7 @@
       width: 96%;
     }
 
-    @media screen and (max-width: $tableWidth) {
+    @media screen and (min-width: $phoneWidth) and (max-width: $tableWidth) {
       flex-wrap: wrap;
       justify-content: center;
       height: auto;
@@ -29,13 +29,49 @@
     }
 
     @media screen and (max-width: $phoneWidth) {
-      flex-direction: column;
-      align-items: center;
+      flex-wrap: wrap;
+      height: auto;
+      padding: rem(20) 0;
+      justify-content: space-around;
     }
   }
 
   &__logo {
     height: rem(40);
+
+    @media screen and (max-width: $phoneWidth) {
+      width: 70%;
+    }
+  }
+
+  &__sandwich-icon {
+    min-width: rem(30);
+    height: rem(30);
+    margin: rem(10);
+    display: none;
+    cursor: pointer;
+
+    @media screen and (max-width: $phoneWidth) {
+      display: block;
+    }
+  }
+
+  &__sandwich-input {
+    display: none;
+
+    &:checked {
+      & ~ .header__menu {
+        display: flex;
+      }
+
+      & ~ .header__button {
+        display: block;
+      }
+
+      & ~ .header__text {
+        display: block;
+      }
+    }
   }
 
   &__menu {
@@ -57,6 +93,7 @@
     @media screen and (max-width: $phoneWidth) {
       flex-direction: column;
       align-items: center;
+      display: none;
     }
   }
 
@@ -94,6 +131,8 @@
 
     @media screen and (max-width: $phoneWidth) {
       margin-right: 0;
+      margin-left: 0;
+      display: none;
     }
   }
 
@@ -107,6 +146,11 @@
     @media screen and (max-width: $tableWidth) {
       border-left: 0;
       padding-left: 0;
+    }
+
+    @media screen and (max-width: $phoneWidth) {
+      display: none;
+      margin-top: rem(20);
     }
   }
 }
