@@ -22,7 +22,7 @@
   "buttons": [
     {
       "value": "Войти",
-      "style": "size_l",
+      "style": "sizeL",
       "type": "submit"
     },
     {

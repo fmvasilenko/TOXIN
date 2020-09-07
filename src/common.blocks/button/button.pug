@@ -6,9 +6,9 @@ mixin button(customConfig = {})
 
   if config.type == "link"
     a(class=classes href=config.href) #{config.value}
-      if config.style == "size_l"
+      if config.style == "sizeL"
         i.material-icons.button__arrow #{config.icon}
   else
     button(class=classes type=config.type disabled=config.disabled) #{config.value}
-      if config.style == "size_l"
+      if config.style == "sizeL"
         i.material-icons.button__arrow #{config.icon}

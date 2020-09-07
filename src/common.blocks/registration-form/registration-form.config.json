@@ -56,7 +56,7 @@
     {
       "value": "Перейти к оплате",
       "type": "submit",
-      "style": "size_l"
+      "style": "sizeL"
     },
     {
       "value": "Войти",
