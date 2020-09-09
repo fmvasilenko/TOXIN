@@ -1,14 +1,17 @@
 mixin like-button(customConfig = {})
-  - let blocks = require('@backend/Blocks.js');
-  - let classes = require('@blocks/like-button/like-button.classes.json');
-  - let defaultConfig = require('@blocks/like-button/like-button.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - const blocks = require('@backend/Blocks.js');
+  - const classes = require('@blocks/like-button/like-button.classes.json');
+  - const defaultConfig = require('@blocks/like-button/like-button.config.json');
 
-  - let buttonLikedClass = config.liked ? classes.ROOT_LIKED : "";
-  - let numberLikedClass = config.liked ? classes.INPUT_LIKED : "";
-  - let iconLikedClass = config.liked ? classes.ICON_LIKED : "";
-  - let icon = config.liked ? config.vocabulary.iconLiked : config.vocabulary.icon;
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - const { value, name, liked, vocabulary } = config;
+  - const { icon, iconLiked } = vocabulary;
+
+  - const buttonLikedClass = liked ? classes.ROOT_LIKED : "";
+  - const numberLikedClass = liked ? classes.INPUT_LIKED : "";
+  - const iconLikedClass = liked ? classes.ICON_LIKED : "";
+  - const displayedIcon = liked ? iconLiked : icon;
 
   .like-button.js-like-button(class=buttonLikedClass) 
-    i.material-icons.like-button__icon.js-like-button__icon(class=iconLikedClass) #{icon}
-    input.like-button__number.js-like-button__number(class=numberLikedClass type="number" name=config.name value=config.value readonly)
+    i.material-icons.like-button__icon.js-like-button__icon(class=iconLikedClass) #{displayedIcon}
+    input.like-button__number.js-like-button__number(class=numberLikedClass type="number" name=name value=value readonly)

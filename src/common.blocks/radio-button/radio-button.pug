@@ -1,8 +1,10 @@
 mixin radio-button(customConfig)
-  - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/radio-button/radio-button.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - const blocks = require('@backend/Blocks.js');
+  - const defaultConfig = require('@blocks/radio-button/radio-button.config.json');
+
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - const { name, label, value, checked } = config;
 
   label.radio-button
-    input.radio-button__input(type='radio' name=config.name value=config.value checked=config.checked)
-    p.radio-button__text #{config.label}
+    input.radio-button__input(type='radio' name=name value=value checked=checked)
+    p.radio-button__text #{label}

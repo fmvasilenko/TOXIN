@@ -1,7 +1,10 @@
 mixin pagination(customConfig = {})
-  - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/pagination/pagination.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - const blocks = require('@backend/Blocks.js');
+  - const defaultConfig = require('@blocks/pagination/pagination.config.json');
+
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - const { vocabulary } = config;
+  - const { arrow, description } = vocabulary;
 
   .pagination
     nav.pagination__list
@@ -11,5 +14,5 @@ mixin pagination(customConfig = {})
       a.pagination__link ...
       a.pagination__link 15
       a.pagination__link.pagination__arrow
-        i.material-icons #{config.vocabulary.arrow}
-    .pagination__description #{config.vocabulary.description}
+        i.material-icons #{arrow}
+    .pagination__description #{description}

@@ -13,9 +13,9 @@ block scripts
   script(type="text/javascript" src="assets/js/searchRoom.js")
 
 block variables
-  - let pageTitle = 'Search room'
-  - let pageDescription = 'Searchroom'
-  - let pageClass = 'searchroom'
+  - const pageTitle = 'Search room'
+  - const pageDescription = 'Searchroom'
+  - const pageClass = 'searchroom'
 
 block header
   +header()
@@ -24,11 +24,12 @@ block sidebar
   +sidebar()
 
 block content
-  - let data = require("./search-room.data.json");
+  - const data = require("./search-room.data.json");
+  - const { title, suites } = data;
 
-  h1.searchroom__title #{data.title}
+  h1.searchroom__title #{title}
   .searchroom__suites
-    each suite in data.suites
+    each suite in suites
       .searchroom__suite
         +suite(suite)
   .searchroom__pagination

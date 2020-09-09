@@ -1,7 +1,10 @@
 mixin donut-chart(customConfig = {})
-  - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/donut-chart/donut-chart.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - const blocks = require('@backend/Blocks.js');
+  - const defaultConfig = require('@blocks/donut-chart/donut-chart.config.json');
+
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - const { totalNumber, vocabulary, pieces } = config;
+  - const { totalText } = vocabulary;
 
   .donut-chart
     svg.donut-chart__svg(width="100%", height="100%", viewBox="0 0 34 34")
@@ -21,22 +24,24 @@ mixin donut-chart(customConfig = {})
 
       circle(cx="17" cy="17" r="15.91549430918954" fill="transparent")
 
-      - let defaultDashOffset = 25
+      - const defaultDashOffset = 25
       - let length = 0
-      each piece in config.pieces
-        - let pieceSize = piece.value / config.totalNumber * 100 - 1;
-        - let dashArray = `${pieceSize} ${100 - pieceSize}`
-        - let dashOffset = defaultDashOffset - length
+      each piece in pieces
+        - const { value, color } = piece;
+        - const pieceSize = value / totalNumber * 100 - 1;
+        - const dashArray = `${pieceSize} ${100 - pieceSize}`
+        - const dashOffset = defaultDashOffset - length
         - length += pieceSize + 1
-        if (piece.value != 0)
-          circle(cx="17" cy="17" r="15.91549430918954" fill="transparent" stroke=piece.color stroke-width="1" stroke-dasharray=dashArray stroke-dashoffset=dashOffset)
+        if (value != 0)
+          circle(cx="17" cy="17" r="15.91549430918954" fill="transparent" stroke=color stroke-width="1" stroke-dasharray=dashArray stroke-dashoffset=dashOffset)
       
       g.donut-chart__total
-        text.donut-chart__total-number(x="50%", y="50%") #{config.totalNumber}
-        text.donut-chart__total-text(x="50%", y="50%") #{config.vocabulary.totalText}
+        text.donut-chart__total-number(x="50%", y="50%") #{totalNumber}
+        text.donut-chart__total-text(x="50%", y="50%") #{totalText}
         
     .donut-chart__description
-      each piece in config.pieces
+      each piece in pieces
+        - const { colorHex, label } = piece;
         .donut-chart__description-line
-          .donut-chart__description-color(style=`background: ${piece.colorHex}`)
-          p.donut-chart__description-label #{piece.label}
+          .donut-chart__description-color(style=`background: ${colorHex}`)
+          p.donut-chart__description-label #{label}

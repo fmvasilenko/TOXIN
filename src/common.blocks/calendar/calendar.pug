@@ -1,19 +1,22 @@
 mixin calendar(customConfig = {})
-  - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/calendar/calendar.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - const blocks = require('@backend/Blocks.js');
+  - const defaultConfig = require('@blocks/calendar/calendar.config.json');
+
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - const { vocabulary, clearButton, submitButton } = config;
+  - const { arrowBack, arrowForward } = vocabulary;
 
   .calendar.js-calendar
     .calendar__header
-      i.material-icons.calendar__left-arrow.js-calendar__left-arrow #{config.vocabulary.arrowBack}
+      i.material-icons.calendar__left-arrow.js-calendar__left-arrow #{arrowBack}
       h2.calendar__title.js-calendar__title
-      i.material-icons.calendar__right-arrow.js-calendar__right-arrow #{config.vocabulary.arrowForward}
+      i.material-icons.calendar__right-arrow.js-calendar__right-arrow #{arrowForward}
 
     .calendar__table-wrapper.js-calendar__table-wrapper
       
     .calendar__buttons
       .calendar__button.js-calendar__clear-button
-        +button(config.clearButton)
+        +button(clearButton)
       .calendar__button.js-calendar__submit-button
-        +button(config.submitButton)
+        +button(submitButton)
       

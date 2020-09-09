@@ -1,18 +1,20 @@
 include ../calendar/calendar.pug 
 
 mixin filter-date-dropdown(customConfig = {})
-  - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/filter-date-dropdown/filter-date-dropdown.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - const blocks = require('@backend/Blocks.js');
+  - const defaultConfig = require('@blocks/filter-date-dropdown/filter-date-dropdown.config.json');
+
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - const { title, value, icon, arrivalDate, leavingDate } = config;
 
   .filter-date-dropdown.js-filter-date-dropdown
-    if (config.title)
-      h3.filter-date-dropdown__title #{config.title}
+    if (title)
+      h3.filter-date-dropdown__title #{title}
     .filter-date-dropdown__field.js-filter-date-dropdown__field
-      input.filter-date-dropdown__arrival-date.js-filter-date-dropdown__arrival-date(type="date" name=config.arrivalDate.name value=config.arrivalDate.value)
-      input.filter-date-dropdown__leaving-date.js-filter-date-dropdown__leaving-date(type="date" name=config.leavingDate.name value=config.leavingDate.value)
-      input.filter-date-dropdown__input.js-filter-date-dropdown__input(type="text" name=config.name value=config.value readonly)
-      i.material-icons.filter-date-dropdown__icon.js-filter-date-dropdown__icon #{config.icon}
+      input.filter-date-dropdown__arrival-date.js-filter-date-dropdown__arrival-date(type="date" name=arrivalDate.name value=arrivalDate.value)
+      input.filter-date-dropdown__leaving-date.js-filter-date-dropdown__leaving-date(type="date" name=leavingDate.name value=leavingDate.value)
+      input.filter-date-dropdown__input.js-filter-date-dropdown__input(type="text" name=name value=value readonly)
+      i.material-icons.filter-date-dropdown__icon.js-filter-date-dropdown__icon #{icon}
     
     .filter-date-dropdown__calendar.js-filter-date-dropdown__calendar
       +calendar()

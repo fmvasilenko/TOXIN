@@ -36,7 +36,7 @@
   "maskedTextField": {
     "title": "Masked text field"
   },
-  "dateDropDown": {
+  "dateDropdown": {
     "dropdown1": {
       "value": "2020-08-20"
     },

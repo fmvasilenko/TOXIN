@@ -6,7 +6,7 @@
     "subtitle": "Данные для входа в сервис",
     "loginText": "Уже есть аккаунт на Toxin"
   },
-  "textfields": [
+  "textFields": [
     {
       "name": "name",
       "placeholder": "Имя",

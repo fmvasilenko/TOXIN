@@ -11,18 +11,19 @@ block styles
   link(rel="stylesheet" href="assets/css/app.css")
 
 block header
-  - var data = require("./headers.data.json");
+  - const data = require("./headers.data.json");
+  - const { headers, footers } = data;
   
   .headers
 
     .headers__header1
-      +header(data.headers[0])
+      +header(headers[0])
 
     .headers__header2
-      +header(data.headers[1])
+      +header(headers[1])
 
     .headers__footer1
-      +footer(data.footers[0])
+      +footer(footers[0])
 
     .headers__footer2
-      +footer(data.footers[1])
+      +footer(footers[1])

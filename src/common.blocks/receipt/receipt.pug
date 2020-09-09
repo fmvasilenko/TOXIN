@@ -3,42 +3,58 @@ include ../dropdown/dropdown.pug
 include ../button/button.pug
 
 mixin receipt(customConfig = {})
-  - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/receipt/receipt.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - const blocks = require('@backend/Blocks.js');
+  - const defaultConfig = require('@blocks/receipt/receipt.config.json');
 
-  form.receipt.js-receipt(method=config.method action=config.action)
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - 
+    const { 
+      method, 
+      action, 
+      suiteNumber, 
+      isLuxury, 
+      pricePerPeriod, 
+      totalPeriod, 
+      vocabulary, 
+      datesParameters, 
+      guestsParameters, 
+      costs,
+      button 
+    } = config;
+  - const { numberSign, lux, currencySign, period, total, buttonValue } = vocabulary;
+
+  form.receipt.js-receipt(method=method action=action)
 
     .receipt__title
       h2.receipt__title-number
-        span.receipt__title-number-sign #{config.vocabulary.numberSign}
-        |#{config.suiteNumber}
-        if config.isLuxury
-          span.receipt__title-lux #{config.vocabulary.lux}
+        span.receipt__title-number-sign #{numberSign}
+        |#{suiteNumber}
+        if isLuxury
+          span.receipt__title-lux #{lux}
       p.receipt__title-price.js-receipt__title-price
-        |#{config.pricePerPeriod}#{config.vocabulary.currencySign}
-        span #{config.vocabulary.period}
+        |#{pricePerPeriod}#{currencySign}
+        span #{period}
 
     .receipt__dates
-      +date-dropdown(config.datesParameters)
+      +date-dropdown(datesParameters)
 
     .receipt__guests
-      +dropdown(config.guestsParameters)
+      +dropdown(guestsParameters)
 
     .receipt__costs
-      if config.costs
-        each cost in config.costs
+      if costs
+        each cost in costs
           .receipt__cost
             .receipt__cost-title.js-receipt__cost-title #{cost.title}
             if (cost.hasIcon)
               .receipt__cost-icon-wrapper
                 .receipt__cost-icon i
-            .receipt__cost-price.js-receipt__cost-price #{cost.price}#{config.vocabulary.currencySign}
+            .receipt__cost-price.js-receipt__cost-price #{cost.price}#{currencySign}
 
     h2.receipt__total
-      .receipt__total-word #{config.vocabulary.total}
+      .receipt__total-word #{total}
       .receipt__total-dots
-      .receipt__total-number.js-receipt__total-number #{config.total_price}#{config.vocabulary.currencySign}
+      .receipt__total-number.js-receipt__total-number #{total_price}#{currencySign}
 
     .receipt__submit
-      +button(config.button)
+      +button(button)

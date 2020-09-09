@@ -3,47 +3,51 @@ include ../subscription-text-field/subscription-text-field.pug
 include ../socials/socials.pug 
 
 mixin footer(customConfig = {})
-  - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/footer/footer.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - const blocks = require('@backend/Blocks.js');
+  - const defaultConfig = require('@blocks/footer/footer.config.json');
+
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - const { type, logoHref, vocabulary, columns, subscriptionField, bottom } = config;
+  - const { description, subscriptionTitle, subscriptionDesc } = vocabulary;
+  - const { copyright, socials } = bottom;
 
   footer.footer
-    if config.type == "full"
+    if type == "full"
       .footer__inner-wrapper
         
         .footer__first-column
-          a.footer__logo(href=config.logoHref)
+          a.footer__logo(href=logoHref)
             +logo()
-          p.footer__description #{config.vocabulary.description}
+          p.footer__description #{description}
           
-        each column in config.columns
+        each column in columns
           .footer__column
             nav
               each link in column
                 a.footer__link(href=link.link) #{link.title}
 
         .footer__last-column
-          h3 #{config.vocabulary.subscriptionTitle}
-          p.footer__last-column-desc #{config.vocabulary.subscriptionDesc}
+          h3 #{subscriptionTitle}
+          p.footer__last-column-desc #{subscriptionDesc}
           .footer__subscription-text-field
-            +subscription-text-field(config.subscriptionField)
+            +subscription-text-field(subscriptionField)
 
       .footer__bottom-wrapper
         .footer__bottom-part
-          p #{config.bottom.copyright}
+          p #{copyright}
           .footer__social
-            each icon in config.bottom.socials
+            each icon in socials
               a.footer__icon(href=icon.link)
                 +socials(icon.name)
 
-    else if config.type == "light"
+    else if type == "light"
       .footer__inner-wrapper
         
         .footer__single-column
-          a.footer__logo(href=config.logoHref)
+          a.footer__logo(href=logoHref)
             +logo()
-          p.footer__single-column-desc #{config.vocabulary.description}
+          p.footer__single-column-desc #{vocabulary.description}
           .footer__single-column-social
-            each icon in config.bottom.socials
+            each icon in bottom.socials
               a.footer__icon(href=icon.link)
                 +socials(icon.name)

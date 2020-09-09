@@ -19,14 +19,15 @@ block header
   +header()
 
 block content
-  - let data = require("./landing.data.json");
+  - const data = require("./landing.data.json");
+  - const { description } = data;
 
   .landing__wrapper
     .landing__content
       .landing__search-form
         +search-form()
       
-      p.landing__description #{data.description}
+      p.landing__description #{description}
 
 block footer
   +footer()

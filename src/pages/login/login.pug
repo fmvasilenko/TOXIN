@@ -5,10 +5,10 @@ include ../../common.blocks/footer/footer.pug
 include ../../common.blocks/login-form/login-form.pug  
 
 block variables
-  - let pageTitle = 'Вход';
-  - let pageDescription = 'Вход';
-  - let pageClass = 'login-page'
-  - let data = require("./login.data.json");
+  - const pageTitle = 'Вход';
+  - const pageDescription = 'Вход';
+  - const pageClass = 'login-page'
+  - const data = require("./login.data.json");
 
 block styles
   link(rel="stylesheet" href="assets/css/app.css")

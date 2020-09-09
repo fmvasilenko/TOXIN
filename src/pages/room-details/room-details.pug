@@ -26,53 +26,54 @@ block footer
   +footer()
 
 block content
-  - let data = require("./room-details.data.json");
-  - let coverPhotoAlt = data.gallery.coverPhoto.alt || data.gallery.coverPhoto.src;
-  - let miniImage1Alt = data.gallery.miniImages[0].alt || data.gallery.miniImages[0].src;
-  - let miniImage2Alt = data.gallery.miniImages[1].alt || data.gallery.miniImages[1].src;
+  - const data = require("./room-details.data.json");
+  - const { gallery, information, chart, feedbacks, bullets, cancellation, receipt } = data;
+  - const coverPhotoAlt = gallery.coverPhoto.alt || gallery.coverPhoto.src;
+  - const miniImage1Alt = gallery.miniImages[0].alt || gallery.miniImages[0].src;
+  - const miniImage2Alt = gallery.miniImages[1].alt || gallery.miniImages[1].src;
 
   .room-details
     .room-details__gallery
       .room-details__cover-wrapper
-        img.room-details__cover-image.js-room-details__cover-image(src=data.gallery.coverPhoto.src, alt=coverPhotoAlt)
+        img.room-details__cover-image.js-room-details__cover-image(src=gallery.coverPhoto.src, alt=coverPhotoAlt)
       .room-details__mini-images
         .room-details__mini-image-wrapper
-          img.room-details__mini-image.js-room-details__mini-image(src=data.gallery.miniImages[0].src, alt=miniImage1Alt)
+          img.room-details__mini-image.js-room-details__mini-image(src=gallery.miniImages[0].src, alt=miniImage1Alt)
         .room-details__mini-image-wrapper
-          img.room-details__mini-image.js-room-details__mini-image(src=data.gallery.miniImages[1].src, alt=miniImage2Alt)
+          img.room-details__mini-image.js-room-details__mini-image(src=gallery.miniImages[1].src, alt=miniImage2Alt)
 
     .room-details__description
       .room-details__content
         .room-details__first-row
           .room-details__information
-            h2.room-detail__information-title #{data.information.title}
-            each benefit in data.information.benefits
+            h2.room-detail__information-title #{information.title}
+            each benefit in information.benefits
               .room-details__benefit
                 +benefit(benefit)
 
           .room-details__donut-chart
-            h2.room-details__donut-chart-title #{data.chart.title}
+            h2.room-details__donut-chart-title #{chart.title}
             .room-details__chart
-              +donut-chart(data.chart.parameters)
+              +donut-chart(chart.parameters)
 
         .room-details__feedbacks
           .room-details__feedbacks-title
-            h2 #{data.feedbacks.title}
-            span #{data.feedbacks.quantity}
-          each feedback in data.feedbacks.items
+            h2 #{feedbacks.title}
+            span #{feedbacks.quantity}
+          each feedback in feedbacks.items
             .room-details__feedback
               +feedback(feedback)
 
         .room-details__rools
           .room-details__bullets
-            h2.room-details__bullets-title #{data.bullets.title}
-            each bullet in data.bullets.items
+            h2.room-details__bullets-title #{bullets.title}
+            each bullet in bullets.items
               .room-details__bullet
                 +bullet(bullet)
 
           .room-details__cancellation
-            h2.room-details__cancellation-title #{data.cancellation.title}
-            p.room-details__cancellation-description #{data.cancellation.description}
+            h2.room-details__cancellation-title #{cancellation.title}
+            p.room-details__cancellation-description #{cancellation.description}
       
       .room-details__sidebar
-        +receipt(data.receipt)
+        +receipt(receipt)

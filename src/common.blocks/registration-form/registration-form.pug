@@ -5,41 +5,44 @@ include ../toggle/toggle.pug
 include ../button/button.pug 
 
 mixin registration-form(customConfig = {})
-  - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/registration-form/registration-form.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - const blocks = require('@backend/Blocks.js');
+  - const defaultConfig = require('@blocks/registration-form/registration-form.config.json');
 
-  form.registration-form(method=config.method action=config.action)
-    h1.registration-form__title #{config.vocabulary.title}
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - const { method, action, vocabulary, textFields, gender, birthDate, offers, buttons } = config;
+  - const { title, subtitle, loginText } = vocabulary;
+
+  form.registration-form(method=method action=action)
+    h1.registration-form__title #{title}
 
     .registration-form__field
-      +text-field(config.textfields[0])
+      +text-field(textFields[0])
     .registration-form__field
-      +text-field(config.textfields[1])
+      +text-field(textFields[1])
 
     .registration-form__gender
       .registration-form__gender-radio-button
-        +radio-button(config.gender[0])
+        +radio-button(gender[0])
       .registration-form__gender-radio-button
-        +radio-button(config.gender[1])
+        +radio-button(gender[1])
 
     .registration-form__birth-date
-      +masked-text-field(config.birthDate)
+      +masked-text-field(birthDate)
 
     .registration-form__subtitle
-      h3 #{config.vocabulary.subtitle}
+      h3 #{subtitle}
 
     .registration-form__field
-      +text-field(config.textfields[2])
+      +text-field(textFields[2])
     .registration-form__field
-      +text-field(config.textfields[3])
+      +text-field(textFields[3])
     .registration-form__field
-      +toggle(config.offers)
+      +toggle(offers)
 
     .registration-form__submit
-      +button(config.buttons[0])
+      +button(buttons[0])
 
     .registration-form__login
-      p #{config.vocabulary.loginText}
+      p #{loginText}
       .registration-form__login-button
-        +button(config.buttons[1])
+        +button(buttons[1])

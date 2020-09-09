@@ -5,7 +5,7 @@
     "title": "Войти",
     "registrationText": "Нет аккаунта на Toxin?"
   },
-  "textfields": [
+  "textFields": [
     {
       "name": "email",
       "type": "email",

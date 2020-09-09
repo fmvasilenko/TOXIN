@@ -7,38 +7,53 @@ include ../expandable-checkbox-list/expandable-checkbox-list
 include ../range-slider/range-slider
 
 mixin sidebar(customConfig = {})
-  - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/sidebar/sidebar.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - const blocks = require('@backend/Blocks.js');
+  - const defaultConfig = require('@blocks/sidebar/sidebar.config.json');
 
-  form.sidebar(method=config.method action=config.action)
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - 
+    const { 
+      method, 
+      action, 
+      vocabulary, 
+      dates, 
+      guests, 
+      slider, 
+      checkboxButtons, 
+      features, 
+      amenities, 
+      convinience 
+    } = config;
+  -  const { checkboxButtonTitle, featuresTitle } = vocabulary;
+
+  form.sidebar(method=method action=action)
     .sidebar__dates
-      +filter-date-dropdown(config.dates)
+      +filter-date-dropdown(dates)
 
     .sidebar__guests
-      +dropdown(config.guests)
+      +dropdown(guests)
 
     .sidebar__slider
-      +range-slider(config.slider)
-      .sidebar__slider-text #{config.slider.text}
+      +range-slider(slider)
+      .sidebar__slider-text #{slider.text}
 
     .sidebar__checkbox-buttons
-      if config.checkboxButtons[0]
-        h3.sidebar__checkbox-buttons-title #{config.vocabulary.checkboxButtonsTitle}
-      each checkboxConfig in config.checkboxButtons
+      if checkboxButtons[0]
+        h3.sidebar__checkbox-buttons-title #{checkboxButtonsTitle}
+      each checkboxConfig in checkboxButtons
         .sidebar__checkbox-button
           +checkbox-button(checkboxConfig)
 
     .sidebar__features
-      if config.features[0]
-        h3.sidebar__features-title #{config.vocabulary.featuresTitle}
-      each featureConfig in config.features
+      if features[0]
+        h3.sidebar__features-title #{featuresTitle}
+      each featureConfig in features
         .sidebar__feature
           +checkbox-button-rich(featureConfig)
 
     .sidebar__amenities
-      +dropdown(config.amenities)
+      +dropdown(amenities)
 
     .sidebar__convinience
-      +expandable-checkbox-list(config.convinience)
+      +expandable-checkbox-list(convinience)
       

@@ -1,9 +1,11 @@
 mixin subscription-text-field(customConfig = {})
-  - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/subscription-text-field/subscription-text-field.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - const blocks = require('@backend/Blocks.js');
+  - const defaultConfig = require('@blocks/subscription-text-field/subscription-text-field.config.json');
 
-  form.subscription-text-field(method=config.method action=config.action)
-    input.subscription-text-field__input(type="email" name='Email' placeholder=config.placeholder)
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - const { method, action, placeholder, icon } = config;
+
+  form.subscription-text-field(method=method action=action)
+    input.subscription-text-field__input(type="email" name='Email' placeholder=placeholder)
     button.subscription-text-field__button(type="submit")
-      i.material-icons.subscription-text-field__icon #{config.icon}
+      i.material-icons.subscription-text-field__icon #{icon}

@@ -2,19 +2,22 @@ include ../text-field/text-field.pug
 include ../button/button.pug 
 
 mixin login-form(customConfig = {})
-  - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/login-form/login-form.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - const blocks = require('@backend/Blocks.js');
+  - const defaultConfig = require('@blocks/login-form/login-form.config.json');
 
-  form.login-form(method=config.method action=config.action)
-    h1.login-form__title #{config.vocabulary.title}
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - const { method, action, vocabulary, textFields, buttons } = config;
+  - const { title, registrationText } = vocabulary;
+
+  form.login-form(method=method action=action)
+    h1.login-form__title #{title}
     .login-form__text-field
-      +text-field(config.textfields[0])
+      +text-field(textFields[0])
     .login-form__text-field
-      +text-field(config.textfields[1])
+      +text-field(textFields[1])
     .login-form__button
-      +button(config.buttons[0])
+      +button(buttons[0])
     .login-form__registration
-      p #{config.vocabulary.registrationText}
+      p #{registrationText}
       .login-form__registration-button
-        +button(config.buttons[1])
+        +button(buttons[1])

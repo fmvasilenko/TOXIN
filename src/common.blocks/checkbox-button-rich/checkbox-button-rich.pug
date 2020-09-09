@@ -1,11 +1,13 @@
 mixin checkbox-button-rich(customConfig = {})
-  - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/checkbox-button-rich/checkbox-button-rich.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - const blocks = require('@backend/Blocks.js');
+  - const defaultConfig = require('@blocks/checkbox-button-rich/checkbox-button-rich.config.json');
+
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - const { name, title, description, checked } = config;
 
   label.checkbox-button-rich
-    input.checkbox-button-rich__input(type='checkbox' name=config.name checked=config.checked)
+    input.checkbox-button-rich__input(type='checkbox' name=name checked=checked)
     .checkbox-button-rich__label
       .checkbox-button-rich__text
-        h3.checkbox-button-rich__title #{config.title}
-        p.checkbox-button-rich__description #{config.description}
+        h3.checkbox-button-rich__title #{title}
+        p.checkbox-button-rich__description #{description}

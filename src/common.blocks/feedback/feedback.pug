@@ -1,17 +1,19 @@
 include ../like-button/like-button 
 
 mixin feedback(customConfig = {})
-  - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/feedback/feedback.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
-  - let imgAlt = config.img.alt ? config.img.alt : config.name;
+  - const blocks = require('@backend/Blocks.js');
+  - const defaultConfig = require('@blocks/feedback/feedback.config.json');
+
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - const { name, img, likeButton, lastSeen, text } = config;
+  - const imgAlt = img.alt ? img.alt : name;
 
   .feedback
     .feedback__image-container
-      img.feedback__image(src=config.img.src alt=imgAlt)
+      img.feedback__image(src=img.src alt=imgAlt)
       .feedback__like-button
-        +like-button(config.likeButton)
+        +like-button(likeButton)
     .feedback__text-container
-      p.feedback__name #{config.name}
-      p.feedback__last-seen #{config.lastSeen}
-      p #{config.text}
+      p.feedback__name #{name}
+      p.feedback__last-seen #{lastSeen}
+      p #{text}

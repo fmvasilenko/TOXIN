@@ -2,26 +2,28 @@ include ../dropdown-option/dropdown-option
 include ../button/button 
 
 mixin dropdown(customConfig = {})
-  - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/dropdown/dropdown.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
-  - let submitAreaClass = config.displayType === "values" ? "dropdown__submit-area_hidden": "";
+  - const blocks = require('@backend/Blocks.js');
+  - const defaultConfig = require('@blocks/dropdown/dropdown.config.json');
 
-  .dropdown.js-dropdown(data-display-type=config.displayType)
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - const { title, displayType, icon, defaultValue, value, valueForms, options, clearButton, submitButton } = config;
+  - const submitAreaClass = displayType === "values" ? "dropdown__submit-area_hidden": "";
 
-    h3.dropdown__title #{config.title}
+  .dropdown.js-dropdown(data-display-type=displayType)
+
+    h3.dropdown__title #{title}
     
     .dropdown__field.js-dropdown__field
-      input.dropdown__field-input.js-dropdown__field-input(value=config.defaultValue data-word-forms=config.valueForms disabled)
-      i.material-icons.dropdown__expand-more.js-dropdown__expand-more #{config.icon}
+      input.dropdown__field-input.js-dropdown__field-input(value=defaultValue data-word-forms=valueForms disabled)
+      i.material-icons.dropdown__expand-more.js-dropdown__expand-more #{icon}
 
     ul.dropdown__list.js-dropdown__list
-      if config.options
-        each option in config.options
+      if options
+        each option in options
           +dropdown-option(option)
 
       .dropdown__submit-area(class=submitAreaClass)
         .dropdown__button-wrapper.js-dropdown__button-wrapper(data-button-type="clearButton")
-          +button(config.clearButton)
+          +button(clearButton)
         .dropdown__button-wrapper.js-dropdown__button-wrapper(data-button-type="submitButton")
-          +button(config.submitButton)
+          +button(submitButton)

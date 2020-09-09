@@ -1,8 +1,10 @@
 mixin toggle(customConfig = {})
-  - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/toggle/toggle.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - const blocks = require('@backend/Blocks.js');
+  - const defaultConfig = require('@blocks/toggle/toggle.config.json');
+
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - const { name, label, checked } = config;
 
   label.toggle
-    input.toggle__input(type='checkbox' name=config.name checked=config.checked)
-    p.toggle__text #{config.label}
+    input.toggle__input(type='checkbox' name=name checked=checked)
+    p.toggle__text #{label}

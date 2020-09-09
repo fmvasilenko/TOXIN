@@ -1,10 +1,15 @@
 mixin benefit(customConfig = {})
-  - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/benefit/benefit.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
+  - const blocks = require('@backend/Blocks.js');
+  - const defaultConfig = require('@blocks/benefit/benefit.config.json');
 
-  div(class=`benefit ${config.withBottomLine ? "benefit_with-bottom-line" : ""}`)
-    i.material-icons.benefit__icon #{config.icon}
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - const { title, description, withBottomLine, icon } = config;
+
+  - let benefitClass = `benefit`;
+  - benefitClass += withBottomLine ? " benefit_with-bottom-line" : "";
+
+  div(class=benefitClass)
+    i.material-icons.benefit__icon #{icon}
     .benefit__text
-      h3.benefit__title #{config.title}
-      p #{config.description}
+      h3.benefit__title #{title}
+      p #{description}

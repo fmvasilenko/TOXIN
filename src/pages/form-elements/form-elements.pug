@@ -25,10 +25,32 @@ include ../../common.blocks/benefit/benefit
 include ../../common.blocks/feedback/feedback 
 
 block variables
-  - let pageTitle = 'Form Elements';
-  - let pageDescription = 'Form Elements';
-  - let pageClass = 'form-elements';
-  - let data = require('./form-elements.data.json');
+  - const pageTitle = 'Form Elements';
+  - const pageDescription = 'Form Elements';
+  - const pageClass = 'form-elements';
+  - const data = require('./form-elements.data.json');
+  - 
+    const { 
+      textfields, 
+      dropdownGuests, 
+      maskedTextfield, 
+      dateDropdown,
+      filterDateDropdown,
+      subscription,
+      dropdownAmenities,
+      expandableCheckboxList,
+      checkboxButtons,
+      radioButtons,
+      toggles,
+      likeButtons,
+      rateButtons,
+      richCheckboxButtons,
+      buttons,
+      pagination,
+      bulletList,
+      benefits,
+      feedback
+    } = data;
 
 block styles
   link(rel="stylesheet" href="assets/css/formElements.css")
@@ -45,135 +67,135 @@ block content
     section.form-elements__column
       
       .form-elements__text-field
-        +text-field(data.textfields[0])
+        +text-field(textfields[0])
 
       .form-elements__text-field-hover
-        +text-field(data.textfields[1])
+        +text-field(textfields[1])
 
       .form-elements__dropdown
-        +dropdown(data.dropdownGuests)
+        +dropdown(dropdownGuests)
 
       .form-elements__masked-text-field
-        +masked-text-field(data.maskedTextField)
+        +masked-text-field(maskedTextField)
 
       .form-elements__date-dropdown
-        +date-dropdown(data.dateDropDown)
+        +date-dropdown(dateDropdown)
 
       .form-elements__filter-date-dropdown
-        +filter-date-dropdown(data.filterDateDropdown)
+        +filter-date-dropdown(filterDateDropdown)
 
       .form-elements__subscription-text-field
-        h3.form-elements__subscription-title #{data.subscription.title}
+        h3.form-elements__subscription-title #{subscription.title}
         +subscription-text-field()
 
     section.form-elements__column
       .form-elements__checkbox-buttons
-        h3.form-elements__checkbox-buttons-title #{data.checkboxButtons.title}
-        each item in data.checkboxButtons.items
+        h3.form-elements__checkbox-buttons-title #{checkboxButtons.title}
+        each item in checkboxButtons.items
           .form-elements__checkbox-button
             +checkbox-button(item)
 
       .form-elements__radio-buttons
-        h3.form-elements__radio-buttons-title #{data.radioButtons.title}
+        h3.form-elements__radio-buttons-title #{radioButtons.title}
         .form-elements__radio-buttons-container
-          each item in data.radioButtons.items
+          each item in radioButtons.items
             .form-elements__radio-button
               +radio-button(item)
 
       .form-elements__toggle
-        h3.form-elements__toggle-title #{data.toggles.title}
-        each item in data.toggles.items
+        h3.form-elements__toggle-title #{toggles.title}
+        each item in toggles.items
           .form-elements__toggle-item
             +toggle(item)
 
       .form-elements__like-buttons
-        h3.form-elements__like-buttons-title #{data.likeButtons.title}
+        h3.form-elements__like-buttons-title #{likeButtons.title}
         .form-elements__like-buttons-container
-          each item in data.likeButtons.items
+          each item in likeButtons.items
             form.form-elements__like-button
               +like-button(item)
 
       .form-elements__rate-buttons
-        h3.form-elements__rate-buttons-title #{data.rateButtons.title}
+        h3.form-elements__rate-buttons-title #{rateButtons.title}
         .form-elements__rate-buttons-container
-          each item in data.rateButtons.items
+          each item in rateButtons.items
             form.form-elements__rate-button
               +rate-button(item)
 
     section.form-elements__column
       .form-elements__slider
-        +range-slider(data.slider)
+        +range-slider(slider)
 
       .form-elements__buttons
-        h3.form-elements__buttons-title #{data.buttons.title}
+        h3.form-elements__buttons-title #{buttons.title}
         .form-elements__buttons-line.form-elements__buttons-line_first
           .form-elements__button
-            +button(data.buttons.items[0])
+            +button(buttons.items[0])
           .form-elements__button
-            +button(data.buttons.items[1])
+            +button(buttons.items[1])
         .form-elements__buttons-line
           .form-elements__button
-            +button(data.buttons.items[2])
+            +button(buttons.items[2])
           .form-elements__button
-            +button(data.buttons.items[3])
+            +button(buttons.items[3])
         .form-elements__buttons-line
           .form-elements__button.form-elements__button_empty
-            +button(data.buttons.items[4])
+            +button(buttons.items[4])
           .form-elements__button.form-elements__button_empty
-            +button(data.buttons.items[5])
+            +button(buttons.items[5])
         .form-elements__buttons-line
           .form-elements__button.form-elements__button_size_l
-            +button(data.buttons.items[6])
+            +button(buttons.items[6])
 
       .form-elements__pagination
-        h3.form-elements__pagination-title #{data.pagination.title}
+        h3.form-elements__pagination-title #{pagination.title}
         +pagination()
 
     section.form-elements__column
       .form-elements__dropdown-default 
-        +dropdown(data.dropdownAmenities)
+        +dropdown(dropdownAmenities)
 
       .form-elements__dropdown-expanded
-        +dropdown(data.dropdownAmenities)
+        +dropdown(dropdownAmenities)
 
     section.form-elements__column
-      - data.dropdownGuests.display_submit_button = true;
+      - dropdownGuests.display_submit_button = true;
       .form-elements__dropdown4
-        +dropdown(data.dropdownGuests)
+        +dropdown(dropdownGuests)
 
     section.form-elements__column
-      - data.dropdownGuests.display_submit_button = true;
+      - dropdownGuests.display_submit_button = true;
       .form-elements__dropdown5
-        +dropdown(data.dropdownGuests)
+        +dropdown(dropdownGuests)
 
     section.form-elements__column
       .form-elements__expandable-checkbox-list
-        +expandable-checkbox-list(data.expandableCheckboxList)
+        +expandable-checkbox-list(expandableCheckboxList)
 
-      - data.expandableCheckboxList.expanded = true
+      - expandableCheckboxList.expanded = true
 
       .form-elements__expandable-checkbox-list-expanded
-        +expandable-checkbox-list(data.expandableCheckboxList)
+        +expandable-checkbox-list(expandableCheckboxList)
 
     section.form-elements__column
       .form-elements__rich-checkbox-buttons
-        h3.form-elements__rich-checkbox-buttons-title #{data.richCheckboxButtons.title}
-        each item in data.richCheckboxButtons.items
+        h3.form-elements__rich-checkbox-buttons-title #{richCheckboxButtons.title}
+        each item in richCheckboxButtons.items
           .form-elements__rich-checkbox-button
             +checkbox-button-rich(item)
 
     section.form-elements__column
       .form-elements__bullet-list
-        h3.form-elements__bullet-list-title #{data.bulletList.title}
-        each item in data.bulletList.items
+        h3.form-elements__bullet-list-title #{bulletList.title}
+        each item in bulletList.items
           .form-elements__bullet
             +bullet(item)
 
     section.form-elements__column
       .form-elements__benefits
-        each benefit in data.benefits
+        each benefit in benefits
           .form-elements__benefit
             +benefit(benefit)
 
     section.form-elements__feedback
-      +feedback(data.feedback)
+      +feedback(feedback)

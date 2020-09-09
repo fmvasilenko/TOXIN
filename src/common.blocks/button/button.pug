@@ -1,14 +1,17 @@
 mixin button(customConfig = {})
-  - let blocks = require('@backend/Blocks.js');
-  - let defaultConfig = require('@blocks/button/button.config.json');
-  - let config = blocks.createConfig(defaultConfig, customConfig);
-  - let classes = "button " + config.classes[config.style];
+  - const blocks = require('@backend/Blocks.js');
+  - const defaultConfig = require('@blocks/button/button.config.json');
 
-  if config.type == "link"
-    a(class=classes href=config.href) #{config.value}
-      if config.style == "sizeL"
-        i.material-icons.button__arrow #{config.icon}
+  - const config = blocks.createConfig(defaultConfig, customConfig);
+  - const { value, type: buttonType, style, href, disabled, icon, classes } = config;
+
+  - let buttonClass = `button ${classes[style]}`;
+
+  if type == "link"
+    a(class=buttonClass href=href) #{value}
+      if style == "sizeL"
+        i.material-icons.button__arrow #{icon}
   else
-    button(class=classes type=config.type disabled=config.disabled) #{config.value}
-      if config.style == "sizeL"
-        i.material-icons.button__arrow #{config.icon}
+    button(class=buttonClass type=buttonType disabled=disabled) #{value}
+      if style == "sizeL"
+        i.material-icons.button__arrow #{icon}
