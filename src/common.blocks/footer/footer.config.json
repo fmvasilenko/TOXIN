@@ -10,63 +10,63 @@
     [
       {
         "title": "Навигация",
-        "link": "/"
+        "link": "/mock-address/change-me"
       },
       {
         "title": "О нас",
-        "link": "/"
+        "link": "/mock-address/change-me"
       },
       {
         "title": "Новости",
-        "link": "/"
+        "link": "/mock-address/change-me"
       },
       {
         "title": "Служба поддержки",
-        "link": "/"
+        "link": "/mock-address/change-me"
       },
       {
         "title": "Услуги",
-        "link": "/"
+        "link": "/mock-address/change-me"
       }
     ],
     [
       {
         "title": "О нас",
-        "link": "/"
+        "link": "/mock-address/change-me"
       },
       {
         "title": "О сервисе",
-        "link": "/"
+        "link": "/mock-address/change-me"
       },
       {
         "title": "Наша команда",
-        "link": "/"
+        "link": "/mock-address/change-me"
       },
       {
         "title": "Вакансии",
-        "link": "/"
+        "link": "/mock-address/change-me"
       },
       {
         "title": "Инвесторы",
-        "link": "/"
+        "link": "/mock-address/change-me"
       }
     ],
     [
       {
         "title": "Служба поддержки",
-        "link": "/"
+        "link": "/mock-address/change-me"
       },
       {
         "title": "Соглашения",
-        "link": "/"
+        "link": "/mock-address/change-me"
       },
       {
         "title": "Сообщества",
-        "link": "/"
+        "link": "/mock-address/change-me"
       },
       {
         "title": "Связь с нами",
-        "link": "/"
+        "link": "/mock-address/change-me"
       }
     ]
   ],
@@ -78,15 +78,15 @@
     "socials": [
       {
         "name": "twitter",
-        "link": "/"
+        "link": "/mock-address/change-me"
       },
       {
         "name": "facebook",
-        "link": "/"
+        "link": "/mock-address/change-me"
       },
       {
         "name": "instagram",
-        "link": "/"
+        "link": "/mock-address/change-me"
       }
     ]
   }

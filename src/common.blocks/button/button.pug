@@ -7,7 +7,7 @@ mixin button(customConfig = {})
 
   - let buttonClass = `button ${classes[style]}`;
 
-  if type == "link"
+  if buttonType == "link"
     a(class=buttonClass href=href) #{value}
       if style == "sizeL"
         i.material-icons.button__arrow #{icon}
