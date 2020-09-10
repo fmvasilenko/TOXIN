@@ -220,12 +220,23 @@ class Calendar extends Component {
     const table = document.createElement('table');
     table.classList.add(this.CLASSES.TABLE);
 
-    date.setDate(2 - date.getDay()); // going few days back to make the first week complete
+    /*
+      The following construction is needed because Date object has
+      sunday as the first day of the week. But we transfer it to
+      Russian calendar system.
+      2 - is a shift coefficient for all days except if the first day of month is sunday
+      -5 - is a shift coefficient for sunday
+    */
+
+    if (date.getDay() !== 0) date.setDate(2 - date.getDay()); // going few days back to make the first week complete
+    else date.setDate(-5);
 
     const tableHeader = this.createTableHeader();
     table.appendChild(tableHeader);
 
-    while (date.getMonth() <= month) {
+    const nextMonth = new Date(year, month + 1);
+
+    while (date <= nextMonth) {
       const row = this.createTableRow(date);
       table.appendChild(row);
     }
