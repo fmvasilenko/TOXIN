@@ -37,7 +37,7 @@ mixin footer(customConfig = {})
           p #{copyright}
           .footer__social
             each icon in socials
-              a.footer__icon(href=icon.link)
+              a.footer__icon(href=icon.link target="_blank", rel="noopener noreferrer")
                 +socials(icon.name)
 
     else if type == "light"
@@ -49,5 +49,5 @@ mixin footer(customConfig = {})
           p.footer__single-column-desc #{vocabulary.description}
           .footer__single-column-social
             each icon in bottom.socials
-              a.footer__icon(href=icon.link)
+              a.footer__icon(href=icon.link target="_blank", rel="noopener noreferrer")
                 +socials(icon.name)
