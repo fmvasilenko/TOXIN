@@ -8,20 +8,19 @@ block styles
   link(rel="stylesheet" href="assets/css/app.css")
 
 block variables
-  - let pageTitle = 'Registration';
-  - let pageDescription = 'Registration';
-  - let pageClass = 'registration';
+  - const pageTitle = 'Registration';
+  - const pageDescription = 'Registration';
+  - const pageClass = 'registration';
+  - const data = require("./registration.data.json");
 
 block header
   +header()
 
-block content
-  - let data = require("./registration.data.json");
-
-  .registration__background
-    .registration__wrapper
-      .registration__registration-form
-        +registration-form()
-
 block footer
   +footer()
+
+block content
+  .registration__background
+    .registration__content
+      .registration__registration-form
+        +registration-form()

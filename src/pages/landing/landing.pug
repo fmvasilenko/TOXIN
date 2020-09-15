@@ -11,23 +11,22 @@ include ../../common.blocks/footer/footer.pug
 include ../../common.blocks/search-form/search-form.pug
 
 block variables
-  - let pageTitle = 'Landing';
-  - let pageDescription = 'Search page for TOXIN';
-  - let pageClass = 'landing';
+  - const pageTitle = 'Landing';
+  - const pageDescription = 'Search page for TOXIN';
+  - const pageClass = 'landing';
+  - const data = require("./landing.data.json");
+  - const { description } = data;
 
 block header
   +header()
 
-block content
-  - const data = require("./landing.data.json");
-  - const { description } = data;
+block footer
+  +footer()
 
-  .landing__wrapper
+block content
+  .landing__background
     .landing__content
       .landing__search-form
         +search-form()
       
       p.landing__description #{description}
-
-block footer
-  +footer()

@@ -9,12 +9,12 @@ mixin date-dropdown(customConfig = {})
 
   .date-dropdown.js-date-dropdown
 
-    .date-dropdown__wrapper
+    .date-dropdown__field
       h3.date-dropdown__title #{dropdown1.title}
       i.material-icons.date-dropdown__expand-more.js-date-dropdown__expand-more #{dropdown1.icon}
       input.date-dropdown__input.js-date-dropdown__input(type="date" name="arrivalDate" value=dropdown1.value readonly)
     
-    .date-dropdown__wrapper
+    .date-dropdown__field
       h3.date-dropdown__title #{dropdown2.title}
       i.material-icons.date-dropdown__expand-more.js-date-dropdown__expand-more #{dropdown2.icon}
       input.date-dropdown__input.js-date-dropdown__input(type="date" name="leavingDate" value=dropdown2.value readonly)
