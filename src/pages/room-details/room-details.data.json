@@ -122,12 +122,8 @@
     "pricePerPeriod": "9 990",
     "totalPrice": "38 081",
     "datesParameters": {
-      "dropdown1": {
-        "value": "2020-08-20"
-      },
-      "dropdown2": {
-        "value": "2020-08-25"
-      }
+      "dropdown1": {},
+      "dropdown2": {}
     },
     "guestsParameters": {
       "options": [

@@ -24,6 +24,13 @@ class Calendar extends Component {
           this.displayMonth.bind(this),
         ],
       },
+      datePicking: {
+        value: '',
+        isGlobal: true,
+        subscribers: [
+          this.displayMonth.bind(this),
+        ],
+      },
       calendarDisplayed: {
         value: false,
         isGlobal: true,
@@ -55,6 +62,8 @@ class Calendar extends Component {
       INACTIVE_DAY: 'calendar__day-inactive',
       CLEAR_BUTTON: 'js-calendar__clear-button',
       SUBMIT_BUTTON: 'js-calendar__submit-button',
+      PICKING_ARRIVAL_DATE: 'calendar__picking-arrival-date',
+      PICKING_LEAVING_DATE: 'calendar__picking-leaving-date',
     };
   }
 
@@ -140,10 +149,10 @@ class Calendar extends Component {
 
     if (!this.isDayActive(event.target)) return;
 
-    if (!this.arrivalDate) {
-      this.pickArrivalDate(cellValue);
-    } else if (!this.leavingDate) {
-      this.pickLeavingDate(cellValue);
+    if (!this.arrivalDate || this.datePicking === 'arrivalDate') {
+      if (this.pickArrivalDate(cellValue)) this.datePicking = '';
+    } else if (!this.leavingDate || this.datePicking === 'leavingDate') {
+      if (this.pickLeavingDate(cellValue)) this.datePicking = '';
     } else this.changeDates(cellValue);
   }
 
@@ -177,9 +186,11 @@ class Calendar extends Component {
     const arrivalDate = new Date(year, month, day);
     const currentDate = new Date();
 
-    if (arrivalDate < currentDate) return;
+    if (arrivalDate < currentDate) return false;
+    if (this.leavingDate && arrivalDate > this.leavingDate) return false;
 
     this.arrivalDate = arrivalDate;
+    return true;
   }
 
   pickLeavingDate(day = 1) {
@@ -187,9 +198,10 @@ class Calendar extends Component {
     const month = this.monthDisplayed.getMonth();
     const leavingDate = new Date(year, month, day);
 
-    if (leavingDate < this.arrivalDate) return;
+    if (leavingDate < this.arrivalDate) return false;
 
     this.leavingDate = leavingDate;
+    return true;
   }
 
   changeDates(pickedDay = 0) {
@@ -292,6 +304,10 @@ class Calendar extends Component {
 
     if (this.dayShouldBeInactive(date)) cell.classList.add(this.CLASSES.INACTIVE_DAY);
 
+    if (this.dayCanBePickedAsArrival(date)) cell.classList.add(this.CLASSES.PICKING_ARRIVAL_DATE);
+
+    if (this.dayCanBePickedAsLeaving(date)) cell.classList.add(this.CLASSES.PICKING_LEAVING_DATE);
+
     if (this.isArrivalDate(date)) {
       circle.classList.add(this.CLASSES.PICKED_DATE);
       cell.classList.add(this.CLASSES.ARRIVAL_DATE);
@@ -344,6 +360,53 @@ class Calendar extends Component {
 
   dayShouldBeInactive(date) {
     return date < new Date() || date.getMonth() !== this.monthDisplayed.getMonth();
+  }
+
+  dayCanBePickedAsLeaving(date) {
+    if (this.dayShouldBeInactive(date)) return false;
+    if (this.isLeavingDate(date)) return false;
+    if (this.isArrivalDate(date)) return false;
+    if (this.isCurrentDate(date)) return false;
+
+    if (!this.arrivalDate) return false;
+    if (date < this.arrivalDate) return false;
+
+    if (this.datePicking === 'arrivalDate') return false;
+    if (this.datePicking === 'leavingDate' && date < this.arrivalDate) return false;
+
+    if (this.leavingDate) {
+      if (this.datePicking === '') {
+        const middleDateMs = (this.arrivalDate.getTime() + (this.leavingDate.getTime() - this.arrivalDate.getTime()) / 2);
+        const middleDate = new Date(middleDateMs);
+
+        if (date <= middleDate) return false;
+      }
+    }
+
+    return true;
+  }
+
+  dayCanBePickedAsArrival(date) {
+    if (this.dayShouldBeInactive(date)) return false;
+    if (this.isLeavingDate(date)) return false;
+    if (this.isArrivalDate(date)) return false;
+    if (this.isCurrentDate(date)) return false;
+
+    if (this.datePicking === 'leavingDate' && this.arrivalDate) return false;
+    if (this.leavingDate && date >= this.leavingDate) return false;
+
+    if (this.datePicking === '' && !this.leavingDate) return false;
+
+    if (this.leavingDate) {
+      if (this.datePicking === '') {
+        const middleDateMs = (this.arrivalDate.getTime() + (this.leavingDate.getTime() - this.arrivalDate.getTime()) / 2);
+        const middleDate = new Date(middleDateMs);
+
+        if (date > middleDate) return false;
+      }
+    }
+
+    return true;
   }
 }
 

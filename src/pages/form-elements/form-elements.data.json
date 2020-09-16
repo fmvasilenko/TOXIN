@@ -37,12 +37,8 @@
     "title": "Masked text field"
   },
   "dateDropdown": {
-    "dropdown1": {
-      "value": "2020-08-20"
-    },
-    "dropdown2": {
-      "value": "2020-08-25"
-    }
+    "dropdown1": {},
+    "dropdown2": {}
   },
   "filterDateDropdown": {
     "title": "Filter date dropdown"

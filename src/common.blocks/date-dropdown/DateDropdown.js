@@ -26,6 +26,9 @@ class DateDropdown extends Component {
           this.displayLeavingDate.bind(this),
         ],
       },
+      datePicking: {
+        value: '',
+      },
       calendarDisplayed: {
         value: false,
         subscribers: [
@@ -70,25 +73,22 @@ class DateDropdown extends Component {
 
   clickHandler(event) {
     if (this.arrivalDateClicked(event)) {
+      this.datePicking = 'arrivalDate';
       this.togglePopupHandler();
     } else if (this.leavingDateClicked(event)) {
-      this.togglePopupHandler();
-    } else if (this.iconClicked(event)) {
+      this.datePicking = 'leavingDate';
       this.togglePopupHandler();
     }
   }
 
   arrivalDateClicked(event) {
-    return event.target.closest(`.${this.CLASSES.ARRIVAL_DATE_INPUT}`) === this.arrivalDateInput;
+    return event.target.closest(`.${this.CLASSES.ARRIVAL_DATE_INPUT}`) === this.arrivalDateInput
+      || event.target.closest(`.${this.CLASSES.DROPDOWN_ICON}`) === this.dropdownIcon[0];
   }
 
   leavingDateClicked(event) {
-    return event.target.closest(`.${this.CLASSES.LEAVING_DATE_INPUT}`) === this.leavingDateInput;
-  }
-
-  iconClicked(event) {
-    return event.target.closest(`.${this.CLASSES.DROPDOWN_ICON}`) === this.dropdownIcon[0]
-        || event.target.closest(`.${this.CLASSES.DROPDOWN_ICON}`) === this.dropdownIcon[1];
+    return event.target.closest(`.${this.CLASSES.LEAVING_DATE_INPUT}`) === this.leavingDateInput
+      || event.target.closest(`.${this.CLASSES.DROPDOWN_ICON}`) === this.dropdownIcon[1];
   }
 
   togglePopupHandler() {

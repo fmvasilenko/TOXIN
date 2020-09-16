@@ -6,10 +6,8 @@
     "totalPrice": "38 081",
     "datesParameters": {
       "dropdown1": {
-        "value": "2020-05-20"
       },
       "dropdown2": {
-        "value": "2020-05-25"
       }
     },
     "guestsParameters": {
