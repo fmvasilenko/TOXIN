@@ -52,7 +52,6 @@
     font-size: rem(12);
     color: $darkShade50;
     text-align: center;
-    cursor: pointer;
 
     &:first-child {
       border-radius: 50% 0 0 50%;
@@ -65,7 +64,6 @@
 
   &__day-inactive {
     color: $darkShade25;
-    cursor: default;
   }
 
   &__current-date {
@@ -94,7 +92,6 @@
 
   &__arrival-date {
     border-radius: 50% 0 0 50%;
-    cursor: default;
 
     &:last-child {
       border-radius: 50%;
@@ -103,21 +100,28 @@
 
   &__leaving-date {
     border-radius: 0 50% 50% 0;
-    cursor: default;
 
     &:first-child {
       border-radius: 50%;
     }
   }
 
-  &__picking-arrival-date:hover {
-    background: linear-gradient(180deg, rgba(188, 156, 255, 0.25) 0%, rgba(139, 164, 249, 0.25) 100%);
-    border-radius: 50% 0 0 50%;
+  &__picking-arrival-date {
+    cursor: pointer;
+
+    &:hover {
+      background: linear-gradient(180deg, rgba(188, 156, 255, 0.25) 0%, rgba(139, 164, 249, 0.25) 100%);
+      border-radius: 50% 0 0 50%;
+    }
   }
 
-  &__picking-leaving-date:hover {
-    background: linear-gradient(180deg, rgba(188, 156, 255, 0.25) 0%, rgba(139, 164, 249, 0.25) 100%);
-    border-radius: 0 50% 50% 0;
+  &__picking-leaving-date {
+    cursor: pointer;
+
+    &:hover {
+      background: linear-gradient(180deg, rgba(188, 156, 255, 0.25) 0%, rgba(139, 164, 249, 0.25) 100%);
+      border-radius: 0 50% 50% 0;
+    }
   }
 
   &__buttons {

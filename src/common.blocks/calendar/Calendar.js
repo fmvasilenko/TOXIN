@@ -145,6 +145,8 @@ class Calendar extends Component {
   }
 
   tableContainerClickHandler(event) {
+    if (!event.target.classList.contains(this.CLASSES.CELL)) return;
+
     const cellValue = parseInt(event.target.textContent, 10);
 
     if (!this.isDayActive(event.target)) return;
@@ -395,7 +397,7 @@ class Calendar extends Component {
     if (this.datePicking === 'leavingDate' && this.arrivalDate) return false;
     if (this.leavingDate && date >= this.leavingDate) return false;
 
-    if (this.datePicking === '' && !this.leavingDate) return false;
+    if (this.datePicking === '' && !this.leavingDate && this.arrivalDate) return false;
 
     if (this.leavingDate) {
       if (this.datePicking === '') {
