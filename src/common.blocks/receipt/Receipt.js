@@ -84,7 +84,9 @@ class Receipt extends Component {
   }
 
   calculateDaysBetween() {
-    this.daysNumber = this.daysBetween(this.arrivalDate, this.leavingDate);
+    this.daysNumber = this.arrivalDate && this.leavingDate
+      ? this.daysBetween(this.arrivalDate, this.leavingDate)
+      : 0;
   }
 
   // eslint-disable-next-line class-methods-use-this
