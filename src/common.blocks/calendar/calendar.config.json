@@ -1,7 +1,9 @@
 {
   "vocabulary": {
     "arrowForward": "arrow_forward",
-    "arrowBack": "arrow_back"
+    "arrowBack": "arrow_back",
+    "MONTHS": ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"],
+    "WEEKDAYS": ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
   },
   "clearButton": {
     "value": "Очистить",

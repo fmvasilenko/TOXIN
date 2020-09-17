@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import Component from '../../js/frontend/Component';
 
 class Calendar extends Component {
@@ -34,7 +35,6 @@ class Calendar extends Component {
       calendarDisplayed: {
         value: false,
         isGlobal: true,
-        subscribers: [],
       },
       monthDisplayed: {
         value: new Date(),
@@ -46,32 +46,11 @@ class Calendar extends Component {
   }
 
   setClasses() {
-    this.CLASSES = {
-      TABLE_CONTAINER: 'js-calendar__table-wrapper',
-      TABLE: 'calendar__table',
-      TITLE: 'js-calendar__title',
-      LEFT_ARROW: 'js-calendar__left-arrow',
-      RIGHT_ARROW: 'js-calendar__right-arrow',
-      DAY_NAME: 'calendar__day-name',
-      CELL: 'calendar__number',
-      ARRIVAL_DATE: 'calendar__arrival-date',
-      LEAVING_DATE: 'calendar__leaving-date',
-      CURRENT_DATE: 'calendar__current-date',
-      PICKED_DATE: 'calendar__chosen-date',
-      DATE_BETWEEN: 'calendar__date-between',
-      INACTIVE_DAY: 'calendar__day-inactive',
-      CLEAR_BUTTON: 'js-calendar__clear-button',
-      SUBMIT_BUTTON: 'js-calendar__submit-button',
-      PICKING_ARRIVAL_DATE: 'calendar__picking-arrival-date',
-      PICKING_LEAVING_DATE: 'calendar__picking-leaving-date',
-    };
+    this.CLASSES = require('./calendar.classes.json');
   }
 
   setConsts() {
-    this.VOCABULARY = {
-      MONTHS: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-      WEEKDAYS: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
-    };
+    this.VOCABULARY = require('./calendar.config.json').vocabulary;
   }
 
   setInitialState() {
@@ -116,46 +95,23 @@ class Calendar extends Component {
   }
 
   leftArrowClickHandler() {
-    /**
-     * Looks like this function could be optimized
-     * but it`s critical for Component.js to use an assignment operator
-     * instead of a direct 'setMonth()' function
-    */
-
-    const year = this.monthDisplayed.getFullYear();
-    const month = this.monthDisplayed.getMonth();
-    const newDate = new Date(year, month);
-
-    newDate.setMonth(newDate.getMonth() - 1);
-    this.monthDisplayed = newDate;
+    this.monthDisplayed = new Date(this.monthDisplayed.getFullYear(), this.monthDisplayed.getMonth() - 1);
   }
 
   rightArrowClickHandler() {
-    /**
-     * Check 'leftArrowClickHandler()' description
-     * before trying to optimize this function
-    */
-
-    const year = this.monthDisplayed.getFullYear();
-    const month = this.monthDisplayed.getMonth();
-    const newDate = new Date(year, month);
-
-    newDate.setMonth(newDate.getMonth() + 1);
-    this.monthDisplayed = newDate;
+    this.monthDisplayed = new Date(this.monthDisplayed.getFullYear(), this.monthDisplayed.getMonth() + 1);
   }
 
   tableContainerClickHandler(event) {
     if (!event.target.classList.contains(this.CLASSES.CELL)) return;
+    if (!this.isDateActive(event.target)) return;
 
     const cellValue = parseInt(event.target.textContent, 10);
+    const date = new Date(this.monthDisplayed.getFullYear(), this.monthDisplayed.getMonth(), cellValue);
 
-    if (!this.isDayActive(event.target)) return;
-
-    if (!this.arrivalDate || this.datePicking === 'arrivalDate') {
-      if (this.pickArrivalDate(cellValue)) this.datePicking = '';
-    } else if (!this.leavingDate || this.datePicking === 'leavingDate') {
-      if (this.pickLeavingDate(cellValue)) this.datePicking = '';
-    } else this.changeDates(cellValue);
+    if (!this.arrivalDate || this.datePicking === 'arrivalDate') this.pickArrivalDate(date);
+    else if (!this.leavingDate || this.datePicking === 'leavingDate') this.pickLeavingDate(date);
+    else this.changeDates(date);
   }
 
   clearButtonClickHandler() {
@@ -182,55 +138,33 @@ class Calendar extends Component {
     this.title.innerHTML = `${monthName} ${year}`;
   }
 
-  pickArrivalDate(day = 1) {
-    const year = this.monthDisplayed.getFullYear();
-    const month = this.monthDisplayed.getMonth();
-    const arrivalDate = new Date(year, month, day);
-    const currentDate = new Date();
+  pickArrivalDate(date) {
+    if (this.dateIsBeforeCurrentDate(date)) return;
+    if (this.dateIsAfterLeavingDate(date)) return;
 
-    if (arrivalDate < currentDate) return false;
-    if (this.leavingDate && arrivalDate > this.leavingDate) return false;
-
-    this.arrivalDate = arrivalDate;
-    return true;
+    this.arrivalDate = date;
+    this.datePicking = '';
   }
 
-  pickLeavingDate(day = 1) {
-    const year = this.monthDisplayed.getFullYear();
-    const month = this.monthDisplayed.getMonth();
-    const leavingDate = new Date(year, month, day);
+  pickLeavingDate(date) {
+    if (this.dateIsBeforeArrivalDate(date)) return;
 
-    if (leavingDate < this.arrivalDate) return false;
-
-    this.leavingDate = leavingDate;
-    return true;
+    this.leavingDate = date;
+    this.datePicking = '';
   }
 
-  changeDates(pickedDay = 0) {
-    const year = this.monthDisplayed.getFullYear();
-    const month = this.monthDisplayed.getMonth();
-    const middleDateMs = (this.arrivalDate.getTime() + (this.leavingDate.getTime() - this.arrivalDate.getTime()) / 2);
+  changeDates(date) {
+    if (this.dateIsBeforeCurrentDate(date)) return;
 
-    const date = new Date(year, month, pickedDay);
-    const middleDate = new Date(middleDateMs);
-    const currentDate = new Date();
-
-    if (date <= currentDate) return;
-
-    if (date < this.arrivalDate) {
-      this.arrivalDate = date;
-    } else if (date > this.leavingDate) {
-      this.leavingDate = date;
-    } else if (date > middleDate) {
-      this.leavingDate = date;
-    } else {
-      this.arrivalDate = date;
-    }
+    if (this.dateIsBeforeArrivalDate(date)) this.arrivalDate = date;
+    else if (this.dateIsAfterLeavingDate(date)) this.leavingDate = date;
+    else if (date > this.getMiddleDate()) this.leavingDate = date;
+    else this.arrivalDate = date;
   }
 
   renderTable(year = 0, month = 0) {
     const date = new Date(year, month);
-    // eslint-disable-next-line no-undef
+
     const table = document.createElement('table');
     table.classList.add(this.CLASSES.TABLE);
 
@@ -260,16 +194,12 @@ class Calendar extends Component {
   }
 
   createTableHeader() {
-    // eslint-disable-next-line no-undef
     const header = document.createElement('tr');
 
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < 7; i++) {
-      // eslint-disable-next-line no-undef
+    for (let i = 0; i < 7; i += 1) {
       const cell = document.createElement('th');
       cell.classList.add(this.CLASSES.DAY_NAME);
       cell.innerHTML = this.VOCABULARY.WEEKDAYS[i];
-
       header.appendChild(cell);
     }
 
@@ -277,14 +207,10 @@ class Calendar extends Component {
   }
 
   createTableRow(date) {
-    // eslint-disable-next-line no-undef
     const row = document.createElement('tr');
 
-    // eslint-disable-next-line no-plusplus
-    for (let i = 0; i < 7; i++) {
-      const cell = this.createTableCell(date);
-      row.appendChild(cell);
-
+    for (let i = 0; i < 7; i += 1) {
+      row.appendChild(this.createTableCell(date));
       date.setDate(date.getDate() + 1);
     }
 
@@ -294,46 +220,59 @@ class Calendar extends Component {
   createTableCell(date) {
     const cellValue = date.getDate();
 
-    // eslint-disable-next-line no-undef
     const cell = document.createElement('td');
     cell.classList.add(this.CLASSES.CELL);
 
-    // eslint-disable-next-line no-undef
-    const circle = document.createElement('div');
-    circle.innerHTML = cellValue;
-
     if (this.isDateBetween(date)) cell.classList.add(this.CLASSES.DATE_BETWEEN);
+    if (this.dateShouldBeInactive(date)) cell.classList.add(this.CLASSES.INACTIVE_DAY);
+    if (this.dateCanBePickedAsArrival(date)) cell.classList.add(this.CLASSES.PICKING_ARRIVAL_DATE);
+    if (this.dateCanBePickedAsLeaving(date)) cell.classList.add(this.CLASSES.PICKING_LEAVING_DATE);
 
-    if (this.dayShouldBeInactive(date)) cell.classList.add(this.CLASSES.INACTIVE_DAY);
-
-    if (this.dayCanBePickedAsArrival(date)) cell.classList.add(this.CLASSES.PICKING_ARRIVAL_DATE);
-
-    if (this.dayCanBePickedAsLeaving(date)) cell.classList.add(this.CLASSES.PICKING_LEAVING_DATE);
-
-    if (this.isArrivalDate(date)) {
-      circle.classList.add(this.CLASSES.PICKED_DATE);
-      cell.classList.add(this.CLASSES.ARRIVAL_DATE);
-      cell.appendChild(circle);
-    } else if (this.isLeavingDate(date)) {
-      circle.classList.add(this.CLASSES.PICKED_DATE);
-      cell.classList.add(this.CLASSES.LEAVING_DATE);
-      cell.appendChild(circle);
-    } else if (this.isCurrentDate(date)) {
-      circle.classList.add(this.CLASSES.CURRENT_DATE);
-      cell.appendChild(circle);
-    } else {
-      cell.innerHTML = cellValue;
-    }
+    if (this.isArrivalDate(date)) this.makeArrivalDateCell(cell, cellValue);
+    else if (this.isLeavingDate(date)) this.makeLeavingDateCell(cell, cellValue);
+    else if (this.isCurrentDate(date)) this.makeCurrentDateCell(cell, cellValue);
+    else cell.innerHTML = cellValue;
 
     return cell;
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  areDatesTheSame(date1, date2) {
-    if (!date1) return false;
-    if (!date2) return false;
+  makeArrivalDateCell(cell, cellValue) {
+    const circle = document.createElement('div');
+    circle.innerHTML = cellValue;
 
-    return date1.getFullYear() === date2.getFullYear()
+    circle.classList.add(this.CLASSES.PICKED_DATE);
+    cell.classList.add(this.CLASSES.ARRIVAL_DATE);
+    cell.appendChild(circle);
+
+    return cell;
+  }
+
+  makeLeavingDateCell(cell, cellValue) {
+    const circle = document.createElement('div');
+    circle.innerHTML = cellValue;
+
+    circle.classList.add(this.CLASSES.PICKED_DATE);
+    cell.classList.add(this.CLASSES.LEAVING_DATE);
+    cell.appendChild(circle);
+  }
+
+  makeCurrentDateCell(cell, cellValue) {
+    const circle = document.createElement('div');
+    circle.innerHTML = cellValue;
+
+    circle.classList.add(this.CLASSES.CURRENT_DATE);
+    cell.appendChild(circle);
+  }
+
+  getMiddleDate() {
+    const middleDateMs = (this.arrivalDate.getTime() + (this.leavingDate.getTime() - this.arrivalDate.getTime()) / 2);
+    return new Date(middleDateMs);
+  }
+
+  areDatesTheSame(date1, date2) {
+    return date1
+        && date2
+        && date1.getFullYear() === date2.getFullYear()
         && date1.getMonth() === date2.getMonth()
         && date1.getDate() === date2.getDate();
   }
@@ -356,59 +295,72 @@ class Calendar extends Component {
     return this.areDatesTheSame(date, currentDate);
   }
 
-  isDayActive(day) {
+  isDateActive(day) {
     return !day.classList.contains(this.CLASSES.INACTIVE_DAY);
   }
 
-  dayShouldBeInactive(date) {
+  dateShouldBeInactive(date) {
     return date < new Date() || date.getMonth() !== this.monthDisplayed.getMonth();
   }
 
-  dayCanBePickedAsLeaving(date) {
-    if (this.dayShouldBeInactive(date)) return false;
-    if (this.isLeavingDate(date)) return false;
-    if (this.isArrivalDate(date)) return false;
-    if (this.isCurrentDate(date)) return false;
-
-    if (!this.arrivalDate) return false;
-    if (date < this.arrivalDate) return false;
-
-    if (this.datePicking === 'arrivalDate') return false;
-    if (this.datePicking === 'leavingDate' && date < this.arrivalDate) return false;
-
-    if (this.leavingDate) {
-      if (this.datePicking === '') {
-        const middleDateMs = (this.arrivalDate.getTime() + (this.leavingDate.getTime() - this.arrivalDate.getTime()) / 2);
-        const middleDate = new Date(middleDateMs);
-
-        if (date <= middleDate) return false;
-      }
-    }
-
+  dateCanBePickedAsLeaving(date) {
+    if (!this.dateCanBePicked(date)) return false;
+    if (this.currentlyPickingArrivalDate()) return false;
+    if (this.dateIsBeforeArrivalDate(date)) return false;
+    if (this.arrivalDateNeedsToBePicked()) return false;
+    if (this.middleDateShouldBeCalculated() && date <= this.getMiddleDate()) return false;
     return true;
   }
 
-  dayCanBePickedAsArrival(date) {
-    if (this.dayShouldBeInactive(date)) return false;
+  dateCanBePickedAsArrival(date) {
+    if (!this.dateCanBePicked(date)) return false;
+    if (this.currentlyPickingLeavingDate()) return false;
+    if (this.dateIsAfterLeavingDate(date)) return false;
+    if (this.leavingDateNeedsToBePicked()) return false;
+    if (this.middleDateShouldBeCalculated() && date > this.getMiddleDate()) return false;
+    return true;
+  }
+
+  dateCanBePicked(date) {
+    if (this.dateShouldBeInactive(date)) return false;
     if (this.isLeavingDate(date)) return false;
     if (this.isArrivalDate(date)) return false;
     if (this.isCurrentDate(date)) return false;
-
-    if (this.datePicking === 'leavingDate' && this.arrivalDate) return false;
-    if (this.leavingDate && date >= this.leavingDate) return false;
-
-    if (this.datePicking === '' && !this.leavingDate && this.arrivalDate) return false;
-
-    if (this.leavingDate) {
-      if (this.datePicking === '') {
-        const middleDateMs = (this.arrivalDate.getTime() + (this.leavingDate.getTime() - this.arrivalDate.getTime()) / 2);
-        const middleDate = new Date(middleDateMs);
-
-        if (date > middleDate) return false;
-      }
-    }
-
     return true;
+  }
+
+  currentlyPickingArrivalDate() {
+    return this.datePicking === 'arrivalDate';
+  }
+
+  currentlyPickingLeavingDate() {
+    return this.datePicking === 'leavingDate' && this.arrivalDate;
+  }
+
+  dateIsBeforeArrivalDate(date) {
+    return date < this.arrivalDate;
+  }
+
+  dateIsAfterLeavingDate(date) {
+    return this.leavingDate && date >= this.leavingDate;
+  }
+
+  dateIsBeforeCurrentDate(date) {
+    return date < new Date();
+  }
+
+  arrivalDateNeedsToBePicked() {
+    return !this.arrivalDate;
+  }
+
+  leavingDateNeedsToBePicked() {
+    return !this.leavingDate
+      && this.arrivalDate
+      && this.datePicking === '';
+  }
+
+  middleDateShouldBeCalculated() {
+    return this.leavingDate && this.datePicking === '';
   }
 }
 

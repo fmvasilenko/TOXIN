@@ -6,5 +6,8 @@
     "global-require": "off",
     "react/sort-comp": "off",
     "max-len": "off"
+  },
+  "env": {
+    "browser": true
   }
 }
