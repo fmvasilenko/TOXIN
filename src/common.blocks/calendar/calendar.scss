@@ -34,6 +34,11 @@
     user-select: none;
   }
 
+  &__arrow-inactive {
+    color: $darkShade25;
+    cursor: default;
+  }
+
   &__table-wrapper {
     width: 100%;
     margin-top: rem(30);

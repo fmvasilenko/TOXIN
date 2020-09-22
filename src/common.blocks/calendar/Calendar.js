@@ -40,6 +40,13 @@ class Calendar extends Component {
         value: new Date(),
         subscribers: [
           this.displayMonth.bind(this),
+          this.checkLeftArrow.bind(this),
+        ],
+      },
+      isLeftArrowActive: {
+        value: true,
+        subscribers: [
+          this.renderLeftArrow.bind(this),
         ],
       },
     };
@@ -64,10 +71,11 @@ class Calendar extends Component {
     const arrivalYear = this.arrivalDate ? this.arrivalDate.getFullYear() : null;
     const arrivalMonth = this.arrivalDate ? this.arrivalDate.getMonth() : null;
     this.displayMonth(arrivalYear, arrivalMonth);
+    this.checkLeftArrow();
   }
 
   clickHandler(event) {
-    if (this.leftArrowClicked(event)) this.leftArrowClickHandler();
+    if (this.leftArrowClicked(event) && this.isLeftArrowActive) this.leftArrowClickHandler();
     else if (this.rightArrowClicked(event)) this.rightArrowClickHandler();
     else if (this.tableContainerClicked(event)) this.tableContainerClickHandler(event);
     else if (this.clearButtonClicked(event)) this.clearButtonClickHandler();
@@ -121,6 +129,17 @@ class Calendar extends Component {
 
   submitButtonClickHandler() {
     this.calendarDisplayed = false;
+  }
+
+  checkLeftArrow() {
+    const previousMonth = new Date(this.monthDisplayed.getFullYear(), this.monthDisplayed.getMonth());
+    if (previousMonth < new Date()) this.isLeftArrowActive = false;
+    else this.isLeftArrowActive = true;
+  }
+
+  renderLeftArrow() {
+    if (this.isLeftArrowActive) this.leftArrow.classList.remove(this.CLASSES.ARROW_INACTIVE);
+    else this.leftArrow.classList.add(this.CLASSES.ARROW_INACTIVE);
   }
 
   displayMonth(givenYear, givenMonth) {
