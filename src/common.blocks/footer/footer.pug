@@ -22,7 +22,6 @@ mixin footer(customConfig = {})
           
         each column in columns
           .footer__column
-            nav
               each link in column
                 a.footer__link(href=link.link) #{link.title}
 
