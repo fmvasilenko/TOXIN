@@ -45,6 +45,14 @@ class Suite extends Component {
   setInitialState() {
     this.imagesNumber = this.DOM.DOTS.length - 1;
     this.imageDisplayed = this.imagesNumber;
+
+    if (this.imagesNumber === 0) {
+      this.DOM.LEFT_ARROW.remove();
+      this.DOM.RIGHT_ARROW.remove();
+      this.DOM.DOTS.forEach((dot) => {
+        dot.remove();
+      });
+    }
   }
 
   clickHandler(event) {
