@@ -134,4 +134,10 @@
     display: flex;
     justify-content: space-between;
   }
+
+  &__button {
+    &_hidden {
+      display: none;
+    }
+  }
 }

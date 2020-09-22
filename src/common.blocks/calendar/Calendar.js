@@ -6,7 +6,12 @@ class Calendar extends Component {
     super({ root, parent });
 
     this.setConsts();
-    this.setInitialState();
+    new Promise((resolve) => {
+      this.setInitialState();
+      resolve();
+    }).then(() => {
+      this.toggleClearButton();
+    });
   }
 
   setState() {
@@ -16,6 +21,7 @@ class Calendar extends Component {
         isGlobal: true,
         subscribers: [
           this.displayMonth.bind(this),
+          this.toggleClearButton.bind(this),
         ],
       },
       leavingDate: {
@@ -23,6 +29,7 @@ class Calendar extends Component {
         isGlobal: true,
         subscribers: [
           this.displayMonth.bind(this),
+          this.toggleClearButton.bind(this),
         ],
       },
       datePicking: {
@@ -65,8 +72,8 @@ class Calendar extends Component {
     this.title = this.root.querySelector(`.${this.CLASSES.TITLE}`);
     this.leftArrow = this.root.querySelector(`.${this.CLASSES.LEFT_ARROW}`);
     this.rightArrow = this.root.querySelector(`.${this.CLASSES.RIGHT_ARROW}`);
-    this.clearButton = this.root.querySelector(`.${this.CLASSES.CLEAR_BUTTON}`);
-    this.submitButton = this.root.querySelector(`.${this.CLASSES.SUBMIT_BUTTON}`);
+    this.clearButton = this.root.querySelector(`.${this.CLASSES.CLEAR_BUTTON} > button`);
+    this.submitButton = this.root.querySelector(`.${this.CLASSES.SUBMIT_BUTTON} > button`);
 
     const arrivalYear = this.arrivalDate ? this.arrivalDate.getFullYear() : null;
     const arrivalMonth = this.arrivalDate ? this.arrivalDate.getMonth() : null;
@@ -95,11 +102,11 @@ class Calendar extends Component {
   }
 
   clearButtonClicked(event) {
-    return event.target.closest(`.${this.CLASSES.CLEAR_BUTTON}`) === this.clearButton;
+    return event.target.closest(`.${this.CLASSES.CLEAR_BUTTON} > button`) === this.clearButton;
   }
 
   submitButtonClicked(event) {
-    return event.target.closest(`.${this.CLASSES.SUBMIT_BUTTON}`) === this.submitButton;
+    return event.target.closest(`.${this.CLASSES.SUBMIT_BUTTON} > button`) === this.submitButton;
   }
 
   leftArrowClickHandler() {
@@ -148,6 +155,12 @@ class Calendar extends Component {
 
     this.renderTable(year, month);
     this.changeTitle();
+  }
+
+  toggleClearButton() {
+    if (this.arrivalDate || this.leavingDate) {
+      this.root.querySelector(`.${this.CLASSES.CLEAR_BUTTON}`).appendChild(this.clearButton);
+    } else this.clearButton.remove();
   }
 
   changeTitle() {
