@@ -32,7 +32,7 @@ mixin donut-chart(customConfig = {})
         - const dashArray = `${pieceSize} ${100 - pieceSize}`
         - const dashOffset = defaultDashOffset - length
         - length += pieceSize + 1
-        if (value != 0)
+        if (value !== 0)
           circle(cx="17" cy="17" r="15.91549430918954" fill="transparent" stroke=color stroke-width="1" stroke-dasharray=dashArray stroke-dashoffset=dashOffset)
       
       g.donut-chart__total

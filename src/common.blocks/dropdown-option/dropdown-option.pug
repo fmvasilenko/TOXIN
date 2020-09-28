@@ -4,7 +4,7 @@ mixin dropdown-option(customConfig = {})
 
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - const { value, name, label, wordForms, countedSeparately } = config;
-  - const decreaseButtonDisabled = (value == 0);
+  - const decreaseButtonDisabled = (value === 0);
 
   li.dropdown-option.js-dropdown-option(data-word-forms=wordForms data-counted-separately=`${countedSeparately}`)
     h3 #{label}

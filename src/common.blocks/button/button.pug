@@ -7,11 +7,11 @@ mixin button(customConfig = {})
 
   - const buttonClass = `button ${classes[style]}`;
 
-  if buttonType == "link"
+  if buttonType === "link"
     a(class=buttonClass href=href) #{value}
-      if style == "sizeL"
+      if style === "sizeL"
         i.material-icons.button__arrow #{icon}
   else
     button(class=buttonClass type=buttonType disabled=disabled) #{value}
-      if style == "sizeL"
+      if style === "sizeL"
         i.material-icons.button__arrow #{icon}

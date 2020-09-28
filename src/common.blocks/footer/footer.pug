@@ -12,7 +12,7 @@ mixin footer(customConfig = {})
   - const { copyright, socials } = bottom;
 
   footer.footer
-    if type == "full"
+    if type === "full"
       .footer__inner-wrapper
         
         .footer__first-column
@@ -39,7 +39,7 @@ mixin footer(customConfig = {})
               a.footer__icon(href=icon.link target="_blank", rel="noopener noreferrer")
                 +socials(icon.name)
 
-    else if type == "light"
+    else if type === "light"
       .footer__inner-wrapper
         
         .footer__single-column
