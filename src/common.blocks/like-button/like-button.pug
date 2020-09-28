@@ -7,9 +7,9 @@ mixin like-button(customConfig = {})
   - const { value, name, liked, vocabulary } = config;
   - const { icon, iconLiked } = vocabulary;
 
-  - const buttonLikedClass = liked ? classes.ROOT_LIKED : "";
-  - const numberLikedClass = liked ? classes.INPUT_LIKED : "";
-  - const iconLikedClass = liked ? classes.ICON_LIKED : "";
+  - const buttonLikedClass = liked ? classes.ROOT_LIKED : '';
+  - const numberLikedClass = liked ? classes.INPUT_LIKED : '';
+  - const iconLikedClass = liked ? classes.ICON_LIKED : '';
   - const displayedIcon = liked ? iconLiked : icon;
 
   .like-button.js-like-button(class=buttonLikedClass) 

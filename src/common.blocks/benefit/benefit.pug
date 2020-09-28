@@ -5,8 +5,7 @@ mixin benefit(customConfig = {})
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - const { title, description, withBottomLine, icon } = config;
 
-  - let benefitClass = `benefit`;
-  - benefitClass += withBottomLine ? " benefit_with-bottom-line" : "";
+  - const benefitClass = withBottomLine ? 'benefit benefit_with-bottom-line' : 'benefit';
 
   div(class=benefitClass)
     i.material-icons.benefit__icon #{icon}
