@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 class Component {
   constructor(config = { root: null, parent: {} }) {
     this.root = config.root ? config.root : null;

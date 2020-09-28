@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 class ComponentView {
   constructor(controller = {}) {
     this.setState();

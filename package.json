@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack-dev-server --open --config ./build/webpack.dev.config.js",
     "build": "webpack --config ./build/webpack.build.config.js",
-    "postinstall": "link-module-alias"
+    "postinstall": "link-module-alias",
+    "lint": "eslint src/**/*.js"
   },
   "_moduleAliases": {
     "@backend": "src/js/backend",

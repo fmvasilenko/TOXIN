@@ -112,6 +112,7 @@ class Dropdown extends Component {
   clearButtonHandler() {
     if (this.DOM.CLEAR_BUTTON !== undefined) {
       this.options = this.options.map((option) => {
+        // eslint-disable-next-line no-param-reassign
         option.value = 0;
         return option;
       });

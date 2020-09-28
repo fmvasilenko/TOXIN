@@ -8,6 +8,7 @@
     "max-len": "off"
   },
   "env": {
-    "browser": true
+    "browser": true,
+    "jquery": true
   }
 }

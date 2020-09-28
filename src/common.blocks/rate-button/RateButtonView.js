@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import ComponentView from '@frontend/ComponentView';
 
 class RateButtonView extends ComponentView {

@@ -90,7 +90,7 @@ class DropdownOption extends Component {
   }
 
   updateOption(value, wordForm) {
-    const options = this.options;
+    const { options } = this;
     if (!options[this.INDEX]) options[this.INDEX] = {};
     options[this.INDEX].value = value;
     options[this.INDEX].wordForm = wordForm;
