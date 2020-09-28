@@ -16,6 +16,8 @@ block variables
   - const pageTitle = 'Search room'
   - const pageDescription = 'Searchroom'
   - const pageClass = 'searchroom'
+  - const data = require("./search-room.data.json");
+  - const { title, suites } = data;
 
 block header
   +header()
@@ -24,9 +26,6 @@ block sidebar
   +sidebar()
 
 block content
-  - const data = require("./search-room.data.json");
-  - const { title, suites } = data;
-
   h1.searchroom__title #{title}
   .searchroom__suites
     each suite in suites

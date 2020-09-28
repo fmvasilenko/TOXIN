@@ -5,7 +5,7 @@ mixin button(customConfig = {})
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - const { value, type: buttonType, style, href, disabled, icon, classes } = config;
 
-  - let buttonClass = `button ${classes[style]}`;
+  - const buttonClass = `button ${classes[style]}`;
 
   if buttonType == "link"
     a(class=buttonClass href=href) #{value}

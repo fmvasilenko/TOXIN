@@ -1,6 +1,6 @@
 mixin type(title, description, isUpperCase = false, hasPadding = false)
-  - let titleClass = isUpperCase ? "type__title_uppercase" : "";
-  - let descriptionClass = hasPadding ? "" : "type__description_no-padding";
+  - const titleClass = isUpperCase ? "type__title_uppercase" : "";
+  - const descriptionClass = hasPadding ? "" : "type__description_no-padding";
 
   .type
     case title

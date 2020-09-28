@@ -12,6 +12,11 @@ block variables
   - const pageTitle = 'Room details';
   - const pageDescription = 'Room details';
   - const pageClass = '';
+  - const data = require("./room-details.data.json");
+  - const { gallery, information, chart, feedbacks, bullets, cancellation, receipt } = data;
+  - const coverPhotoAlt = gallery.coverPhoto.alt || gallery.coverPhoto.src;
+  - const miniImage1Alt = gallery.miniImages[0].alt || gallery.miniImages[0].src;
+  - const miniImage2Alt = gallery.miniImages[1].alt || gallery.miniImages[1].src;
 
 block styles
   link(rel="stylesheet" href="assets/css/roomDetails.css")
@@ -26,12 +31,6 @@ block footer
   +footer()
 
 block content
-  - const data = require("./room-details.data.json");
-  - const { gallery, information, chart, feedbacks, bullets, cancellation, receipt } = data;
-  - const coverPhotoAlt = gallery.coverPhoto.alt || gallery.coverPhoto.src;
-  - const miniImage1Alt = gallery.miniImages[0].alt || gallery.miniImages[0].src;
-  - const miniImage2Alt = gallery.miniImages[1].alt || gallery.miniImages[1].src;
-
   .room-details
     .room-details__gallery
       .room-details__cover-wrapper
