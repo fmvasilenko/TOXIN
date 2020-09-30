@@ -5,7 +5,8 @@
     "import/no-extraneous-dependencies": "off",
     "global-require": "off",
     "react/sort-comp": "off",
-    "max-len": "off"
+    "max-len": "off",
+    "no-new": "off"
   },
   "env": {
     "browser": true,
