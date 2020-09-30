@@ -30,7 +30,7 @@ module.exports = {
   output: {
     filename: `${PATHS.assets}js/[name].js`,
     path: PATHS.dist,
-    publicPath: '/TOXIN/dist/',
+    publicPath: '/TOXIN/',
   },
   module: {
     rules: [{

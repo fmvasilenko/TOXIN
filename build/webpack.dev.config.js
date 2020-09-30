@@ -7,7 +7,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devtool: 'cheap-module-eval-source-map',
   devServer: {
     contentBase: baseWebpackConfig.externals.paths.dist,
-    contentBasePublicPath: '/TOXIN/dist',
+    contentBasePublicPath: '/TOXIN',
     publicPath: '/',
     port: 8081,
     overlay: true,
