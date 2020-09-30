@@ -111,6 +111,3 @@ will delegate this event to children by calling their `clickHandler()`.
 
 ### this.closers
 `this.closers` contains functions that will be called when click event happend out of the element.
-
-
-## git test

@@ -13,7 +13,7 @@ class CardsController extends Component {
     this.children = [
       new SearchForm(this.root.querySelector('.js-search-form'), this),
       new Receipt(this.root.querySelector('.js-receipt'), this),
-      new Calendar(this.root.querySelector('.js-cards__calendar').querySelector('.js-calendar'), this),
+      // new Calendar(this.root.querySelector('.js-cards__calendar').querySelector('.js-calendar'), this),
     ];
     const suites = this.initSuite();
 

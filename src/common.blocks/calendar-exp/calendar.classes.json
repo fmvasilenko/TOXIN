@@ -1,0 +1,8 @@
+{
+  "calendar": "calendar",
+  "header": "calendar__header",
+  "title": "calendar__title",
+  "leftArrow": "calendar__left-arrow",
+  "rightArrow": "calendar__right-arrow",
+  "materialIcons": "material-icons"
+}
