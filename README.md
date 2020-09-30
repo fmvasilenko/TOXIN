@@ -33,15 +33,15 @@ After installing all needed modules run `npm run postinstall` to put the links b
 <a name="githubPages"></a>
 
 ## 2. Github pages
-1. [Colors & Types](https://fmvasilenko.github.io/TOXIN/dist/colors)
-2. [Form Elements](https://fmvasilenko.github.io/TOXIN/dist/form-elements)
-3. [Cards](https://fmvasilenko.github.io/TOXIN/dist/cards)
-4. [Headers & Footers](https://fmvasilenko.github.io/TOXIN/dist/headers)
-5. [Landing page](https://fmvasilenko.github.io/TOXIN/dist/landing)
-6. [Search room](https://fmvasilenko.github.io/TOXIN/dist/search-room)
-7. [Room details](https://fmvasilenko.github.io/TOXIN/dist/room-details)
-8. [Registration](https://fmvasilenko.github.io/TOXIN/dist/registration)
-9. [Login](https://fmvasilenko.github.io/TOXIN/dist/login)
+1. [Colors & Types](https://fmvasilenko.github.io/TOXIN/colors)
+2. [Form Elements](https://fmvasilenko.github.io/TOXIN/form-elements)
+3. [Cards](https://fmvasilenko.github.io/TOXIN/cards)
+4. [Headers & Footers](https://fmvasilenko.github.io/TOXIN/headers)
+5. [Landing page](https://fmvasilenko.github.io/TOXIN/landing)
+6. [Search room](https://fmvasilenko.github.io/TOXIN/search-room)
+7. [Room details](https://fmvasilenko.github.io/TOXIN/room-details)
+8. [Registration](https://fmvasilenko.github.io/TOXIN/registration)
+9. [Login](https://fmvasilenko.github.io/TOXIN/login)
 
 <a name="architecture"></a>
 
