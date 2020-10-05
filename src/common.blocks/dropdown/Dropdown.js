@@ -1,126 +1,41 @@
-import Component from '@frontend/Component';
-import DropdownModel from './DropdownModel';
-import DropdownView from './DropdownView';
-import DropdownOption from '../dropdown-option/DropdownOption';
-
-class Dropdown extends Component {
-  constructor(root, parent) {
-    super({ root, parent });
-
-    this.setDOM();
-    this.setVocabulary();
-    this.setInitialState();
-
-    this.MODEL = new DropdownModel(this);
-    this.VIEW = new DropdownView(this);
+class Dropdown {
+  constructor(container) {
+    this.classes = require('./dropdown.classes.json');
+    this.DOM = this.findDOMNodes(container);
+    this.state = this.getInitialState();
+    this.bindEventListeners();
   }
 
-  setState() {
-    this.state = {
-      options: {
-        value: [],
-      },
-      optionValues: {
-        value: [],
-      },
-      optionWordForms: {
-        value: [],
-      },
-      expanded: {
-        value: false,
-      },
-      displayType: {
-        value: 'total',
-      },
-      optionsSum: {
-        value: 0,
-      },
-      wordForm: {},
+  findDOMNodes(container) {
+    return {
+      field: container.querySelector(`.${this.classes.field}`),
+      list: container.querySelector(`.${this.classes.list}`),
     };
   }
 
-  setClosers() {
-    this.closers = [
-      this.closeList.bind(this),
-    ];
-  }
-
-  setConsts() {
-    this.setDOM();
-    this.setVocabulary();
-  }
-
-  setClasses() {
-    this.CLASSES = {
-      OPTION: 'js-dropdown-option',
-      FIELD: 'js-dropdown__field',
-      FIELD_DROPPED: 'dropdown__field_dropped',
-      ICON: 'js-dropdown__expand-more',
-      INPUT: 'js-dropdown__field-input',
-      LIST: 'js-dropdown__list',
-      LIST_DROPPPED: 'dropdown__list_dropped',
-      CLEAR_BUTTON: 'js-dropdown__button-wrapper[data-button-type="clearButton"]',
-      SUBMIT_BUTTON: 'js-dropdown__button-wrapper[data-button-type="submitButton"]',
-      BUTTON_HIDDEN: 'button_hidden',
+  getInitialState() {
+    return {
+      listDropped: false,
     };
   }
 
-  setDOM() {
-    this.DOM = {
-      FIELD: this.root.querySelector(`.${this.CLASSES.FIELD}`),
-      ICON: this.root.querySelector(`.${this.CLASSES.ICON}`),
-      INPUT: this.root.querySelector(`.${this.CLASSES.INPUT}`),
-      LIST: this.root.querySelector(`.${this.CLASSES.LIST}`),
-      CLEAR_BUTTON: this.root.querySelector(`.${this.CLASSES.CLEAR_BUTTON}`).querySelector('button'),
-      SUBMIT_BUTTON: this.root.querySelector(`.${this.CLASSES.SUBMIT_BUTTON}`).querySelector('button'),
-    };
+  bindEventListeners() {
+    this.DOM.field.addEventListener('click', this.clickHandler.bind(this));
   }
 
-  setVocabulary() {
-    let forms = this.DOM.INPUT.dataset.wordForms || null;
-    forms = forms ? forms.split(',') : null;
-
-    this.VOCABULARY = {
-      WORD_FORMS: forms,
-      DEFAULT_VALUE: this.DOM.INPUT.value,
-    };
+  clickHandler() {
+    this.state.listDropped = !this.state.listDropped;
+    this.toggleList();
   }
 
-  setChildren() {
-    this.children = [];
-    const options = this.root.querySelectorAll(`.${this.CLASSES.OPTION}`);
-
-    options.forEach((option, index) => {
-      this.children[index] = new DropdownOption(option, this, index);
-    });
-  }
-
-  setInitialState() {
-    this.displayType = this.root.dataset.displayType || 'total';
-  }
-
-  clickHandler(event) {
-    if (event.target.closest(`.${this.CLASSES.FIELD}`) === this.DOM.FIELD) {
-      this.expanded = !this.expanded;
-    } else if (event.target.closest(`.${this.CLASSES.CLEAR_BUTTON}`) === this.DOM.CLEAR_BUTTON.parentNode) {
-      this.clearButtonHandler();
-    } else if (event.target.closest(`.${this.CLASSES.SUBMIT_BUTTON}`) === this.DOM.SUBMIT_BUTTON.parentNode) {
-      this.expanded = false;
+  toggleList() {
+    if (this.state.listDropped) {
+      this.DOM.field.classList.add(this.classes.fieldDropped);
+      this.DOM.list.classList.add(this.classes.listDropped);
+    } else {
+      this.DOM.field.classList.remove(this.classes.fieldDropped);
+      this.DOM.list.classList.remove(this.classes.listDropped);
     }
-  }
-
-  clearButtonHandler() {
-    if (this.DOM.CLEAR_BUTTON !== undefined) {
-      this.options = this.options.map((option) => {
-        // eslint-disable-next-line no-param-reassign
-        option.value = 0;
-        return option;
-      });
-    }
-  }
-
-  closeList() {
-    this.expanded = false;
   }
 }
 

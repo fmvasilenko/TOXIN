@@ -1,0 +1,6 @@
+{
+  "field": "js-dropdown__field",
+  "fieldDropped": "dropdown__field_dropped",
+  "list": "js-dropdown__list",
+  "listDropped": "dropdown__list_dropped"
+}
