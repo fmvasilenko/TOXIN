@@ -20,7 +20,8 @@ mixin dropdown(customConfig = {})
     ul.dropdown__list.js-dropdown__list
       if options
         each option in options
-          +dropdown-option(option)
+          .dropdown__option-container
+            +dropdown-option(option)
 
       .dropdown__submit-area(class=submitAreaClass)
         .dropdown__button-wrapper.js-dropdown__button-wrapper(data-button-type="clearButton")

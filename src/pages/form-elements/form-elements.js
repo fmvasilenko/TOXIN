@@ -1,9 +1,8 @@
 import '../../scss/main.scss';
-import '../../common.blocks/like-button/LikeButton';
 import LikeButton from '../../common.blocks/like-button/LikeButton';
 import RateButton from '../../common.blocks/rate-button/RateButton';
 import ExpandableCheckboxList from '../../common.blocks/expandable-checkbox-list/ExpandableCheckboxList';
-import DropDown from '../../common.blocks/dropdown/Dropdown';
+import Dropdown from '../../common.blocks/dropdown/Dropdown';
 // import FormElementsController from './FormElementsController';
 
 const blocksStyles = require.context('../../common.blocks/', true, /\.scss/);
@@ -23,5 +22,7 @@ console.log(new RateButton(rateButtonContainer));
 const expandableChecboxList = document.querySelector('.form-elements__expandable-checkbox-list');
 console.log(new ExpandableCheckboxList(expandableChecboxList));
 
-const dropDown = document.querySelector('.form-elements__dropdown');
-console.log(new DropDown(dropDown));
+const dropDown = document.querySelectorAll('.form-elements__dropdown');
+dropDown.forEach((item) => {
+  console.log(new Dropdown(item));
+});
