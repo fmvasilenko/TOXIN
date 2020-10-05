@@ -1,63 +1,44 @@
-import Component from '@frontend/Component';
-
-class ExpandableCheckboxList extends Component {
-  constructor(root, parent = {}) {
-    super({ root, parent });
-
-    this.CLASSES = require('./expandable-checkbox-list.classes');
-    this.DOM = this.setDOM();
-
-    this.setInitialState();
+class ExpandableCheckboxList {
+  constructor(container) {
+    this.classes = require('./expandable-checkbox-list.classes.json');
+    this.container = container;
+    this.DOM = this.findDOMNodes();
+    this.state = this.getInitialState();
+    this.bindEventListeners();
+    this.render();
   }
 
-  setState() {
-    this.state = {
-      expanded: {
-        value: false,
-        subscribers: [
-          this.toggleList.bind(this),
-        ],
-      },
-    };
-  }
-
-  setDOM() {
+  findDOMNodes() {
     return {
-      FIELD: this.root.querySelector(`.${this.CLASSES.FIELD}`),
-      TITLE: this.root.querySelector(`.${this.CLASSES.TITLE}`),
-      ICON: this.root.querySelector(`.${this.CLASSES.ICON}`),
-      LIST: this.root.querySelector(`.${this.CLASSES.LIST}`),
+      field: this.container.querySelector(`.${this.classes.field}`),
+      icon: this.container.querySelector(`.${this.classes.icon}`),
+      list: this.container.querySelector(`.${this.classes.list}`),
     };
   }
 
-  setInitialState() {
-    this.expanded = this.DOM.ICON.classList.contains(this.CLASSES.ICON_EXPANDED);
-    this.toggleList();
+  getInitialState() {
+    return {
+      listExpanded: this.DOM.icon.classList.contains(this.classes.icon_expanded),
+    };
   }
 
-  clickHandler(event) {
-    if (this.fieldClicked(event)) {
-      this.expanded = !this.expanded;
+  bindEventListeners() {
+    this.DOM.field.addEventListener('click', this.clickHandler.bind(this));
+  }
+
+  clickHandler() {
+    this.state.listExpanded = !this.state.listExpanded;
+    this.render();
+  }
+
+  render() {
+    if (this.state.listExpanded) {
+      $(this.DOM.list).slideDown();
+      this.DOM.icon.classList.add(this.classes.icon_expanded);
+    } else {
+      $(this.DOM.list).slideUp();
+      this.DOM.icon.classList.remove(this.classes.icon_expanded);
     }
-  }
-
-  fieldClicked(event) {
-    return event.target.closest(`.${this.CLASSES.FIELD}`) === this.DOM.FIELD;
-  }
-
-  toggleList() {
-    if (this.expanded) this.expand();
-    else this.shrink();
-  }
-
-  expand() {
-    $(this.DOM.LIST).slideDown();
-    this.DOM.ICON.classList.add(this.CLASSES.ICON_EXPANDED);
-  }
-
-  shrink() {
-    $(this.DOM.LIST).slideUp();
-    this.DOM.ICON.classList.remove(this.CLASSES.ICON_EXPANDED);
   }
 }
 
