@@ -1,58 +1,57 @@
-import Component from '@frontend/Component';
-import LikeButtonView from './LikeButtonView';
-
-class LikeButton extends Component {
-  constructor(root, parent = {}) {
-    super({ root, parent });
-
-    this.CLASSES = require('./like-button.classes');
-    this.DOM = this.getDOM();
-
-    this.setInitialState();
-    this.VIEW = new LikeButtonView(this);
+class LikeButton {
+  constructor(container, likesNumberOnChangeFunction = () => {}) {
+    this.classes = require('./like-button.classes.json');
+    this.vocabulary = require('./like-button.config.json').vocabulary;
+    this.DOM = this.findDOMNodes(container);
+    this.state = this.getInitialState();
+    this.likesNumberOnChangeFunction = likesNumberOnChangeFunction;
+    this.bindEventListeners();
   }
 
-  setState() {
-    this.state = {
-      liked: {
-        value: false,
-        subscribers: [],
-      },
-      likesNumber: {
-        value: 0,
-        subscribers: [],
-      },
-    };
-  }
-
-  getDOM() {
+  findDOMNodes(container) {
     return {
-      ICON: this.root.querySelector(`.${this.CLASSES.ICON}`),
-      INPUT: this.root.querySelector(`.${this.CLASSES.INPUT}`),
+      root: container.querySelector(`.${this.classes.root}`),
+      icon: container.querySelector(`.${this.classes.icon}`),
+      input: container.querySelector(`.${this.classes.input}`),
     };
   }
 
-  setInitialState() {
-    this.likesNumber = parseInt(this.DOM.INPUT.value, 10);
+  getInitialState() {
+    return {
+      likesNumber: parseInt(this.DOM.input.value, 10),
+      isLiked: this.DOM.root.classList.contains(this.classes.root_liked),
+    };
+  }
 
-    if (this.root.classList.contains(this.CLASSES.ROOT_LIKED)) {
-      this.liked = true;
-    }
+  bindEventListeners() {
+    this.DOM.root.addEventListener('click', this.clickHandler.bind(this));
   }
 
   clickHandler() {
-    if (this.liked) this.decreaseNumber();
-    else this.increaseNumber();
-
-    this.liked = !this.liked;
+    this.state.isLiked = !this.state.isLiked;
+    this.changeLikesNumber();
+    this.render();
   }
 
-  increaseNumber() {
-    this.likesNumber += 1;
+  changeLikesNumber() {
+    if (this.state.isLiked) this.state.likesNumber += 1;
+    else if (this.state.likesNumber > 0) this.state.likesNumber -= 1;
+    this.likesNumberOnChangeFunction(this.state.likesNumber);
   }
 
-  decreaseNumber() {
-    if (this.likesNumber > 0) this.likesNumber -= 1;
+  render() {
+    if (this.state.isLiked) {
+      this.DOM.root.classList.add(this.classes.root_liked);
+      this.DOM.icon.classList.add(this.classes.icon_liked);
+      this.DOM.input.classList.add(this.classes.input_liked);
+      this.DOM.icon.innerHTML = this.vocabulary.iconLiked;
+    } else {
+      this.DOM.root.classList.remove(this.classes.root_liked);
+      this.DOM.icon.classList.remove(this.classes.icon_liked);
+      this.DOM.input.classList.remove(this.classes.input_liked);
+      this.DOM.icon.innerHTML = this.vocabulary.icon;
+    }
+    this.DOM.input.value = this.state.likesNumber;
   }
 }
 
