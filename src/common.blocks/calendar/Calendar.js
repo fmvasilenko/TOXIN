@@ -1,204 +1,144 @@
 /* eslint-disable class-methods-use-this */
-import Component from '../../js/frontend/Component';
-
-class Calendar extends Component {
-  constructor(root, parent = {}) {
-    super({ root, parent });
-
-    this.setConsts();
-    new Promise((resolve) => {
-      this.setInitialState();
-      resolve();
-    }).then(() => {
-      this.toggleClearButton();
-    });
+class Calendar {
+  constructor(container) {
+    this.classes = require('./calendar.classes.json');
+    this.vocabulary = require('./calendar.config.json').vocabulary;
+    this.DOM = this.findDOMNodes(container);
+    this.state = this.getInitialState();
+    this.displayMonth();
+    this.checkLeftArrow();
+    this.bindEventListeners();
   }
 
-  setState() {
-    this.state = {
-      arrivalDate: {
-        value: null,
-        isGlobal: true,
-        subscribers: [
-          this.displayMonth.bind(this),
-          this.toggleClearButton.bind(this),
-        ],
-      },
-      leavingDate: {
-        value: null,
-        isGlobal: true,
-        subscribers: [
-          this.displayMonth.bind(this),
-          this.toggleClearButton.bind(this),
-        ],
-      },
-      datePicking: {
-        value: '',
-        isGlobal: true,
-        subscribers: [
-          this.displayMonth.bind(this),
-        ],
-      },
-      calendarDisplayed: {
-        value: false,
-        isGlobal: true,
-      },
-      monthDisplayed: {
-        value: new Date(),
-        subscribers: [
-          this.displayMonth.bind(this),
-          this.checkLeftArrow.bind(this),
-        ],
-      },
-      isLeftArrowActive: {
-        value: true,
-        subscribers: [
-          this.renderLeftArrow.bind(this),
-        ],
-      },
+  findDOMNodes(container) {
+    return {
+      root: container.querySelector(`.${this.classes.root}`),
+      title: container.querySelector(`.${this.classes.title}`),
+      leftArrow: container.querySelector(`.${this.classes.leftArrow}`),
+      rightArrow: container.querySelector(`.${this.classes.rightArrow}`),
+      tableContainer: container.querySelector(`.${this.classes.tableContainer}`),
+      clearButton: container.querySelector(`.${this.classes.clearButton} > button`),
+      submitButton: container.querySelector(`.${this.classes.submitButton} > button`),
     };
   }
 
-  setClasses() {
-    this.CLASSES = require('./calendar.classes.json');
+  getInitialState() {
+    return {
+      monthDisplayed: new Date(),
+      arrivalDate: null,
+      leavingDate: null,
+      datePicking: '',
+      isLeftArrowActive: true,
+      calendarDisplayed: false,
+    };
   }
 
-  setConsts() {
-    this.VOCABULARY = require('./calendar.config.json').vocabulary;
-  }
-
-  setInitialState() {
-    this.tableContainer = this.root.querySelector(`.${this.CLASSES.TABLE_CONTAINER}`);
-    this.title = this.root.querySelector(`.${this.CLASSES.TITLE}`);
-    this.leftArrow = this.root.querySelector(`.${this.CLASSES.LEFT_ARROW}`);
-    this.rightArrow = this.root.querySelector(`.${this.CLASSES.RIGHT_ARROW}`);
-    this.clearButton = this.root.querySelector(`.${this.CLASSES.CLEAR_BUTTON} > button`);
-    this.submitButton = this.root.querySelector(`.${this.CLASSES.SUBMIT_BUTTON} > button`);
-
-    const arrivalYear = this.arrivalDate ? this.arrivalDate.getFullYear() : null;
-    const arrivalMonth = this.arrivalDate ? this.arrivalDate.getMonth() : null;
-    this.displayMonth(arrivalYear, arrivalMonth);
-    this.checkLeftArrow();
-  }
-
-  clickHandler(event) {
-    if (this.leftArrowClicked(event) && this.isLeftArrowActive) this.leftArrowClickHandler();
-    else if (this.rightArrowClicked(event)) this.rightArrowClickHandler();
-    else if (this.tableContainerClicked(event)) this.tableContainerClickHandler(event);
-    else if (this.clearButtonClicked(event)) this.clearButtonClickHandler();
-    else if (this.submitButtonClicked(event)) this.submitButtonClickHandler();
-  }
-
-  leftArrowClicked(event) {
-    return event.target.closest(`.${this.CLASSES.LEFT_ARROW}`) === this.leftArrow;
-  }
-
-  rightArrowClicked(event) {
-    return event.target.closest(`.${this.CLASSES.RIGHT_ARROW}`) === this.rightArrow;
-  }
-
-  tableContainerClicked(event) {
-    return event.target.closest(`.${this.CLASSES.TABLE_CONTAINER}`) === this.tableContainer;
-  }
-
-  clearButtonClicked(event) {
-    return event.target.closest(`.${this.CLASSES.CLEAR_BUTTON} > button`) === this.clearButton;
-  }
-
-  submitButtonClicked(event) {
-    return event.target.closest(`.${this.CLASSES.SUBMIT_BUTTON} > button`) === this.submitButton;
+  bindEventListeners() {
+    this.DOM.leftArrow.addEventListener('click', this.leftArrowClickHandler.bind(this));
+    this.DOM.rightArrow.addEventListener('click', this.rightArrowClickHandler.bind(this));
+    this.DOM.tableContainer.addEventListener('click', this.tableContainerClickHandler.bind(this));
+    this.DOM.clearButton.addEventListener('click', this.clearButtonClickHandler.bind(this));
+    this.DOM.submitButton.addEventListener('click', this.submitButtonClickHandler.bind(this));
   }
 
   leftArrowClickHandler() {
-    this.monthDisplayed = new Date(this.monthDisplayed.getFullYear(), this.monthDisplayed.getMonth() - 1);
+    if (this.state.isLeftArrowActive) {
+      this.state.monthDisplayed = new Date(this.state.monthDisplayed.getFullYear(), this.state.monthDisplayed.getMonth() - 1);
+      this.checkLeftArrow();
+      this.displayMonth();
+    }
   }
 
   rightArrowClickHandler() {
-    this.monthDisplayed = new Date(this.monthDisplayed.getFullYear(), this.monthDisplayed.getMonth() + 1);
+    this.state.monthDisplayed = new Date(this.state.monthDisplayed.getFullYear(), this.state.monthDisplayed.getMonth() + 1);
+    this.checkLeftArrow();
+    this.displayMonth();
   }
 
   tableContainerClickHandler(event) {
-    if (!event.target.classList.contains(this.CLASSES.CELL)) return;
+    if (!event.target.classList.contains(this.classes.cell)) return;
     if (!this.isDateActive(event.target)) return;
 
     const cellValue = parseInt(event.target.textContent, 10);
-    const date = new Date(this.monthDisplayed.getFullYear(), this.monthDisplayed.getMonth(), cellValue);
+    const date = new Date(this.state.monthDisplayed.getFullYear(), this.state.monthDisplayed.getMonth(), cellValue);
 
-    if (!this.arrivalDate || this.datePicking === 'arrivalDate') this.pickArrivalDate(date);
-    else if (!this.leavingDate || this.datePicking === 'leavingDate') this.pickLeavingDate(date);
+    if (!this.state.arrivalDate || this.state.datePicking === 'arrivalDate') this.pickArrivalDate(date);
+    else if (!this.state.leavingDate || this.state.datePicking === 'leavingDate') this.pickLeavingDate(date);
     else this.changeDates(date);
+
+    this.displayMonth();
   }
 
   clearButtonClickHandler() {
-    this.leavingDate = null;
-    this.arrivalDate = null;
+    this.state.leavingDate = null;
+    this.state.arrivalDate = null;
+    this.displayMonth();
   }
 
   submitButtonClickHandler() {
-    this.calendarDisplayed = false;
+    this.state.calendarDisplayed = false;
   }
 
   checkLeftArrow() {
-    const previousMonth = new Date(this.monthDisplayed.getFullYear(), this.monthDisplayed.getMonth());
-    if (previousMonth < new Date()) this.isLeftArrowActive = false;
-    else this.isLeftArrowActive = true;
-  }
+    const previousMonth = new Date(this.state.monthDisplayed.getFullYear(), this.state.monthDisplayed.getMonth());
+    if (previousMonth < new Date()) this.state.isLeftArrowActive = false;
+    else this.state.isLeftArrowActive = true;
 
-  renderLeftArrow() {
-    if (this.isLeftArrowActive) this.leftArrow.classList.remove(this.CLASSES.ARROW_INACTIVE);
-    else this.leftArrow.classList.add(this.CLASSES.ARROW_INACTIVE);
-  }
-
-  displayMonth(givenYear, givenMonth) {
-    const month = givenMonth || this.monthDisplayed.getMonth();
-    const year = givenYear || this.monthDisplayed.getFullYear();
-
-    this.renderTable(year, month);
-    this.changeTitle();
-  }
-
-  toggleClearButton() {
-    if (this.arrivalDate || this.leavingDate) {
-      this.root.querySelector(`.${this.CLASSES.CLEAR_BUTTON}`).appendChild(this.clearButton);
-    } else this.clearButton.remove();
-  }
-
-  changeTitle() {
-    const monthName = this.VOCABULARY.MONTHS[this.monthDisplayed.getMonth()];
-    const year = this.monthDisplayed.getFullYear();
-
-    this.title.innerHTML = `${monthName} ${year}`;
+    if (this.state.isLeftArrowActive) this.DOM.leftArrow.classList.remove(this.classes.arrowInactive);
+    else this.DOM.leftArrow.classList.add(this.classes.arrowInactive);
   }
 
   pickArrivalDate(date) {
     if (this.dateIsBeforeCurrentDate(date)) return;
     if (this.dateIsAfterLeavingDate(date)) return;
 
-    this.arrivalDate = date;
-    this.datePicking = '';
+    this.state.arrivalDate = date;
+    this.state.datePicking = '';
   }
 
   pickLeavingDate(date) {
     if (this.dateIsBeforeArrivalDate(date)) return;
 
-    this.leavingDate = date;
-    this.datePicking = '';
+    this.state.leavingDate = date;
+    this.state.datePicking = '';
   }
 
   changeDates(date) {
     if (this.dateIsBeforeCurrentDate(date)) return;
 
-    if (this.dateIsBeforeArrivalDate(date)) this.arrivalDate = date;
-    else if (this.dateIsAfterLeavingDate(date)) this.leavingDate = date;
-    else if (date > this.getMiddleDate()) this.leavingDate = date;
-    else this.arrivalDate = date;
+    if (this.dateIsBeforeArrivalDate(date)) this.state.arrivalDate = date;
+    else if (this.dateIsAfterLeavingDate(date)) this.state.leavingDate = date;
+    else if (date > this.getMiddleDate()) this.state.leavingDate = date;
+    else this.state.arrivalDate = date;
+  }
+
+  displayMonth(givenYear, givenMonth) {
+    const month = givenMonth || this.state.monthDisplayed.getMonth();
+    const year = givenYear || this.state.monthDisplayed.getFullYear();
+
+    this.changeTitle();
+    this.toggleClearButton();
+    this.renderTable(year, month);
+  }
+
+  changeTitle() {
+    const monthName = this.vocabulary.months[this.state.monthDisplayed.getMonth()];
+    const year = this.state.monthDisplayed.getFullYear();
+
+    this.DOM.title.innerHTML = `${monthName} ${year}`;
+  }
+
+  toggleClearButton() {
+    if (this.state.arrivalDate || this.state.leavingDate) {
+      this.DOM.root.querySelector(`.${this.classes.clearButton}`).appendChild(this.DOM.clearButton);
+    } else this.DOM.clearButton.remove();
   }
 
   renderTable(year = 0, month = 0) {
     const date = new Date(year, month);
 
     const table = document.createElement('table');
-    table.classList.add(this.CLASSES.TABLE);
+    table.classList.add(this.classes.table);
 
     /*
       The following construction is needed because Date object has
@@ -221,8 +161,8 @@ class Calendar extends Component {
       table.appendChild(row);
     }
 
-    this.tableContainer.innerHTML = '';
-    this.tableContainer.appendChild(table);
+    this.DOM.tableContainer.innerHTML = '';
+    this.DOM.tableContainer.appendChild(table);
   }
 
   createTableHeader() {
@@ -230,8 +170,8 @@ class Calendar extends Component {
 
     for (let i = 0; i < 7; i += 1) {
       const cell = document.createElement('th');
-      cell.classList.add(this.CLASSES.DAY_NAME);
-      cell.innerHTML = this.VOCABULARY.WEEKDAYS[i];
+      cell.classList.add(this.classes.dayName);
+      cell.innerHTML = this.vocabulary.weekDays[i];
       header.appendChild(cell);
     }
 
@@ -253,12 +193,12 @@ class Calendar extends Component {
     const cellValue = date.getDate();
 
     const cell = document.createElement('td');
-    cell.classList.add(this.CLASSES.CELL);
+    cell.classList.add(this.classes.cell);
 
-    if (this.isDateBetween(date)) cell.classList.add(this.CLASSES.DATE_BETWEEN);
-    if (this.dateShouldBeInactive(date)) cell.classList.add(this.CLASSES.INACTIVE_DAY);
-    if (this.dateCanBePickedAsArrival(date)) cell.classList.add(this.CLASSES.PICKING_ARRIVAL_DATE);
-    if (this.dateCanBePickedAsLeaving(date)) cell.classList.add(this.CLASSES.PICKING_LEAVING_DATE);
+    if (this.isDateBetween(date)) cell.classList.add(this.classes.dateBetween);
+    if (this.dateShouldBeInactive(date)) cell.classList.add(this.classes.inactiveDate);
+    if (this.dateCanBePickedAsArrival(date)) cell.classList.add(this.classes.pickingArrivalDate);
+    if (this.dateCanBePickedAsLeaving(date)) cell.classList.add(this.classes.pickingLeavingDate);
 
     if (this.isArrivalDate(date)) this.makeArrivalDateCell(cell, cellValue);
     else if (this.isLeavingDate(date)) this.makeLeavingDateCell(cell, cellValue);
@@ -272,8 +212,8 @@ class Calendar extends Component {
     const circle = document.createElement('div');
     circle.innerHTML = cellValue;
 
-    circle.classList.add(this.CLASSES.PICKED_DATE);
-    cell.classList.add(this.CLASSES.ARRIVAL_DATE);
+    circle.classList.add(this.classes.pickedDate);
+    cell.classList.add(this.classes.arrivalDate);
     cell.appendChild(circle);
 
     return cell;
@@ -283,8 +223,8 @@ class Calendar extends Component {
     const circle = document.createElement('div');
     circle.innerHTML = cellValue;
 
-    circle.classList.add(this.CLASSES.PICKED_DATE);
-    cell.classList.add(this.CLASSES.LEAVING_DATE);
+    circle.classList.add(this.classes.pickedDate);
+    cell.classList.add(this.classes.leavingDate);
     cell.appendChild(circle);
   }
 
@@ -292,56 +232,22 @@ class Calendar extends Component {
     const circle = document.createElement('div');
     circle.innerHTML = cellValue;
 
-    circle.classList.add(this.CLASSES.CURRENT_DATE);
+    circle.classList.add(this.classes.currentDate);
     cell.appendChild(circle);
   }
 
   getMiddleDate() {
-    const middleDateMs = (this.arrivalDate.getTime() + (this.leavingDate.getTime() - this.arrivalDate.getTime()) / 2);
+    const middleDateMs = (this.state.arrivalDate.getTime() + (this.state.leavingDate.getTime() - this.state.arrivalDate.getTime()) / 2);
     return new Date(middleDateMs);
   }
 
-  areDatesTheSame(date1, date2) {
-    return date1
-        && date2
-        && date1.getFullYear() === date2.getFullYear()
-        && date1.getMonth() === date2.getMonth()
-        && date1.getDate() === date2.getDate();
-  }
-
   isDateBetween(date) {
-    return date >= this.arrivalDate
-        && date <= this.leavingDate;
-  }
-
-  isArrivalDate(date) {
-    return this.areDatesTheSame(date, this.arrivalDate);
-  }
-
-  isLeavingDate(date) {
-    return this.areDatesTheSame(date, this.leavingDate);
-  }
-
-  isCurrentDate(date) {
-    const currentDate = new Date();
-    return this.areDatesTheSame(date, currentDate);
-  }
-
-  isDateActive(day) {
-    return !day.classList.contains(this.CLASSES.INACTIVE_DAY);
+    return date >= this.state.arrivalDate
+        && date <= this.state.leavingDate;
   }
 
   dateShouldBeInactive(date) {
-    return date < new Date() || date.getMonth() !== this.monthDisplayed.getMonth();
-  }
-
-  dateCanBePickedAsLeaving(date) {
-    if (!this.dateCanBePicked(date)) return false;
-    if (this.currentlyPickingArrivalDate()) return false;
-    if (this.dateIsBeforeArrivalDate(date)) return false;
-    if (this.arrivalDateNeedsToBePicked()) return false;
-    if (this.middleDateShouldBeCalculated() && date <= this.getMiddleDate()) return false;
-    return true;
+    return date < new Date() || date.getMonth() !== this.state.monthDisplayed.getMonth();
   }
 
   dateCanBePickedAsArrival(date) {
@@ -350,6 +256,15 @@ class Calendar extends Component {
     if (this.dateIsAfterLeavingDate(date)) return false;
     if (this.leavingDateNeedsToBePicked()) return false;
     if (this.middleDateShouldBeCalculated() && date > this.getMiddleDate()) return false;
+    return true;
+  }
+
+  dateCanBePickedAsLeaving(date) {
+    if (!this.dateCanBePicked(date)) return false;
+    if (this.currentlyPickingArrivalDate()) return false;
+    if (this.dateIsBeforeArrivalDate(date)) return false;
+    if (this.arrivalDateNeedsToBePicked()) return false;
+    if (this.middleDateShouldBeCalculated() && date <= this.getMiddleDate()) return false;
     return true;
   }
 
@@ -362,19 +277,19 @@ class Calendar extends Component {
   }
 
   currentlyPickingArrivalDate() {
-    return this.datePicking === 'arrivalDate';
+    return this.state.datePicking === 'arrivalDate';
   }
 
   currentlyPickingLeavingDate() {
-    return this.datePicking === 'leavingDate' && this.arrivalDate;
-  }
-
-  dateIsBeforeArrivalDate(date) {
-    return date < this.arrivalDate;
+    return this.state.datePicking === 'leavingDate' && this.state.arrivalDate;
   }
 
   dateIsAfterLeavingDate(date) {
-    return this.leavingDate && date >= this.leavingDate;
+    return this.state.leavingDate && date >= this.state.leavingDate;
+  }
+
+  dateIsBeforeArrivalDate(date) {
+    return date < this.state.arrivalDate;
   }
 
   dateIsBeforeCurrentDate(date) {
@@ -382,17 +297,42 @@ class Calendar extends Component {
   }
 
   arrivalDateNeedsToBePicked() {
-    return !this.arrivalDate;
+    return !this.state.arrivalDate;
   }
 
   leavingDateNeedsToBePicked() {
-    return !this.leavingDate
-      && this.arrivalDate
-      && this.datePicking === '';
+    return !this.state.leavingDate
+      && this.state.arrivalDate
+      && this.state.datePicking === '';
   }
 
   middleDateShouldBeCalculated() {
-    return this.leavingDate && this.datePicking === '';
+    return this.state.leavingDate && this.state.datePicking === '';
+  }
+
+  isDateActive(date) {
+    return !date.classList.contains(this.classes.inactiveDate);
+  }
+
+  isArrivalDate(date) {
+    return this.areDatesTheSame(date, this.state.arrivalDate);
+  }
+
+  isLeavingDate(date) {
+    return this.areDatesTheSame(date, this.state.leavingDate);
+  }
+
+  isCurrentDate(date) {
+    const currentDate = new Date();
+    return this.areDatesTheSame(date, currentDate);
+  }
+
+  areDatesTheSame(date1, date2) {
+    return date1
+        && date2
+        && date1.getFullYear() === date2.getFullYear()
+        && date1.getMonth() === date2.getMonth()
+        && date1.getDate() === date2.getDate();
   }
 }
 

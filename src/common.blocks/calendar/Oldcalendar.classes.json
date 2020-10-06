@@ -1,0 +1,21 @@
+{
+  "TABLE_CONTAINER": "js-calendar__table-wrapper",
+  "TABLE": "calendar__table",
+  "TITLE": "js-calendar__title",
+  "LEFT_ARROW": "js-calendar__left-arrow",
+  "RIGHT_ARROW": "js-calendar__right-arrow",
+  "ARROW_INACTIVE": "calendar__arrow-inactive",
+  "DAY_NAME": "calendar__day-name",
+  "CELL": "calendar__number",
+  "ARRIVAL_DATE": "calendar__arrival-date",
+  "LEAVING_DATE": "calendar__leaving-date",
+  "CURRENT_DATE": "calendar__current-date",
+  "PICKED_DATE": "calendar__chosen-date",
+  "DATE_BETWEEN": "calendar__date-between",
+  "INACTIVE_DAY": "calendar__day-inactive",
+  "CLEAR_BUTTON": "js-calendar__clear-button",
+  "SUBMIT_BUTTON": "js-calendar__submit-button",
+  "BUTTON_HIDDEN": "calendar__button_hidden",
+  "PICKING_ARRIVAL_DATE": "calendar__picking-arrival-date",
+  "PICKING_LEAVING_DATE": "calendar__picking-leaving-date"
+}
