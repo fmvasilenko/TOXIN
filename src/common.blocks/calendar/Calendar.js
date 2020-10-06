@@ -8,6 +8,34 @@ class Calendar {
     this.displayMonth();
     this.checkLeftArrow();
     this.bindEventListeners();
+    this.arrivalDateSubscriber = () => {};
+    this.leavingDateSubscriber = () => {};
+    this.submitSubscriber = () => {};
+  }
+
+  setArrivalDate(date) {
+    this.state.arrivalDate = date;
+  }
+
+  setLeavingDate(date) {
+    this.state.leavingDate = date;
+  }
+
+  setPickingDate(datePicking) {
+    this.state.datePicking = datePicking;
+    this.displayMonth();
+  }
+
+  setArrivalDateSubscriber(subscriber) {
+    this.arrivalDateSubscriber = subscriber;
+  }
+
+  setLeavingDateSubscriber(subscriber) {
+    this.leavingDateSubscriber = subscriber;
+  }
+
+  setSubmitSubscriber(subscriber) {
+    this.submitSubscriber = subscriber;
   }
 
   findDOMNodes(container) {
@@ -29,7 +57,6 @@ class Calendar {
       leavingDate: null,
       datePicking: '',
       isLeftArrowActive: true,
-      calendarDisplayed: false,
     };
   }
 
@@ -72,11 +99,13 @@ class Calendar {
   clearButtonClickHandler() {
     this.state.leavingDate = null;
     this.state.arrivalDate = null;
+    this.arrivalDateSubscriber(this.state.arrivalDate);
+    this.leavingDateSubscriber(this.state.leavingDate);
     this.displayMonth();
   }
 
   submitButtonClickHandler() {
-    this.state.calendarDisplayed = false;
+    this.submitSubscriber();
   }
 
   checkLeftArrow() {
@@ -93,6 +122,7 @@ class Calendar {
     if (this.dateIsAfterLeavingDate(date)) return;
 
     this.state.arrivalDate = date;
+    this.arrivalDateSubscriber(date);
     this.state.datePicking = '';
   }
 
@@ -100,6 +130,7 @@ class Calendar {
     if (this.dateIsBeforeArrivalDate(date)) return;
 
     this.state.leavingDate = date;
+    this.leavingDateSubscriber(date);
     this.state.datePicking = '';
   }
 
@@ -110,6 +141,9 @@ class Calendar {
     else if (this.dateIsAfterLeavingDate(date)) this.state.leavingDate = date;
     else if (date > this.getMiddleDate()) this.state.leavingDate = date;
     else this.state.arrivalDate = date;
+
+    this.arrivalDateSubscriber(this.state.arrivalDate);
+    this.leavingDateSubscriber(this.state.leavingDate);
   }
 
   displayMonth(givenYear, givenMonth) {

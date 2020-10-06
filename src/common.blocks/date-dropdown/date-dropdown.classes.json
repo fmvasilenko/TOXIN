@@ -1,0 +1,7 @@
+{
+  "root": "js-date-dropdown",
+  "field": "js-date-dropdown__field",
+  "dateInput": "js-date-dropdown__input",
+  "calendar": "js-date-dropdown__calendar",
+  "calendarDropped": "date-dropdown__calendar_dropped"
+}
