@@ -29,10 +29,10 @@ const dropDown = document.querySelectorAll('.form-elements__dropdown');
 dropDown.forEach((item) => {
   console.log(new Dropdown(item));
 });
-
+*/
 const dateDropdown = document.querySelector('.form-elements__date-dropdown');
 console.log(new DateDropdown(dateDropdown));
-*/
+
 
 const filterDateDropdown = document.querySelector('.form-elements__filter-date-dropdown');
 console.log(new FilterDateDropdown(filterDateDropdown));
