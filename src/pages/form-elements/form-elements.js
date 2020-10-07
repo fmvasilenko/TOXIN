@@ -5,6 +5,7 @@ import ExpandableCheckboxList from '../../common.blocks/expandable-checkbox-list
 import Dropdown from '../../common.blocks/dropdown/Dropdown';
 import DateDropdown from '../../common.blocks/date-dropdown/DateDropdown';
 import FilterDateDropdown from '../../common.blocks/filter-date-dropdown/FilterDateDropdown';
+import RangeSlider from '../../common.blocks/range-slider/RangeSlider';
 // import FormElementsController from './FormElementsController';
 
 const blocksStyles = require.context('../../common.blocks/', true, /\.scss/);
@@ -36,3 +37,6 @@ console.log(new DateDropdown(dateDropdown));
 
 const filterDateDropdown = document.querySelector('.form-elements__filter-date-dropdown');
 console.log(new FilterDateDropdown(filterDateDropdown));
+
+const slider = document.querySelector('.form-elements__slider');
+const rangeSlider = new RangeSlider(slider);

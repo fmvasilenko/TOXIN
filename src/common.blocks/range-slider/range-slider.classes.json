@@ -1,0 +1,6 @@
+{
+  "line": "js-range-slider__line",
+  "range": "js-range-slider__range",
+  "firstValue": "js-range-slider__first-value",
+  "secondValue": "js-range-slider__second-value"
+}

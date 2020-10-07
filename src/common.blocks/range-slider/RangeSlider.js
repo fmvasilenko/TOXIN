@@ -1,66 +1,70 @@
-import Component from '@frontend/Component';
 import 'fsd4-slider';
+import RangeSliderStateItem from './RangeSliderStateItem';
 
-class RangeSlider extends Component {
-  constructor(root, parent = {}) {
-    super({ root, parent });
-
+class RangeSlider {
+  constructor(container) {
+    this.classes = require('./range-slider.classes.json');
     this.config = require('./range-slider.config.json');
-
-    this.setDOM();
-    this.setInitialState();
+    this.DOM = this.findDOMNodes(container);
+    this.state = this.getInitialState();
+    this.slider = this.createSlider();
+    this.changesSubscriber = () => {};
+    this.update(this.state.firstValue.get(), this.state.secondValue.get());
   }
 
-  setState() {
-    this.state = {
-      valueFrom: {
-        value: 0,
-      },
-      valueTo: {
-        value: 10000,
-      },
+  getFirstValue() {
+    return this.state.firstValue.get();
+  }
+
+  getSecondValue() {
+    return this.state.secondValue.get();
+  }
+
+  setFirstValue(value) {
+    this.slider.config.leftHandleValue(value);
+  }
+
+  setSecondValue(value) {
+    this.slider.config.rightHandleValue(value);
+  }
+
+  setChangesSubscriber(subscriber = () => {}) {
+    this.changesSubscriber = subscriber;
+  }
+
+  findDOMNodes(container) {
+    return {
+      line: container.querySelector(`.${this.classes.line}`),
+      range: container.querySelector(`.${this.classes.range}`),
+      firstValue: container.querySelector(`.${this.classes.firstValue}`),
+      secondValue: container.querySelector(`.${this.classes.secondValue}`),
     };
   }
 
-  setClasses() {
-    this.CLASSES = {
-      LINE: 'js-range-slider__line',
-      RANGE: 'js-range-slider__range',
-      FIRST_VALUE: 'js-range-slider__first-value',
-      SECOND_VALUE: 'js-range-slider__second-value',
+  getInitialState() {
+    return {
+      firstValue: new RangeSliderStateItem(5000),
+      secondValue: new RangeSliderStateItem(10000),
     };
   }
 
-  setDOM() {
-    this.DOM = {
-      LINE: this.root.querySelector(`.${this.CLASSES.LINE}`),
-      RANGE: this.root.querySelector(`.${this.CLASSES.RANGE}`),
-      FIRST_VALUE: this.root.querySelector(`.${this.CLASSES.FIRST_VALUE}`),
-      SECOND_VALUE: this.root.querySelector(`.${this.CLASSES.SECOND_VALUE}`),
-    };
-  }
-
-  setInitialState() {
-    this.valueFrom = this.config.firstValue;
-    this.valueTo = this.config.secondValue;
-
-    $(this.DOM.LINE).slider({
+  createSlider() {
+    return $(this.DOM.line).slider({
       limitsDisplayed: false,
       valueLabelDisplayed: false,
       isRange: true,
       minValue: this.config.minValue,
       maxValue: this.config.maxValue,
-      leftHandleValue: this.valueFrom,
-      rightHandleValue: this.valueTo,
+      leftHandleValue: this.state.firstValue.get(),
+      rightHandleValue: this.state.secondValue.get(),
       step: this.config.step,
     }, this.update.bind(this));
-
-    this.update(this.valueFrom, this.valueTo);
   }
 
   update(leftHandleValue, rightHandleValue) {
     this.updateRange(leftHandleValue, rightHandleValue);
     this.updateInputs(leftHandleValue, rightHandleValue);
+    this.changesSubscriber(leftHandleValue, rightHandleValue);
   }
 
   updateRange(leftHandleValue, rightHandleValue) {
@@ -69,12 +73,12 @@ class RangeSlider extends Component {
 
     const range = `${firstValue + this.config.currencySign} - ${secondValue + this.config.currencySign}`;
 
-    this.DOM.RANGE.innerHTML = range;
+    this.DOM.range.innerHTML = range;
   }
 
   updateInputs(leftHandleValue, rightHandleValue) {
-    this.DOM.FIRST_VALUE.value = `${leftHandleValue}`;
-    this.DOM.SECOND_VALUE.value = `${rightHandleValue}`;
+    this.DOM.firstValue.value = `${leftHandleValue}`;
+    this.DOM.secondValue.value = `${rightHandleValue}`;
   }
 }
 
