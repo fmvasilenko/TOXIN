@@ -4,6 +4,7 @@ import RateButton from '../../common.blocks/rate-button/RateButton';
 import ExpandableCheckboxList from '../../common.blocks/expandable-checkbox-list/ExpandableCheckboxList';
 import Dropdown from '../../common.blocks/dropdown/Dropdown';
 import DateDropdown from '../../common.blocks/date-dropdown/DateDropdown';
+import FilterDateDropdown from '../../common.blocks/filter-date-dropdown/FilterDateDropdown';
 // import FormElementsController from './FormElementsController';
 
 const blocksStyles = require.context('../../common.blocks/', true, /\.scss/);
@@ -28,7 +29,10 @@ const dropDown = document.querySelectorAll('.form-elements__dropdown');
 dropDown.forEach((item) => {
   console.log(new Dropdown(item));
 });
-*/
 
 const dateDropdown = document.querySelector('.form-elements__date-dropdown');
 console.log(new DateDropdown(dateDropdown));
+*/
+
+const filterDateDropdown = document.querySelector('.form-elements__filter-date-dropdown');
+console.log(new FilterDateDropdown(filterDateDropdown));

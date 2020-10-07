@@ -38,6 +38,14 @@ class Calendar {
     this.submitSubscriber = subscriber;
   }
 
+  getArrivalDate() {
+    return this.state.arrivalDate;
+  }
+
+  getLeavingDate() {
+    return this.state.leavingDate;
+  }
+
   findDOMNodes(container) {
     return {
       root: container.querySelector(`.${this.classes.root}`),
