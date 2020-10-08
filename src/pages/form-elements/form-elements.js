@@ -35,8 +35,14 @@ const dateDropdown = document.querySelector('.form-elements__date-dropdown');
 console.log(new DateDropdown(dateDropdown));
 
 
-const filterDateDropdown = document.querySelector('.form-elements__filter-date-dropdown');
-console.log(new FilterDateDropdown(filterDateDropdown));
+const filterDateDropdownContainer = document.querySelector('.form-elements__filter-date-dropdown');
+const filterDateDropdown = new FilterDateDropdown(filterDateDropdownContainer);
+filterDateDropdown.setArrivalDate(new Date('2020-10-10'));
+filterDateDropdown.setLeavingDate(new Date('2020-10-20'));
+console.log(filterDateDropdown.getArrivalDate());
+console.log(filterDateDropdown.getLeavingDate());
+filterDateDropdown.setArrivalDateSubscriber((date) => console.log(date));
+filterDateDropdown.setLeavingDateSubscriber((date) => console.log(date));
 
 const slider = document.querySelector('.form-elements__slider');
 const rangeSlider = new RangeSlider(slider);

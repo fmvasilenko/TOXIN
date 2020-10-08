@@ -8,6 +8,8 @@ class FilterDateDropdown {
     this.filterDateDropdown = new FilterDateDropdownLogic(container);
     this.calendar = new Calendar(this.findCalendarContainer(container));
 
+    this.arrivalDateExternalSubscriber = () => {};
+    this.leavingDateExternalSubscriber = () => {};
     this.defineSubscriptions();
   }
 
@@ -19,20 +21,20 @@ class FilterDateDropdown {
     return this.filterDateDropdown.getLeavingDate();
   }
 
-  setArrivalDate() {
-
+  setArrivalDate(date) {
+    this.calendar.setArrivalDate(date);
   }
 
-  setLeavingDate() {
-
+  setLeavingDate(date) {
+    this.calendar.setLeavingDate(date);
   }
 
-  setArrivalDateSubscriber() {
-
+  setArrivalDateSubscriber(subscriber) {
+    this.arrivalDateExternalSubscriber = subscriber;
   }
 
-  setLeavingDateSubscriber() {
-    
+  setLeavingDateSubscriber(subscriber) {
+    this.leavingDateExternalSubscriber = subscriber;
   }
 
   findCalendarContainer(container) {
@@ -40,9 +42,19 @@ class FilterDateDropdown {
   }
 
   defineSubscriptions() {
-    this.calendar.setArrivalDateSubscriber(this.filterDateDropdown.setArrivalDate.bind(this.filterDateDropdown));
-    this.calendar.setLeavingDateSubscriber(this.filterDateDropdown.setLeavingDate.bind(this.filterDateDropdown));
+    this.calendar.setArrivalDateSubscriber(this.arrivalDateSubscriber.bind(this));
+    this.calendar.setLeavingDateSubscriber(this.leavingDateSubscriber.bind(this));
     this.calendar.setSubmitSubscriber(this.filterDateDropdown.closeCalendar.bind(this.filterDateDropdown));
+  }
+
+  arrivalDateSubscriber(date) {
+    this.filterDateDropdown.setArrivalDate(date);
+    this.arrivalDateExternalSubscriber(date);
+  }
+
+  leavingDateSubscriber(date) {
+    this.filterDateDropdown.setLeavingDate(date);
+    this.leavingDateExternalSubscriber(date);
   }
 }
 

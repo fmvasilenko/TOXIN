@@ -8,9 +8,7 @@ class FilterDateDropdownLogic {
     this.DOM = this.findDOMNodes(container);
     this.state = this.getInitialState();
 
-    this.state.calendarDropped.addSubscriber(this.toggleCalendar.bind(this));
-    this.state.arrivalDate.addSubscriber(this.render.bind(this));
-    this.state.leavingDate.addSubscriber(this.render.bind(this));
+    this.defineSubscriptions();
     this.bindEventListeners();
     this.render();
   }
@@ -33,6 +31,12 @@ class FilterDateDropdownLogic {
 
   getLeavingDate() {
     return this.state.leavingDate.get();
+  }
+
+  defineSubscriptions() {
+    this.state.calendarDropped.addSubscriber(this.toggleCalendar.bind(this));
+    this.state.arrivalDate.addSubscriber(this.render.bind(this));
+    this.state.leavingDate.addSubscriber(this.render.bind(this));
   }
 
   findDOMNodes(container) {
