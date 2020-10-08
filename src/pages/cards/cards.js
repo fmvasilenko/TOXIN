@@ -1,4 +1,5 @@
 import Calendar from '../../common.blocks/calendar/Calendar';
+import Suite from '../../common.blocks/suite/Suite';
 import '../../scss/main.scss';
 // import CardsController from './CardsController';
 
@@ -12,3 +13,6 @@ pagesStyles.keys().forEach(pagesStyles);
 
 const calendar = document.querySelector('.cards__calendar');
 console.log(new Calendar(calendar));
+
+const suite = document.querySelector('.cards__suite');
+console.log(new Suite(suite));

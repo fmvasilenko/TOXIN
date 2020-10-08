@@ -17,7 +17,8 @@ class RateButton {
   }
 
   getInitialRate() {
-    return this.container.querySelector(`.${this.classes.input}:checked`).value;
+    const rate = this.container.querySelector(`.${this.classes.input}:checked`);
+    return rate ? rate.value : 0;
   }
 
   bindEventListeners() {

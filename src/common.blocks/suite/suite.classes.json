@@ -1,0 +1,7 @@
+{
+  "rate": "js-suite__rate",
+  "dot": "js-suite__dot",
+  "leftArrow": "js-suite__left-arrow",
+  "rightArrow": "js-suite__right-arrow",
+  "imageInput": "js-suite__image-input"
+}

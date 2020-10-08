@@ -7,17 +7,18 @@ mixin suite(customConfig = {})
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - const { suiteNumber, price, votes, vocabulary, images, rating } = config;
   - const { numberSign, luxury, period, feedbacks, currencySign, arrowIcon } = vocabulary;
+  - const imagesNumber = Object.keys(images).length;
 
-  .suite.js-suite
+  form.suite.js-suite
 
-    form.suite__gallery
+    .suite__gallery
       i.material-icons.suite__arrow.suite__left-arrow.js-suite__left-arrow #{arrowIcon}
       i.material-icons.suite__arrow.suite__right-arrow.js-suite__right-arrow #{arrowIcon}
       each image, index in images
         label
           input.suite__image-input.js-suite__image-input(type="radio" name="image-gallery" checked=image.checked value=index)
-          .suite__image(style=`background-image: url(${image.link})`)
-          .suite__dot.js-suite__dot(style=`right: ${(Number.parseInt(index)+1)*11.25+3}px`)
+          img.suite__image(src=image.link)
+          .suite__dot.js-suite__dot(style=`right: ${(imagesNumber - Number.parseInt(index)+1)*11.25+3}px`)
 
     .suite__description
 
@@ -30,7 +31,7 @@ mixin suite(customConfig = {})
           |#{price}#{currencySign}
           span #{period}
       
-      .suite__rate
+      .suite__rate.js-suite__rate
         +rate-button(rating)
         p.suite__feedbacks 
           span #{votes}

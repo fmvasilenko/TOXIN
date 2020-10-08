@@ -9,7 +9,10 @@ mixin rate-button(customConfig = {})
   .rate-button.js-rate-button
     - for (let i = 1; i <= maxValue; i++)
       label.rate-button__star-wrapper.js-rate-button__star-wrapper
-        if i<=value
+        if i<value
+          input.rate-button__input.js-rate-button__input(type="radio" name=name value=i)
+          i.material-icons.rate-button__label.js-rate-button__label #{checkedStar}
+        else if i==value
           input.rate-button__input.js-rate-button__input(type="radio" name=name value=i checked)
           i.material-icons.rate-button__label.js-rate-button__label #{checkedStar}
         else
