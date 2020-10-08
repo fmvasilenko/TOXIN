@@ -7,10 +7,43 @@ class DateDropdown {
     this.DOM = this.findDOMNodes(container);
     this.state = this.getInitialState();
     this.calendar = new Calendar(this.DOM.calendar);
+    this.defineSubscriptions();
     this.bindEventListeners();
-    this.calendar.setArrivalDateSubscriber(this.displayArrivalDate.bind(this));
-    this.calendar.setLeavingDateSubscriber(this.displayLeavingDate.bind(this));
+  }
+
+  getArrivalDate() {
+    return this.calendar.getArrivalDate();
+  }
+
+  getLeavingDate() {
+    return this.calendar.getLeavingDate();
+  }
+
+  setArrivalDateSubscriber(subscriber) {
+    this.arrivalDateExternalSubscriber = subscriber;
+  }
+
+  setLeavingDateSubscriber(subscriber) {
+    this.leavingDateExternalSubscriber = subscriber;
+  }
+
+  defineSubscriptions() {
+    this.arrivalDateExternalSubscriber = () => {};
+    this.leavingDateExternalSubscriber = () => {};
+
     this.calendar.setSubmitSubscriber(this.closeCalendar.bind(this));
+    this.calendar.setArrivalDateSubscriber(this.arrivalDateSubscriber.bind(this));
+    this.calendar.setLeavingDateSubscriber(this.leavingDateSubscriber.bind(this));
+  }
+
+  arrivalDateSubscriber() {
+    this.displayArrivalDate(this.calendar.getArrivalDate());
+    this.arrivalDateExternalSubscriber(this.calendar.getArrivalDate());
+  }
+
+  leavingDateSubscriber() {
+    this.displayLeavingDate(this.calendar.getLeavingDate());
+    this.leavingDateExternalSubscriber(this.calendar.getLeavingDate());
   }
 
   findDOMNodes(container) {

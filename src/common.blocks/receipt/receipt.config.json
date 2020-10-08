@@ -46,6 +46,14 @@
       }
     ]
   },
+  "discount": {
+    "title": "",
+    "value": 0
+  },
+  "extraCosts": {
+    "title": "",
+    "value": 0
+  },
   "button": {
     "value": "Забронировать",
     "style": "sizeL",

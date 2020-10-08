@@ -8,10 +8,19 @@ class Dropdown {
     this.wordForms = this.DOM.input.dataset.wordForms.split(',');
     this.defaultValue = this.DOM.input.value;
     this.state = this.getInitialState();
+    this.guestsNumberSubscriber = () => {};
     this.bindEventListeners();
 
     this.options = this.getOptions();
     this.render();
+  }
+
+  getGuestsNumber() {
+    return this.getTotalGuestsNumber();
+  }
+
+  setGuestsNumberSubscriber(subscriber) {
+    this.guestsNumberSubscriber = subscriber;
   }
 
   findDOMNodes(container) {
@@ -72,10 +81,15 @@ class Dropdown {
     const options = [];
 
     this.DOM.list.querySelectorAll(`.${this.classes.optionContainer}`).forEach((optionContainer) => {
-      options.push(new DropdownOption(optionContainer, this.render.bind(this)));
+      options.push(new DropdownOption(optionContainer, this.optionsSubscriber.bind(this)));
     });
 
     return options;
+  }
+
+  optionsSubscriber() {
+    this.render();
+    this.guestsNumberSubscriber(this.getTotalGuestsNumber());
   }
 
   render() {
@@ -129,6 +143,10 @@ class Dropdown {
     }
 
     return this.wordForms[2];
+  }
+
+  getTotalGuestsNumber() {
+    return this.options.reduce((sum, option) => sum + option.getState().value, 0);
   }
 }
 
