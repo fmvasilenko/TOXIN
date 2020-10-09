@@ -50,10 +50,13 @@ class FilterDateDropdownLogic {
   }
 
   getInitialState() {
+    const arrivalDate = this.DOM.arrivalDateInput.value ? new Date(this.DOM.arrivalDateInput.value) : null;
+    const leavingDate = this.DOM.leavingDateInput.value ? new Date(this.DOM.leavingDateInput.value) : null;
+
     return {
       calendarDropped: new FilterDateDropdownStateItem(false),
-      arrivalDate: new FilterDateDropdownStateItem(null),
-      leavingDate: new FilterDateDropdownStateItem(null),
+      arrivalDate: new FilterDateDropdownStateItem(arrivalDate),
+      leavingDate: new FilterDateDropdownStateItem(leavingDate),
     };
   }
 

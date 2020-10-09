@@ -6,6 +6,7 @@ class FilterDateDropdownConnector {
     this.filterDateDropdown = new FilterDateDropdownLogic(container);
     this.calendar = new Calendar(container);
     this.defineSubscriptions();
+    this.setInitialState();
   }
 
   getArrivalDate() {
@@ -49,6 +50,11 @@ class FilterDateDropdownConnector {
   leavingDateSubscriber(date) {
     this.filterDateDropdown.setLeavingDate(date);
     this.leavingDateExternalSubscriber(date);
+  }
+
+  setInitialState() {
+    this.calendar.setArrivalDate(this.filterDateDropdown.getArrivalDate());
+    this.calendar.setLeavingDate(this.filterDateDropdown.getLeavingDate());
   }
 }
 
