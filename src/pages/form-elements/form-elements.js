@@ -31,18 +31,27 @@ dropDown.forEach((item) => {
   console.log(new Dropdown(item));
 });
 */
-const dateDropdown = document.querySelector('.form-elements__date-dropdown');
-console.log(new DateDropdown(dateDropdown));
-
+const dateDropdownContainer = document.querySelector('.form-elements__date-dropdown');
+const dateDropdown = new DateDropdown(dateDropdownContainer);
+/*
+dateDropdown.setArrivalDate(new Date('2020-10-10'));
+dateDropdown.setLeavingDate(new Date('2020-10-20'));
+console.log(dateDropdown.getArrivalDate());
+console.log(dateDropdown.getLeavingDate());
+dateDropdown.setArrivalDateSubscriber((date) => console.log(date));
+dateDropdown.setLeavingDateSubscriber((date) => console.log(date));
+*/
 
 const filterDateDropdownContainer = document.querySelector('.form-elements__filter-date-dropdown');
 const filterDateDropdown = new FilterDateDropdown(filterDateDropdownContainer);
+/*
 filterDateDropdown.setArrivalDate(new Date('2020-10-10'));
 filterDateDropdown.setLeavingDate(new Date('2020-10-20'));
 console.log(filterDateDropdown.getArrivalDate());
 console.log(filterDateDropdown.getLeavingDate());
 filterDateDropdown.setArrivalDateSubscriber((date) => console.log(date));
 filterDateDropdown.setLeavingDateSubscriber((date) => console.log(date));
+*/
 
 const slider = document.querySelector('.form-elements__slider');
 const rangeSlider = new RangeSlider(slider);
