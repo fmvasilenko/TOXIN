@@ -22,11 +22,11 @@ class Receipt {
   defineSubscriptions() {
     this.dateDropdown.setArrivalDateSubscriber(this.receiptLogic.setArrivalDate.bind(this.receiptLogic));
     this.dateDropdown.setLeavingDateSubscriber(this.receiptLogic.setLeavingDate.bind(this.receiptLogic));
-    this.dropdown.setGuestsNumberSubscriber(this.receiptLogic.setGuestsNumber.bind(this.receiptLogic));
+    this.dropdown.setTotalNumberSubscriber(this.receiptLogic.setGuestsNumber.bind(this.receiptLogic));
   }
 
   setInitialState() {
-    this.receiptLogic.setGuestsNumber(this.dropdown.getGuestsNumber());
+    this.receiptLogic.setGuestsNumber(this.dropdown.getTotalNumber());
     this.receiptLogic.setArrivalDate(this.dateDropdown.getArrivalDate());
     this.receiptLogic.setLeavingDate(this.dateDropdown.getLeavingDate());
   }
