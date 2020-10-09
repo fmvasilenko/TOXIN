@@ -1,57 +1,20 @@
+import LikeButtonLogic from './LikeButtonLogic';
+
 class LikeButton {
-  constructor(container, likesNumberOnChangeFunction = () => {}) {
-    this.classes = require('./like-button.classes.json');
-    this.vocabulary = require('./like-button.config.json').vocabulary;
-    this.DOM = this.findDOMNodes(container);
-    this.state = this.getInitialState();
-    this.likesNumberOnChangeFunction = likesNumberOnChangeFunction;
-    this.bindEventListeners();
-  }
+  constructor(container) {
+    const likeButtonLogic = new LikeButtonLogic(container);
 
-  findDOMNodes(container) {
-    return {
-      root: container.querySelector(`.${this.classes.root}`),
-      icon: container.querySelector(`.${this.classes.icon}`),
-      input: container.querySelector(`.${this.classes.input}`),
-    };
-  }
+    this.getLikesNumber = () => likeButtonLogic.getLikesNumber();
 
-  getInitialState() {
-    return {
-      likesNumber: parseInt(this.DOM.input.value, 10),
-      isLiked: this.DOM.root.classList.contains(this.classes.root_liked),
-    };
-  }
+    this.getIsLiked = () => likeButtonLogic.getIsLiked();
 
-  bindEventListeners() {
-    this.DOM.root.addEventListener('click', this.clickHandler.bind(this));
-  }
+    this.setLikesNumber = (value) => likeButtonLogic.setLikesNumber(value);
 
-  clickHandler() {
-    this.state.isLiked = !this.state.isLiked;
-    this.changeLikesNumber();
-    this.render();
-  }
+    this.setIsLiked = (value) => likeButtonLogic.setIsLiked(value);
 
-  changeLikesNumber() {
-    if (this.state.isLiked) this.state.likesNumber += 1;
-    else if (this.state.likesNumber > 0) this.state.likesNumber -= 1;
-    this.likesNumberOnChangeFunction(this.state.likesNumber);
-  }
+    this.setLikesNumberSubscriber = (subscriber) => likeButtonLogic.setLikesNumberSubscriber(subscriber);
 
-  render() {
-    if (this.state.isLiked) {
-      this.DOM.root.classList.add(this.classes.root_liked);
-      this.DOM.icon.classList.add(this.classes.icon_liked);
-      this.DOM.input.classList.add(this.classes.input_liked);
-      this.DOM.icon.innerHTML = this.vocabulary.iconLiked;
-    } else {
-      this.DOM.root.classList.remove(this.classes.root_liked);
-      this.DOM.icon.classList.remove(this.classes.icon_liked);
-      this.DOM.input.classList.remove(this.classes.input_liked);
-      this.DOM.icon.innerHTML = this.vocabulary.icon;
-    }
-    this.DOM.input.value = this.state.likesNumber;
+    this.setIsLikedSubscriber = (subscriber) => likeButtonLogic.setIsLikedSubscriber(subscriber);
   }
 }
 

@@ -16,10 +16,20 @@ pagesStyles.keys().forEach(pagesStyles);
 
 // new FormElementsController();
 
-/*
 const likeButtonContainer = document.querySelector('.form-elements__like-button');
-console.log(new LikeButton(likeButtonContainer));
+const likeButton = new LikeButton(likeButtonContainer);
+/*
+likeButton.setLikesNumber(0);
+likeButton.setIsLiked(true);
+likeButton.setIsLiked(true);
+likeButton.setIsLiked(true);
+console.log(likeButton.getIsLiked());
+console.log(likeButton.getLikesNumber());
+likeButton.setLikesNumberSubscriber((likesNumber) => console.log(likesNumber));
+likeButton.setIsLikedSubscriber((isLiked) => console.log(isLiked));
+*/
 
+/*
 const rateButtonContainer = document.querySelector('.form-elements__rate-button');
 console.log(new RateButton(rateButtonContainer));
 
