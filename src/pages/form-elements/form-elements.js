@@ -71,3 +71,10 @@ filterDateDropdown.setLeavingDateSubscriber((date) => console.log(date));
 
 const slider = document.querySelector('.form-elements__slider');
 const rangeSlider = new RangeSlider(slider);
+/*
+rangeSlider.setFirstValue(200);
+rangeSlider.setSecondValue(12000);
+console.log(rangeSlider.getFirstValue());
+console.log(rangeSlider.getSecondValue());
+rangeSlider.setChangesSubscriber((firstValue, secondValue) => console.log(`${firstValue}, ${secondValue}`));
+*/
