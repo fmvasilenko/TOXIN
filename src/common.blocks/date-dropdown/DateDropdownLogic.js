@@ -61,11 +61,14 @@ class DateDropdown {
   }
 
   getInitialState() {
+    const arrivalDate = this.DOM.arrivalDateInput.value ? new Date(this.DOM.arrivalDateInput.value) : null;
+    const leavingDate = this.DOM.leavingDateInput.value ? new Date(this.DOM.leavingDateInput.value) : null;
+
     return {
       calendarDropped: new DateDropdownStateItem(false),
-      arrivalDate: new DateDropdownStateItem(null),
-      leavingDate: new DateDropdownStateItem(null),
-      pickingDate: new DateDropdownStateItem(null),
+      arrivalDate: new DateDropdownStateItem(arrivalDate),
+      leavingDate: new DateDropdownStateItem(leavingDate),
+      pickingDate: new DateDropdownStateItem(''),
     };
   }
 

@@ -31,6 +31,7 @@ dropDown.forEach((item) => {
   console.log(new Dropdown(item));
 });
 */
+
 const dateDropdownContainer = document.querySelector('.form-elements__date-dropdown');
 const dateDropdown = new DateDropdown(dateDropdownContainer);
 /*

@@ -1,55 +1,20 @@
-import Calendar from '@blocks/calendar/Calendar';
-import DateDropdownLogic from './DateDropdownLogic';
+import DateDropdownConnector from './DateDropdownConnector';
 
 class DateDropdown {
   constructor(container) {
-    this.calendar = new Calendar(container);
-    this.dateDropdownLogic = new DateDropdownLogic(container);
-    this.defineSubscriptions();
-  }
+    const dateDropdown = new DateDropdownConnector(container);
 
-  getArrivalDate() {
-    return this.calendar.getArrivalDate();
-  }
+    this.setArrivalDate = (date) => dateDropdown.setArrivalDate(date);
 
-  getLeavingDate() {
-    return this.calendar.getLeavingDate();
-  }
+    this.setLeavingDate = (date) => dateDropdown.setLeavingDate(date);
 
-  setArrivalDate(date) {
-    this.calendar.setArrivalDate(date);
-  }
+    this.getArrivalDate = () => dateDropdown.getArrivalDate();
 
-  setLeavingDate(date) {
-    this.calendar.setLeavingDate(date);
-  }
+    this.getLeavingDate = () => dateDropdown.getLeavingDate();
 
-  setArrivalDateSubscriber(subscriber) {
-    this.arrivalDateExternalSubscriber = subscriber;
-  }
+    this.setArrivalDateSubscriber = (subscriber) => dateDropdown.setArrivalDateSubscriber(subscriber);
 
-  setLeavingDateSubscriber(subscriber) {
-    this.leavingDateExternalSubscriber = subscriber;
-  }
-
-  defineSubscriptions() {
-    this.arrivalDateExternalSubscriber = () => {};
-    this.leavingDateExternalSubscriber = () => {};
-
-    this.calendar.setArrivalDateSubscriber(this.arrivalDateSubscriber.bind(this));
-    this.calendar.setLeavingDateSubscriber(this.leavingDateSubscriber.bind(this));
-    this.calendar.setSubmitSubscriber(this.dateDropdownLogic.closeCalendar.bind(this.dateDropdownLogic));
-    this.dateDropdownLogic.setPickingDateSubscriber(this.calendar.setPickingDate.bind(this.calendar));
-  }
-
-  arrivalDateSubscriber(date) {
-    this.dateDropdownLogic.setArrivalDate(date);
-    this.arrivalDateExternalSubscriber(date);
-  }
-
-  leavingDateSubscriber(date) {
-    this.dateDropdownLogic.setLeavingDate(date);
-    this.leavingDateExternalSubscriber(date);
+    this.setLeavingDateSubscriber = (subscriber) => dateDropdown.setLeavingDateSubscriber(subscriber);
   }
 }
 
