@@ -29,10 +29,15 @@ likeButton.setLikesNumberSubscriber((likesNumber) => console.log(likesNumber));
 likeButton.setIsLikedSubscriber((isLiked) => console.log(isLiked));
 */
 
-/*
 const rateButtonContainer = document.querySelector('.form-elements__rate-button');
-console.log(new RateButton(rateButtonContainer));
+const rateButton = new RateButton(rateButtonContainer);
+/*
+rateButton.setRate(3);
+console.log(rateButton.getRate());
+rateButton.setRateSubscriber((rate) => console.log(rate));
+*/
 
+/*
 const expandableChecboxList = document.querySelector('.form-elements__expandable-checkbox-list');
 console.log(new ExpandableCheckboxList(expandableChecboxList));
 
