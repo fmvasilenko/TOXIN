@@ -1,60 +1,20 @@
-import Calendar from '@blocks/calendar/Calendar';
-import FilterDateDropdownLogic from './FilterDateDropdownLogic';
+import FilterDateDropdownConnector from './FilterDateDropdownConnector';
 
 class FilterDateDropdown {
   constructor(container) {
-    this.classes = require('./filter-date-dropdown.classes.json');
+    const filterDateDropdownConnector = new FilterDateDropdownConnector(container);
 
-    this.filterDateDropdown = new FilterDateDropdownLogic(container);
-    this.calendar = new Calendar(this.findCalendarContainer(container));
+    this.getArrivalDate = () => filterDateDropdownConnector.getArrivalDate();
 
-    this.arrivalDateExternalSubscriber = () => {};
-    this.leavingDateExternalSubscriber = () => {};
-    this.defineSubscriptions();
-  }
+    this.getLeavingDate = () => filterDateDropdownConnector.getLeavingDate();
 
-  getArrivalDate() {
-    return this.filterDateDropdown.getArrivalDate();
-  }
+    this.setArrivalDate = (date) => filterDateDropdownConnector.setArrivalDate(date);
 
-  getLeavingDate() {
-    return this.filterDateDropdown.getLeavingDate();
-  }
+    this.setLeavingDate = (date) => filterDateDropdownConnector.setLeavingDate(date);
 
-  setArrivalDate(date) {
-    this.calendar.setArrivalDate(date);
-  }
+    this.setArrivalDateSubscriber = (subscriber) => filterDateDropdownConnector.setArrivalDateSubscriber(subscriber);
 
-  setLeavingDate(date) {
-    this.calendar.setLeavingDate(date);
-  }
-
-  setArrivalDateSubscriber(subscriber) {
-    this.arrivalDateExternalSubscriber = subscriber;
-  }
-
-  setLeavingDateSubscriber(subscriber) {
-    this.leavingDateExternalSubscriber = subscriber;
-  }
-
-  findCalendarContainer(container) {
-    return container.querySelector(`.${this.classes.calendar}`);
-  }
-
-  defineSubscriptions() {
-    this.calendar.setArrivalDateSubscriber(this.arrivalDateSubscriber.bind(this));
-    this.calendar.setLeavingDateSubscriber(this.leavingDateSubscriber.bind(this));
-    this.calendar.setSubmitSubscriber(this.filterDateDropdown.closeCalendar.bind(this.filterDateDropdown));
-  }
-
-  arrivalDateSubscriber(date) {
-    this.filterDateDropdown.setArrivalDate(date);
-    this.arrivalDateExternalSubscriber(date);
-  }
-
-  leavingDateSubscriber(date) {
-    this.filterDateDropdown.setLeavingDate(date);
-    this.leavingDateExternalSubscriber(date);
+    this.setLeavingDateSubscriber = (subscriber) => filterDateDropdownConnector.setLeavingDateSubscriber(subscriber);
   }
 }
 
