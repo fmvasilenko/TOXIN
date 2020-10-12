@@ -37,10 +37,15 @@ console.log(rateButton.getRate());
 rateButton.setRateSubscriber((rate) => console.log(rate));
 */
 
+const expandableChecboxListContainer = document.querySelector('.form-elements__expandable-checkbox-list');
+const expandableCheckboxList = new ExpandableCheckboxList(expandableChecboxListContainer);
 /*
-const expandableChecboxList = document.querySelector('.form-elements__expandable-checkbox-list');
-console.log(new ExpandableCheckboxList(expandableChecboxList));
+expandableCheckboxList.setListExpanded(true);
+console.log(expandableCheckboxList.getListExpanded());
+expandableCheckboxList.setListExpandedSubscriber((value) => console.log(value));
+*/
 
+/*
 const dropDown = document.querySelectorAll('.form-elements__dropdown');
 dropDown.forEach((item) => {
   console.log(new Dropdown(item));
