@@ -5,6 +5,7 @@ import LikeButton from '@blocks/like-button/LikeButton';
 import RateButton from '@blocks/rate-button/RateButton';
 import RangeSlider from '@blocks/range-slider/RangeSlider';
 import ExpandableCheckboxList from '@blocks/expandable-checkbox-list/ExpandableCheckboxList';
+import Feedback from '@blocks/feedback/Feedback';
 
 class FormElementsConnector {
   constructor(container) {
@@ -23,6 +24,7 @@ class FormElementsConnector {
     this.dropdown5 = new Dropdown(this.DOM.dropdown5);
     this.expandableCheckboxList = new ExpandableCheckboxList(this.DOM.expandableCheckboxList);
     this.expandableCheckboxListExpanded = new ExpandableCheckboxList(this.DOM.expandableCheckboxListExpanded);
+    this.feedback = new Feedback(this.DOM.feedback);
   }
 
   findDOMNodes(container) {
@@ -39,6 +41,7 @@ class FormElementsConnector {
       dropdown5: container.querySelector(`.${this.classes.dropdown5}`),
       expandableCheckboxList: container.querySelector(`.${this.classes.expandableCheckboxList}`),
       expandableCheckboxListExpanded: container.querySelector(`.${this.classes.expandableCheckboxListExpanded}`),
+      feedback: container.querySelector(`.${this.classes.feedback}`),
     };
   }
 

@@ -10,5 +10,6 @@
   "dropdown4": "form-elements__dropdown4",
   "dropdown5": "form-elements__dropdown5",
   "expandableCheckboxList": "form-elements__expandable-checkbox-list",
-  "expandableCheckboxListExpanded": "form-elements__expandable-checkbox-list-expanded"
+  "expandableCheckboxListExpanded": "form-elements__expandable-checkbox-list-expanded",
+  "feedback": "form-elements__feedback"
 }
