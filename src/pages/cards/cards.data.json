@@ -79,15 +79,15 @@
         },
         {
           "link": "assets/img/suites/suite888/suite888-2.jpg",
-          "checked": true
+          "checked": false
         },
         {
           "link": "assets/img/suites/suite888/suite888-1.jpg",
-          "checked": true
+          "checked": false
         },
         {
           "link": "assets/img/suites/suite840/suite840-1.jpg",
-          "checked": true
+          "checked": false
         }
       ]
     }

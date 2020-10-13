@@ -29,14 +29,14 @@ block content
   .cards__background
     .cards__content
       .cards__column
-        .cards__search-form
+        .cards__search-form.js-cards__search-form
           +search-form()
 
         .cards__registration
           +registration-form()
 
       .cards__column
-        .cards__receipt 
+        .cards__receipt.js-cards__receipt
           +receipt(receiptParameters)
 
         .cards__login
@@ -46,8 +46,8 @@ block content
         .cards__calendar.js-cards__calendar
           +calendar()
 
-        .cards__suite
+        .cards__suite.js-cards__suite
           +suite(suites[0])
 
-        .cards__suite
+        .cards__suite.js-cards__suite
           +suite(suites[1])
