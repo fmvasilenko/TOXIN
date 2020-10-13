@@ -14,8 +14,9 @@ block scripts
 
 block variables
   - const pageTitle = 'Search room'
-  - const pageDescription = 'Searchroom'
-  - const pageClass = 'searchroom'
+  - const pageDescription = 'Search room'
+  - const pageClass = 'search-room js-search-room'
+  - const sidebarClass = 'js-search-room__sidebar'
   - const data = require('./search-room.data.json');
   - const { title, suites } = data;
 
@@ -26,12 +27,12 @@ block sidebar
   +sidebar()
 
 block content
-  h1.searchroom__title #{title}
-  .searchroom__suites
+  h1.search-room__title #{title}
+  .search-room__suites
     each suite in suites
-      .searchroom__suite
+      .search-room__suite.js-search-room__suite
         +suite(suite)
-  .searchroom__pagination
+  .search-room__pagination
     +pagination()
 
 block footer
