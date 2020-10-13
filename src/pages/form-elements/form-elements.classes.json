@@ -1,0 +1,14 @@
+{
+  "guestsDropdown": "form-elements__dropdown",
+  "dateDropdown": "form-elements__date-dropdown",
+  "filterDateDropdown": "form-elements__filter-date-dropdown",
+  "likeButton": "form-elements__like-button",
+  "rateButton": "form-elements__rate-button",
+  "rangeSlider": "form-elements__slider",
+  "dropdownDefault": "form-elements__dropdown-default",
+  "dropdownExpanded": "form-elements__dropdown-expanded",
+  "dropdown4": "form-elements__dropdown4",
+  "dropdown5": "form-elements__dropdown5",
+  "expandableCheckboxList": "form-elements__expandable-checkbox-list",
+  "expandableCheckboxListExpanded": "form-elements__expandable-checkbox-list-expanded"
+}
