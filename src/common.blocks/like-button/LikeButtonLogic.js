@@ -66,7 +66,7 @@ class LikeButtonLogic {
 
   getInitialState() {
     const likesNumber = parseInt(this.DOM.input.value, 10);
-    const isLiked = this.DOM.root.classList.contains(this.classes.root_liked);
+    const isLiked = this.DOM.root.classList.contains(this.classes.rootLiked);
 
     return {
       likesNumber: new StateItem(likesNumber),
@@ -89,14 +89,14 @@ class LikeButtonLogic {
 
   render() {
     if (this.state.isLiked.get()) {
-      this.DOM.root.classList.add(this.classes.root_liked);
-      this.DOM.icon.classList.add(this.classes.icon_liked);
-      this.DOM.input.classList.add(this.classes.input_liked);
+      this.DOM.root.classList.add(this.classes.rootLiked);
+      this.DOM.icon.classList.add(this.classes.iconLiked);
+      this.DOM.input.classList.add(this.classes.inputLiked);
       this.DOM.icon.innerHTML = this.vocabulary.iconLiked;
     } else {
-      this.DOM.root.classList.remove(this.classes.root_liked);
-      this.DOM.icon.classList.remove(this.classes.icon_liked);
-      this.DOM.input.classList.remove(this.classes.input_liked);
+      this.DOM.root.classList.remove(this.classes.rootLiked);
+      this.DOM.icon.classList.remove(this.classes.iconLiked);
+      this.DOM.input.classList.remove(this.classes.inputLiked);
       this.DOM.icon.innerHTML = this.vocabulary.icon;
     }
     this.DOM.input.value = this.state.likesNumber.get();

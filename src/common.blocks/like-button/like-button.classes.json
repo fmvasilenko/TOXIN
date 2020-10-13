@@ -2,7 +2,7 @@
   "root": "js-like-button",
   "icon": "js-like-button__icon",
   "input": "js-like-button__number",
-  "root_liked": "like-button_liked",
-  "icon_liked": "like-button__icon_liked",
-  "input_liked": "like-button__number_liked"
+  "rootLiked": "like-button_liked",
+  "iconLiked": "like-button__icon_liked",
+  "inputLiked": "like-button__number_liked"
 }
