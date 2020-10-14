@@ -6,7 +6,7 @@ Test task for FSD.
 ## Table of contents
 1. [Initialization](#initialization)
 2. [Github pages](#githubPages)
-3. [Architecture](#architecture)
+3. [Documentation](#documentation)
 
 
 ***
@@ -55,11 +55,11 @@ After installing all needed modules run `npm run postinstall` to put the links b
 
 
 ***
-<a name="architecture"></a>
+<a name="documentation"></a>
 
-## 3. Architecture
+## 3. Documentation
 
-## Blocks architecture
+## Blocks documentation
 1. [LikeButton](src/common.blocks/like-button/like-button-docs/like-button.md)
 2. [RateButton](src/common.blocks/rate-button/rate-button-docs/rate-button.md)
 

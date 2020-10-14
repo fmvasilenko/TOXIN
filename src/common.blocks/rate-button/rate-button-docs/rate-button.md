@@ -1,4 +1,5 @@
 # RateButton
+[Back to README](../../../../README.md)
 
 ## Description
 Module creates rate button
