@@ -1,4 +1,5 @@
-# Like Button Errors
+# LikeButton Errors
+[Back to LikeButton docs](like-button.md)
 
 ## Table of contents
 

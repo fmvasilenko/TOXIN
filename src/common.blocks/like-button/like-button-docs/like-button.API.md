@@ -1,6 +1,7 @@
 <a name="top"></a>
 
 # LikeButton API
+[Back to LikeButton docs](like-button.md)
 
 ## Table of contents
 1. [constructor](#constructor)

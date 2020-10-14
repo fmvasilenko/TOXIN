@@ -1,6 +1,7 @@
 <a name="top"></a>
 
-# Like Button State
+# LikeButton State
+[Back to LikeButton docs](like-button.md)
 
 ## Table of contents
 1. [Description](#description)
