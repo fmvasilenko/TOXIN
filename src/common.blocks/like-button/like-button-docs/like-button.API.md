@@ -1,79 +1,264 @@
+<a name="top"></a>
+
 # LikeButton API
 
 ## Table of contents
-1. constructor
-2. getLikesNumber
-3. setLikesNumber
-4. setLikesNumberSubscriber
-5. getIsLiked
-6. setIsLiked
-8. setIsLikedSubscriber
+1. [constructor](#constructor)
+2. [getLikesNumber](#getlikesnumber)
+3. [setLikesNumber](#setlikesnumber)
+4. [setLikesNumberSubscriber](#setlikesnumbersubscriber)
+5. [getIsLiked](#getisliked)
+6. [setIsLiked](#setisliked)
+8. [setIsLikedSubscriber](#setislikedsubscriber)
+
+
+***
+<a name="constructor"></a>
 
 ## constructor
 
+### Description
 ```js
 new LikeButton(container);
 ```
-`container` - HTMLElement, that contains structure for like button. 
-If there are few like button structures in the container - the first one will be chosen.
+
+### Valid parameters
+container - HTMLElement, that contains structure for like button. 
+> If there are few like button structures in the container - the first one will be chosen.
+
+### Parameters validity check
+None
+
+### Usage example
+```js
+const likeButtonContainer = document.querySelector('.like-button-container');
+const likeButton = new LikeButton(likeButtonContainer);
+```
+
+[Back to the top](#top)
+
+
+***
+<a name="getlikesnumber"></a>
 
 ## getLikesNumber
 
+### Description
+Sets likes number.
 ```js
 likeButton.getLikesNumber();
 ```
-Returns current likes number
+
+### State parameter
+Works with [`likesNumber`](like-button.state.md#likesnumber).
+
+### Valid parameters
+Does not have any parameters
+
+### Return value
+Returns number `0 - unlimited`
+
+### Usage example
+```js
+const likesNumber = likeButton.getLikesNumber();
+```
+
+[Back to the top](#top)
+
+
+***
+<a name="setlikesnumber"></a>
 
 ## setLikesNumber
 
+### Description
+Sets likes number.
 ```js
-likeButton.setLikesNumber(value)
+likeButton.setLikesNumber(value);
 ```
-Sets current likes number. If `value <= 0` - likesNumber will be set to 0 and `isLiked` will be false.
-Value should be a number.
+
+### State parameter
+Works with [`likesNumber`](like-button.state.md#likesnumber).
+
+### Valid parameters
+value: `0 - unlimited`
+
+### Parameters validity check
+If `value < 0` - it will be changed to 0.
+
+### Return value
+None
+
+### Usage example
+```js
+likeButton.setLikesNumber(10);
+```
+
+[Back to the top](#top)
+
+
+***
+<a name="setlikesnumbersubscriber"></a>
 
 ## setLikesNumberSubscriber
 
+### Description
+Sets likes number subscriber.
 ```js
-const subscriber = (likesNumber) => {
-  // some code
+likeButton.setLikesNumberSubscriber(subscriber);
+```
+
+### State parameter
+Works with [`likesNumber`](like-button.state.md#likesnumber).
+
+### Valid parameters
+subscriber should be a function
+```js
+subscriber = function(likesNumber) {
+  //some code
+}
+```
+
+### Parameters validity check
+None
+
+### Return value
+None
+
+### Usage example
+```js
+const subscriber = function(likesNumber) {
+  console.log(likesNumber);
 }
 
-likeButton.setLikesNumberSubscriber(subscriber)
+likeButton.setLikesNumberSubscriber(subscriber);
 ```
-Sets `likesNumber` subscriber.
-> Note! There can be only one subscriber. If you use the method twice - subscriber will be set to the second one.
-To remove subscriber use:
+
+### Notes
+> Note! There can be only one subscriber! If you use the method twice, only the second subscriber will work.
+So to remove subscriber you can use `setLikesNumberSubscriber(() => {})`.
+If you need to add few functions, use:
 ```js
-likeButton.setLikesNumberSubscriber(() => {})
+subscriber = function(likesNumber) {
+  function1(likesNumber);
+  function2(likesNumber);
+  function3(likesNumber);
+}
+
+likeButton.setLikesNumberSubscriber(subscriber);
 ```
+
+[Back to the top](#top)
+
+
+***
+<a name="getisliked"></a>
 
 ## getIsLiked
 
+### Descriptions
+Returns current `isLiked` state.
 ```js
-likeButton.getIsLiked()
+likeButton.getIsLiked();
 ```
-Returns true if button is pressed.
+
+### State parameter
+Works with [`isLiked`](like-button.state.md#isliked).
+
+### Valid parameters
+Does not have any parameters
+
+### Return value
+`true | false`, depending if likeButton is pressed or not.
+
+### Usage example
+```js
+const isLiked = likeButton.getIsLiked();
+```
+
+[Back to the top](#top)
+
+
+***
+<a name="setisliked"></a>
 
 ## setIsLiked
 
+### Description
+Sets `isLiked` state parameter.
 ```js
-likeButton.setIsLiked(value)
+likeButton.setIsLiked(value);
 ```
-Changes `isLiked` parameter. Value should be boolean.
+
+### State parameter
+Works with [`isLiked`](like-button.state.md#isliked).
+
+### Valid parameters
+value: `true | false`
+
+### Parameters validity check
+None
+
+### Return value
+None
+
+### Usage example
+```js
+likeButton.setIsLiked(true);
+```
+
+[Back to the top](#top)
+
+
+***
+<a name="setislikedsubscriber"></a>
 
 ## setIsLikedSubscriber
 
+### Description
+Sets isLiked subscriber.
 ```js
-const subscriber = (isLiked) => {
-  // some code
+likeButton.setIsLikedSubscriber(subscriber);
+```
+
+### State parameter
+Works with [`isLiked`](like-button.state.md#isliked).
+
+### Valid parameters
+subscriber should be a function
+```js
+subscriber = function(isLiked) {
+  //some code
+}
+```
+
+### Parameters validity check
+None
+
+### Return value
+None
+
+### Usage example
+```js
+const subscriber = function(isLiked) {
+  console.log(isLiked);
 }
 
 likeButton.setIsLikedSubscriber(subscriber);
 ```
-Sets `isLiked` subscriber.
-> Note! There can be only one subscriber. If you use the method twice - subscriber will be set to the second one.
-To remove subscriber use:
+
+### Notes
+> Note! There can be only one subscriber! If you use the method twice, only the second subscriber will work.
+So to remove subscriber you can use `setIsLikedSubscriber(() => {})`.
+If you need to add few functions, use:
 ```js
-likeButton.setIsLikedSubscriber(() => {})
+subscriber = function(isLiked) {
+  function1(isLiked);
+  function2(isLiked);
+  function3(isLiked);
+}
+
+likeButton.setIsLikedSubscriber(subscriber);
 ```
+
+[Back to the top](#top)
