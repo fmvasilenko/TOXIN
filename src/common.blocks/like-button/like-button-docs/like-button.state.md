@@ -1,3 +1,5 @@
+<a name="top"></a>
+
 # Like Button State
 
 ## Table of contents
@@ -15,6 +17,7 @@ State contains 2 parameters:
 1. [`likesNumber`](#likesnumber)
 2. [`isLiked`](#isliked)
 
+[Back to the top](#top)
 
 
 ***
@@ -46,12 +49,14 @@ isLiked = false && likesNumber > 0 --> likesNumber -= 1
 None
 
 ### Public API methods
-`getLikesNumber()`
-`setLikesNumber(value)`
-`setLikesNumberSubscriber(subscriber)`
+[`getLikesNumber()`](like-button.API.md#getlikesnumber)
+[`setLikesNumber(value)`](like-button.API.md#setlikesnumber)
+[`setLikesNumberSubscriber(subscriber)`](like-button.API.md#setlikesnumbersubscriber)
 
 ### Should be added:
 1. Value check for initial state
+
+[Back to the top](#top)
 
 
 ***
@@ -82,9 +87,11 @@ isLiked = false && likesNumber > 0 --> likesNumber -= 1
 ```
 
 ### Public API methods
-`getIsLiked()`
-`setIsLiked(value)`
-`setIsLikedSubscriber(subscriber)`
+[`getIsLiked()`](like-button.API.md#getisliked)
+[`setIsLiked(value)`](like-button.API.md#setisliked)
+[`setIsLikedSubscriber(subscriber)`](like-button.API.md#setislikedsubscriber)
 
 ### Should be added:
 1. In initial state: `likesNumber === 0 --> isLiked = false` with any initial `isLiked`.
+
+[Back to the top](#top)
