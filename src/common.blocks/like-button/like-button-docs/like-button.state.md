@@ -49,9 +49,9 @@ isLiked = false && likesNumber > 0 --> likesNumber -= 1
 None
 
 ### Public API methods
-[`getLikesNumber()`](like-button.API.md#getlikesnumber)
-[`setLikesNumber(value)`](like-button.API.md#setlikesnumber)
-[`setLikesNumberSubscriber(subscriber)`](like-button.API.md#setlikesnumbersubscriber)
+[`getLikesNumber`](like-button.API.md#getlikesnumber)
+[`setLikesNumber`](like-button.API.md#setlikesnumber)
+[`setLikesNumberSubscriber`](like-button.API.md#setlikesnumbersubscriber)
 
 ### Should be added:
 1. Value check for initial state
@@ -87,9 +87,9 @@ isLiked = false && likesNumber > 0 --> likesNumber -= 1
 ```
 
 ### Public API methods
-[`getIsLiked()`](like-button.API.md#getisliked)
-[`setIsLiked(value)`](like-button.API.md#setisliked)
-[`setIsLikedSubscriber(subscriber)`](like-button.API.md#setislikedsubscriber)
+[`getIsLiked`](like-button.API.md#getisliked)
+[`setIsLiked`](like-button.API.md#setisliked)
+[`setIsLikedSubscriber`](like-button.API.md#setislikedsubscriber)
 
 ### Should be added:
 1. In initial state: `likesNumber === 0 --> isLiked = false` with any initial `isLiked`.
