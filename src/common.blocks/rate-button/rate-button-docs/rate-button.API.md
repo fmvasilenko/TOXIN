@@ -1,6 +1,7 @@
 <a name="top"></a>
 
 # RateButton API
+[Back to RateButton docs](rate-button.md)
 
 ## Table of contents
 1. [constructor](#constructor)

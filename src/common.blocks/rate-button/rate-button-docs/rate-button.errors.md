@@ -1,4 +1,5 @@
 # RateButton Errors
+[Back to RateButton docs](rate-button.md)
 
 ## Table of contents
 

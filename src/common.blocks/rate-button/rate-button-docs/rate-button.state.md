@@ -1,6 +1,7 @@
 <a name="top"></a>
 
 # RateButton State
+[Back to RateButton docs](rate-button.md)
 
 ## Table of contents
 1. [Description](#description)
@@ -34,7 +35,7 @@ Rate value is changed, depending on which star radio input has checked attribute
 Possible values: `0 - number of stars`.
 
 ### Initial state
-Initial state is got from  the star radio input, that has checked attribute.
+Initial state value is got from the star radio input, that has checked attribute.
 If there is no checked star - value sets to 0
 
 ### State dependencies
