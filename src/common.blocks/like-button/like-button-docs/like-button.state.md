@@ -1,28 +1,90 @@
 # Like Button State
 
 ## Table of contents
-1. Description
-2. likesNumber
-3. isLiked
-4. InitialState
+1. [Description](#description)
+2. [likesNumber](#likesnumber)
+3. [isLiked](#isliked)
+
+
+***
+
+<a name="description"></a>
 
 ## Description
 State contains 2 parameters:
-1. `likesNumber`
-2. `isLiked`
+1. [`likesNumber`](#likesnumber)
+2. [`isLiked`](#isliked)
+
+
+
+***
+
+<a name="likesnumber"></a>
 
 ## likesNumber
-Changes if `isLiked` was changed.
-Goes `likesNumber += 1` when `isLiked === true`.
-And `likesNumber -= 1` when `isLiked === false` and `likesNumber > 0`.
-That means that `likesNumber` cannot go lower then 0.
+
+### Description
+Presents current likes number.
+
+### User events reactions
+Does not have any user events reactions.
+
+### Values
+Possible values: `0 - unlimited`.
+
+### Initial state
+The value is taken from html (like button input).
+> Note! There is no initial value check, so it can be unpredictable
+
+### State dependencies
+```js
+isLiked = true --> likesNumber += 1
+isLiked = false && likesNumber > 0 --> likesNumber -= 1
+```
+
+### State dependents
+None
+
+### Public API methods
+`getLikesNumber()`
+`setLikesNumber(value)`
+`setLikesNumberSubscriber(subscriber)`
+
+### Should be added:
+1. Value check for initial state
+
+
+***
+
+<a name="isliked"></a>
 
 ## isLiked
-Can be only true or false.
-Toggles everytime button is pressed by user.
 
-## InitialState
-`likesNumber` sets to the value that likeButton input has.
-> Without any value checking!
+### Description
+Shows if like button is pressed.
 
-`isLiked` sets to true if button root element has 'liked' class.
+### User events reactions
+Toggles everytime like button is clicked.
+
+### Values
+Possible values: `true | false`
+
+### Initial state
+Sets `true` if button has `liked` class. Otherwise always `false`.
+
+### State dependencies
+None
+
+### State dependents
+```js
+isLiked = true --> likesNumber += 1
+isLiked = false && likesNumber > 0 --> likesNumber -= 1
+```
+
+### Public API methods
+`getIsLiked()`
+`setIsLiked(value)`
+`setIsLikedSubscriber(subscriber)`
+
+### Should be added:
+1. In initial state: `likesNumber === 0 --> isLiked = false` with any initial `isLiked`.
