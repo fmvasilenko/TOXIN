@@ -1,3 +1,5 @@
+<a name="top"></a>
+
 # FSD - TOXIN
 Test task for FSD.
 
@@ -6,6 +8,8 @@ Test task for FSD.
 2. [Github pages](#githubPages)
 3. [Architecture](#architecture)
 
+
+***
 <a name="initialization"></a>
 
 ## 1. Initialization
@@ -30,6 +34,10 @@ and if you have them while running `npm install...` - you lose all the files in 
 
 After installing all needed modules run `npm run postinstall` to put the links back.
 
+[Back to the top](#top)
+
+
+***
 <a name="githubPages"></a>
 
 ## 2. Github pages
@@ -43,71 +51,16 @@ After installing all needed modules run `npm run postinstall` to put the links b
 8. [Registration](https://fmvasilenko.github.io/TOXIN/registration)
 9. [Login](https://fmvasilenko.github.io/TOXIN/login)
 
+[Back to the top](#top)
+
+
+***
 <a name="architecture"></a>
 
 ## 3. Architecture
 
-### this.state
-All js objects extend `Component` class.
-The main idea behind it was to bind data between different modules.
-To achieve it each instance of `Component` has `this.state` variable.
-For example for `LikeButton` we have the following state:
+## Blocks architecture
+1. [LikeButton](src/common.blocks/like-button/like-button-docs/like-button.md)
+2. [RateButton](src/common.blocks/rate-button/rate-button-docs/rate-button.md)
 
-```js
-class LikeButton {
-  state = {
-    liked: {
-      value: true,
-      alias: "likeButtonPressed",
-      isGlobal: true,
-      subscribers: [
-        this.someFunction.bind(this)
-      ]
-    }
-  }
-}
-```
-```js
-class Feedback {
-  state = {
-    likeButtonPressed: {
-      value: true,
-      subscribers: [
-        this.someOtherFunction
-      ]
-    }
-  }
-}
-```
-
-In this example `LikeButton` has one variable that it dependends on: `liked`. 
-To interact with it use `this.liked`, not `this.state.liked`.
-
-`alias` means what name will the parent class work with. In this case for `LikeButton` class it will be `this.liked` and for 
-parent class - `this.likeButtonPressed`.
-
-`isGlobal` means that this variable will copy the parents state, according with the name or alias.
-
-`subscribers` will be run after any implementation:
-```js
-this.liked = true;
-```
-
-> Basically `likeButton.liked` and `feedback.likedButtonPressed` are refering to the same object.
-> And in case of any implementation `this.liked = true` or `this.likedButtonPressed = true` 
-> both `someFunction` and `someOtherFunction` will be called.
-
-
-### this.children
-All children classes are supposed to be added to `this.children` to keep data binding.
-Otherwise `states` won`t be connected.
-
-
-### clickHandler()
-`Component` also has events delegating.
-Any component that does not have parent will add eventListener to itself. And depending on what part of it`s body was clicked - 
-will delegate this event to children by calling their `clickHandler()`.
-
-
-### this.closers
-`this.closers` contains functions that will be called when click event happend out of the element.
+[Back to the top](#top)
