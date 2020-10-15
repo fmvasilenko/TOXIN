@@ -43,8 +43,9 @@ const rateButton = new RateButton(rateButtonContainer);
 
 ### Description
 Gets current rate value.
-```js
-rateButton.getRate();
+
+```ts
+getRate(): number;
 ```
 
 ### State parameter
@@ -71,8 +72,8 @@ const rate = rateButton.getRate();
 
 ### Description
 Sets rate value.
-```js
-rateButton.setRate(value);
+```ts
+rateButton.setRate(value: number);
 ```
 
 ### State parameter
@@ -103,8 +104,8 @@ rateButton.setRate(2);
 
 ### Description
 Sets rate subscriber.
-```js
-rateButton.setRateSubscriber(subscriber);
+```ts
+rateButton.setRateSubscriber(subscriber: function);
 ```
 
 ### State parameter
