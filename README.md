@@ -60,8 +60,9 @@ After installing all needed modules run `npm run postinstall` to put the links b
 ## 3. Documentation
 
 ## Blocks documentation
-1. [LikeButton](src/common.blocks/like-button/like-button-docs/like-button.md)
-2. [RateButton](src/common.blocks/rate-button/rate-button-docs/rate-button.md)
-3. [Calendar](src/common.blocks/calendar/calendar-docs/calendar.md)
+1. [Calendar](src/common.blocks/calendar/calendar-docs/calendar.md)
+2. [DateDropdown](src/common.blocks/date-dropdown/date-dropdown-docs/date-dropdown.md)
+3. [LikeButton](src/common.blocks/like-button/like-button-docs/like-button.md)
+4. [RateButton](src/common.blocks/rate-button/rate-button-docs/rate-button.md)
 
 [Back to the top](#top)
