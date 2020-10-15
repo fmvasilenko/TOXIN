@@ -5,7 +5,7 @@
 [`DateDropdown State`](date-dropdown.state.md)
 [`DateDropdown Dependencies`](date-dropdown.dependencies.md)
 
-# Calendar API
+# DateDropdown API
 
 ## Table of contents
 1. [constructor](#constructor)
