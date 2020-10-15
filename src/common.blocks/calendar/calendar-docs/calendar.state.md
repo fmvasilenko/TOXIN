@@ -1,7 +1,10 @@
 <a name="top"></a>
 
+[`Project documentation`](../../../../README.md#documentation)
+[`Calendar`](calendar.md)
+[`Calendar API`](calendar.API.md)
+
 # Calendar State
-[Back to Calendar docs](calendar.md)
 
 ## Table of contents
 1. [Description](#description)

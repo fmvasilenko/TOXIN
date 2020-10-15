@@ -1,5 +1,6 @@
+[`Project documentation`](../../../../README.md#documentation)
+
 # Calendar
-[Back to the Documentation](../../../../README.md#documentation)
 
 ## Description
 Module creates calendar
