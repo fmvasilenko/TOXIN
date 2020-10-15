@@ -114,6 +114,9 @@ None
 calendar.setArrivalDate(new Date('2020-10-10'));
 ```
 
+### Should be added
+1. Parameters check (date should not be lower the current date or later then leavingDate)
+
 [Back to the top](#top)
 
 
@@ -240,6 +243,9 @@ None
 ```js
 calendar.setLeavingDate(new Date('2020-10-10'));
 ```
+
+### Should be added
+1. Parameters check (date should not be lower then current date and arrivalDate)
 
 [Back to the top](#top)
 
