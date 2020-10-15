@@ -1,5 +1,6 @@
+[`Project documentation`](../../../../README.md#documentation)
+
 # RateButton
-[Back to the Documentation](../../../../README.md#documentation)
 
 ## Description
 Module creates rate button

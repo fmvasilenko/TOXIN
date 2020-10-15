@@ -1,7 +1,10 @@
 <a name="top"></a>
 
+[`Project documentation`](../../../../README.md#documentation)
+[`RateButton`](rate-button.md)
+[`RateButton State`](rate-button.state.md)
+
 # RateButton API
-[Back to RateButton docs](rate-button.md)
 
 ## Table of contents
 1. [constructor](#constructor)
@@ -51,7 +54,7 @@ Gets current rate value.
 ```ts
 class RateButton {
   getRate(): number {
-    return this.state.rate;
+    return this.rate;
   }
 }
 ```
@@ -84,7 +87,7 @@ Sets rate value.
 ```ts
 class RateButton {
   setRate(value: number) {
-    this.state.rate = value;
+    this.rate = value;
   }
 }
 ```
@@ -121,7 +124,7 @@ Sets rate subscriber.
 ```ts
 class RateButton {
   setRateSubscriber(subscriber: function) {
-    this.state.rate.subscriber = subscriber;
+    this.rateSubscriber = subscriber;
   }
 }
 ```

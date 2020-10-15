@@ -1,7 +1,10 @@
 <a name="top"></a>
 
+[`Project documentation`](../../../../README.md#documentation)
+[`RateButton`](rate-button.md)
+[`RateButton API`](rate-button.API.md)
+
 # RateButton State
-[Back to RateButton docs](rate-button.md)
 
 ## Table of contents
 1. [Description](#description)
