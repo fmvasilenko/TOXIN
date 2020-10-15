@@ -16,8 +16,12 @@
 ## constructor
 
 ### Description
-```js
-new RateButton(container);
+```ts
+class RateButton {
+  constructor(container: HTMLElement) {
+
+  }
+}
 ```
 
 ### Valid parameters
@@ -45,14 +49,18 @@ const rateButton = new RateButton(rateButtonContainer);
 Gets current rate value.
 
 ```ts
-getRate(): number;
+class RateButton {
+  getRate(): number {
+    return this.state.rate;
+  }
+}
 ```
 
 ### State parameter
 Works with [`rate`](rate-button.state.md#rate).
 
 ### Valid parameters
-Does not have any parameters
+Does not receive any parameters
 
 ### Return value
 Returns number `0 - stars number`
@@ -72,15 +80,20 @@ const rate = rateButton.getRate();
 
 ### Description
 Sets rate value.
+
 ```ts
-rateButton.setRate(value: number);
+class RateButton {
+  setRate(value: number) {
+    this.state.rate = value;
+  }
+}
 ```
 
 ### State parameter
 Works with [`rate`](rate-button.state.md#rate).
 
 ### Valid parameters
-value: `0 - stars number`
+`value` : `0 - stars number`
 
 ### Parameters validity check
 If `value < 1` - it will be changed to 1.
@@ -104,8 +117,13 @@ rateButton.setRate(2);
 
 ### Description
 Sets rate subscriber.
+
 ```ts
-rateButton.setRateSubscriber(subscriber: function);
+class RateButton {
+  setRateSubscriber(subscriber: function) {
+    this.state.rate.subscriber = subscriber;
+  }
+}
 ```
 
 ### State parameter
@@ -113,8 +131,9 @@ Works with [`rate`](rate-button.state.md#rate).
 
 ### Valid parameters
 subscriber should be a function
-```js
-subscriber = function(rate) {
+
+```ts
+subscriber = function(rate: number) {
   //some code
 }
 ```
@@ -126,8 +145,8 @@ None
 None
 
 ### Usage example
-```js
-const subscriber = function(rate) {
+```ts
+const subscriber = function(rate: number) {
   console.log(rate);
 }
 
@@ -138,8 +157,8 @@ rateButton.setRateSubscriber(subscriber);
 > Note! There can be only one subscriber! If you use the method twice, only the second subscriber will work.
 So to remove subscriber you can use `setRateSubscriber(() => {})`.
 If you need to add few functions, use:
-```js
-subscriber = function(rate) {
+```ts
+subscriber = function(rate: number) {
   function1(rate);
   function2(rate);
   function3(rate);
