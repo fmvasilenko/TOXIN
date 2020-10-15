@@ -1,7 +1,10 @@
 <a name="top"></a>
 
+[`Project documentation`](../../../../README.md#documentation)
+[`LikeButton`](like-button.md)
+[`LikeButton API`](like-button.API.md)
+
 # LikeButton State
-[Back to LikeButton docs](like-button.md)
 
 ## Table of contents
 1. [Description](#description)
