@@ -3,6 +3,7 @@
 [`Project documentation`](../../../../README.md#documentation)
 [`DateDropdown`](date-dropdown.md)
 [`DateDropdown API`](date-dropdown.API.md)
+[`DateDropdown Dependencies`](date-dropdown.dependencies.md)
 
 # DateDropdown State
 

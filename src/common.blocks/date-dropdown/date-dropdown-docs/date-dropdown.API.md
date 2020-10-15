@@ -3,6 +3,7 @@
 [`Project documentation`](../../../../README.md#documentation)
 [`DateDropdown`](date-dropdown.md)
 [`DateDropdown State`](date-dropdown.state.md)
+[`DateDropdown Dependencies`](date-dropdown.dependencies.md)
 
 # Calendar API
 
