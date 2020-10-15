@@ -52,6 +52,8 @@ const dateDropdown = new DateDropdown(dateDropdownContainer);
 
 ## getArrivalDate
 
+> Note! This method has external [dependencies](date-dropdown.dependencies.md#getarrivaldate)!
+
 ### Description
 Returns arrivalDate.
 
@@ -84,6 +86,8 @@ const arrivalDate = dateDropdown.getArrivalDate();
 <a name="setarrivaldate"></a>
 
 ## setArrivalDate
+
+> Note! This method has external [dependencies](date-dropdown.dependencies.md#setarrivaldate)!
 
 ### Description
 Sets arrivalDate.
@@ -123,6 +127,8 @@ dateDropdown.setArrivalDate(new Date('2020-10-10'));
 <a name="setarrivaldatesubscriber"></a>
 
 ## setArrivalDateSubscriber
+
+> Note! This method has external [dependencies](date-dropdown.dependencies.md#setarrivaldatesubscriber)!
 
 ### Description
 Sets arrivalDate subscriber.
@@ -183,6 +189,8 @@ dateDropdown.setArrivalDateSubscriber(subscriber);
 
 ## getLeavingDate
 
+> Note! This method has external [dependencies](date-dropdown.dependencies.md#getleavingdate)!
+
 ### Description
 Returns leavingDate.
 ```ts
@@ -214,6 +222,8 @@ const leavingDate = dateDropdown.getLeavingDate();
 <a name="setleavingdate"></a>
 
 ## setLeavingDate
+
+> Note! This method has external [dependencies](date-dropdown.dependencies.md#setleavingdate)!
 
 ### Description
 Sets leavingDate.
@@ -253,6 +263,8 @@ dateDropdown.setLeavingDate(new Date('2020-10-10'));
 <a name="setleavingdatesubscriber"></a>
 
 ## setLeavingDateSubscriber
+
+> Note! This method has external [dependencies](date-dropdown.dependencies.md#setleavingdatesubscriber)!
 
 ### Description
 Sets leavingDate subscriber.
