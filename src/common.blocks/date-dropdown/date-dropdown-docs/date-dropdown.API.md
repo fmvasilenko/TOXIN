@@ -63,7 +63,7 @@ class DateDropdown {
 ```
 
 ### State parameter
-Works with [`arrivalDate`](datedropdown.state.md#arrivaldate).
+Works with [`arrivalDate`](date-dropdown.state.md#arrivaldate).
 
 ### Valid parameters
 Does not have any parameters
@@ -96,7 +96,7 @@ class DateDropdown {
 ```
 
 ### State parameter
-Works with [`arrivalDate`](datedropdown.state.md#arrivaldate).
+Works with [`arrivalDate`](date-dropdown.state.md#arrivaldate).
 
 ### Valid parameters
 `date` : `new Date() | null`
@@ -135,7 +135,7 @@ class DateDropdown {
 ```
 
 ### State parameter
-Works with [`arrivalDate`](datedropdown.state.md#arrivaldate).
+Works with [`arrivalDate`](date-dropdown.state.md#arrivaldate).
 
 ### Valid parameters
 subscriber should be a function
@@ -193,7 +193,7 @@ class DateDropdown {
 ```
 
 ### State parameter
-Works with [`leavingDate`](datedropdown.state.md#leavingdate).
+Works with [`leavingDate`](date-dropdown.state.md#leavingdate).
 
 ### Valid parameters
 Does not have any parameters
@@ -226,7 +226,7 @@ class DateDropdown {
 ```
 
 ### State parameter
-Works with [`leavingDate`](datedropdown.state.md#leavingdate).
+Works with [`leavingDate`](date-dropdown.state.md#leavingdate).
 
 ### Valid parameters
 `date` : `new Date() | null`
@@ -264,7 +264,7 @@ class DateDropdown {
 ```
 
 ### State parameter
-Works with [`leavingDate`](datedropdown.state.md#leavingdate).
+Works with [`leavingDate`](date-dropdown.state.md#leavingdate).
 
 ### Valid parameters
 subscriber should be a function
