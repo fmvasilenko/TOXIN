@@ -19,8 +19,12 @@
 ## constructor
 
 ### Description
-```js
-new LikeButton(container);
+```ts
+class LikeButton {
+  constructor(container: HTMLElement) {
+
+  }
+}
 ```
 
 ### Valid parameters
@@ -45,16 +49,21 @@ const likeButton = new LikeButton(likeButtonContainer);
 ## getLikesNumber
 
 ### Description
-Sets likes number.
-```js
-likeButton.getLikesNumber();
+Gets likes number.
+
+```ts
+class LikeButton {
+  getLikesNumber(): number {
+    return this.likesNumber;
+  }
+}
 ```
 
 ### State parameter
 Works with [`likesNumber`](like-button.state.md#likesnumber).
 
 ### Valid parameters
-Does not have any parameters
+Does not receive any parameters
 
 ### Return value
 Returns number `0 - unlimited`
@@ -74,8 +83,13 @@ const likesNumber = likeButton.getLikesNumber();
 
 ### Description
 Sets likes number.
-```js
-likeButton.setLikesNumber(value);
+
+```ts
+class LikeButton {
+  setLikesNumber(value: number) {
+    this.likesNumber = value;
+  }
+}
 ```
 
 ### State parameter
@@ -105,8 +119,12 @@ likeButton.setLikesNumber(10);
 
 ### Description
 Sets likes number subscriber.
-```js
-likeButton.setLikesNumberSubscriber(subscriber);
+```ts
+class LikeButton {
+  setLikesNumberSubscriber(subscriber: function) {
+    this.likesNumberSubscriber = subscriber;
+  };
+}
 ```
 
 ### State parameter
@@ -114,8 +132,8 @@ Works with [`likesNumber`](like-button.state.md#likesnumber).
 
 ### Valid parameters
 subscriber should be a function
-```js
-subscriber = function(likesNumber) {
+```ts
+subscriber = function(likesNumber: number) {
   //some code
 }
 ```
@@ -127,8 +145,8 @@ None
 None
 
 ### Usage example
-```js
-const subscriber = function(likesNumber) {
+```ts
+const subscriber = function(likesNumber: number) {
   console.log(likesNumber);
 }
 
@@ -139,8 +157,8 @@ likeButton.setLikesNumberSubscriber(subscriber);
 > Note! There can be only one subscriber! If you use the method twice, only the second subscriber will work.
 So to remove subscriber you can use `setLikesNumberSubscriber(() => {})`.
 If you need to add few functions, use:
-```js
-subscriber = function(likesNumber) {
+```ts
+subscriber = function(likesNumber: number) {
   function1(likesNumber);
   function2(likesNumber);
   function3(likesNumber);
@@ -159,8 +177,13 @@ likeButton.setLikesNumberSubscriber(subscriber);
 
 ### Descriptions
 Returns current `isLiked` state.
-```js
-likeButton.getIsLiked();
+
+```ts
+class LikeButton {
+  getIsLiked(): boolean {
+    return this.isLiked;
+  }
+}
 ```
 
 ### State parameter
@@ -187,8 +210,12 @@ const isLiked = likeButton.getIsLiked();
 
 ### Description
 Sets `isLiked` state parameter.
-```js
-likeButton.setIsLiked(value);
+```ts
+class LikeButton {
+  setIsLiked(value: boolean) {
+    this.isLiked = value;
+  };
+}
 ```
 
 ### State parameter
@@ -218,8 +245,12 @@ likeButton.setIsLiked(true);
 
 ### Description
 Sets isLiked subscriber.
-```js
-likeButton.setIsLikedSubscriber(subscriber);
+```ts
+class LikeButton {
+  setIsLikedSubscriber(subscriber: function) {
+    this.isLikedSubscriber = subscriber;
+  }
+}
 ```
 
 ### State parameter
@@ -227,8 +258,9 @@ Works with [`isLiked`](like-button.state.md#isliked).
 
 ### Valid parameters
 subscriber should be a function
-```js
-subscriber = function(isLiked) {
+
+```ts
+subscriber = function(isLiked: boolean) {
   //some code
 }
 ```
@@ -240,8 +272,8 @@ None
 None
 
 ### Usage example
-```js
-const subscriber = function(isLiked) {
+```ts
+const subscriber = function(isLiked: boolean) {
   console.log(isLiked);
 }
 
@@ -252,8 +284,8 @@ likeButton.setIsLikedSubscriber(subscriber);
 > Note! There can be only one subscriber! If you use the method twice, only the second subscriber will work.
 So to remove subscriber you can use `setIsLikedSubscriber(() => {})`.
 If you need to add few functions, use:
-```js
-subscriber = function(isLiked) {
+```ts
+subscriber = function(isLiked: boolean) {
   function1(isLiked);
   function2(isLiked);
   function3(isLiked);
