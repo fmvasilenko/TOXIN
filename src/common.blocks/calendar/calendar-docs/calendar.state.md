@@ -18,7 +18,7 @@
 <a name="description"></a>
 
 ## Description
-State contains 1 parameter:
+State contains 3 parameter:
 1. [`arrivalDate`](#arrivaldate)
 2. [`leavingDate`](#leavingdate)
 3. [`datePicking`](#datepicking)
