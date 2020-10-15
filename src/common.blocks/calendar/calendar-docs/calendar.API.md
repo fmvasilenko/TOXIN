@@ -24,8 +24,12 @@
 ## constructor
 
 ### Description
-```js
-new Calendar(container);
+```ts
+class Calendar {
+  constructor(container: HTMLElement) {
+
+  }
+}
 ```
 
 ### Valid parameters
@@ -51,8 +55,13 @@ const calendar = new Calendar(calendarContainer);
 
 ### Description
 Returns arrivalDate.
-```js
-calendar.getarrivalDate();
+
+```ts
+class Calendar {
+  getArrivalDate(): Date | null {
+    return this.arrivalDate;
+  }
+}
 ```
 
 ### State parameter
@@ -79,15 +88,20 @@ const arrivalDate = calendar.getArrivalDate();
 
 ### Description
 Sets arrivalDate.
-```js
-calendar.setArrivalDate(date);
+
+```ts
+class Calendar {
+  setArrivalDate(date: Date | null) {
+    this.arrivalDate = date;
+  }
+}
 ```
 
 ### State parameter
 Works with [`arrivalDate`](calendar.state.md#arrivaldate).
 
 ### Valid parameters
-date: `new Date() | null`
+`date` : `new Date() | null`
 
 ### Parameters validity check
 None
@@ -110,8 +124,13 @@ calendar.setArrivalDate(new Date('2020-10-10'));
 
 ### Description
 Sets arrivalDate subscriber.
-```js
-calendar.setArrivalDateSubscriber(subscriber);
+
+```ts
+class Calendar {
+  setArrivalDateSubscriber(subscriber: function) {
+    this.arrivalDateSubscriber = subscriber;
+  }
+}
 ```
 
 ### State parameter
@@ -119,8 +138,8 @@ Works with [`arrivalDate`](calendar.state.md#arrivaldate).
 
 ### Valid parameters
 subscriber should be a function
-```js
-subscriber = function(arrivalDate) {
+```ts
+subscriber = function(arrivalDate: Date | null) {
   //some code
 }
 ```
@@ -132,8 +151,8 @@ None
 None
 
 ### Usage example
-```js
-const subscriber = function(arrivalDate) {
+```ts
+const subscriber = function(arrivalDate: Date | null) {
   console.log(arrivalDate);
 }
 
@@ -144,8 +163,8 @@ calendar.setArrivalDateSubscriber(subscriber);
 > Note! There can be only one subscriber! If you use the method twice, only the second subscriber will work.
 So to remove subscriber you can use `setArrivalDateSubscriber(() => {})`.
 If you need to add few functions, use:
-```js
-subscriber = function(arrivalDate) {
+```ts
+subscriber = function(arrivalDate: Date | null) {
   function1(arrivalDate);
   function2(arrivalDate);
   function3(arrivalDate);
@@ -164,8 +183,12 @@ calendar.setArrivalDateSubscriber(subscriber);
 
 ### Description
 Returns leavingDate.
-```js
-calendar.getLeavingDate();
+```ts
+class Calendar {
+  getLeavingDate(): Date | null {
+    return this.leavingDate;
+  }
+}
 ```
 
 ### State parameter
@@ -192,15 +215,20 @@ const leavingDate = calendar.getLeavingDate();
 
 ### Description
 Sets leavingDate.
-```js
-calendar.setLeavingDate(date);
+
+```ts
+class Calendar {
+  setLeavingDate(date: Date | null) {
+    this.leavingDate = date;
+  }
+}
 ```
 
 ### State parameter
 Works with [`leavingDate`](calendar.state.md#leavingdate).
 
 ### Valid parameters
-date: `new Date() | null`
+`date` : `new Date() | null`
 
 ### Parameters validity check
 None
@@ -223,8 +251,12 @@ calendar.setLeavingDate(new Date('2020-10-10'));
 
 ### Description
 Sets leavingDate subscriber.
-```js
-calendar.setLeavingDateSubscriber(subscriber);
+```ts
+class Calendar {
+  setLeavingDateSubscriber(subscriber: function) {
+    this.leavingDateSubscriber = subscriber;
+  }
+}
 ```
 
 ### State parameter
@@ -232,8 +264,8 @@ Works with [`leavingDate`](calendar.state.md#leavingdate).
 
 ### Valid parameters
 subscriber should be a function
-```js
-subscriber = function(leavingDate) {
+```ts
+subscriber = function(leavingDate: Date | null) {
   //some code
 }
 ```
@@ -245,8 +277,8 @@ None
 None
 
 ### Usage example
-```js
-const subscriber = function(leavingDate) {
+```ts
+const subscriber = function(leavingDate: Date | null) {
   console.log(leavingDate);
 }
 
@@ -257,8 +289,8 @@ calendar.setLeavingDateSubscriber(subscriber);
 > Note! There can be only one subscriber! If you use the method twice, only the second subscriber will work.
 So to remove subscriber you can use `setLeavingDateSubscriber(() => {})`.
 If you need to add few functions, use:
-```js
-subscriber = function(leavingDate) {
+```ts
+subscriber = function(leavingDate: Date | null) {
   function1(leavingDate);
   function2(leavingDate);
   function3(leavingDate);
@@ -277,18 +309,22 @@ calendar.setLeavingDateSubscriber(subscriber);
 
 ### Description
 Sets pickingDate.
-```js
-calendar.setPickingDate(date);
+```ts
+class Calendar {
+  setPickingDate(date: string) {
+    this.datePicking = date;
+  }
+}
 ```
 
 ### State parameter
 Works with [`datePicking`](calendar.state.md#datepicking).
 
 ### Valid parameters
-date: `'' | 'arrivalDate' | 'leavingDate'`
+`date` : `'' | 'arrivalDate' | 'leavingDate'`
 
 ### Parameters validity check
-None, but any value, except `'arrivalDate' | 'leavingDate'` will not have any effect.
+None. But any value, except `'arrivalDate' | 'leavingDate'` will not have any effect.
 
 ### Return value
 None
@@ -308,8 +344,12 @@ calendar.setPickingDate('arrivalDate');
 
 ### Description
 Sets submit button subscriber. Subscriber will be called everytime submit button is clicked.
-```js
-calendar.setSubmitSubscriber(subscriber);
+```ts
+class Calendar {
+  setSubmitSubscriber(subscriber: function) {
+    this.submitSubscriber = subscriber;
+  }
+}
 ```
 
 ### State parameter
