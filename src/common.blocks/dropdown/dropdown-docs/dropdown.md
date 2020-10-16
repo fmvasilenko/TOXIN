@@ -1,6 +1,6 @@
 [`Project documentation`](../../../../README.md#documentation)
 
-# DateDropdown
+# Dropdown
 
 ## Description
 Module creates dropdown
