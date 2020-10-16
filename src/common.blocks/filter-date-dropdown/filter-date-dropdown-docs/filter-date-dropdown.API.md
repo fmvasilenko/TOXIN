@@ -52,8 +52,6 @@ const filterDateDropdown = new FilterDateDropdown(FilterDateDropdownContainer);
 
 ## getArrivalDate
 
-> Note! This method has external [dependences](filter-date-dropdown.dependences.md#getarrivaldate)!
-
 ### Description
 Returns arrivalDate.
 
@@ -128,8 +126,6 @@ filterDateDropdown.setArrivalDate(new Date('2020-10-10'));
 
 ## setArrivalDateSubscriber
 
-> Note! This method has external [dependences](filter-date-dropdown.dependences.md#setarrivaldatesubscriber)!
-
 ### Description
 Sets arrivalDate subscriber.
 
@@ -188,8 +184,6 @@ filterDateDropdown.setArrivalDateSubscriber(subscriber);
 <a name="getleavingdate"></a>
 
 ## getLeavingDate
-
-> Note! This method has external [dependences](filter-date-dropdown.dependences.md#getleavingdate)!
 
 ### Description
 Returns leavingDate.
@@ -263,8 +257,6 @@ filterDateDropdown.setLeavingDate(new Date('2020-10-10'));
 <a name="setleavingdatesubscriber"></a>
 
 ## setLeavingDateSubscriber
-
-> Note! This method has external [dependences](filter-date-dropdown.dependences.md#setleavingdatesubscriber)!
 
 ### Description
 Sets leavingDate subscriber.

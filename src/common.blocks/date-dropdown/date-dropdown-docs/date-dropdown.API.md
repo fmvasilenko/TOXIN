@@ -128,8 +128,6 @@ dateDropdown.setArrivalDate(new Date('2020-10-10'));
 
 ## setArrivalDateSubscriber
 
-> Note! This method has external [dependencies](date-dropdown.dependencies.md#setarrivaldatesubscriber)!
-
 ### Description
 Sets arrivalDate subscriber.
 
@@ -263,8 +261,6 @@ dateDropdown.setLeavingDate(new Date('2020-10-10'));
 <a name="setleavingdatesubscriber"></a>
 
 ## setLeavingDateSubscriber
-
-> Note! This method has external [dependencies](date-dropdown.dependencies.md#setleavingdatesubscriber)!
 
 ### Description
 Sets leavingDate subscriber.
