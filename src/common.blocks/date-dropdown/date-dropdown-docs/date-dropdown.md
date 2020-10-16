@@ -19,7 +19,7 @@ Module creates date dropdown
 ## Interface
 
 ```ts
-interface Dropdown {
+interface DateDropdown {
   constructor(container: HTMLElement)
   getArrivalDate(): Date | null
   setArrivalDate(date: Date | null)
