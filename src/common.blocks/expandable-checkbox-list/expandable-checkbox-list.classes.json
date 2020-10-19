@@ -1,6 +1,6 @@
 {
   "field": "js-expandable-checkbox-list__field",
   "icon": "js-expandable-checkbox-list__icon",
-  "icon_expanded": "expandable-checkbox-list__icon_expanded",
+  "iconExpanded": "expandable-checkbox-list__icon_expanded",
   "list": "js-expandable-checkbox-list__list"
 }

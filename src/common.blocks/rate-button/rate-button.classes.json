@@ -1,5 +1,4 @@
 {
-  "star-wrapper": "js-rate-button__star-wrapper",
   "input": "js-rate-button__input",
   "star": "js-rate-button__label"
 }

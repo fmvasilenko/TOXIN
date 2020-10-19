@@ -33,7 +33,7 @@ class ExpandableCheckboxListLogic {
 
   getInitialState() {
     return {
-      listExpanded: this.DOM.icon.classList.contains(this.classes.icon_expanded),
+      listExpanded: this.DOM.icon.classList.contains(this.classes.iconExpanded),
     };
   }
 
@@ -50,10 +50,10 @@ class ExpandableCheckboxListLogic {
   render() {
     if (this.state.listExpanded) {
       $(this.DOM.list).slideDown();
-      this.DOM.icon.classList.add(this.classes.icon_expanded);
+      this.DOM.icon.classList.add(this.classes.iconExpanded);
     } else {
       $(this.DOM.list).slideUp();
-      this.DOM.icon.classList.remove(this.classes.icon_expanded);
+      this.DOM.icon.classList.remove(this.classes.iconExpanded);
     }
   }
 }
