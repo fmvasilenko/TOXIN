@@ -38,4 +38,7 @@ Module does not have any public state.
 <a name="dependences"></a>
 
 ## Dependences
-Module does not have any external dependences
+Module has one external dependency:
+[LikeButton](../../like-button/like-button-docs/like-button.md)
+
+But it does not use any of it`s public API.
