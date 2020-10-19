@@ -64,8 +64,9 @@ After installing all needed modules run `npm run postinstall` to put the links b
 2. [DateDropdown](src/common.blocks/date-dropdown/date-dropdown-docs/date-dropdown.md)
 3. [Dropdown](src/common.blocks/dropdown/dropdown-docs/dropdown.md)
 4. [ExpandableCheckboxList](src/common.blocks/expandable-checkbox-list/expandable-checkbox-list-docs/expandable-checkbox-list.md)
-4. [FilterDateDropdown](src/common.blocks/filter-date-dropdown/filter-date-dropdown-docs/filter-date-dropdown.md)
-5. [LikeButton](src/common.blocks/like-button/like-button-docs/like-button.md)
-6. [RateButton](src/common.blocks/rate-button/rate-button-docs/rate-button.md)
+5. [Feedback](src/common.blocks/feedback/feedback-docs/feedback.md)
+6. [FilterDateDropdown](src/common.blocks/filter-date-dropdown/filter-date-dropdown-docs/filter-date-dropdown.md)
+7. [LikeButton](src/common.blocks/like-button/like-button-docs/like-button.md)
+8. [RateButton](src/common.blocks/rate-button/rate-button-docs/rate-button.md)
 
 [Back to the top](#top)
