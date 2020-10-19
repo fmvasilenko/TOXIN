@@ -38,7 +38,7 @@ listExpanded can be changed by clicking on the title or dropdown icon
 Possible values: `true | false`.
 
 ### Initial state
-Initial state will be true if dropdown icon containes expanded
+Initial state will be true if dropdown icon containes expanded class
 
 ### State dependences
 None
@@ -47,8 +47,8 @@ None
 None
 
 ### Public API methods
-[`getListExpanded`](dropdown.API.md#getlistexpanded)
-[`setListExpanded`](dropdown.API.md#setlistexpanded)
-[`setListExpandedSubscriber`](dropdown.API.md#setlistexpandedsubscriber)
+[`getListExpanded`](expandable-checkbox-list.API.md#getlistexpanded)
+[`setListExpanded`](expandable-checkbox-list.API.md#setlistexpanded)
+[`setListExpandedSubscriber`](expandable-checkbox-list.API.md#setlistexpandedsubscriber)
 
 [Back to the top](#top)
