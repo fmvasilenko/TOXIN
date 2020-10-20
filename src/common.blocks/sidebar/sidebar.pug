@@ -27,13 +27,13 @@ mixin sidebar(customConfig = {})
   -  const { checkboxButtonsTitle, featuresTitle } = vocabulary;
 
   form.sidebar(method=method action=action)
-    .sidebar__dates
+    .sidebar__dates.js-sidebar__dates
       +filter-date-dropdown(dates)
 
-    .sidebar__guests
+    .sidebar__guests.js-sidebar__guests
       +dropdown(guests)
 
-    .sidebar__slider
+    .sidebar__slider.js-sidebar__slider
       +range-slider(slider)
       .sidebar__slider-text #{slider.text}
 
@@ -51,9 +51,9 @@ mixin sidebar(customConfig = {})
         .sidebar__feature
           +checkbox-button-rich(featureConfig)
 
-    .sidebar__amenities
+    .sidebar__amenities.js-sidebar__amenities
       +dropdown(amenities)
 
-    .sidebar__convinience
+    .sidebar__convinience.js-sidebar__convinience
       +expandable-checkbox-list(convinience)
       

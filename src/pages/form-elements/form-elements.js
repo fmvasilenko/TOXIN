@@ -7,5 +7,7 @@ blocksStyles.keys().forEach(blocksStyles);
 const pagesStyles = require.context('../', true, /\.scss/);
 pagesStyles.keys().forEach(pagesStyles);
 
-const formElementsContainer = document.querySelector('.form-elements');
+const classes = require('./form-elements.classes.json');
+
+const formElementsContainer = document.querySelector(`.${classes.formElements}`);
 new FormElementsConnector(formElementsContainer);

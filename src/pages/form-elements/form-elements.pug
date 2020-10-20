@@ -27,7 +27,7 @@ include ../../common.blocks/feedback/feedback
 block variables
   - const pageTitle = 'Form Elements';
   - const pageDescription = 'Form Elements';
-  - const pageClass = 'form-elements';
+  - const pageClass = 'form-elements js-form-elements';
   - const data = require('./form-elements.data.json');
   - 
     const { 
@@ -72,16 +72,16 @@ block content
       .form-elements__text-field-hover
         +text-field(textfields[1])
 
-      .form-elements__dropdown
+      .form-elements__dropdown.js-form-elements__dropdown
         +dropdown(dropdownGuests)
 
       .form-elements__masked-text-field
         +masked-text-field(maskedTextField)
 
-      .form-elements__date-dropdown
+      .form-elements__date-dropdown.js-form-elements__date-dropdown
         +date-dropdown(dateDropdown)
 
-      .form-elements__filter-date-dropdown
+      .form-elements__filter-date-dropdown.js-form-elements__filter-date-dropdown
         +filter-date-dropdown(filterDateDropdown)
 
       .form-elements__subscription-text-field
@@ -112,18 +112,18 @@ block content
         h3.form-elements__like-buttons-title #{likeButtons.title}
         .form-elements__like-buttons-container
           each item in likeButtons.items
-            form.form-elements__like-button
+            form.form-elements__like-button.js-form-elements__like-button
               +like-button(item)
 
       .form-elements__rate-buttons
         h3.form-elements__rate-buttons-title #{rateButtons.title}
         .form-elements__rate-buttons-container
           each item in rateButtons.items
-            form.form-elements__rate-button
+            form.form-elements__rate-button.js-form-elements__rate-button
               +rate-button(item)
 
     section.form-elements__column
-      .form-elements__slider
+      .form-elements__slider.js-form-elements__slider
         +range-slider(slider)
 
       .form-elements__buttons
@@ -152,29 +152,29 @@ block content
         +pagination()
 
     section.form-elements__column
-      .form-elements__dropdown-default 
+      .form-elements__dropdown-default.js-form-elements__dropdown-default
         +dropdown(dropdownAmenities)
 
-      .form-elements__dropdown-expanded
+      .form-elements__dropdown-expanded.js-form-elements__dropdown-expanded
         +dropdown(dropdownAmenities)
 
     section.form-elements__column
       - dropdownGuests.display_submit_button = true;
-      .form-elements__dropdown4
+      .form-elements__dropdown4.js-form-elements__dropdown4
         +dropdown(dropdownGuests)
 
     section.form-elements__column
       - dropdownGuests.display_submit_button = true;
-      .form-elements__dropdown5
+      .form-elements__dropdown5.js-form-elements__dropdown5
         +dropdown(dropdownGuests)
 
     section.form-elements__column
-      .form-elements__expandable-checkbox-list
+      .form-elements__expandable-checkbox-list.js-form-elements__expandable-checkbox-list
         +expandable-checkbox-list(expandableCheckboxList)
 
       - expandableCheckboxList.expanded = true
 
-      .form-elements__expandable-checkbox-list-expanded
+      .form-elements__expandable-checkbox-list-expanded.js-form-elements__expandable-checkbox-list-expanded
         +expandable-checkbox-list(expandableCheckboxList)
 
     section.form-elements__column
@@ -197,5 +197,5 @@ block content
           .form-elements__benefit
             +benefit(benefit)
 
-    section.form-elements__feedback
+    section.form-elements__feedback.js-form-elements__feedback
       +feedback(feedback)

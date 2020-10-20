@@ -6,7 +6,7 @@ mixin rate-button(customConfig = {})
   - const { value, name, maxValue, vocabulary } = config;
   - const { checkedStar, uncheckedStar } = vocabulary;
 
-  .rate-button.js-rate-button
+  .rate-button
     - for (let i = 1; i <= maxValue; i++)
       label.rate-button__star-wrapper
         if i<value

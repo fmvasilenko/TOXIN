@@ -6,10 +6,10 @@ mixin expandable-checkbox-list(customConfig = {})
   - const { title, expanded, icon, checkboxButtons } = config;
   - const iconClasses = expanded ? 'expandable-checkbox-list__icon_expanded' : '';
   
-  .expandable-checkbox-list.js-expandable-checkbox-list
+  .expandable-checkbox-list
 
     .expandable-checkbox-list__field.js-expandable-checkbox-list__field
-      h3.expandable-checkbox-list__title.js-expandable-checkbox-list__title #{title}
+      h3.expandable-checkbox-list__title #{title}
       i.material-icons.expandable-checkbox-list__icon.js-expandable-checkbox-list__icon(class=iconClasses) #{icon}    
 
     .expandable-checkbox-list__list.js-expandable-checkbox-list__list

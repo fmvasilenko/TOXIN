@@ -7,5 +7,7 @@ blocksStyles.keys().forEach(blocksStyles);
 const pagesStyles = require.context('../', true, /\.scss/);
 pagesStyles.keys().forEach(pagesStyles);
 
-const cardsContainer = document.querySelector('.cards');
+const classes = require('./cards.classes.json');
+
+const cardsContainer = document.querySelector(`.${classes.cards}`);
 new CardsConnector(cardsContainer);

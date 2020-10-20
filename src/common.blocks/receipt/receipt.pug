@@ -24,7 +24,7 @@ mixin receipt(customConfig = {})
     } = config;
   - const { numberSign, lux, currencySign, period, total, buttonValue } = vocabulary;
 
-  form.receipt.js-receipt(method=method action=action)
+  form.receipt(method=method action=action)
 
     .receipt__title
       h2.receipt__title-number
