@@ -1,61 +1,9 @@
-@font-face {
-  font-family: "Quicksand";
-  src: url('../fonts/quicksand-regular/quicksand-regular.eot');
-  src: url('../fonts/quicksand-regular/quicksand-regular.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/quicksand-regular/quicksand-regular.woff') format('woff'),
-       url('../fonts/quicksand-regular/quicksand-regular.woff2') format('woff2'),
-       url('../fonts/quicksand-regular/quicksand-regular.ttf')  format('truetype'),
-       url('../fonts/quicksand-regular/quicksand-regular.svg') format('svg');
+@import "./font.scss";
 
-  font-weight: normal;
-  font-style: normal;
-}
+@include font("Quicksand", normal, "quicksand-regular");
+@include font("Quicksand", bold, "quicksand-bold");
 
-@font-face {
-  font-family: "Quicksand";
-  src: url('../fonts/quicksand-bold/quicksand-bold.eot');
-  src: url('../fonts/quicksand-bold/quicksand-bold.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/quicksand-bold/quicksand-bold.woff') format('woff'),
-       url('../fonts/quicksand-bold/quicksand-bold.woff2') format('woff2'),
-       url('../fonts/quicksand-bold/quicksand-bold.ttf')  format('truetype'),
-       url('../fonts/quicksand-bold/quicksand-bold.svg') format('svg');
+@include font("Montserrat", normal, "montserrat-regular");
+@include font("Montserrat", bold, "montserrat-bold");
 
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url('../fonts/montserrat-regular/montserrat-regular.eot');
-  src: url('../fonts/montserrat-regular/montserrat-regular.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/montserrat-regular/montserrat-regular.woff') format('woff'),
-       url('../fonts/montserrat-regular/montserrat-regular.woff2') format('woff2'),
-       url('../fonts/montserrat-regular/montserrat-regular.ttf')  format('truetype'),
-       url('../fonts/montserrat-regular/montserrat-regular.svg') format('svg');
-  
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Montserrat";
-  src: url('../fonts/montserrat-bold/montserrat-bold.eot');
-  src: url('../fonts/montserrat-bold/montserrat-bold.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/montserrat-bold/montserrat-bold.woff') format('woff'),
-       url('../fonts/montserrat-bold/montserrat-bold.woff2') format('woff2'),
-       url('../fonts/montserrat-bold/montserrat-bold.ttf')  format('truetype'),
-       url('../fonts/montserrat-bold/montserrat-bold.svg') format('svg');
-  
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Material Icons";
-  src: url('../fonts/materialicons-regular/materialicons-regular.eot');
-  src: url('../fonts/materialicons-regular/materialicons-regular.eot?#iefix') format('embedded-opentype'),
-       url('../fonts/materialicons-regular/materialicons-regular.woff') format('woff'),
-       url('../fonts/materialicons-regular/materialicons-regular.woff2') format('woff2'),
-       url('../fonts/materialicons-regular/materialicons-regular.ttf')  format('truetype'),
-       url('../fonts/materialicons-regular/materialicons-regular.svg') format('svg');
-}
+@include font("Material Icons", "normal", "materialicons-regular");
