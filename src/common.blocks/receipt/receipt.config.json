@@ -14,11 +14,11 @@
     "buttonValue": "Забронировать"
   },
   "datesParameters": {
-    "dropdown1": {
+    "arrivalDate": {
       "title": "Прибытие",
       "name": "arrival"
     },
-    "dropdown2": {
+    "leavingDate": {
       "title": "Выезд",
       "name": "leaving"
     }

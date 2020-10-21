@@ -5,8 +5,8 @@
     "pricePerPeriod": "9 990",
     "totalPrice": "38 081",
     "datesParameters": {
-      "dropdown1": {},
-      "dropdown2": {}
+      "arrivalDate": {},
+      "leavingDate": {}
     },
     "guestsParameters": {
       "options": [

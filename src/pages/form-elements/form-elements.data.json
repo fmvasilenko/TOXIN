@@ -37,8 +37,8 @@
     "title": "Masked text field"
   },
   "dateDropdown": {
-    "dropdown1": {},
-    "dropdown2": {}
+    "arrivalDate": {},
+    "leavingDate": {}
   },
   "filterDateDropdown": {
     "title": "Filter date dropdown"

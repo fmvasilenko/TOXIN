@@ -1,10 +1,10 @@
 {
-  "dropdown1": {
+  "arrivalDate": {
     "title": "Date dropdown",
     "value": "",
     "icon": "expand_more"
   },
-  "dropdown2": {
+  "leavingDate": {
     "title": "Date dropdown",
     "value": "",
     "icon": "expand_more"

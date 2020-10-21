@@ -5,19 +5,19 @@ mixin date-dropdown(customConfig = {})
   - const defaultConfig = require('@blocks/date-dropdown/date-dropdown.config.json');
 
   - const config = blocks.createConfig(defaultConfig, customConfig);
-  - const { dropdown1, dropdown2 } = config;
+  - const { arrivalDate, leavingDate } = config;
 
   .date-dropdown.js-date-dropdown
 
     .date-dropdown__field.js-date-dropdown__field
-      h3.date-dropdown__title #{dropdown1.title}
-      i.material-icons.date-dropdown__expand-more #{dropdown1.icon}
-      input.date-dropdown__input.js-date-dropdown__input(type="date" name="arrivalDate" value=dropdown1.value readonly)
+      h3.date-dropdown__title #{arrivalDate.title}
+      i.material-icons.date-dropdown__expand-more #{arrivalDate.icon}
+      input.date-dropdown__input.js-date-dropdown__input(type="date" name="arrivalDate" value=arrivalDate.value readonly)
     
     .date-dropdown__field.js-date-dropdown__field
-      h3.date-dropdown__title #{dropdown2.title}
-      i.material-icons.date-dropdown__expand-more #{dropdown2.icon}
-      input.date-dropdown__input.js-date-dropdown__input(type="date" name="leavingDate" value=dropdown2.value readonly)
+      h3.date-dropdown__title #{leavingDate.title}
+      i.material-icons.date-dropdown__expand-more #{leavingDate.icon}
+      input.date-dropdown__input.js-date-dropdown__input(type="date" name="leavingDate" value=leavingDate.value readonly)
 
     .date-dropdown__calendar.js-date-dropdown__calendar
       +calendar()
