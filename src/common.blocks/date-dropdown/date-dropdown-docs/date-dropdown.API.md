@@ -107,7 +107,13 @@ Works with [`arrivalDate`](date-dropdown.state.md#arrivaldate).
 `date` : `new Date() | null`
 
 ### Parameters validity check
-None
+```ts
+if (date < currentDate) return;
+if (date > leavingDate) return;
+```
+
+> Parameters validity check is taken from [`Calendar`](../../calendar/calendar-docs/calendar.md)
+> Check [dependencies](./date-dropdown.dependencies.md)
 
 ### Return value
 None
@@ -241,7 +247,13 @@ Works with [`leavingDate`](date-dropdown.state.md#leavingdate).
 `date` : `new Date() | null`
 
 ### Parameters validity check
-None
+```ts
+if (date < currentDate) return;
+if (date < arrivalDate) return;
+```
+
+> Parameters validity check is taken from [`Calendar`](../../calendar/calendar-docs/calendar.md)
+> Check [dependencies](./date-dropdown.dependencies.md)
 
 ### Return value
 None
