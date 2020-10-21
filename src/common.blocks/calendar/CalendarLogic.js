@@ -291,7 +291,9 @@ class CalendarLogic {
   }
 
   isDateBetween(date) {
-    return date >= this.state.arrivalDate.get()
+    return this.state.arrivalDate.get()
+        && this.state.leavingDate.get()
+        && date >= this.state.arrivalDate.get()
         && date <= this.state.leavingDate.get();
   }
 
@@ -356,7 +358,9 @@ class CalendarLogic {
   }
 
   middleDateShouldBeCalculated() {
-    return this.state.leavingDate.get() && this.state.datePicking.get() === '';
+    return this.state.arrivalDate.get()
+      && this.state.leavingDate.get() 
+      && this.state.datePicking.get() === '';
   }
 
   isDateActive(date) {
