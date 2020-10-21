@@ -1,0 +1,8 @@
+{
+  "roomDetails": "js-room-details",
+  "receipt": "js-room-details__sidebar",
+  "feedback": "js-room-details__feedback",
+  "gallery": "js-room-details__gallery",
+  "coverImage": "js-room-details__cover-image",
+  "miniImages": "js-room-details__mini-images"
+}

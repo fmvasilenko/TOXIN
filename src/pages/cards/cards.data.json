@@ -5,10 +5,8 @@
     "pricePerPeriod": "9 990",
     "totalPrice": "38 081",
     "datesParameters": {
-      "dropdown1": {
-      },
-      "dropdown2": {
-      }
+      "arrivalDate": {},
+      "leavingDate": {}
     },
     "guestsParameters": {
       "options": [
@@ -31,22 +29,14 @@
         }
       ]
     },
-    "costs": [
-      {
-        "title": "9 990₽ х 4 суток",
-        "price": "39 960"
-      },
-      {
-        "title": "Сбор за услуги: скидка 2 179₽",
-        "price": "0",
-        "hasIcon": true
-      },
-      {
-        "title": "Сбор за дополнительные услуги",
-        "price": "300",
-        "hasIcon": true
-      }
-    ]
+    "discount": {
+      "title": "Сбор за услуги: скидка 2 179₽",
+      "value": 0
+    },
+    "extraCosts": {
+      "title": "Сбор за дополнительные услуги",
+      "value": 300
+    }
   },
   "suites": [
     {
@@ -58,20 +48,20 @@
       },
       "images": [
         {
-          "link": "assets/img/suites/suite840/suite840-1.jpg",
-          "checked": true
-        },
-        {
-          "link": "assets/img/suites/suite888/suite888-3.jpg",
+          "link": "assets/img/suites/suite888/suite888-1.jpg",
           "checked": true
         },
         {
           "link": "assets/img/suites/suite888/suite888-2.jpg",
-          "checked": true
+          "checked": false
         },
         {
-          "link": "assets/img/suites/suite888/suite888-1.jpg",
-          "checked": true
+          "link": "assets/img/suites/suite888/suite888-3.jpg",
+          "checked": false
+        },   
+        {
+          "link": "assets/img/suites/suite840/suite840-1.jpg",
+          "checked": false
         }
       ]
     },
@@ -84,20 +74,20 @@
       },
       "images": [
         {
-          "link": "assets/img/suites/suite888/suite888-3.jpg",
-          "checked": true
-        },
-        {
-          "link": "assets/img/suites/suite888/suite888-2.jpg",
+          "link": "assets/img/suites/suite840/suite840-1.jpg",
           "checked": true
         },
         {
           "link": "assets/img/suites/suite888/suite888-1.jpg",
-          "checked": true
+          "checked": false
         },
         {
-          "link": "assets/img/suites/suite840/suite840-1.jpg",
-          "checked": true
+          "link": "assets/img/suites/suite888/suite888-2.jpg",
+          "checked": false
+        },
+        {
+          "link": "assets/img/suites/suite888/suite888-3.jpg",
+          "checked": false
         }
       ]
     }

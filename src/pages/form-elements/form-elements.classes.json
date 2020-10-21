@@ -1,0 +1,16 @@
+{
+  "formElements": "js-form-elements",
+  "guestsDropdown": "js-form-elements__dropdown",
+  "dateDropdown": "js-form-elements__date-dropdown",
+  "filterDateDropdown": "js-form-elements__filter-date-dropdown",
+  "likeButton": "js-form-elements__like-button",
+  "rateButton": "js-form-elements__rate-button",
+  "rangeSlider": "js-form-elements__slider",
+  "dropdownDefault": "js-form-elements__dropdown-default",
+  "dropdownExpanded": "js-form-elements__dropdown-expanded",
+  "dropdown4": "js-form-elements__dropdown4",
+  "dropdown5": "js-form-elements__dropdown5",
+  "expandableCheckboxList": "js-form-elements__expandable-checkbox-list",
+  "expandableCheckboxListExpanded": "js-form-elements__expandable-checkbox-list-expanded",
+  "feedback": "js-form-elements__feedback"
+}

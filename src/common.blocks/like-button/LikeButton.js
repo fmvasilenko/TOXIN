@@ -1,58 +1,20 @@
-import Component from '@frontend/Component';
-import LikeButtonView from './LikeButtonView';
+import LikeButtonLogic from './LikeButtonLogic';
 
-class LikeButton extends Component {
-  constructor(root, parent = {}) {
-    super({ root, parent });
+class LikeButton {
+  constructor(container) {
+    const likeButtonLogic = new LikeButtonLogic(container);
 
-    this.CLASSES = require('./like-button.classes');
-    this.DOM = this.getDOM();
+    this.getLikesNumber = () => likeButtonLogic.getLikesNumber();
 
-    this.setInitialState();
-    this.VIEW = new LikeButtonView(this);
-  }
+    this.getIsLiked = () => likeButtonLogic.getIsLiked();
 
-  setState() {
-    this.state = {
-      liked: {
-        value: false,
-        subscribers: [],
-      },
-      likesNumber: {
-        value: 0,
-        subscribers: [],
-      },
-    };
-  }
+    this.setLikesNumber = (value) => likeButtonLogic.setLikesNumber(value);
 
-  getDOM() {
-    return {
-      ICON: this.root.querySelector(`.${this.CLASSES.ICON}`),
-      INPUT: this.root.querySelector(`.${this.CLASSES.INPUT}`),
-    };
-  }
+    this.setIsLiked = (value) => likeButtonLogic.setIsLiked(value);
 
-  setInitialState() {
-    this.likesNumber = parseInt(this.DOM.INPUT.value, 10);
+    this.setLikesNumberSubscriber = (subscriber) => likeButtonLogic.setLikesNumberSubscriber(subscriber);
 
-    if (this.root.classList.contains(this.CLASSES.ROOT_LIKED)) {
-      this.liked = true;
-    }
-  }
-
-  clickHandler() {
-    if (this.liked) this.decreaseNumber();
-    else this.increaseNumber();
-
-    this.liked = !this.liked;
-  }
-
-  increaseNumber() {
-    this.likesNumber += 1;
-  }
-
-  decreaseNumber() {
-    if (this.likesNumber > 0) this.likesNumber -= 1;
+    this.setIsLikedSubscriber = (subscriber) => likeButtonLogic.setIsLikedSubscriber(subscriber);
   }
 }
 

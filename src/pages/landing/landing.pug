@@ -13,7 +13,7 @@ include ../../common.blocks/search-form/search-form.pug
 block variables
   - const pageTitle = 'Landing';
   - const pageDescription = 'Search page for TOXIN';
-  - const pageClass = 'landing';
+  - const pageClass = 'landing js-landing';
   - const data = require('./landing.data.json');
   - const { description } = data;
 
@@ -26,7 +26,7 @@ block footer
 block content
   .landing__background
     .landing__content
-      .landing__search-form
+      .landing__search-form.js-landing__search-form
         +search-form()
       
       p.landing__description #{description}

@@ -7,14 +7,14 @@ mixin filter-date-dropdown(customConfig = {})
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - const { title, value, icon, arrivalDate, leavingDate } = config;
 
-  .filter-date-dropdown.js-filter-date-dropdown
+  .filter-date-dropdown
     if (title)
       h3.filter-date-dropdown__title #{title}
     .filter-date-dropdown__field.js-filter-date-dropdown__field
       input.filter-date-dropdown__arrival-date.js-filter-date-dropdown__arrival-date(type="date" name=arrivalDate.name value=arrivalDate.value)
       input.filter-date-dropdown__leaving-date.js-filter-date-dropdown__leaving-date(type="date" name=leavingDate.name value=leavingDate.value)
       input.filter-date-dropdown__input.js-filter-date-dropdown__input(type="text" name=name value=value readonly)
-      i.material-icons.filter-date-dropdown__icon.js-filter-date-dropdown__icon #{icon}
+      i.material-icons.filter-date-dropdown__icon #{icon}
     
     .filter-date-dropdown__calendar.js-filter-date-dropdown__calendar
       +calendar()

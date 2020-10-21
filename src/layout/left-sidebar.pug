@@ -1,7 +1,9 @@
 block variables
-  - let pageTitle
-  - let pageDescription
-  - let pageKeyWords
+  - const pageTitle
+  - const pageDescription
+  - const pageKeyWords
+  - const pageClass
+  - const sidebarClass
 
 doctype html
 html(lang='en')
@@ -15,12 +17,12 @@ html(lang='en')
     link(rel="icon" href="favicon.ico" type="image/x-icon")
     block styles
 
-  body
+  body(class=pageClass)
 
     block header
 
     .wrapper
-      .sidebar-wrapper
+      .sidebar-wrapper(class=sidebarClass)
         block sidebar
 
       .content-wrapper

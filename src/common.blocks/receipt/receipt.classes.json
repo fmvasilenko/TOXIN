@@ -1,0 +1,6 @@
+{
+  "pricePerNight": "js-receipt__title-price",
+  "costTitle": "js-receipt__cost-title",
+  "costValue": "js-receipt__cost-value",
+  "totalPrice": "js-receipt__total-number"
+}

@@ -1,24 +1,24 @@
-import Component from '@frontend/Component';
-import DateDropdown from '@blocks/date-dropdown/DateDropdown';
-import Dropdown from '@blocks/dropdown/Dropdown';
+import SearchFormConnector from './SearchFormConnector';
 
-class SearchForm extends Component {
-  constructor(root, parent = {}) {
-    super({ root, parent });
-  }
+class SearchForm {
+  constructor(container) {
+    const searchForm = new SearchFormConnector(container);
 
-  setClasses() {
-    this.CLASSES = {
-      DROPDOWN: 'js-dropdown',
-      DATE_DROPDOWN: 'js-date-dropdown',
-    };
-  }
+    this.getArrivalDate = () => searchForm.getArrivalDate();
 
-  setChildren() {
-    this.children = [
-      new DateDropdown(this.root.querySelector(`.${this.CLASSES.DATE_DROPDOWN}`), this),
-      new Dropdown(this.root.querySelector(`.${this.CLASSES.DROPDOWN}`), this),
-    ];
+    this.setArrivalDate = (date) => searchForm.setArrivalDate(date);
+
+    this.setArrivalDateSubscriber = (subscriber) => searchForm.setArrivalDateSubscriber(subscriber);
+
+    this.getLeavingDate = () => searchForm.getLeavingDate();
+
+    this.setLeavingDate = (date) => searchForm.setLeavingDate(date);
+
+    this.setLeavingDateSubscriber = (subscriber) => searchForm.setLeavingDateSubscriber(subscriber);
+
+    this.getTotalGuestsNumber = () => searchForm.getTotalGuestsNumber();
+
+    this.setTotalGuestsNumberSubscriber = (subscriber) => searchForm.setTotalGuestsNumberSubscriber(subscriber);
   }
 }
 

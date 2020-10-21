@@ -1,115 +1,81 @@
-import Component from '@frontend/Component';
-
-class DropdownOption extends Component {
-  constructor(root, parent, index) {
-    super({ root, parent });
-
-    this.INDEX = index;
-    this.setDOM();
-    this.setVocabulary();
-    this.setInitialState();
+class DropdownOption {
+  constructor(container, valueOnChangeFunction = () => {}) {
+    this.classes = require('./dropdown-option.classes.json');
+    this.DOM = this.findDOMNodes(container);
+    this.wordForms = this.DOM.root.dataset.wordForms.split(',');
+    this.state = this.getInitialState();
+    this.bindEventListeners();
+    this.valueOnChangeFunction = valueOnChangeFunction;
   }
 
-  setState() {
-    this.state = {
-      options: {
-        value: [],
-        isGlobal: true,
-        subscribers: [
-          this.updateInput.bind(this),
-          this.checkDecreaseButton.bind(this),
-        ],
-      },
-    };
-  }
-
-  setClasses() {
-    this.CLASSES = {
-      INPUT: 'js-dropdown-option__input',
-      BUTTON: 'js-dropdown-option__button',
-    };
-  }
-
-  setDOM() {
-    this.DOM = {
-      INPUT: this.root.querySelector(`.${this.CLASSES.INPUT}`),
-      DECREASE_BUTTON: this.root.querySelector(`.${this.CLASSES.BUTTON}[name="decreaseButton"]`),
-      INCREASE_BUTTON: this.root.querySelector(`.${this.CLASSES.BUTTON}[name="increaseButton"]`),
-    };
-  }
-
-  setVocabulary() {
-    let forms = this.root.getAttribute('data-word-forms');
-    forms = forms ? forms.split(',') : null;
-
-    this.VOCABULARY = {
-      WORD_FORMS: forms,
-    };
-  }
-
-  setInitialState() {
-    const value = this.DOM.INPUT.value ? parseInt(this.DOM.INPUT.value, 10) : 0;
-    this.updateOption(value, this.getWordForm(value));
-
-    this.options[this.INDEX].countedSeparately = this.root.getAttribute('data-counted-separately') === 'true';
-  }
-
-  clickHandler(event) {
-    if (event.target.closest(`.${this.CLASSES.BUTTON}`) === this.DOM.INCREASE_BUTTON) {
-      this.increaseValue();
-    } else if (event.target.closest(`.${this.CLASSES.BUTTON}`) === this.DOM.DECREASE_BUTTON) {
-      this.decreaseValue();
+  setValue(value) {
+    if (value >= 0) {
+      this.state.value = value;
+      this.state.wordForm = this.getWordForm(this.state.value);
+      this.valueOnChangeFunction(this.state);
+      this.render();
     }
   }
 
-  increaseValue() {
-    let value = this.getCurrentValue();
-
-    value += 1;
-    this.updateOption(value, this.getWordForm(value));
+  getState() {
+    return this.state;
   }
 
-  decreaseValue() {
-    let value = this.getCurrentValue();
-
-    if (value > 0) value -= 1;
-    this.updateOption(value, this.getWordForm(value));
+  findDOMNodes(container) {
+    return {
+      root: container.querySelector(`.${this.classes.root}`),
+      input: container.querySelector(`.${this.classes.input}`),
+      decreaseButton: container.querySelector(`.${this.classes.button}[name="decreaseButton"]`),
+      increaseButton: container.querySelector(`.${this.classes.button}[name="increaseButton"]`),
+    };
   }
 
-  getCurrentValue() {
-    return this.options[this.INDEX].value;
+  getInitialState() {
+    return {
+      value: parseInt(this.DOM.input.value, 10),
+      wordForm: this.getWordForm(parseInt(this.DOM.input.value, 10)),
+      countedSeparately: this.DOM.root.getAttribute('data-counted-separately') === 'true',
+    };
   }
 
-  updateInput() {
-    this.DOM.INPUT.value = this.options[this.INDEX].value;
+  bindEventListeners() {
+    this.DOM.decreaseButton.addEventListener('click', this.decreaseButtonClickHandler.bind(this));
+    this.DOM.increaseButton.addEventListener('click', this.increaseButtonClickHandler.bind(this));
   }
 
-  checkDecreaseButton() {
-    if (this.options[this.INDEX].value <= 0) this.DOM.DECREASE_BUTTON.disabled = true;
-    else this.DOM.DECREASE_BUTTON.disabled = false;
+  decreaseButtonClickHandler() {
+    if (this.state.value > 0) this.state.value -= 1;
+    this.state.wordForm = this.getWordForm(this.state.value);
+    this.valueOnChangeFunction(this.state);
+    this.render();
   }
 
-  updateOption(value, wordForm) {
-    const { options } = this;
-    if (!options[this.INDEX]) options[this.INDEX] = {};
-    options[this.INDEX].value = value;
-    options[this.INDEX].wordForm = wordForm;
-    this.options = options;
+  increaseButtonClickHandler() {
+    this.state.value += 1;
+    this.state.wordForm = this.getWordForm(this.state.value);
+    this.valueOnChangeFunction(this.state);
+    this.render();
+  }
+
+  render() {
+    this.DOM.input.value = this.state.value;
+    if (this.state.value === 0) this.DOM.decreaseButton.disabled = true;
+    else this.DOM.decreaseButton.disabled = false;
   }
 
   getWordForm(value) {
-    if (!this.VOCABULARY.WORD_FORMS) return '';
+    if (!this.wordForms) return '';
 
     let n = value % 100;
 
     if (n < 10 || n > 20) {
       n %= 10;
 
-      if (n === 1) return this.VOCABULARY.WORD_FORMS[0];
-      if (n > 1 && n < 5) return this.VOCABULARY.WORD_FORMS[1];
+      if (n === 1) return this.wordForms[0];
+      if (n > 1 && n < 5) return this.wordForms[1];
     }
 
-    return this.VOCABULARY.WORD_FORMS[2];
+    return this.wordForms[2];
   }
 }
 

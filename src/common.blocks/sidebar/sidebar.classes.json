@@ -1,0 +1,7 @@
+{
+  "filterDateDropdown": "js-sidebar__dates",
+  "guestsDropdown": "js-sidebar__guests",
+  "rangeSlider": "js-sidebar__slider",
+  "amenitiesDropdown": "js-sidebar__amenities",
+  "convinience": "js-sidebar__convinience"
+}

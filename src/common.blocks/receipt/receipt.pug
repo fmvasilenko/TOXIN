@@ -18,12 +18,13 @@ mixin receipt(customConfig = {})
       vocabulary, 
       datesParameters, 
       guestsParameters, 
-      costs,
+      discount,
+      extraCosts,
       button 
     } = config;
   - const { numberSign, lux, currencySign, period, total, buttonValue } = vocabulary;
 
-  form.receipt.js-receipt(method=method action=action)
+  form.receipt(method=method action=action)
 
     .receipt__title
       h2.receipt__title-number
@@ -42,14 +43,19 @@ mixin receipt(customConfig = {})
       +dropdown(guestsParameters)
 
     .receipt__costs
-      if costs
-        each cost in costs
-          .receipt__cost
-            .receipt__cost-title.js-receipt__cost-title #{cost.title}
-            if (cost.hasIcon)
-              .receipt__cost-icon-wrapper
-                .receipt__cost-icon i
-            .receipt__cost-price.js-receipt__cost-price #{cost.price}#{currencySign}
+      .receipt__cost
+        .receipt__cost-title.js-receipt__cost-title(data-cost-type="cost")
+        .receipt__cost-value.js-receipt__cost-value(data-cost-type="cost")
+      .receipt__cost
+        .receipt__cost-title.js-receipt__cost-title(data-cost-type="discount") #{discount.title}
+        .receipt__cost-icon-wrapper
+          .receipt__cost-icon i
+        .receipt__cost-value.js-receipt__cost-value(data-cost-type="discount") #{discount.value}#{currencySign}
+      .receipt__cost
+        .receipt__cost-title.js-receipt__cost-title(data-cost-type="extraCost") #{extraCosts.title}
+        .receipt__cost-icon-wrapper
+          .receipt__cost-icon i
+        .receipt__cost-value.js-receipt__cost-value(data-cost-type="extraCost") #{extraCosts.value}#{currencySign}
 
     h2.receipt__total
       .receipt__total-word #{total}

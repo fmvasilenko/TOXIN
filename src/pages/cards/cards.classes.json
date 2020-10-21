@@ -1,0 +1,7 @@
+{
+  "cards": "js-cards",
+  "searchForm": "js-cards__search-form",
+  "receipt": "js-cards__receipt",
+  "calendar": "js-cards__calendar",
+  "suite": "js-cards__suite"
+}

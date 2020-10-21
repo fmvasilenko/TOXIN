@@ -1,43 +1,14 @@
-import Component from '@frontend/Component';
-import RateButtonView from './RateButtonView';
+import RateButtonLogic from './RateButtonLogic';
 
-class RateButton extends Component {
-  constructor(root, parent) {
-    super({ root, parent });
+class RateButton {
+  constructor(container) {
+    const rateButton = new RateButtonLogic(container);
 
-    this.CLASSES = require('./rate-button.classes.json');
-    this.DOM = {};
+    this.getRate = () => rateButton.getRate();
 
-    this.setInitialState();
-    this.VIEW = new RateButtonView(this);
-  }
+    this.setRate = (value) => rateButton.setRate(value);
 
-  setState() {
-    this.state = {
-      rating: {
-        value: 0,
-      },
-    };
-  }
-
-  setInitialState() {
-    const stars = [];
-    let rating = 0;
-
-    this.root.querySelectorAll(`.${this.CLASSES.STAR_WRAPPER}`).forEach((element, index) => {
-      stars[index] = {};
-      stars[index].icon = element.querySelector(`.${this.CLASSES.STAR}`);
-
-      const elementChecked = element.querySelector(`.${this.CLASSES.INPUT}`).checked;
-      if (elementChecked) rating = index + 1;
-    });
-
-    this.DOM.STARS = stars;
-    this.rating = rating;
-  }
-
-  clickHandler(event) {
-    if (event.target.tagName === 'INPUT') this.rating = event.target.value;
+    this.setRateSubscriber = (subscriber) => rateButton.setRateSubscriber(subscriber);
   }
 }
 

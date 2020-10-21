@@ -14,9 +14,6 @@ block variables
   - const pageClass = '';
   - const data = require('./room-details.data.json');
   - const { gallery, information, chart, feedbacks, bullets, cancellation, receipt } = data;
-  - const coverPhotoAlt = gallery.coverPhoto.alt || gallery.coverPhoto.src;
-  - const miniImage1Alt = gallery.miniImages[0].alt || gallery.miniImages[0].src;
-  - const miniImage2Alt = gallery.miniImages[1].alt || gallery.miniImages[1].src;
 
 block styles
   link(rel="stylesheet" href="assets/css/roomDetails.css")
@@ -31,15 +28,19 @@ block footer
   +footer()
 
 block content
-  .room-details
-    .room-details__gallery
-      .room-details__cover-wrapper
-        img.room-details__cover-image.js-room-details__cover-image(src=gallery.coverPhoto.src, alt=coverPhotoAlt)
-      .room-details__mini-images
-        .room-details__mini-image-wrapper
-          img.room-details__mini-image.js-room-details__mini-image(src=gallery.miniImages[0].src, alt=miniImage1Alt)
-        .room-details__mini-image-wrapper
-          img.room-details__mini-image.js-room-details__mini-image(src=gallery.miniImages[1].src, alt=miniImage2Alt)
+  .room-details.js-room-details
+    .room-details__gallery.js-room-details__gallery
+      if gallery.miniImages
+        .room-details__cover-wrapper
+          img.room-details__cover-image.js-room-details__cover-image(src=gallery.coverPhoto.src, alt=gallery.coverPhoto.alt)
+        
+        .room-details__mini-images.js-room-details__mini-images
+          each miniImage in gallery.miniImages
+            .room-details__mini-image-wrapper
+              img.room-details__mini-image(src=miniImage.src, alt=miniImage.alt)
+      else
+        .room-details__cover-wrapper.room-details__cover-wrapper_width_full
+          img.room-details__cover-image.js-room-details__cover-image(src=gallery.coverPhoto.src, alt=gallery.coverPhoto.alt)
 
     .room-details__description
       .room-details__content
@@ -60,7 +61,7 @@ block content
             h2 #{feedbacks.title}
             span #{feedbacks.quantity}
           each feedback in feedbacks.items
-            .room-details__feedback
+            .room-details__feedback.js-room-details__feedback
               +feedback(feedback)
 
         .room-details__rools
@@ -74,5 +75,5 @@ block content
             h2.room-details__cancellation-title #{cancellation.title}
             p.room-details__cancellation-description #{cancellation.description}
       
-      .room-details__sidebar
+      .room-details__sidebar.js-room-details__sidebar
         +receipt(receipt)

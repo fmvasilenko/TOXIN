@@ -1,0 +1,11 @@
+{
+  "root": "js-dropdown",
+  "field": "js-dropdown__field",
+  "fieldDropped": "dropdown__field_dropped",
+  "input": "js-dropdown__field-input",
+  "list": "js-dropdown__list",
+  "listDropped": "dropdown__list_dropped",
+  "optionContainer": "dropdown__option-container",
+  "button": "js-dropdown__button-wrapper",
+  "buttonHidden": "dropdown__button_hidden"
+}
