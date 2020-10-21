@@ -65,8 +65,11 @@ class LikeButtonLogic {
   }
 
   getInitialState() {
-    const likesNumber = parseInt(this.DOM.input.value, 10);
-    const isLiked = this.DOM.root.classList.contains(this.classes.rootLiked);
+    let likesNumber = parseInt(this.DOM.input.value, 10);
+    let isLiked = this.DOM.root.classList.contains(this.classes.rootLiked);
+
+    if (likesNumber < 0) likesNumber = 0;
+    if (likesNumber === 0) isLiked = false;
 
     return {
       likesNumber: new StateItem(likesNumber),

@@ -41,7 +41,7 @@ Possible values: `0 - unlimited`.
 
 ### Initial state
 The value is taken from html (like button input).
-> Note! There is no initial value check, so it can be unpredictable
+If `likesNumber` initial value is lower then `0` - it will be changed to `0`.
 
 ### State dependencies
 ```js
@@ -80,6 +80,7 @@ Possible values: `true | false`
 
 ### Initial state
 Sets `true` if button has `liked` class. Otherwise always `false`.
+If `likesNumber === 0` - isLiked will always be `false`.
 
 ### State dependencies
 None
