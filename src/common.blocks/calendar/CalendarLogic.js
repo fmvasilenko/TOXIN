@@ -22,11 +22,13 @@ class CalendarLogic {
   }
 
   setArrivalDate(date) {
-    this.state.arrivalDate.set(date);
+    this.pickArrivalDate(date);
+    return this.state.arrivalDate.get();
   }
 
   setLeavingDate(date) {
-    this.state.leavingDate.set(date);
+    this.pickLeavingDate(date);
+    return this.state.leavingDate.get();
   }
 
   setPickingDate(datePicking) {
@@ -149,6 +151,7 @@ class CalendarLogic {
   }
 
   pickLeavingDate(date) {
+    if (this.dateIsBeforeCurrentDate(date)) return;
     if (this.dateIsBeforeArrivalDate(date)) return;
 
     this.state.leavingDate.set(date);

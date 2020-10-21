@@ -92,7 +92,8 @@ Sets arrivalDate.
 ```ts
 class Calendar {
   setArrivalDate(date: Date | null) {
-    this.arrivalDate = date;
+    this.pickArrivalDate(date);
+    return this.arrivalDate;
   }
 }
 ```
@@ -104,18 +105,18 @@ Works with [`arrivalDate`](calendar.state.md#arrivaldate).
 `date` : `new Date() | null`
 
 ### Parameters validity check
-None
+```ts
+if (date < currentDate) return;
+if (date > leavingDate) return;
+```
 
 ### Return value
-None
+Actual `arrivalDate` after all the checkings
 
 ### Usage example
 ```js
 calendar.setArrivalDate(new Date('2020-10-10'));
 ```
-
-### Should be added
-1. Parameters check (date should not be lower the current date or later then leavingDate)
 
 [Back to the top](#top)
 
@@ -222,7 +223,8 @@ Sets leavingDate.
 ```ts
 class Calendar {
   setLeavingDate(date: Date | null) {
-    this.leavingDate = date;
+    this.pickLeavingDate(date);
+    return this.leavingDate;
   }
 }
 ```
@@ -234,18 +236,18 @@ Works with [`leavingDate`](calendar.state.md#leavingdate).
 `date` : `new Date() | null`
 
 ### Parameters validity check
-None
+```ts
+if (date < currentDate) return;
+if (date < arrivalDate) return;
+```
 
 ### Return value
-None
+Actual `leavingDate` after all the checkings
 
 ### Usage example
 ```js
 calendar.setLeavingDate(new Date('2020-10-10'));
 ```
-
-### Should be added
-1. Parameters check (date should not be lower then current date and arrivalDate)
 
 [Back to the top](#top)
 
