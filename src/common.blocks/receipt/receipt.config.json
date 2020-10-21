@@ -11,7 +11,8 @@
     "currencySign": "₽",
     "period": "в сутки",
     "total": "Итого",
-    "buttonValue": "Забронировать"
+    "buttonValue": "Забронировать",
+    "dayWordForms": ["сутки", "суток", "суток"]
   },
   "datesParameters": {
     "arrivalDate": {

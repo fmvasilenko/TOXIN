@@ -5,6 +5,7 @@ class ReceiptLogic {
   constructor(container) {
     this.classes = require('./receipt.classes.json');
     this.currencySign = require('./receipt.config.json').vocabulary.currencySign;
+    this.dayWordForms = require('./receipt.config.json').vocabulary.dayWordForms;
     this.DOM = this.findDOMNodes(container);
     this.state = this.getInitialState();
     this.pricePerNight = this.getPricePerNight(container);
@@ -91,7 +92,8 @@ class ReceiptLogic {
   }
 
   changeCost() {
-    const costTitle = this.prepareStr(`${this.pricePerNight}${this.currencySign} x ${this.state.daysNumber.get()} суток`);
+    const wordForm = this.getWordForm(this.state.daysNumber.get(), this.dayWordForms);
+    const costTitle = this.prepareStr(`${this.pricePerNight}${this.currencySign} x ${this.state.daysNumber.get()} ${wordForm}`);
     const costValue = this.prepareStr(`${this.state.daysNumber.get() * this.pricePerNight}${this.currencySign}`);
 
     this.DOM.costTitle.innerHTML = costTitle;
@@ -106,6 +108,21 @@ class ReceiptLogic {
 
   prepareStr(str) {
     return str.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
+  }
+
+  getWordForm(value, wordForms) {
+    if (!wordForms) return '';
+
+    let n = value % 100;
+
+    if (n < 10 || n > 20) {
+      n %= 10;
+
+      if (n === 1) return wordForms[0];
+      if (n > 1 && n < 5) return wordForms[1];
+    }
+
+    return wordForms[2];
   }
 }
 
