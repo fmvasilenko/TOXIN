@@ -5,6 +5,7 @@
       "suiteNumber": "888",
       "price": "9 990",
       "votes": "145",
+      "href": "room-details.html",
       "rating": {
         "value": 5
       },
@@ -24,6 +25,7 @@
       "suiteNumber": "840",
       "price": "9 990",
       "votes": "65",
+      "href": "room-details.html",
       "rating": {
         "value": 4
       },
@@ -43,6 +45,7 @@
       "suiteNumber": "980",
       "price": "8 500",
       "votes": "35",
+      "href": "room-details.html",
       "rating": {
         "value": 3
       },
@@ -62,6 +65,7 @@
       "suiteNumber": "856",
       "price": "7 300",
       "votes": "19",
+      "href": "room-details.html",
       "rating": {
         "value": 5
       },
@@ -81,6 +85,7 @@
       "suiteNumber": "740",
       "price": "6 000",
       "votes": "44",
+      "href": "room-details.html",
       "rating": {
         "value": 4
       },
@@ -100,6 +105,7 @@
       "suiteNumber": "982",
       "price": "5 800",
       "votes": "56",
+      "href": "room-details.html",
       "rating": {
         "value": 3
       },
@@ -113,6 +119,7 @@
       "suiteNumber": "678",
       "price": "5 500",
       "votes": "45",
+      "href": "room-details.html",
       "rating": {
         "value": 5
       },
@@ -132,6 +139,7 @@
       "suiteNumber": "450",
       "price": "5 300",
       "votes": "39",
+      "href": "room-details.html",
       "rating": {
         "value": 4
       },
@@ -151,6 +159,7 @@
       "suiteNumber": "350",
       "price": "5 000",
       "votes": "77",
+      "href": "room-details.html",
       "rating": {
         "value": 3
       },
@@ -170,6 +179,7 @@
       "suiteNumber": "666",
       "price": "5 000",
       "votes": "25",
+      "href": "room-details.html",
       "rating": {
         "value": 5
       },
@@ -189,6 +199,7 @@
       "suiteNumber": "444",
       "price": "5 000",
       "votes": "15",
+      "href": "room-details.html",
       "rating": {
         "value": 4
       },
@@ -208,6 +219,7 @@
       "suiteNumber": "352",
       "price": "5 000",
       "votes": "55",
+      "href": "room-details.html",
       "rating": {
         "value": 3
       },

@@ -88,9 +88,14 @@
     align-items: flex-end;
   }
 
+  &__link {
+    cursor: pointer;
+  }
+
   &__title-number {
     font-size: rem(20);
     line-height: rem(30);
+    cursor: pointer;
   }
 
   &__title-number-sign {

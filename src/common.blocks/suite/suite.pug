@@ -5,7 +5,7 @@ mixin suite(customConfig = {})
   - const defaultConfig = require('@blocks/suite/suite.config.json');
 
   - const config = blocks.createConfig(defaultConfig, customConfig);
-  - const { suiteNumber, price, votes, vocabulary, images, rating } = config;
+  - const { suiteNumber, price, votes, href, vocabulary, images, rating } = config;
   - const { numberSign, luxury, period, feedbacks, currencySign, arrowIcon } = vocabulary;
   - const imagesNumber = Object.keys(images).length;
 
@@ -23,10 +23,11 @@ mixin suite(customConfig = {})
     .suite__description
 
       .suite__title
-        h2.suite__title-number
-          span.suite__title-number-sign #{numberSign}
-          |#{suiteNumber}
-          span.suite__title-lux #{luxury}
+        a.suite__link(href=href)
+          h2.suite__title-number
+            span.suite__title-number-sign #{numberSign}
+            |#{suiteNumber}
+            span.suite__title-lux #{luxury}
         p.suite__title-price
           |#{price}#{currencySign}
           span #{period}

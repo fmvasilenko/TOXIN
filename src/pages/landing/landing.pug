@@ -15,7 +15,7 @@ block variables
   - const pageDescription = 'Search page for TOXIN';
   - const pageClass = 'landing js-landing';
   - const data = require('./landing.data.json');
-  - const { description } = data;
+  - const { description, searchForm } = data;
 
 block header
   +header()
@@ -27,6 +27,6 @@ block content
   .landing__background
     .landing__content
       .landing__search-form.js-landing__search-form
-        +search-form()
+        +search-form(searchForm)
       
       p.landing__description #{description}
