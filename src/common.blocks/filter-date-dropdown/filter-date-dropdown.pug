@@ -7,7 +7,7 @@ mixin filter-date-dropdown(customConfig = {})
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - const { title, value, icon, arrivalDate, leavingDate } = config;
 
-  .filter-date-dropdown
+  .filter-date-dropdown.js-filter-date-dropdown
     if (title)
       h3.filter-date-dropdown__title #{title}
     .filter-date-dropdown__field.js-filter-date-dropdown__field

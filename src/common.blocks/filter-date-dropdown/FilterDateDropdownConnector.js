@@ -40,6 +40,7 @@ class FilterDateDropdownConnector {
     this.calendar.setArrivalDateSubscriber(this.arrivalDateSubscriber.bind(this));
     this.calendar.setLeavingDateSubscriber(this.leavingDateSubscriber.bind(this));
     this.calendar.setSubmitSubscriber(this.filterDateDropdown.closeCalendar.bind(this.filterDateDropdown));
+    this.filterDateDropdown.setCalendarClickSubscriber(this.calendar.clickHandler);
   }
 
   arrivalDateSubscriber(date) {

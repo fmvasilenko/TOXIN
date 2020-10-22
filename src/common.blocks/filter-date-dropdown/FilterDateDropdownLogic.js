@@ -13,8 +13,12 @@ class FilterDateDropdownLogic {
     this.render();
   }
 
-  closeCalendar() {
-    this.state.calendarDropped.set(false);
+  getArrivalDate() {
+    return this.state.arrivalDate.get();
+  }
+
+  getLeavingDate() {
+    return this.state.leavingDate.get();
   }
 
   setArrivalDate(date) {
@@ -25,15 +29,17 @@ class FilterDateDropdownLogic {
     this.state.leavingDate.set(date);
   }
 
-  getArrivalDate() {
-    return this.state.arrivalDate.get();
+  setCalendarClickSubscriber(subscriber) {
+    this.calendarClickSubscriber = subscriber;
   }
 
-  getLeavingDate() {
-    return this.state.leavingDate.get();
+  closeCalendar() {
+    this.state.calendarDropped.set(false);
   }
 
   defineSubscriptions() {
+    this.calendarClickSubscriber = () => {};
+
     this.state.calendarDropped.addSubscriber(this.toggleCalendar.bind(this));
     this.state.arrivalDate.addSubscriber(this.render.bind(this));
     this.state.leavingDate.addSubscriber(this.render.bind(this));
@@ -61,7 +67,13 @@ class FilterDateDropdownLogic {
   }
 
   bindEventListeners() {
-    this.DOM.field.addEventListener('click', this.fieldClickHandler.bind(this));
+    document.addEventListener('click', this.clickHandler.bind(this));
+  }
+
+  clickHandler(event) {
+    if (event.target.closest(`.${this.classes.field}`) === this.DOM.field) this.fieldClickHandler();
+    else if (event.target.closest(`.${this.classes.calendar}`) === this.DOM.calendar) this.calendarClickSubscriber(event);
+    else this.closeCalendar();
   }
 
   fieldClickHandler() {
