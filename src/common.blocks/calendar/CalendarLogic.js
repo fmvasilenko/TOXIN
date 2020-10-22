@@ -9,7 +9,6 @@ class CalendarLogic {
     this.state = this.getInitialState();
     this.displayMonth();
     this.renderLeftArrow();
-    this.bindEventListeners();
     this.setSubscribers();
   }
 
@@ -92,12 +91,12 @@ class CalendarLogic {
     this.leavingDateExternalSubscriber(this.state.leavingDate.get());
   }
 
-  bindEventListeners() {
-    this.DOM.leftArrow.addEventListener('click', this.leftArrowClickHandler.bind(this));
-    this.DOM.rightArrow.addEventListener('click', this.rightArrowClickHandler.bind(this));
-    this.DOM.tableContainer.addEventListener('click', this.tableContainerClickHandler.bind(this));
-    this.DOM.clearButton.addEventListener('click', this.clearButtonClickHandler.bind(this));
-    this.DOM.submitButton.addEventListener('click', this.submitButtonClickHandler.bind(this));
+  clickHandler(event) {
+    if (event.target.classList.contains(this.classes.leftArrow)) this.leftArrowClickHandler();
+    else if (event.target.classList.contains(this.classes.rightArrow)) this.rightArrowClickHandler();
+    else if (event.target.closest(`.${this.classes.tableContainer}`)) this.tableContainerClickHandler(event);
+    else if (event.target === this.DOM.clearButton) this.clearButtonClickHandler();
+    else if (event.target === this.DOM.submitButton) this.submitButtonClickHandler();
   }
 
   leftArrowClickHandler() {

@@ -19,6 +19,8 @@ class Calendar {
     this.setPickingDate = (str) => calendar.setPickingDate(str);
 
     this.setSubmitSubscriber = (subscriber) => calendar.setSubmitSubscriber(subscriber);
+
+    this.clickHandler = (event) => calendar.clickHandler(event);
   }
 }
 

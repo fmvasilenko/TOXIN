@@ -41,6 +41,7 @@ class DateDropdownConnector {
     this.calendar.setLeavingDateSubscriber(this.leavingDateSubscriber.bind(this));
     this.calendar.setSubmitSubscriber(this.dateDropdownLogic.closeCalendar.bind(this.dateDropdownLogic));
     this.dateDropdownLogic.setPickingDateSubscriber(this.calendar.setPickingDate.bind(this.calendar));
+    this.dateDropdownLogic.setCalendarClickSubscriber(this.calendar.clickHandler);
   }
 
   arrivalDateSubscriber(date) {

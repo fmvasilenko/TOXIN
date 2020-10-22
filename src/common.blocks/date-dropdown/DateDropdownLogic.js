@@ -30,12 +30,17 @@ class DateDropdown {
     this.pickingDateExternalSubscriber = subscriber;
   }
 
+  setCalendarClickSubscriber(subscriber) {
+    this.calendarClickSubscriber = subscriber;
+  }
+
   closeCalendar() {
     this.state.calendarDropped.set(false);
   }
 
   defineSubscriptions() {
     this.pickingDateExternalSubscriber = () => {};
+    this.calendarClickSubscriber = () => {};
 
     this.state.calendarDropped.addSubscriber(this.renderCalendar.bind(this));
     this.state.arrivalDate.addSubscriber(this.displayArrivalDate.bind(this));
@@ -73,8 +78,14 @@ class DateDropdown {
   }
 
   bindEventListeners() {
-    this.DOM.arrivalDate.addEventListener('click', this.arrivalDateClickHandler.bind(this));
-    this.DOM.leavingDate.addEventListener('click', this.leavingDateClickHandler.bind(this));
+    document.addEventListener('click', this.clickHandler.bind(this));
+  }
+
+  clickHandler(event) {
+    if (event.target.closest(`.${this.classes.field}`) === this.DOM.arrivalDate) this.arrivalDateClickHandler();
+    else if (event.target.closest(`.${this.classes.field}`) === this.DOM.leavingDate) this.leavingDateClickHandler();
+    else if (event.target.closest(`.${this.classes.calendar}`) === this.DOM.calendar) this.calendarClickSubscriber(event);
+    else if (!event.target.closest(`.${this.classes.root}`)) this.closeCalendar();
   }
 
   arrivalDateClickHandler() {
