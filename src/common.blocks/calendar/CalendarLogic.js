@@ -92,11 +92,13 @@ class CalendarLogic {
   }
 
   clickHandler(event) {
-    if (event.target.classList.contains(this.classes.leftArrow)) this.leftArrowClickHandler();
-    else if (event.target.classList.contains(this.classes.rightArrow)) this.rightArrowClickHandler();
-    else if (event.target.closest(`.${this.classes.tableContainer}`)) this.tableContainerClickHandler(event);
+    if (event.target === this.DOM.leftArrow) this.leftArrowClickHandler();
+    else if (event.target === this.DOM.rightArrow) this.rightArrowClickHandler();
     else if (event.target === this.DOM.clearButton) this.clearButtonClickHandler();
     else if (event.target === this.DOM.submitButton) this.submitButtonClickHandler();
+    else if (event.target.closest(`.${this.classes.tableContainer}`) === this.DOM.tableContainer) {
+      this.tableContainerClickHandler(event);
+    }
   }
 
   leftArrowClickHandler() {
