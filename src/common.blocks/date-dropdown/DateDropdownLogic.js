@@ -85,7 +85,7 @@ class DateDropdown {
     if (event.target.closest(`.${this.classes.field}`) === this.DOM.arrivalDate) this.arrivalDateClickHandler();
     else if (event.target.closest(`.${this.classes.field}`) === this.DOM.leavingDate) this.leavingDateClickHandler();
     else if (event.target.closest(`.${this.classes.calendar}`) === this.DOM.calendar) this.calendarClickSubscriber(event);
-    else if (!event.target.closest(`.${this.classes.root}`)) this.closeCalendar();
+    else if (event.target.closest(`.${this.classes.root}`) !== this.DOM.root) this.closeCalendar();
   }
 
   arrivalDateClickHandler() {
