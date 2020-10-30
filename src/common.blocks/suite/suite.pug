@@ -5,9 +5,10 @@ mixin suite(customConfig = {})
   - const defaultConfig = require('@blocks/suite/suite.config.json');
 
   - const config = blocks.createConfig(defaultConfig, customConfig);
-  - const { suiteNumber, price, votes, href, vocabulary, images, rating } = config;
+  - const { suiteNumber, price, votes, roomDetailsHref, vocabulary, images, rating } = config;
   - const { numberSign, luxury, period, feedbacks, currencySign, arrowIcon } = vocabulary;
   - const imagesNumber = Object.keys(images).length;
+  - const href = `${roomDetailsHref}?suite_number=${suiteNumber}`;
 
   form.suite
 

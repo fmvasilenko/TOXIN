@@ -2,7 +2,7 @@
   "suiteNumber": "",
   "price": 0,
   "votes": 0,
-  "href": "",
+  "roomDetailsHref": "room-details.html",
   "vocabulary": {
     "numberSign": "№",
     "luxury": "люкс",
