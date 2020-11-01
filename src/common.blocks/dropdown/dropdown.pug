@@ -4,27 +4,28 @@ include ../button/button
 mixin dropdown(customConfig = {})
   - const blocks = require('@backend/Blocks.js');
   - const defaultConfig = require('@blocks/dropdown/dropdown.config.json');
+  - const classes = require('@blocks/dropdown/dropdown.classes.json');
 
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - const { title, displayType, icon, defaultValue, value, valueForms, options, clearButton, submitButton } = config;
-  - const submitAreaClass = displayType === "values" ? "dropdown__submit-area_hidden": "";
+  - const submitAreaClass = `${classes.submitArea} ${displayType === 'values' ? classes.submitAreaHidden : ''}`
 
-  .dropdown.js-dropdown(data-display-type=displayType)
+  div(class = `${classes.root} js-${classes.root}` data-display-type=displayType)
 
-    h3.dropdown__title #{title}
+    h3(class = classes.title) #{title}
     
-    .dropdown__field.js-dropdown__field
-      input.dropdown__field-input.js-dropdown__field-input(value=defaultValue data-word-forms=valueForms disabled)
-      i.material-icons.dropdown__expand-more #{icon}
+    div(class = `${classes.field} js-${classes.field}`)
+      input(class = `${classes.input} js-${classes.input}` value=defaultValue data-word-forms=valueForms disabled)
+      i(class = `material-icons ${classes.icon}`) #{icon}
 
-    ul.dropdown__list.js-dropdown__list
+    ul(class = `${classes.list} js-${classes.list}`)
       if options
         each option in options
-          .dropdown__option-container
+          div(class = `${classes.optionContainer} js-${classes.optionContainer}`)
             +dropdown-option(option)
 
-      .dropdown__submit-area(class=submitAreaClass)
-        .dropdown__button-wrapper.js-dropdown__button-wrapper(data-button-type="clearButton")
+      div(class=submitAreaClass)
+        div(class = `${classes.button} js-${classes.button}` data-button-type="clearButton")
           +button(clearButton)
-        .dropdown__button-wrapper.js-dropdown__button-wrapper(data-button-type="submitButton")
+        div(class = `${classes.button} js-${classes.button}` data-button-type="submitButton")
           +button(submitButton)

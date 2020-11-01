@@ -1,11 +1,15 @@
 {
-  "root": "js-dropdown",
-  "field": "js-dropdown__field",
+  "root": "dropdown",
+  "title": "dropdown__title",
+  "field": "dropdown__field",
   "fieldDropped": "dropdown__field_dropped",
-  "input": "js-dropdown__field-input",
-  "list": "js-dropdown__list",
+  "input": "dropdown__field-input",
+  "icon": "dropdown__expand-more",
+  "list": "dropdown__list",
   "listDropped": "dropdown__list_dropped",
   "optionContainer": "dropdown__option-container",
-  "button": "js-dropdown__button-wrapper",
+  "submitArea": "dropdown__submit-area",
+  "submitAreaHidden": "dropdown__submit-area_hidden",
+  "button": "dropdown__button-wrapper",
   "buttonHidden": "dropdown__button_hidden"
 }

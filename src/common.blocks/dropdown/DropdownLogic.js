@@ -25,12 +25,12 @@ class DropdownLogic {
 
   findDOMNodes(container) {
     return {
-      root: container.querySelector(`.${this.classes.root}`),
-      field: container.querySelector(`.${this.classes.field}`),
-      input: container.querySelector(`.${this.classes.input}`),
-      list: container.querySelector(`.${this.classes.list}`),
-      clearButton: container.querySelector(`.${this.classes.button}[data-button-type="clearButton"]`).querySelector('button'),
-      submitButton: container.querySelector(`.${this.classes.button}[data-button-type="submitButton"]`).querySelector('button'),
+      root: container.querySelector(`.js-${this.classes.root}`),
+      field: container.querySelector(`.js-${this.classes.field}`),
+      input: container.querySelector(`.js-${this.classes.input}`),
+      list: container.querySelector(`.js-${this.classes.list}`),
+      clearButton: container.querySelector(`.js-${this.classes.button}[data-button-type="clearButton"]`).querySelector('button'),
+      submitButton: container.querySelector(`.js-${this.classes.button}[data-button-type="submitButton"]`).querySelector('button'),
     };
   }
 
@@ -64,7 +64,7 @@ class DropdownLogic {
   }
 
   outOfElementClickHandler(event) {
-    if (!event.target.closest(`.${this.classes.root}`)) this.closeList();
+    if (!event.target.closest(`.js-${this.classes.root}`)) this.closeList();
   }
 
   toggleList() {
