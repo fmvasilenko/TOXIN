@@ -11,19 +11,19 @@ class DateDropdown {
   }
 
   getArrivalDate() {
-    return this.state.arrivalDate.get();
+    return this.state.arrivalDate.value;
   }
 
   getLeavingDate() {
-    return this.state.leavingDate.get();
+    return this.state.leavingDate.value;
   }
 
   setArrivalDate(date) {
-    this.state.arrivalDate.set(date);
+    this.state.arrivalDate.value = date;
   }
 
   setLeavingDate(date) {
-    this.state.leavingDate.set(date);
+    this.state.leavingDate.value = date;
   }
 
   setPickingDateSubscriber(subscriber) {
@@ -35,7 +35,7 @@ class DateDropdown {
   }
 
   closeCalendar() {
-    this.state.calendarDropped.set(false);
+    this.state.calendarDropped.value = false;
   }
 
   defineSubscriptions() {
@@ -51,7 +51,7 @@ class DateDropdown {
   }
 
   pickingDateSubscriber() {
-    this.pickingDateExternalSubscriber(this.state.pickingDate.get());
+    this.pickingDateExternalSubscriber(this.state.pickingDate.value);
   }
 
   findDOMNodes(container) {
@@ -89,21 +89,21 @@ class DateDropdown {
   }
 
   arrivalDateClickHandler() {
-    this.state.pickingDate.set('arrivalDate');
-    this.state.calendarDropped.set(!this.state.calendarDropped.get());
+    this.state.pickingDate.value = 'arrivalDate';
+    this.state.calendarDropped.value = !this.state.calendarDropped.value;
   }
 
   leavingDateClickHandler() {
-    this.state.pickingDate.set('leavingDate');
-    this.state.calendarDropped.set(!this.state.calendarDropped.get());
+    this.state.pickingDate.value = 'leavingDate';
+    this.state.calendarDropped.value = !this.state.calendarDropped.value;
   }
 
   clearPickingDate() {
-    this.state.pickingDate.set('');
+    this.state.pickingDate.value = '';
   }
 
   renderCalendar() {
-    if (this.state.calendarDropped.get()) this.DOM.calendar.classList.add(this.classes.calendarDropped);
+    if (this.state.calendarDropped.value) this.DOM.calendar.classList.add(this.classes.calendarDropped);
     else this.DOM.calendar.classList.remove(this.classes.calendarDropped);
   }
 
