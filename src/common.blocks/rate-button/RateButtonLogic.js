@@ -12,13 +12,13 @@ class RateButtonLogic {
   }
 
   getRate() {
-    return this.state.rate.get();
+    return this.state.rate.value;
   }
 
   setRate(value) {
-    if (value > this.DOM.stars.length) this.state.rate.set(this.DOM.stars.length);
-    else if (value <= 0) this.state.rate.set(1);
-    else this.state.rate.set(value);
+    if (value > this.DOM.stars.length) this.state.rate.value = this.DOM.stars.length;
+    else if (value <= 0) this.state.rate.value = 1;
+    else this.state.rate.value = value;
   }
 
   setRateSubscriber(subscriber) {
@@ -33,7 +33,7 @@ class RateButtonLogic {
   }
 
   rateSubscriber() {
-    this.rateExternalSubscriber(this.state.rate.get());
+    this.rateExternalSubscriber(this.state.rate.value);
   }
 
   findDOMNodes(container) {
@@ -56,12 +56,12 @@ class RateButtonLogic {
   }
 
   clickHandler(event) {
-    if (event.target.tagName === 'INPUT') this.state.rate.set(parseInt(event.target.value, 10));
+    if (event.target.tagName === 'INPUT') this.state.rate.value = parseInt(event.target.value, 10);
   }
 
   render() {
     this.DOM.stars.forEach((star, index) => {
-      if (index < this.state.rate.get()) star.innerHTML = this.vocabulary.checkedStar;
+      if (index < this.state.rate.value) star.innerHTML = this.vocabulary.checkedStar;
       else star.innerHTML = this.vocabulary.uncheckedStar;
     });
   }
