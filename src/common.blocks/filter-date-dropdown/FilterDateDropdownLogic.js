@@ -14,19 +14,19 @@ class FilterDateDropdownLogic {
   }
 
   getArrivalDate() {
-    return this.state.arrivalDate.get();
+    return this.state.arrivalDate.value;
   }
 
   getLeavingDate() {
-    return this.state.leavingDate.get();
+    return this.state.leavingDate.value;
   }
 
   setArrivalDate(date) {
-    this.state.arrivalDate.set(date);
+    this.state.arrivalDate.value = date;
   }
 
   setLeavingDate(date) {
-    this.state.leavingDate.set(date);
+    this.state.leavingDate.value = date;
   }
 
   setCalendarClickSubscriber(subscriber) {
@@ -34,7 +34,7 @@ class FilterDateDropdownLogic {
   }
 
   closeCalendar() {
-    this.state.calendarDropped.set(false);
+    this.state.calendarDropped.value = false;
   }
 
   defineSubscriptions() {
@@ -77,17 +77,17 @@ class FilterDateDropdownLogic {
   }
 
   fieldClickHandler() {
-    this.state.calendarDropped.set(!this.state.calendarDropped.get());
+    this.state.calendarDropped.value = !this.state.calendarDropped.value;
   }
 
   toggleCalendar() {
-    if (this.state.calendarDropped.get()) this.DOM.calendar.classList.add(this.classes.calendarDropped);
+    if (this.state.calendarDropped.value) this.DOM.calendar.classList.add(this.classes.calendarDropped);
     else this.DOM.calendar.classList.remove(this.classes.calendarDropped);
   }
 
   render() {
-    const arrivalDate = this.state.arrivalDate.get();
-    const leavingDate = this.state.leavingDate.get();
+    const arrivalDate = this.state.arrivalDate.value;
+    const leavingDate = this.state.leavingDate.value;
 
     this.DOM.input.value = `${this.convertDateForFieldInput(arrivalDate)} - ${this.convertDateForFieldInput(leavingDate)}`;
     this.DOM.arrivalDateInput.value = this.convertDateForDateInput(arrivalDate);
