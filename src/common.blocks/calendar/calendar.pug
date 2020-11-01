@@ -1,22 +1,22 @@
 mixin calendar(customConfig = {})
   - const blocks = require('@backend/Blocks.js');
   - const defaultConfig = require('@blocks/calendar/calendar.config.json');
+  - const classes = require('@blocks/calendar/calendar.classes.json');
 
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - const { vocabulary, clearButton, submitButton } = config;
   - const { arrowBack, arrowForward } = vocabulary;
 
-  .calendar.js-calendar
-    .calendar__header
-      i.material-icons.calendar__left-arrow.js-calendar__left-arrow #{arrowBack}
-      h2.calendar__title.js-calendar__title
-      i.material-icons.calendar__right-arrow.js-calendar__right-arrow #{arrowForward}
+  div(class = `${classes.root} js-${classes.root}`)
+    div(class = classes.header)
+      i(class = `material-icons ${classes.leftArrow} js-${classes.leftArrow}`) #{arrowBack}
+      h2(class = `${classes.title} js-${classes.title}`)
+      i(class = `material-icons ${classes.rightArrow} js-${classes.rightArrow}`) #{arrowForward}
 
-    .calendar__table-wrapper.js-calendar__table-wrapper
+    div(class = `${classes.tableContainer} js-${classes.tableContainer}`)
       
-    .calendar__buttons
-      .calendar__button.js-calendar__clear-button
+    div(class = classes.buttons)
+      div(class = `${classes.clearButton} js-${classes.clearButton}`)
         +button(clearButton)
-      .calendar__button.js-calendar__submit-button
+      div(class = `${classes.submitSutton} js-${classes.submitButton}`)
         +button(submitButton)
-      

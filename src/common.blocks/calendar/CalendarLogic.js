@@ -48,13 +48,13 @@ class CalendarLogic {
 
   findDOMNodes(container) {
     return {
-      root: container.querySelector(`.${this.classes.root}`),
-      title: container.querySelector(`.${this.classes.title}`),
-      leftArrow: container.querySelector(`.${this.classes.leftArrow}`),
-      rightArrow: container.querySelector(`.${this.classes.rightArrow}`),
-      tableContainer: container.querySelector(`.${this.classes.tableContainer}`),
-      clearButton: container.querySelector(`.${this.classes.clearButton} > button`),
-      submitButton: container.querySelector(`.${this.classes.submitButton} > button`),
+      root: container.querySelector(`.js-${this.classes.root}`),
+      title: container.querySelector(`.js-${this.classes.title}`),
+      leftArrow: container.querySelector(`.js-${this.classes.leftArrow}`),
+      rightArrow: container.querySelector(`.js-${this.classes.rightArrow}`),
+      tableContainer: container.querySelector(`.js-${this.classes.tableContainer}`),
+      clearButton: container.querySelector(`.js-${this.classes.clearButton} > button`),
+      submitButton: container.querySelector(`.js-${this.classes.submitButton} > button`),
     };
   }
 
@@ -96,7 +96,7 @@ class CalendarLogic {
     else if (event.target === this.DOM.rightArrow) this.rightArrowClickHandler();
     else if (event.target === this.DOM.clearButton) this.clearButtonClickHandler();
     else if (event.target === this.DOM.submitButton) this.submitButtonClickHandler();
-    else if (event.target.closest(`.${this.classes.tableContainer}`) === this.DOM.tableContainer) {
+    else if (event.target.closest(`.js-${this.classes.tableContainer}`) === this.DOM.tableContainer) {
       this.tableContainerClickHandler(event);
     }
   }

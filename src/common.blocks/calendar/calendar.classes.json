@@ -1,10 +1,11 @@
 {
-  "root": "js-calendar",
-  "title": "js-calendar__title",
-  "leftArrow": "js-calendar__left-arrow",
-  "rightArrow": "js-calendar__right-arrow",
+  "root": "calendar",
+  "header": "calendar__header",
+  "title": "calendar__title",
+  "leftArrow": "calendar__left-arrow",
+  "rightArrow": "calendar__right-arrow",
   "arrowInactive": "calendar__arrow-inactive",
-  "tableContainer": "js-calendar__table-wrapper",
+  "tableContainer": "calendar__table-wrapper",
   "table": "calendar__table",
   "dayName": "calendar__day-name",
   "cell": "calendar__number",
@@ -16,7 +17,8 @@
   "inactiveDate": "calendar__day-inactive",
   "pickingArrivalDate": "calendar__picking-arrival-date",
   "pickingLeavingDate": "calendar__picking-leaving-date",
-  "clearButton": "js-calendar__clear-button",
-  "submitButton": "js-calendar__submit-button",
+  "buttons": "calendar__buttons",
+  "clearButton": "calendar__clear-button",
+  "submitButton": "calendar__submit-button",
   "buttonHidden": "calendar__button_hidden"
 }
