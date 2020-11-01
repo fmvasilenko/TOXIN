@@ -9,15 +9,15 @@ class RangeSliderLogic {
     this.state = this.getInitialState();
     this.slider = this.createSlider();
     this.changesSubscriber = () => {};
-    this.update(this.state.firstValue.get(), this.state.secondValue.get());
+    this.update(this.state.firstValue.value, this.state.secondValue.value);
   }
 
   getFirstValue() {
-    return this.state.firstValue.get();
+    return this.state.firstValue.value;
   }
 
   getSecondValue() {
-    return this.state.secondValue.get();
+    return this.state.secondValue.value;
   }
 
   setFirstValue(value) {
@@ -55,15 +55,15 @@ class RangeSliderLogic {
       isRange: true,
       minValue: this.config.minValue,
       maxValue: this.config.maxValue,
-      leftHandleValue: this.state.firstValue.get(),
-      rightHandleValue: this.state.secondValue.get(),
+      leftHandleValue: this.state.firstValue.value,
+      rightHandleValue: this.state.secondValue.value,
       step: this.config.step,
     }, this.update.bind(this));
   }
 
   update(leftHandleValue, rightHandleValue) {
-    this.state.firstValue.set(leftHandleValue, 10);
-    this.state.secondValue.set(rightHandleValue, 10);
+    this.state.firstValue.value = leftHandleValue;
+    this.state.secondValue.value = rightHandleValue;
     this.updateRange(leftHandleValue, rightHandleValue);
     this.updateInputs(leftHandleValue, rightHandleValue);
     this.changesSubscriber(leftHandleValue, rightHandleValue);
