@@ -5,5 +5,7 @@
   "maxValue": 15000,
   "firstValue": 5000,
   "secondValue": 10000,
-  "step": 100
+  "step": 100,
+  "firstValueName": "firstValue",
+  "secondValueName": "secondValue"
 }

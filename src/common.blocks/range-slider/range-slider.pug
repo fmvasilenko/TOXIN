@@ -1,14 +1,15 @@
 mixin range-slider(customConfig = {})
   - const blocks = require('@backend/Blocks.js');
   - const defaultConfig = require('@blocks/range-slider/range-slider.config.json');
+  - const classes = require('@blocks/range-slider/range-slider.classes.json');
 
   - const config = blocks.createConfig(defaultConfig, customConfig);
-  - const { title, firstValue, secondValue } = config;
+  - const { title, firstValue, secondValue, firstValueName, secondValueName } = config;
 
-  .range-slider
-    .range-slider__header
-      h3.range-slider__title #{title}
-      .range-slider__range.js-range-slider__range
-      input.js-range-slider__first-value(value=firstValue type="number" hidden)
-      input.js-range-slider__second-value(value=secondValue type="number" hidden)
-    .range-slider__line.js-range-slider__line
+  div(class = classes.root)
+    div(class = classes.header)
+      h3(class = classes.title) #{title}
+      div(class = `${classes.range} js-${classes.range}`)
+      input(name=firstValueName value=firstValue type="number" hidden)
+      input(name=secondValueName value=secondValue type="number" hidden)
+    div(class = `${classes.line} js-${classes.line}`)

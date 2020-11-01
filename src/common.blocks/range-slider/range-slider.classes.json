@@ -1,6 +1,7 @@
 {
-  "line": "js-range-slider__line",
-  "range": "js-range-slider__range",
-  "firstValue": "js-range-slider__first-value",
-  "secondValue": "js-range-slider__second-value"
+  "root": "range-slider",
+  "header": "range-slider__header",
+  "title": "range-slider__title",
+  "range": "range-slider__range",
+  "line": "range-slider__line"
 }

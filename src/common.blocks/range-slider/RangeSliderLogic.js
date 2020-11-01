@@ -34,10 +34,10 @@ class RangeSliderLogic {
 
   findDOMNodes(container) {
     return {
-      line: container.querySelector(`.${this.classes.line}`),
-      range: container.querySelector(`.${this.classes.range}`),
-      firstValue: container.querySelector(`.${this.classes.firstValue}`),
-      secondValue: container.querySelector(`.${this.classes.secondValue}`),
+      line: container.querySelector(`.js-${this.classes.line}`),
+      range: container.querySelector(`.js-${this.classes.range}`),
+      firstValue: container.querySelector(`input[name=${this.config.firstValueName}]`),
+      secondValue: container.querySelector(`input[name=${this.config.secondValueName}]`),
     };
   }
 
