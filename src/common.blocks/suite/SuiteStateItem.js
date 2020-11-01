@@ -1,17 +1,17 @@
 class SuiteStateItem {
   constructor(value, checkFunction = (givenValue) => givenValue) {
-    this.value = value;
+    this.currentValue = value;
     this.checkFunction = checkFunction;
     this.subscribers = [];
   }
 
-  set(givenValue) {
-    this.value = this.checkFunction(givenValue);
+  set value(givenValue) {
+    this.currentValue = this.checkFunction(givenValue);
     this.runSubscribers();
   }
 
-  get() {
-    return this.value;
+  get value() {
+    return this.currentValue;
   }
 
   addSubscriber(subscriber) {
@@ -20,7 +20,7 @@ class SuiteStateItem {
 
   runSubscribers() {
     this.subscribers.forEach((subscriber) => {
-      subscriber(this.value);
+      subscriber(this.currentValue);
     });
   }
 }

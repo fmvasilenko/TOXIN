@@ -44,17 +44,17 @@ class SuiteLogic {
   }
 
   leftArrowClickHandler() {
-    if (this.state.imageDisplayed.get() === 0) this.state.imageDisplayed.set(this.imagesNumber);
-    else this.state.imageDisplayed.set(this.state.imageDisplayed.get() - 1);
+    if (this.state.imageDisplayed.value === 0) this.state.imageDisplayed.value = this.imagesNumber;
+    else this.state.imageDisplayed.value -= 1;
   }
 
   rightArrowClickHandler() {
-    if (this.state.imageDisplayed.get() === this.imagesNumber) this.state.imageDisplayed.set(0);
-    else this.state.imageDisplayed.set(this.state.imageDisplayed.get() + 1);
+    if (this.state.imageDisplayed.value === this.imagesNumber) this.state.imageDisplayed.value = 0;
+    else this.state.imageDisplayed.value += 1;
   }
 
   changeImage() {
-    this.DOM.imagesInputs[this.state.imageDisplayed.get()].checked = true;
+    this.DOM.imagesInputs[this.state.imageDisplayed.value].checked = true;
   }
 }
 
