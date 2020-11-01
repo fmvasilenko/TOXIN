@@ -1,14 +1,14 @@
 mixin dropdown-option(customConfig = {})
   - const blocks = require('@backend/Blocks.js');
   - const defaultConfig = require('@blocks/dropdown-option/dropdown-option.config.json');
+  - const classes = require('@blocks/dropdown-option/dropdown-option.classes.json');
 
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - const { value, name, label, wordForms, countedSeparately } = config;
-  - const decreaseButtonDisabled = (value === 0);
 
-  li.dropdown-option.js-dropdown-option(data-word-forms=wordForms data-counted-separately=`${countedSeparately}`)
+  li(class = `${classes.root} js-${classes.root}` data-word-forms=wordForms data-counted-separately=`${countedSeparately}`)
     h3 #{label}
-    .dropdown-option__number
-      button.dropdown-option__button.js-dropdown-option__button(type="button" disabled=decreaseButtonDisabled name="decreaseButton") -
-      input.dropdown-option__input.js-dropdown-option__input(type="number" name=name value=value readonly)
-      button.dropdown-option__button.js-dropdown-option__button(type="button" name="increaseButton") +
+    div(class = classes.number)
+      button(class = `${classes.button} js-${classes.button}` type="button" name="decreaseButton" disabled=(value === 0)) -
+      input(class = `${classes.input} js-${classes.input}` type="number" name=name value=value readonly)
+      button(class = `${classes.button} js-${classes.button}` type="button" name="increaseButton") +

@@ -23,10 +23,10 @@ class DropdownOption {
 
   findDOMNodes(container) {
     return {
-      root: container.querySelector(`.${this.classes.root}`),
-      input: container.querySelector(`.${this.classes.input}`),
-      decreaseButton: container.querySelector(`.${this.classes.button}[name="decreaseButton"]`),
-      increaseButton: container.querySelector(`.${this.classes.button}[name="increaseButton"]`),
+      root: container.querySelector(`.js-${this.classes.root}`),
+      input: container.querySelector(`.js-${this.classes.input}`),
+      decreaseButton: container.querySelector(`.js-${this.classes.button}[name="decreaseButton"]`),
+      increaseButton: container.querySelector(`.js-${this.classes.button}[name="increaseButton"]`),
     };
   }
 

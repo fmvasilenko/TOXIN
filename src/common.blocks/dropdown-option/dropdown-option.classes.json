@@ -1,5 +1,6 @@
 {
-  "root": "js-dropdown-option",
-  "input": "js-dropdown-option__input",
-  "button": "js-dropdown-option__button"
+  "root": "dropdown-option",
+  "number": "dropdown-option__number",
+  "button": "dropdown-option__button",
+  "input": "dropdown-option__input"
 }
