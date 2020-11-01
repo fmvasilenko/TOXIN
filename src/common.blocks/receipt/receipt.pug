@@ -5,6 +5,7 @@ include ../button/button.pug
 mixin receipt(customConfig = {})
   - const blocks = require('@backend/Blocks.js');
   - const defaultConfig = require('@blocks/receipt/receipt.config.json');
+  - const classes = require('@blocks/receipt/receipt.classes.json');
 
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - 
@@ -24,43 +25,42 @@ mixin receipt(customConfig = {})
     } = config;
   - const { numberSign, lux, currencySign, period, total, buttonValue } = vocabulary;
 
-  form.receipt(method=method action=action)
+  form(class = classes.root method=method action=action)
 
-    .receipt__title
-      h2.receipt__title-number
-        span.receipt__title-number-sign #{numberSign}
+    div(class = classes.title)
+      h2(class = classes.suiteNumber)
+        span(class = classes.suiteNumberSymbol) #{numberSign}
         |#{suiteNumber}
         if isLuxury
-          span.receipt__title-lux #{lux}
-      p.receipt__title-price.js-receipt__title-price
+          span(class = classes.suiteNumberLux) #{lux}
+      p(class = `${classes.pricePerNight} js-${classes.pricePerNight}`)
         |#{pricePerPeriod}#{currencySign}
         span #{period}
 
-    .receipt__dates
+    div(class = classes.dates)
       +date-dropdown(datesParameters)
 
-    .receipt__guests
+    div(class = classes.guests)
       +dropdown(guestsParameters)
 
-    .receipt__costs
-      .receipt__cost
-        .receipt__cost-title.js-receipt__cost-title(data-cost-type="cost")
-        .receipt__cost-value.js-receipt__cost-value(data-cost-type="cost")
-      .receipt__cost
-        .receipt__cost-title.js-receipt__cost-title(data-cost-type="discount") #{discount.title}
-        .receipt__cost-icon-wrapper
-          .receipt__cost-icon i
-        .receipt__cost-value.js-receipt__cost-value(data-cost-type="discount") #{discount.value}#{currencySign}
-      .receipt__cost
-        .receipt__cost-title.js-receipt__cost-title(data-cost-type="extraCost") #{extraCosts.title}
-        .receipt__cost-icon-wrapper
-          .receipt__cost-icon i
-        .receipt__cost-value.js-receipt__cost-value(data-cost-type="extraCost") #{extraCosts.value}#{currencySign}
+    div(class = classes.costs)
+      +receipt-cost(config, classes, 'cost', '', '')
+      +receipt-cost(config, classes, 'discount', discount.title, discount.value, true)
+      +receipt-cost(config, classes, 'extraCost', extraCosts.title, extraCosts.value, true)
 
-    h2.receipt__total
-      .receipt__total-word #{total}
-      .receipt__total-dots
-      .receipt__total-number.js-receipt__total-number #{total_price}#{currencySign}
+    h2(class = classes.total)
+      div(class = classes.totalWord) #{total}
+      div(class = classes.totalDots)
+      div(class = `${classes.totalPrice} js-${classes.totalPrice}`) #{total_price}#{currencySign}
 
-    .receipt__submit
+    div(class = classes.submitButton)
       +button(button)
+
+
+mixin receipt-cost(config, classes, costType, title, value, hasIcon = false)
+  div(class = classes.cost)
+    div(class = `${classes.costTitle} js-${classes.costTitle}` data-cost-type=costType) #{title}
+    if hasIcon
+      div(class = classes.costIconWrapper)
+        div(class = classes.costIcon) i
+    div(class = `${classes.costValue} js-${classes.costValue}` data-cost-type=costType) #{value}#{currencySign}

@@ -1,6 +1,21 @@
 {
-  "pricePerNight": "js-receipt__title-price",
-  "costTitle": "js-receipt__cost-title",
-  "costValue": "js-receipt__cost-value",
-  "totalPrice": "js-receipt__total-number"
+  "root": "receipt",
+  "title": "receipt__title",
+  "suiteNumber": "receipt__title-number",
+  "suiteNumberSymbol": "receipt__title-number-sign",
+  "suiteNumberLux": "receipt__title-lux",
+  "pricePerNight": "receipt__title-price",
+  "dates": "receipt__dates",
+  "guests": "receipt__guests",
+  "costs": "receipt__costs",
+  "cost": "receipt__cost",
+  "costTitle": "receipt__cost-title",
+  "costValue": "receipt__cost-value",
+  "costIconWrapper": "receipt__cost-icon-wrapper",
+  "costIcon": "receipt__cost-icon",
+  "total": "receipt__total",
+  "totalWord": "receipt__total-word",
+  "totalDots": "receipt__total-dots",
+  "totalPrice": "receipt__total-number",
+  "submitButton": "receipt__submit"
 }

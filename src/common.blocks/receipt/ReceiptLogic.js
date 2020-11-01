@@ -39,9 +39,9 @@ class ReceiptLogic {
 
   findDOMNodes(container) {
     return {
-      totalPrice: container.querySelector(`.${this.classes.totalPrice}`),
-      costTitle: container.querySelector(`.${this.classes.costTitle}[data-cost-type="cost"]`),
-      costValue: container.querySelector(`.${this.classes.costValue}[data-cost-type="cost"]`),
+      totalPrice: container.querySelector(`.js-${this.classes.totalPrice}`),
+      costTitle: container.querySelector(`.js-${this.classes.costTitle}[data-cost-type="cost"]`),
+      costValue: container.querySelector(`.js-${this.classes.costValue}[data-cost-type="cost"]`),
     };
   }
 
@@ -64,17 +64,17 @@ class ReceiptLogic {
   }
 
   getPricePerNight(container) {
-    const pricePerNight = container.querySelector(`.${this.classes.pricePerNight}`).innerHTML;
+    const pricePerNight = container.querySelector(`.js-${this.classes.pricePerNight}`).innerHTML;
     return parseInt(pricePerNight.replace(/[^\d]/g, ''), 10);
   }
 
   getDiscount(container) {
-    const discount = container.querySelector(`.${this.classes.costTitle}[data-cost-type="discount"]`).innerHTML;
+    const discount = container.querySelector(`.js-${this.classes.costTitle}[data-cost-type="discount"]`).innerHTML;
     return parseInt(discount.replace(/[^\d]/g, ''), 10);
   }
 
   getExtraCosts(container) {
-    const extraCosts = container.querySelector(`.${this.classes.costValue}[data-cost-type="extraCost"]`).innerHTML;
+    const extraCosts = container.querySelector(`.js-${this.classes.costValue}[data-cost-type="extraCost"]`).innerHTML;
     return parseInt(extraCosts.replace(/[^\d]/g, ''), 10);
   }
 
