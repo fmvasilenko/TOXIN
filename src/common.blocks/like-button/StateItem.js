@@ -1,17 +1,17 @@
 class StateItem {
   constructor(value, checkFunction = (givenValue) => givenValue) {
-    this.value = value;
+    this.currentValue = value;
     this.checkFunction = checkFunction;
     this.subscribers = [];
   }
 
-  set(givenValue) {
-    this.value = this.checkFunction(givenValue);
-    this.runSubscribers();
+  get value() {
+    return this.currentValue;
   }
 
-  get() {
-    return this.value;
+  set value(givenValue) {
+    this.currentValue = this.checkFunction(givenValue);
+    this.runSubscribers();
   }
 
   addSubscriber(subscriber) {
@@ -20,7 +20,7 @@ class StateItem {
 
   runSubscribers() {
     this.subscribers.forEach((subscriber) => {
-      subscriber(this.value);
+      subscriber(this.currentValue);
     });
   }
 }

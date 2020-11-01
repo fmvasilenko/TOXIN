@@ -11,23 +11,23 @@ class LikeButtonLogic {
   }
 
   getLikesNumber() {
-    return this.state.likesNumber.get();
+    return this.state.likesNumber.value;
   }
 
   getIsLiked() {
-    return this.state.isLiked.get();
+    return this.state.isLiked.value;
   }
 
   setLikesNumber(value) {
-    if (value > 0) this.state.likesNumber.set(value);
+    if (value > 0) this.state.likesNumber.value = value;
     else {
-      this.state.isLiked.set(false);
-      this.state.likesNumber.set(0);
+      this.state.isLiked.value = false;
+      this.state.likesNumber.value = 0;
     }
   }
 
   setIsLiked(value) {
-    if (value !== this.state.isLiked.get()) this.state.isLiked.set(value);
+    if (value !== this.state.isLiked.value) this.state.isLiked.value = value;
   }
 
   setLikesNumberSubscriber(subscriber) {
@@ -49,11 +49,11 @@ class LikeButtonLogic {
   }
 
   likesNumberSubscriber() {
-    this.likesNumberExternalSubscriber(this.state.likesNumber.get());
+    this.likesNumberExternalSubscriber(this.state.likesNumber.value);
   }
 
   isLikedSubscriber() {
-    this.isLikedExternalSubscriber(this.state.isLiked.get());
+    this.isLikedExternalSubscriber(this.state.isLiked.value);
   }
 
   findDOMNodes(container) {
@@ -82,16 +82,16 @@ class LikeButtonLogic {
   }
 
   clickHandler() {
-    this.state.isLiked.set(!this.state.isLiked.get());
+    this.state.isLiked.value = !this.state.isLiked.value;
   }
 
   changeLikesNumber() {
-    if (this.state.isLiked.get()) this.state.likesNumber.set(this.state.likesNumber.get() + 1);
-    else if (this.state.likesNumber.get() > 0) this.state.likesNumber.set(this.state.likesNumber.get() - 1);
+    if (this.state.isLiked.value) this.state.likesNumber.value += 1;
+    else if (this.state.likesNumber.value > 0) this.state.likesNumber.value -= 1;
   }
 
   render() {
-    if (this.state.isLiked.get()) {
+    if (this.state.isLiked.value) {
       this.DOM.root.classList.add(this.classes.rootLiked);
       this.DOM.icon.classList.add(this.classes.iconLiked);
       this.DOM.input.classList.add(this.classes.inputLiked);
@@ -102,7 +102,7 @@ class LikeButtonLogic {
       this.DOM.input.classList.remove(this.classes.inputLiked);
       this.DOM.icon.innerHTML = this.vocabulary.icon;
     }
-    this.DOM.input.value = this.state.likesNumber.get();
+    this.DOM.input.value = this.state.likesNumber.value;
   }
 }
 
