@@ -9,5 +9,5 @@ pagesStyles.keys().forEach(pagesStyles);
 
 const classes = require('./cards.classes.json');
 
-const cardsContainer = document.querySelector(`.${classes.cards}`);
+const cardsContainer = document.querySelector(`.js-${classes.cards}`);
 new CardsConnector(cardsContainer);
