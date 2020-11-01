@@ -38,12 +38,12 @@ class RateButtonLogic {
 
   findDOMNodes(container) {
     return {
-      stars: container.querySelectorAll(`.${this.classes.star}`),
+      stars: container.querySelectorAll(`.js-${this.classes.star}`),
     };
   }
 
   getInitialState(container) {
-    const rateInput = container.querySelector(`.${this.classes.input}:checked`);
+    const rateInput = container.querySelector(`.js-${this.classes.input}:checked`);
     const rate = rateInput ? parseInt(rateInput.value, 10) : 0;
 
     return {

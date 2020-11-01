@@ -1,20 +1,14 @@
 mixin rate-button(customConfig = {})
   - const blocks = require('@backend/Blocks.js');
   - const defaultConfig = require('@blocks/rate-button/rate-button.config.json');
+  - const classes = require('@blocks/rate-button/rate-button.classes.json');
 
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - const { value, name, maxValue, vocabulary } = config;
   - const { checkedStar, uncheckedStar } = vocabulary;
 
-  .rate-button
+  div(class=classes.root)
     - for (let i = 1; i <= maxValue; i++)
-      label.rate-button__star-wrapper
-        if i<value
-          input.rate-button__input.js-rate-button__input(type="radio" name=name value=i)
-          i.material-icons.rate-button__label.js-rate-button__label #{checkedStar}
-        else if i==value
-          input.rate-button__input.js-rate-button__input(type="radio" name=name value=i checked)
-          i.material-icons.rate-button__label.js-rate-button__label #{checkedStar}
-        else
-          input.rate-button__input.js-rate-button__input(type="radio" name=name value=i)
-          i.material-icons.rate-button__label.js-rate-button__label #{uncheckedStar}
+      label(class=classes.starWrapper)
+        input(class=`${classes.input} js-${classes.input}` type="radio" name=name value=i checked=(i === value))
+        i(class=`material-icons ${classes.star} js-${classes.star}`) #{(i <= value ? checkedStar : uncheckedStar)}

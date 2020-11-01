@@ -1,4 +1,6 @@
 {
-  "input": "js-rate-button__input",
-  "star": "js-rate-button__label"
+  "root": "rate-button",
+  "starWrapper": "rate-button__star-wrapper",
+  "input": "rate-button__input",
+  "star": "rate-button__label"
 }
