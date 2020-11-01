@@ -10,7 +10,7 @@ class LandingConnector {
 
   findDOMNodes(container) {
     return {
-      searchForm: container.querySelector(`.${this.classes.searchForm}`),
+      searchForm: container.querySelector(`.js-${this.classes.searchForm}`),
     };
   }
 }

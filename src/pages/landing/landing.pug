@@ -11,10 +11,11 @@ include ../../common.blocks/footer/footer.pug
 include ../../common.blocks/search-form/search-form.pug
 
 block variables
+  - const data = require('./landing.data.json');
+  - const classes = require('./landing.classes.json');
   - const pageTitle = 'Landing';
   - const pageDescription = 'Search page for TOXIN';
-  - const pageClass = 'landing js-landing';
-  - const data = require('./landing.data.json');
+  - const pageClass = `${classes.landing} js-${classes.landing}`;
   - const { description, searchForm } = data;
 
 block header
@@ -26,7 +27,7 @@ block footer
 block content
   .landing__background
     .landing__content
-      .landing__search-form.js-landing__search-form
+      div(class = `${classes.searchForm} js-${classes.searchForm}`)
         +search-form(searchForm)
       
       p.landing__description #{description}

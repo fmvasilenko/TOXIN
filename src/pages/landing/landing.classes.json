@@ -1,4 +1,4 @@
 {
-  "landing": "js-landing",
-  "searchForm": "js-landing__search-form"
+  "landing": "landing",
+  "searchForm": "landing__search-form"
 }

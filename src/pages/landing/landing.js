@@ -9,5 +9,5 @@ pagesStyles.keys().forEach(pagesStyles);
 
 const classes = require('./landing.classes.json');
 
-const landingContainer = document.querySelector(`.${classes.landing}`);
+const landingContainer = document.querySelector(`.js-${classes.landing}`);
 new LandingConnector(landingContainer);
