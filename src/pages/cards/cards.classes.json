@@ -1,7 +1,7 @@
 {
-  "cards": "js-cards",
-  "searchForm": "js-cards__search-form",
-  "receipt": "js-cards__receipt",
-  "calendar": "js-cards__calendar",
-  "suite": "js-cards__suite"
+  "cards": "cards",
+  "searchForm": "cards__search-form",
+  "receipt": "cards__receipt",
+  "calendar": "cards__calendar",
+  "suite": "cards__suite"
 }

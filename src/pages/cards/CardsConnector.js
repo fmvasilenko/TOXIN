@@ -24,10 +24,10 @@ class CardsConnector {
 
   findDOMNodes(container) {
     return {
-      searchForm: container.querySelector(`.${this.classes.searchForm}`),
-      receipt: container.querySelector(`.${this.classes.receipt}`),
-      calendar: container.querySelector(`.${this.classes.calendar}`),
-      suites: container.querySelectorAll(`.${this.classes.suite}`),
+      searchForm: container.querySelector(`.js-${this.classes.searchForm}`),
+      receipt: container.querySelector(`.js-${this.classes.receipt}`),
+      calendar: container.querySelector(`.js-${this.classes.calendar}`),
+      suites: container.querySelectorAll(`.js-${this.classes.suite}`),
     };
   }
 

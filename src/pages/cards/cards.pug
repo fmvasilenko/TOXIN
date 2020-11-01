@@ -9,10 +9,11 @@ include ../../common.blocks/suite/suite
 include ../../common.blocks/calendar/calendar 
 
 block variables
+  - const data = require('./cards.data.json');
+  - const classes = require('./cards.classes.json');
   - const pageTitle = 'Cards';
   - const pageDescription = 'Cards';
-  - const pageClass = 'cards js-cards';
-  - const data = require('./cards.data.json');
+  - const pageClass = `${classes.cards} js-${classes.cards}`;
   - const { receiptParameters, suites } = data;
 
 block styles
@@ -29,25 +30,25 @@ block content
   .cards__background
     .cards__content
       .cards__column
-        .cards__search-form.js-cards__search-form
+        div(class = `${classes.searchForm} js-${classes.searchForm}`)
           +search-form()
 
         .cards__registration
           +registration-form()
 
       .cards__column
-        .cards__receipt.js-cards__receipt
+        div(class = `${classes.receipt} js-${classes.receipt}`)
           +receipt(receiptParameters)
 
         .cards__login
           +login-form()
 
       .cards__column
-        .cards__calendar.js-cards__calendar
+        div(class = `${classes.calendar} js-${classes.calendar}`)
           +calendar()
 
-        .cards__suite.js-cards__suite
+        div(class = `${classes.suite} js-${classes.suite}`)
           +suite(suites[0])
 
-        .cards__suite.js-cards__suite
+        div(class = `${classes.suite} js-${classes.suite}`)
           +suite(suites[1])

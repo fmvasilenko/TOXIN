@@ -12,7 +12,7 @@ class CardsLogic {
 
   findDOMNodes(container) {
     return {
-      calendar: container.querySelector(`.${this.classes.calendar}`),
+      calendar: container.querySelector(`.js-${this.classes.calendar}`),
     };
   }
 
