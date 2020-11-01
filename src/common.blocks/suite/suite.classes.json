@@ -1,7 +1,19 @@
 {
-  "rate": "js-suite__rate",
-  "dot": "js-suite__dot",
-  "leftArrow": "js-suite__left-arrow",
-  "rightArrow": "js-suite__right-arrow",
-  "imageInput": "js-suite__image-input"
+  "root": "suite",
+  "gallery": "suite__gallery",
+  "arrow": "suite__arrow",
+  "leftArrow": "suite__left-arrow",
+  "rightArrow": "suite__right-arrow",
+  "imageInput": "suite__image-input",
+  "image": "suite__image",
+  "dot": "suite__dot",
+  "description": "suite__description",
+  "title": "suite__title",
+  "link": "suite__link",
+  "suiteNumber": "suite__title-number",
+  "suiteNumberSymbol": "suite__title-number-sign",
+  "suiteNumberLux": "suite__title-lux",
+  "suitePrice": "suite__title-price",
+  "rate": "suite__rate",
+  "feedbacks": "suite__feedbacks"
 }

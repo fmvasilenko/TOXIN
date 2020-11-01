@@ -3,6 +3,7 @@ include ../rate-button/rate-button.pug
 mixin suite(customConfig = {})
   - const blocks = require('@backend/Blocks.js');
   - const defaultConfig = require('@blocks/suite/suite.config.json');
+  - const classes = require('@blocks/suite/suite.classes.json');
 
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - const { suiteNumber, price, votes, roomDetailsHref, vocabulary, images, rating } = config;
@@ -10,32 +11,31 @@ mixin suite(customConfig = {})
   - const imagesNumber = Object.keys(images).length;
   - const href = `${roomDetailsHref}?suite_number=${suiteNumber}`;
 
-  form.suite
+  form(class = classes.root)
 
-    .suite__gallery
-      i.material-icons.suite__arrow.suite__left-arrow.js-suite__left-arrow #{arrowIcon}
-      i.material-icons.suite__arrow.suite__right-arrow.js-suite__right-arrow #{arrowIcon}
+    div(class = classes.gallery)
+      i(class = `material-icons ${classes.arrow} ${classes.leftArrow} js-${classes.leftArrow}`) #{arrowIcon}
+      i(class = `material-icons ${classes.arrow} ${classes.rightArrow} js-${classes.rightArrow}`) #{arrowIcon}
       each image, index in images
         label
-          input.suite__image-input.js-suite__image-input(type="radio" name="image-gallery" checked=image.checked value=index)
-          img.suite__image(src=image.link)
-          .suite__dot.js-suite__dot(style=`right: ${(imagesNumber - Number.parseInt(index)+1)*11.25+3}px`)
+          input(class = `${classes.imageInput} js-${classes.imageInput}` type="radio" name="image-gallery" checked=image.checked value=index)
+          img(class = classes.image src=image.link)
+          div(class = `${classes.dot} js-${classes.dot}` style=`right: ${(imagesNumber - Number.parseInt(index)+1)*11.25+3}px`)
 
-    .suite__description
+    div(class = classes.description)
 
-      .suite__title
-        a.suite__link(href=href)
-          h2.suite__title-number
-            span.suite__title-number-sign #{numberSign}
+      div(class = classes.title)
+        a(class = classes.link href=href)
+          h2(class = classes.suiteNumber)
+            span(class = classes.suiteNumberSymbol) #{numberSign}
             |#{suiteNumber}
-            span.suite__title-lux #{luxury}
-        p.suite__title-price
+            span(class = classes.suiteNumberLux) #{luxury}
+        p(class = classes.suitePrice)
           |#{price}#{currencySign}
           span #{period}
       
-      .suite__rate.js-suite__rate
+      div(class = `${classes.rate} js-${classes.rate}`)
         +rate-button(rating)
-        p.suite__feedbacks 
+        p(class = classes.feedbacks)
           span #{votes}
           |#{feedbacks}
-        

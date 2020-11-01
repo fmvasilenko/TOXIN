@@ -13,10 +13,10 @@ class SuiteLogic {
 
   findDOMNodes(container) {
     return {
-      leftArrow: container.querySelector(`.${this.classes.leftArrow}`),
-      rightArrow: container.querySelector(`.${this.classes.rightArrow}`),
-      dots: container.querySelectorAll(`.${this.classes.dot}`),
-      imagesInputs: container.querySelectorAll(`.${this.classes.imageInput}`),
+      leftArrow: container.querySelector(`.js-${this.classes.leftArrow}`),
+      rightArrow: container.querySelector(`.js-${this.classes.rightArrow}`),
+      dots: container.querySelectorAll(`.js-${this.classes.dot}`),
+      imagesInputs: container.querySelectorAll(`.js-${this.classes.imageInput}`),
     };
   }
 

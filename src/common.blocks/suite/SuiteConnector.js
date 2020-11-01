@@ -11,7 +11,7 @@ class SuiteConnector {
 
   findDOMNodes(container) {
     return {
-      rate: container.querySelector(`.${this.classes.rate}`),
+      rate: container.querySelector(`.js-${this.classes.rate}`),
     };
   }
 }
