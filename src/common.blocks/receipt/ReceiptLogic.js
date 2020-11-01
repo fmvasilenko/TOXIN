@@ -18,15 +18,15 @@ class ReceiptLogic {
   }
 
   setArrivalDate(date) {
-    this.state.arrivalDate.set(date);
+    this.state.arrivalDate.value = date;
   }
 
   setLeavingDate(date) {
-    this.state.leavingDate.set(date);
+    this.state.leavingDate.value = date;
   }
 
   setGuestsNumber(value) {
-    this.state.guestsNumber.set(value);
+    this.state.guestsNumber.value = value;
   }
 
   getTotalPrice() {
@@ -79,10 +79,10 @@ class ReceiptLogic {
   }
 
   calculateDaysNumber() {
-    if (this.state.arrivalDate.get() && this.state.leavingDate.get()) {
-      const daysNumber = Math.ceil(Math.abs(this.state.leavingDate.get().getTime() - this.state.arrivalDate.get().getTime()) / (1000 * 3600 * 24));
-      this.state.daysNumber.set(daysNumber);
-    } else this.state.daysNumber.set(0);
+    if (this.state.arrivalDate.value && this.state.leavingDate.value) {
+      const daysNumber = Math.ceil(Math.abs(this.state.leavingDate.value.getTime() - this.state.arrivalDate.value.getTime()) / (1000 * 3600 * 24));
+      this.state.daysNumber.value = daysNumber;
+    } else this.state.daysNumber.value = 0;
   }
 
   changeTotalPrice() {
@@ -92,18 +92,18 @@ class ReceiptLogic {
   }
 
   changeCost() {
-    const wordForm = this.getWordForm(this.state.daysNumber.get(), this.dayWordForms);
-    const costTitle = this.prepareStr(`${this.pricePerNight}${this.currencySign} x ${this.state.daysNumber.get()} ${wordForm}`);
-    const costValue = this.prepareStr(`${this.state.daysNumber.get() * this.pricePerNight}${this.currencySign}`);
+    const wordForm = this.getWordForm(this.state.daysNumber.value, this.dayWordForms);
+    const costTitle = this.prepareStr(`${this.pricePerNight}${this.currencySign} x ${this.state.daysNumber.value} ${wordForm}`);
+    const costValue = this.prepareStr(`${this.state.daysNumber.value * this.pricePerNight}${this.currencySign}`);
 
     this.DOM.costTitle.innerHTML = costTitle;
     this.DOM.costValue.innerHTML = costValue;
   }
 
   calculateTotalPrice() {
-    if (!this.state.daysNumber.get()) return 0;
+    if (!this.state.daysNumber.value) return 0;
 
-    return this.state.daysNumber.get() * this.pricePerNight + this.extraCosts - this.discount;
+    return this.state.daysNumber.value * this.pricePerNight + this.extraCosts - this.discount;
   }
 
   prepareStr(str) {
