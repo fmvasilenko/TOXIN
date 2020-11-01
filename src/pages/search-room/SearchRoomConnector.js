@@ -12,8 +12,8 @@ class SearchRoomConnector {
 
   findDOMNodes(container) {
     return {
-      suites: container.querySelectorAll(`.${this.classes.suite}`),
-      sidebar: container.querySelector(`.${this.classes.sidebar}`),
+      suites: container.querySelectorAll(`.js-${this.classes.suite}`),
+      sidebar: container.querySelector(`.js-${this.classes.sidebar}`),
     };
   }
 

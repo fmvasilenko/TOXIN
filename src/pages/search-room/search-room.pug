@@ -13,11 +13,12 @@ block scripts
   script(type="text/javascript" src="assets/js/searchRoom.js")
 
 block variables
+  - const data = require('./search-room.data.json');
+  - const classes = require('./search-room.classes.json');
   - const pageTitle = 'Search room'
   - const pageDescription = 'Search room'
-  - const pageClass = 'search-room js-search-room'
-  - const sidebarClass = 'js-search-room__sidebar'
-  - const data = require('./search-room.data.json');
+  - const pageClass = `${classes.searchRoom} js-${classes.searchRoom}`;
+  - const sidebarClass = `js-${classes.sidebar}`;
   - const { title, suites } = data;
 
 block header
@@ -30,7 +31,7 @@ block content
   h1.search-room__title #{title}
   .search-room__suites
     each suite in suites
-      .search-room__suite.js-search-room__suite
+      div(class = `${classes.suite} js-${classes.suite}`)
         +suite(suite)
   .search-room__pagination
     +pagination()

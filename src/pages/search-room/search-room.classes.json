@@ -1,5 +1,5 @@
 {
-  "searchRoom": "js-search-room",
-  "sidebar": "js-search-room__sidebar",
-  "suite": "js-search-room__suite"
+  "searchRoom": "search-room",
+  "sidebar": "search-room__sidebar",
+  "suite": "search-room__suite"
 }
