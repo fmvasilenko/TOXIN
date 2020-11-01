@@ -29,19 +29,19 @@ class FormElementsConnector {
 
   findDOMNodes(container) {
     return {
-      guestsDropdown: container.querySelector(`.${this.classes.guestsDropdown}`),
-      dateDropdown: container.querySelector(`.${this.classes.dateDropdown}`),
-      filterDateDropdown: container.querySelector(`.${this.classes.filterDateDropdown}`),
-      likeButtons: container.querySelectorAll(`.${this.classes.likeButton}`),
-      rateButtons: container.querySelectorAll(`.${this.classes.rateButton}`),
-      rangeSlider: container.querySelector(`.${this.classes.rangeSlider}`),
-      dropdownDefault: container.querySelector(`.${this.classes.dropdownDefault}`),
-      dropdownExpanded: container.querySelector(`.${this.classes.dropdownExpanded}`),
-      dropdown4: container.querySelector(`.${this.classes.dropdown4}`),
-      dropdown5: container.querySelector(`.${this.classes.dropdown5}`),
-      expandableCheckboxList: container.querySelector(`.${this.classes.expandableCheckboxList}`),
-      expandableCheckboxListExpanded: container.querySelector(`.${this.classes.expandableCheckboxListExpanded}`),
-      feedback: container.querySelector(`.${this.classes.feedback}`),
+      guestsDropdown: container.querySelector(`.js-${this.classes.guestsDropdown}`),
+      dateDropdown: container.querySelector(`.js-${this.classes.dateDropdown}`),
+      filterDateDropdown: container.querySelector(`.js-${this.classes.filterDateDropdown}`),
+      likeButtons: container.querySelectorAll(`.js-${this.classes.likeButton}`),
+      rateButtons: container.querySelectorAll(`.js-${this.classes.rateButton}`),
+      rangeSlider: container.querySelector(`.js-${this.classes.rangeSlider}`),
+      dropdownDefault: container.querySelector(`.js-${this.classes.dropdownDefault}`),
+      dropdownExpanded: container.querySelector(`.js-${this.classes.dropdownExpanded}`),
+      dropdown4: container.querySelector(`.js-${this.classes.dropdown4}`),
+      dropdown5: container.querySelector(`.js-${this.classes.dropdown5}`),
+      expandableCheckboxList: container.querySelector(`.js-${this.classes.expandableCheckboxList}`),
+      expandableCheckboxListExpanded: container.querySelector(`.js-${this.classes.expandableCheckboxListExpanded}`),
+      feedback: container.querySelector(`.js-${this.classes.feedback}`),
     };
   }
 

@@ -25,10 +25,11 @@ include ../../common.blocks/benefit/benefit
 include ../../common.blocks/feedback/feedback 
 
 block variables
+  - const data = require('./form-elements.data.json');
+  - const classes = require('./form-elements.classes.json');
   - const pageTitle = 'Form Elements';
   - const pageDescription = 'Form Elements';
   - const pageClass = 'form-elements js-form-elements';
-  - const data = require('./form-elements.data.json');
   - 
     const { 
       textfields, 
@@ -72,16 +73,16 @@ block content
       .form-elements__text-field-hover
         +text-field(textfields[1])
 
-      .form-elements__dropdown.js-form-elements__dropdown
+      div(class = `${classes.guestsDropdown} js-${classes.guestsDropdown}`)
         +dropdown(dropdownGuests)
 
       .form-elements__masked-text-field
         +masked-text-field(maskedTextField)
 
-      .form-elements__date-dropdown.js-form-elements__date-dropdown
+      div(class = `${classes.dateDropdown} js-${classes.dateDropdown}`)
         +date-dropdown(dateDropdown)
 
-      .form-elements__filter-date-dropdown.js-form-elements__filter-date-dropdown
+      div(class = `${classes.filterDateDropdown} js-${classes.filterDateDropdown}`)
         +filter-date-dropdown(filterDateDropdown)
 
       .form-elements__subscription-text-field
@@ -112,18 +113,18 @@ block content
         h3.form-elements__like-buttons-title #{likeButtons.title}
         .form-elements__like-buttons-container
           each item in likeButtons.items
-            form.form-elements__like-button.js-form-elements__like-button
+            form(class = `${classes.likeButton} js-${classes.likeButton}`)
               +like-button(item)
 
       .form-elements__rate-buttons
         h3.form-elements__rate-buttons-title #{rateButtons.title}
         .form-elements__rate-buttons-container
           each item in rateButtons.items
-            form.form-elements__rate-button.js-form-elements__rate-button
+            form(class = `${classes.rateButton} js-${classes.rateButton}`)
               +rate-button(item)
 
     section.form-elements__column
-      .form-elements__slider.js-form-elements__slider
+      div(class = `${classes.rangeSlider} js-${classes.rangeSlider}`)
         +range-slider(slider)
 
       .form-elements__buttons
@@ -152,29 +153,29 @@ block content
         +pagination()
 
     section.form-elements__column
-      .form-elements__dropdown-default.js-form-elements__dropdown-default
+      div(class = `${classes.dropdownDefault} js-${classes.dropdownDefault}`)
         +dropdown(dropdownAmenities)
 
-      .form-elements__dropdown-expanded.js-form-elements__dropdown-expanded
+      div(class = `${classes.dropdownExpanded} js-${classes.dropdownExpanded}`)
         +dropdown(dropdownAmenities)
 
     section.form-elements__column
       - dropdownGuests.display_submit_button = true;
-      .form-elements__dropdown4.js-form-elements__dropdown4
+      div(class = `${classes.dropdown4} js-${classes.dropdown4}`)
         +dropdown(dropdownGuests)
 
     section.form-elements__column
       - dropdownGuests.display_submit_button = true;
-      .form-elements__dropdown5.js-form-elements__dropdown5
+      div(class = `${classes.dropdown5} js-${classes.dropdown5}`)
         +dropdown(dropdownGuests)
 
     section.form-elements__column
-      .form-elements__expandable-checkbox-list.js-form-elements__expandable-checkbox-list
+      div(class = `${classes.expandableCheckboxList} js-${classes.expandableCheckboxList}`)
         +expandable-checkbox-list(expandableCheckboxList)
 
       - expandableCheckboxList.expanded = true
 
-      .form-elements__expandable-checkbox-list-expanded.js-form-elements__expandable-checkbox-list-expanded
+      div(class = `${classes.expandableCheckboxListExpanded} js-${classes.expandableCheckboxListExpanded}`)
         +expandable-checkbox-list(expandableCheckboxList)
 
     section.form-elements__column
@@ -197,5 +198,5 @@ block content
           .form-elements__benefit
             +benefit(benefit)
 
-    section.form-elements__feedback.js-form-elements__feedback
+    section(class = `${classes.feedback} js-${classes.feedback}`)
       +feedback(feedback)

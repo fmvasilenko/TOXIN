@@ -9,5 +9,5 @@ pagesStyles.keys().forEach(pagesStyles);
 
 const classes = require('./form-elements.classes.json');
 
-const formElementsContainer = document.querySelector(`.${classes.formElements}`);
+const formElementsContainer = document.querySelector(`.js-${classes.formElements}`);
 new FormElementsConnector(formElementsContainer);
