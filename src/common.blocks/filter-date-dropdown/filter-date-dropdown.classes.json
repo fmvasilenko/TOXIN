@@ -1,8 +1,11 @@
 {
-  "field": "js-filter-date-dropdown__field",
-  "input": "js-filter-date-dropdown__input",
-  "arrivalDateInput": "js-filter-date-dropdown__arrival-date",
-  "leavingDateInput": "js-filter-date-dropdown__leaving-date",
-  "calendar": "js-filter-date-dropdown__calendar",
+  "root": "filter-date-dropdown",
+  "title": "filter-date-dropdown__title",
+  "field": "filter-date-dropdown__field",
+  "arrivalDateInput": "filter-date-dropdown__arrival-date",
+  "leavingDateInput": "filter-date-dropdown__leaving-date",
+  "input": "filter-date-dropdown__input",
+  "icon": "filter-date-dropdown__icon",
+  "calendar": "filter-date-dropdown__calendar",
   "calendarDropped": "filter-date-dropdown__calendar_dropped"
 }

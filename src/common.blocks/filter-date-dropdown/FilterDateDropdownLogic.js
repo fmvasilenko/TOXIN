@@ -47,11 +47,11 @@ class FilterDateDropdownLogic {
 
   findDOMNodes(container) {
     return {
-      field: container.querySelector(`.${this.classes.field}`),
-      input: container.querySelector(`.${this.classes.input}`),
-      arrivalDateInput: container.querySelector(`.${this.classes.arrivalDateInput}`),
-      leavingDateInput: container.querySelector(`.${this.classes.leavingDateInput}`),
-      calendar: container.querySelector(`.${this.classes.calendar}`),
+      field: container.querySelector(`.js-${this.classes.field}`),
+      input: container.querySelector(`.js-${this.classes.input}`),
+      arrivalDateInput: container.querySelector(`.js-${this.classes.arrivalDateInput}`),
+      leavingDateInput: container.querySelector(`.js-${this.classes.leavingDateInput}`),
+      calendar: container.querySelector(`.js-${this.classes.calendar}`),
     };
   }
 
@@ -71,8 +71,8 @@ class FilterDateDropdownLogic {
   }
 
   clickHandler(event) {
-    if (event.target.closest(`.${this.classes.field}`) === this.DOM.field) this.fieldClickHandler();
-    else if (event.target.closest(`.${this.classes.calendar}`) === this.DOM.calendar) this.calendarClickSubscriber(event);
+    if (event.target.closest(`.js-${this.classes.field}`) === this.DOM.field) this.fieldClickHandler();
+    else if (event.target.closest(`.js-${this.classes.calendar}`) === this.DOM.calendar) this.calendarClickSubscriber(event);
     else this.closeCalendar();
   }
 
