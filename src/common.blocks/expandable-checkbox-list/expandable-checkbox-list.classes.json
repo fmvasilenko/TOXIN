@@ -1,6 +1,9 @@
 {
-  "field": "js-expandable-checkbox-list__field",
-  "icon": "js-expandable-checkbox-list__icon",
+  "root": "expandable-checkbox-list",
+  "field": "expandable-checkbox-list__field",
+  "title": "expandable-checkbox-list__title",
+  "icon": "expandable-checkbox-list__icon",
   "iconExpanded": "expandable-checkbox-list__icon_expanded",
-  "list": "js-expandable-checkbox-list__list"
+  "list": "expandable-checkbox-list__list",
+  "item": "expandable-checkbox-list__list-item"
 }

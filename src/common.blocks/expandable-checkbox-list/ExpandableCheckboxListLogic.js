@@ -25,9 +25,9 @@ class ExpandableCheckboxListLogic {
 
   findDOMNodes() {
     return {
-      field: this.container.querySelector(`.${this.classes.field}`),
-      icon: this.container.querySelector(`.${this.classes.icon}`),
-      list: this.container.querySelector(`.${this.classes.list}`),
+      field: this.container.querySelector(`.js-${this.classes.field}`),
+      icon: this.container.querySelector(`.js-${this.classes.icon}`),
+      list: this.container.querySelector(`.js-${this.classes.list}`),
     };
   }
 
