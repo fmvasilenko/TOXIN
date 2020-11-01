@@ -3,21 +3,22 @@ include ../calendar/calendar
 mixin date-dropdown(customConfig = {})
   - const blocks = require('@backend/Blocks.js');
   - const defaultConfig = require('@blocks/date-dropdown/date-dropdown.config.json');
+  - const classes = require('@blocks/date-dropdown/date-dropdown.classes.json');
 
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - const { arrivalDate, leavingDate } = config;
 
-  .date-dropdown.js-date-dropdown
+  div(class = `${classes.root} js-${classes.root}`)
 
-    .date-dropdown__field.js-date-dropdown__field
-      h3.date-dropdown__title #{arrivalDate.title}
-      i.material-icons.date-dropdown__expand-more #{arrivalDate.icon}
-      input.date-dropdown__input.js-date-dropdown__input(type="date" name="arrivalDate" value=arrivalDate.value readonly)
+    div(class = `${classes.field} js-${classes.field}`)
+      h3(class = classes.title) #{arrivalDate.title}
+      i(class = `material-icons ${classes.icon}`) #{arrivalDate.icon}
+      input(class = `${classes.input} js-${classes.input}` type="date" name="arrivalDate" value=arrivalDate.value readonly)
     
-    .date-dropdown__field.js-date-dropdown__field
-      h3.date-dropdown__title #{leavingDate.title}
-      i.material-icons.date-dropdown__expand-more #{leavingDate.icon}
-      input.date-dropdown__input.js-date-dropdown__input(type="date" name="leavingDate" value=leavingDate.value readonly)
+    div(class = `${classes.field} js-${classes.field}`)
+      h3(class = classes.title) #{leavingDate.title}
+      i(class = `material-icons ${classes.icon}`) #{leavingDate.icon}
+      input(class = `${classes.input} js-${classes.input}` type="date" name="leavingDate" value=leavingDate.value readonly)
 
-    .date-dropdown__calendar.js-date-dropdown__calendar
+    div(class = `${classes.calendar} js-${classes.calendar}`)
       +calendar()

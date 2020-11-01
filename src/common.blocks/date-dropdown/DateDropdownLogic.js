@@ -56,12 +56,12 @@ class DateDropdown {
 
   findDOMNodes(container) {
     return {
-      root: container.querySelector(`.${this.classes.root}`),
-      calendar: container.querySelector(`.${this.classes.calendar}`),
-      arrivalDate: container.querySelectorAll(`.${this.classes.field}`)[0],
-      leavingDate: container.querySelectorAll(`.${this.classes.field}`)[1],
-      arrivalDateInput: container.querySelector(`.${this.classes.dateInput}[name="arrivalDate"]`),
-      leavingDateInput: container.querySelector(`.${this.classes.dateInput}[name="leavingDate"]`),
+      root: container.querySelector(`.js-${this.classes.root}`),
+      calendar: container.querySelector(`.js-${this.classes.calendar}`),
+      arrivalDate: container.querySelectorAll(`.js-${this.classes.field}`)[0],
+      leavingDate: container.querySelectorAll(`.js-${this.classes.field}`)[1],
+      arrivalDateInput: container.querySelector(`.js-${this.classes.input}[name="arrivalDate"]`),
+      leavingDateInput: container.querySelector(`.js-${this.classes.input}[name="leavingDate"]`),
     };
   }
 
@@ -82,10 +82,10 @@ class DateDropdown {
   }
 
   clickHandler(event) {
-    if (event.target.closest(`.${this.classes.field}`) === this.DOM.arrivalDate) this.arrivalDateClickHandler();
-    else if (event.target.closest(`.${this.classes.field}`) === this.DOM.leavingDate) this.leavingDateClickHandler();
-    else if (event.target.closest(`.${this.classes.calendar}`) === this.DOM.calendar) this.calendarClickSubscriber(event);
-    else if (event.target.closest(`.${this.classes.root}`) !== this.DOM.root) this.closeCalendar();
+    if (event.target.closest(`.js-${this.classes.field}`) === this.DOM.arrivalDate) this.arrivalDateClickHandler();
+    else if (event.target.closest(`.js-${this.classes.field}`) === this.DOM.leavingDate) this.leavingDateClickHandler();
+    else if (event.target.closest(`.js-${this.classes.calendar}`) === this.DOM.calendar) this.calendarClickSubscriber(event);
+    else if (event.target.closest(`.js-${this.classes.root}`) !== this.DOM.root) this.closeCalendar();
   }
 
   arrivalDateClickHandler() {
