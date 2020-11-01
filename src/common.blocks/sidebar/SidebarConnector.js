@@ -16,11 +16,11 @@ class SidebarConnector {
 
   findDOMNodes(container) {
     return {
-      filterDateDropdown: container.querySelector(`.${this.classes.filterDateDropdown}`),
-      guestsDropdown: container.querySelector(`.${this.classes.guestsDropdown}`),
-      rangeSlider: container.querySelector(`.${this.classes.rangeSlider}`),
-      amenitiesDropdown: container.querySelector(`.${this.classes.amenitiesDropdown}`),
-      convinience: container.querySelector(`.${this.classes.convinience}`),
+      filterDateDropdown: container.querySelector(`.js-${this.classes.dates}`),
+      guestsDropdown: container.querySelector(`.js-${this.classes.guests}`),
+      rangeSlider: container.querySelector(`.js-${this.classes.slider}`),
+      amenitiesDropdown: container.querySelector(`.js-${this.classes.amenities}`),
+      convinience: container.querySelector(`.js-${this.classes.convinience}`),
     };
   }
 }

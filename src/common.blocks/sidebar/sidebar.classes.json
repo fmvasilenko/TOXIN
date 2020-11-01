@@ -1,7 +1,15 @@
 {
-  "filterDateDropdown": "js-sidebar__dates",
-  "guestsDropdown": "js-sidebar__guests",
-  "rangeSlider": "js-sidebar__slider",
-  "amenitiesDropdown": "js-sidebar__amenities",
-  "convinience": "js-sidebar__convinience"
+  "root": "sidebar",
+  "dates": "sidebar__dates",
+  "guests": "sidebar__guests",
+  "slider": "sidebar__slider",
+  "sliderText": "sidebar__slider-text",
+  "checkboxButtons": "sidebar__checkbox-buttons",
+  "checkboxButtonsTitle": "sidebar__checkbox-buttons-title",
+  "checkboxButton": "sidebar__checkbox-button",
+  "features": "sidebar__features",
+  "featuresTitle": "sidebar__features-title",
+  "feature": "sidebar__feature",
+  "amenities": "sidebar__amenities",
+  "convinience": "sidebar__convinience"
 }

@@ -9,6 +9,7 @@ include ../range-slider/range-slider
 mixin sidebar(customConfig = {})
   - const blocks = require('@backend/Blocks.js');
   - const defaultConfig = require('@blocks/sidebar/sidebar.config.json');
+  - const classes = require('@blocks/sidebar/sidebar.classes.json');
 
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - 
@@ -26,34 +27,34 @@ mixin sidebar(customConfig = {})
     } = config;
   -  const { checkboxButtonsTitle, featuresTitle } = vocabulary;
 
-  form.sidebar(method=method action=action)
-    .sidebar__dates.js-sidebar__dates
+  form(class = classes.root method=method action=action)
+    div(class = `${classes.dates} js-${classes.dates}`)
       +filter-date-dropdown(dates)
 
-    .sidebar__guests.js-sidebar__guests
+    div(class = `${classes.guests} js-${classes.guests}`)
       +dropdown(guests)
 
-    .sidebar__slider.js-sidebar__slider
+    div(class = `${classes.slider} js-${classes.slider}`)
       +range-slider(slider)
-      .sidebar__slider-text #{slider.text}
+      div(class = classes.sliderText) #{slider.text}
 
-    .sidebar__checkbox-buttons
+    div(class = classes.checkboxButtons)
       if checkboxButtons[0]
-        h3.sidebar__checkbox-buttons-title #{checkboxButtonsTitle}
+        h3(class = classes.checkboxButtonsTitle) #{checkboxButtonsTitle}
       each checkboxConfig in checkboxButtons
-        .sidebar__checkbox-button
+        div(class = classes.checkboxButton)
           +checkbox-button(checkboxConfig)
 
-    .sidebar__features
+    div(class = classes.features)
       if features[0]
-        h3.sidebar__features-title #{featuresTitle}
+        h3(class = classes.featuresTitle) #{featuresTitle}
       each featureConfig in features
-        .sidebar__feature
+        div(class = classes.feature)
           +checkbox-button-rich(featureConfig)
 
-    .sidebar__amenities.js-sidebar__amenities
+    div(class = `${classes.amenities} js-${classes.amenities}`)
       +dropdown(amenities)
 
-    .sidebar__convinience.js-sidebar__convinience
+    div(class = `${classes.convinience} js-${classes.convinience}`)
       +expandable-checkbox-list(convinience)
       
