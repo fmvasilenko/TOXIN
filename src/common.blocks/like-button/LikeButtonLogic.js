@@ -58,9 +58,9 @@ class LikeButtonLogic {
 
   findDOMNodes(container) {
     return {
-      root: container.querySelector(`.${this.classes.root}`),
-      icon: container.querySelector(`.${this.classes.icon}`),
-      input: container.querySelector(`.${this.classes.input}`),
+      root: container.querySelector(`.js-${this.classes.root}`),
+      icon: container.querySelector(`.js-${this.classes.icon}`),
+      input: container.querySelector(`.js-${this.classes.input}`),
     };
   }
 

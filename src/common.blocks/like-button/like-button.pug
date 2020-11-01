@@ -1,17 +1,17 @@
 mixin like-button(customConfig = {})
   - const blocks = require('@backend/Blocks.js');
-  - const classes = require('@blocks/like-button/like-button.classes.json');
   - const defaultConfig = require('@blocks/like-button/like-button.config.json');
+  - const classes = require('@blocks/like-button/like-button.classes.json');
 
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - const { value, name, liked, vocabulary } = config;
   - const { icon, iconLiked } = vocabulary;
 
-  - const buttonLikedClass = liked ? classes.rootLiked : '';
-  - const numberLikedClass = liked ? classes.inputLiked : '';
-  - const iconLikedClass = liked ? classes.iconLiked : '';
+  - const buttonClass = `${classes.root} js-${classes.root} ${liked ? classes.rootLiked : ''}`;
+  - const iconClass = `material-icons ${classes.icon} js-${classes.icon} ${liked ? classes.iconLiked : ''}`;
+  - const numberClass = `${classes.input} js-${classes.input} ${liked ? classes.inputLiked : ''}`;
   - const displayedIcon = liked ? iconLiked : icon;
 
-  .like-button.js-like-button(class=buttonLikedClass) 
-    i.material-icons.like-button__icon.js-like-button__icon(class=iconLikedClass) #{displayedIcon}
-    input.like-button__number.js-like-button__number(class=numberLikedClass type="number" name=name value=value readonly)
+  div(class=buttonClass) 
+    i(class=iconClass) #{displayedIcon}
+    input(class=numberClass type="number" name=name value=value readonly)
