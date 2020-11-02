@@ -2,11 +2,11 @@ class ExpandableCheckboxListLogic {
   constructor(container) {
     this.classes = require('./expandable-checkbox-list.classes.json');
     this.container = container;
-    this.DOM = this.findDOMNodes();
-    this.state = this.getInitialState();
+    this.DOM = this._findDOMNodes();
+    this.state = this._getInitialState();
     this.listExpandedExternalSubscriber = () => {};
-    this.bindEventListeners();
-    this.render();
+    this._bindEventListeners();
+    this._render();
   }
 
   getListExpanded() {
@@ -16,14 +16,14 @@ class ExpandableCheckboxListLogic {
   setListExpanded(value) {
     this.state.listExpanded = value;
     this.listExpandedExternalSubscriber(this.state.listExpanded);
-    this.render();
+    this._render();
   }
 
   setListExpandedSubscriber(subscriber) {
     this.listExpandedExternalSubscriber = subscriber;
   }
 
-  findDOMNodes() {
+  _findDOMNodes() {
     return {
       field: this.container.querySelector(`.js-${this.classes.field}`),
       icon: this.container.querySelector(`.js-${this.classes.icon}`),
@@ -31,23 +31,23 @@ class ExpandableCheckboxListLogic {
     };
   }
 
-  getInitialState() {
+  _getInitialState() {
     return {
       listExpanded: this.DOM.icon.classList.contains(this.classes.iconExpanded),
     };
   }
 
-  bindEventListeners() {
-    this.DOM.field.addEventListener('click', this.clickHandler.bind(this));
+  _bindEventListeners() {
+    this.DOM.field.addEventListener('click', this._clickHandler.bind(this));
   }
 
-  clickHandler() {
+  _clickHandler() {
     this.state.listExpanded = !this.state.listExpanded;
     this.listExpandedExternalSubscriber(this.state.listExpanded);
-    this.render();
+    this._render();
   }
 
-  render() {
+  _render() {
     if (this.state.listExpanded) {
       $(this.DOM.list).slideDown();
       this.DOM.icon.classList.add(this.classes.iconExpanded);
