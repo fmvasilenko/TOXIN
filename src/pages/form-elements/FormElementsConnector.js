@@ -10,13 +10,13 @@ import Feedback from '@blocks/feedback/Feedback';
 class FormElementsConnector {
   constructor(container) {
     this.classes = require('./form-elements.classes.json');
-    this.DOM = this.findDOMNodes(container);
+    this.DOM = this._findDOMNodes(container);
 
     this.guestsDropdown = new Dropdown(this.DOM.guestsDropdown);
     this.dateDropdown = new DateDropdown(this.DOM.dateDropdown);
     this.filterDateDropdown = new FilterDateDropdown(this.DOM.filterDateDropdown);
-    this.likeButtons = this.getLikeButtons();
-    this.rateButtons = this.getRateButtons();
+    this.likeButtons = this._getLikeButtons();
+    this.rateButtons = this._getRateButtons();
     this.rangeSlider = new RangeSlider(this.DOM.rangeSlider);
     this.dropdownDefault = new Dropdown(this.DOM.dropdownDefault);
     this.dropdownExpanded = new Dropdown(this.DOM.dropdownExpanded);
@@ -27,7 +27,7 @@ class FormElementsConnector {
     this.feedback = new Feedback(this.DOM.feedback);
   }
 
-  findDOMNodes(container) {
+  _findDOMNodes(container) {
     return {
       guestsDropdown: container.querySelector(`.js-${this.classes.guestsDropdown}`),
       dateDropdown: container.querySelector(`.js-${this.classes.dateDropdown}`),
@@ -45,7 +45,7 @@ class FormElementsConnector {
     };
   }
 
-  getLikeButtons() {
+  _getLikeButtons() {
     const likeButtons = [];
 
     this.DOM.likeButtons.forEach((likeButtonContainer) => {
@@ -55,7 +55,7 @@ class FormElementsConnector {
     return likeButtons;
   }
 
-  getRateButtons() {
+  _getRateButtons() {
     const rateButtons = [];
 
     this.DOM.rateButtons.forEach((rateButtonContainer) => {
