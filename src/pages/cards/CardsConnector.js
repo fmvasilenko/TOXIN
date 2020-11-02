@@ -7,22 +7,22 @@ import CardsLogic from './CardsLogic';
 class CardsConnector {
   constructor(container) {
     this.classes = require('./cards.classes.json');
-    this.DOM = this.findDOMNodes(container);
+    this.DOM = this._findDOMNodes(container);
 
     this.cardsLogic = new CardsLogic(container);
     this.searchForm = new SearchForm(this.DOM.searchForm);
     this.recipt = new Receipt(this.DOM.receipt);
     this.calendar = new Calendar(this.DOM.calendar);
-    this.suites = this.getSuites();
+    this.suites = this._getSuites();
 
-    this.defineSubscriptions();
+    this._defineSubscriptions();
   }
 
-  defineSubscriptions() {
+  _defineSubscriptions() {
     this.cardsLogic.setCalendarClickSubscriber(this.calendar.clickHandler);
   }
 
-  findDOMNodes(container) {
+  _findDOMNodes(container) {
     return {
       searchForm: container.querySelector(`.js-${this.classes.searchForm}`),
       receipt: container.querySelector(`.js-${this.classes.receipt}`),
@@ -31,7 +31,7 @@ class CardsConnector {
     };
   }
 
-  getSuites() {
+  _getSuites() {
     const suites = [];
 
     this.DOM.suites.forEach((suiteContainer) => {

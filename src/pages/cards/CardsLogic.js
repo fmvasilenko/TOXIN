@@ -1,26 +1,26 @@
 class CardsLogic {
   constructor(container) {
     this.classes = require('./cards.classes.json');
-    this.DOM = this.findDOMNodes(container);
+    this.DOM = this._findDOMNodes(container);
     this.calendarClickSubscriber = () => {};
-    this.bindEventListeners();
+    this._bindEventListeners();
   }
 
   setCalendarClickSubscriber(subscriber) {
     this.calendarClickSubscriber = subscriber;
   }
 
-  findDOMNodes(container) {
+  _findDOMNodes(container) {
     return {
       calendar: container.querySelector(`.js-${this.classes.calendar}`),
     };
   }
 
-  bindEventListeners() {
-    this.DOM.calendar.addEventListener('click', this.calendarClickHandler.bind(this));
+  _bindEventListeners() {
+    this.DOM.calendar.addEventListener('click', this._calendarClickHandler.bind(this));
   }
 
-  calendarClickHandler(event) {
+  _calendarClickHandler(event) {
     this.calendarClickSubscriber(event);
   }
 }
