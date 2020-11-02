@@ -4,10 +4,10 @@ import DateDropdownStateItem from './DateDropdownStateItem';
 class DateDropdown {
   constructor(container) {
     this.classes = require('./date-dropdown.classes.json');
-    this.DOM = this.findDOMNodes(container);
-    this.state = this.getInitialState();
-    this.defineSubscriptions();
-    this.bindEventListeners();
+    this.DOM = this._findDOMNodes(container);
+    this.state = this._getInitialState();
+    this._defineSubscriptions();
+    this._bindEventListeners();
   }
 
   getArrivalDate() {
@@ -38,23 +38,23 @@ class DateDropdown {
     this.state.calendarDropped.value = false;
   }
 
-  defineSubscriptions() {
+  _defineSubscriptions() {
     this.pickingDateExternalSubscriber = () => {};
     this.calendarClickSubscriber = () => {};
 
-    this.state.calendarDropped.addSubscriber(this.renderCalendar.bind(this));
-    this.state.arrivalDate.addSubscriber(this.displayArrivalDate.bind(this));
-    this.state.leavingDate.addSubscriber(this.displayLeavingDate.bind(this));
-    this.state.arrivalDate.addSubscriber(this.clearPickingDate.bind(this));
-    this.state.leavingDate.addSubscriber(this.clearPickingDate.bind(this));
-    this.state.pickingDate.addSubscriber(this.pickingDateSubscriber.bind(this));
+    this.state.calendarDropped.addSubscriber(this._renderCalendar.bind(this));
+    this.state.arrivalDate.addSubscriber(this._displayArrivalDate.bind(this));
+    this.state.leavingDate.addSubscriber(this._displayLeavingDate.bind(this));
+    this.state.arrivalDate.addSubscriber(this._clearPickingDate.bind(this));
+    this.state.leavingDate.addSubscriber(this._clearPickingDate.bind(this));
+    this.state.pickingDate.addSubscriber(this._pickingDateSubscriber.bind(this));
   }
 
-  pickingDateSubscriber() {
+  _pickingDateSubscriber() {
     this.pickingDateExternalSubscriber(this.state.pickingDate.value);
   }
 
-  findDOMNodes(container) {
+  _findDOMNodes(container) {
     return {
       root: container.querySelector(`.js-${this.classes.root}`),
       calendar: container.querySelector(`.js-${this.classes.calendar}`),
@@ -65,7 +65,7 @@ class DateDropdown {
     };
   }
 
-  getInitialState() {
+  _getInitialState() {
     const arrivalDate = this.DOM.arrivalDateInput.value ? new Date(this.DOM.arrivalDateInput.value) : null;
     const leavingDate = this.DOM.leavingDateInput.value ? new Date(this.DOM.leavingDateInput.value) : null;
 
@@ -77,50 +77,50 @@ class DateDropdown {
     };
   }
 
-  bindEventListeners() {
-    document.addEventListener('click', this.clickHandler.bind(this));
+  _bindEventListeners() {
+    document.addEventListener('click', this._clickHandler.bind(this));
   }
 
-  clickHandler(event) {
-    if (event.target.closest(`.js-${this.classes.field}`) === this.DOM.arrivalDate) this.arrivalDateClickHandler();
-    else if (event.target.closest(`.js-${this.classes.field}`) === this.DOM.leavingDate) this.leavingDateClickHandler();
+  _clickHandler(event) {
+    if (event.target.closest(`.js-${this.classes.field}`) === this.DOM.arrivalDate) this._arrivalDateClickHandler();
+    else if (event.target.closest(`.js-${this.classes.field}`) === this.DOM.leavingDate) this._leavingDateClickHandler();
     else if (event.target.closest(`.js-${this.classes.calendar}`) === this.DOM.calendar) this.calendarClickSubscriber(event);
     else if (event.target.closest(`.js-${this.classes.root}`) !== this.DOM.root) this.closeCalendar();
   }
 
-  arrivalDateClickHandler() {
+  _arrivalDateClickHandler() {
     this.state.pickingDate.value = 'arrivalDate';
     this.state.calendarDropped.value = !this.state.calendarDropped.value;
   }
 
-  leavingDateClickHandler() {
+  _leavingDateClickHandler() {
     this.state.pickingDate.value = 'leavingDate';
     this.state.calendarDropped.value = !this.state.calendarDropped.value;
   }
 
-  clearPickingDate() {
+  _clearPickingDate() {
     this.state.pickingDate.value = '';
   }
 
-  renderCalendar() {
+  _renderCalendar() {
     if (this.state.calendarDropped.value) this.DOM.calendar.classList.add(this.classes.calendarDropped);
     else this.DOM.calendar.classList.remove(this.classes.calendarDropped);
   }
 
-  displayArrivalDate(date) {
-    this.DOM.arrivalDateInput.value = this.convertDate(date);
+  _displayArrivalDate(date) {
+    this.DOM.arrivalDateInput.value = this._convertDate(date);
   }
 
-  displayLeavingDate(date) {
-    this.DOM.leavingDateInput.value = this.convertDate(date);
+  _displayLeavingDate(date) {
+    this.DOM.leavingDateInput.value = this._convertDate(date);
   }
 
-  convertDate(date) {
+  _convertDate(date) {
     if (date === null) return '';
-    return `${date.getFullYear()}-${this.twoDigits(date.getMonth() + 1)}-${this.twoDigits(date.getDate())}`;
+    return `${date.getFullYear()}-${this._twoDigits(date.getMonth() + 1)}-${this._twoDigits(date.getDate())}`;
   }
 
-  twoDigits(num) {
+  _twoDigits(num) {
     return (`0${num}`).slice(-2);
   }
 }
