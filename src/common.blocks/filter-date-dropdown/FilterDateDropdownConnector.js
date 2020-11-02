@@ -5,8 +5,8 @@ class FilterDateDropdownConnector {
   constructor(container) {
     this.filterDateDropdown = new FilterDateDropdownLogic(container);
     this.calendar = new Calendar(container);
-    this.defineSubscriptions();
-    this.setInitialState();
+    this._defineSubscriptions();
+    this._setInitialState();
   }
 
   getArrivalDate() {
@@ -33,27 +33,27 @@ class FilterDateDropdownConnector {
     this.leavingDateExternalSubscriber = subscriber;
   }
 
-  defineSubscriptions() {
+  _defineSubscriptions() {
     this.arrivalDateExternalSubscriber = () => {};
     this.leavingDateExternalSubscriber = () => {};
 
-    this.calendar.setArrivalDateSubscriber(this.arrivalDateSubscriber.bind(this));
-    this.calendar.setLeavingDateSubscriber(this.leavingDateSubscriber.bind(this));
+    this.calendar.setArrivalDateSubscriber(this._arrivalDateSubscriber.bind(this));
+    this.calendar.setLeavingDateSubscriber(this._leavingDateSubscriber.bind(this));
     this.calendar.setSubmitSubscriber(this.filterDateDropdown.closeCalendar.bind(this.filterDateDropdown));
     this.filterDateDropdown.setCalendarClickSubscriber(this.calendar.clickHandler);
   }
 
-  arrivalDateSubscriber(date) {
+  _arrivalDateSubscriber(date) {
     this.filterDateDropdown.setArrivalDate(date);
     this.arrivalDateExternalSubscriber(date);
   }
 
-  leavingDateSubscriber(date) {
+  _leavingDateSubscriber(date) {
     this.filterDateDropdown.setLeavingDate(date);
     this.leavingDateExternalSubscriber(date);
   }
 
-  setInitialState() {
+  _setInitialState() {
     this.calendar.setArrivalDate(this.filterDateDropdown.getArrivalDate());
     this.calendar.setLeavingDate(this.filterDateDropdown.getLeavingDate());
   }
