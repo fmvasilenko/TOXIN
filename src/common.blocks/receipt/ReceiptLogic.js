@@ -6,15 +6,15 @@ class ReceiptLogic {
     this.classes = require('./receipt.classes.json');
     this.currencySign = require('./receipt.config.json').vocabulary.currencySign;
     this.dayWordForms = require('./receipt.config.json').vocabulary.dayWordForms;
-    this.DOM = this.findDOMNodes(container);
-    this.state = this.getInitialState();
-    this.pricePerNight = this.getPricePerNight(container);
-    this.discount = this.getDiscount(container);
-    this.extraCosts = this.getExtraCosts(container);
+    this.DOM = this._findDOMNodes(container);
+    this.state = this._getInitialState();
+    this.pricePerNight = this._getPricePerNight(container);
+    this.discount = this._getDiscount(container);
+    this.extraCosts = this._getExtraCosts(container);
     this.totalPriceExternalSubscriber = () => {};
-    this.defineSubscriptions();
-    this.changeTotalPrice();
-    this.changeCost();
+    this._defineSubscriptions();
+    this._changeTotalPrice();
+    this._changeCost();
   }
 
   setArrivalDate(date) {
@@ -30,14 +30,14 @@ class ReceiptLogic {
   }
 
   getTotalPrice() {
-    return this.calculateTotalPrice();
+    return this._calculateTotalPrice();
   }
 
   setTotalPriceSubscriber(subscriber) {
     this.totalPriceExternalSubscriber = subscriber;
   }
 
-  findDOMNodes(container) {
+  _findDOMNodes(container) {
     return {
       totalPrice: container.querySelector(`.js-${this.classes.totalPrice}`),
       costTitle: container.querySelector(`.js-${this.classes.costTitle}[data-cost-type="cost"]`),
@@ -45,7 +45,7 @@ class ReceiptLogic {
     };
   }
 
-  getInitialState() {
+  _getInitialState() {
     return {
       arrivalDate: new ReceiptStateItem(null),
       leavingDate: new ReceiptStateItem(null),
@@ -54,63 +54,63 @@ class ReceiptLogic {
     };
   }
 
-  defineSubscriptions() {
-    this.state.arrivalDate.addSubscriber(this.calculateDaysNumber.bind(this));
-    this.state.leavingDate.addSubscriber(this.calculateDaysNumber.bind(this));
-    this.state.daysNumber.addSubscriber(this.changeTotalPrice.bind(this));
-    this.state.daysNumber.addSubscriber(this.changeCost.bind(this));
-    this.state.guestsNumber.addSubscriber(this.changeTotalPrice.bind(this));
-    this.state.guestsNumber.addSubscriber(this.changeCost.bind(this));
+  _defineSubscriptions() {
+    this.state.arrivalDate.addSubscriber(this._calculateDaysNumber.bind(this));
+    this.state.leavingDate.addSubscriber(this._calculateDaysNumber.bind(this));
+    this.state.daysNumber.addSubscriber(this._changeTotalPrice.bind(this));
+    this.state.daysNumber.addSubscriber(this._changeCost.bind(this));
+    this.state.guestsNumber.addSubscriber(this._changeTotalPrice.bind(this));
+    this.state.guestsNumber.addSubscriber(this._changeCost.bind(this));
   }
 
-  getPricePerNight(container) {
+  _getPricePerNight(container) {
     const pricePerNight = container.querySelector(`.js-${this.classes.pricePerNight}`).innerHTML;
     return parseInt(pricePerNight.replace(/[^\d]/g, ''), 10);
   }
 
-  getDiscount(container) {
+  _getDiscount(container) {
     const discount = container.querySelector(`.js-${this.classes.costTitle}[data-cost-type="discount"]`).innerHTML;
     return parseInt(discount.replace(/[^\d]/g, ''), 10);
   }
 
-  getExtraCosts(container) {
+  _getExtraCosts(container) {
     const extraCosts = container.querySelector(`.js-${this.classes.costValue}[data-cost-type="extraCost"]`).innerHTML;
     return parseInt(extraCosts.replace(/[^\d]/g, ''), 10);
   }
 
-  calculateDaysNumber() {
+  _calculateDaysNumber() {
     if (this.state.arrivalDate.value && this.state.leavingDate.value) {
       const daysNumber = Math.ceil(Math.abs(this.state.leavingDate.value.getTime() - this.state.arrivalDate.value.getTime()) / (1000 * 3600 * 24));
       this.state.daysNumber.value = daysNumber;
     } else this.state.daysNumber.value = 0;
   }
 
-  changeTotalPrice() {
-    const str = this.prepareStr(`${this.calculateTotalPrice()}${this.currencySign}`);
-    this.totalPriceExternalSubscriber(this.calculateTotalPrice());
+  _changeTotalPrice() {
+    const str = this._prepareStr(`${this._calculateTotalPrice()}${this.currencySign}`);
+    this.totalPriceExternalSubscriber(this._calculateTotalPrice());
     this.DOM.totalPrice.innerHTML = str;
   }
 
-  changeCost() {
-    const wordForm = this.getWordForm(this.state.daysNumber.value, this.dayWordForms);
-    const costTitle = this.prepareStr(`${this.pricePerNight}${this.currencySign} x ${this.state.daysNumber.value} ${wordForm}`);
-    const costValue = this.prepareStr(`${this.state.daysNumber.value * this.pricePerNight}${this.currencySign}`);
+  _changeCost() {
+    const wordForm = this._getWordForm(this.state.daysNumber.value, this.dayWordForms);
+    const costTitle = this._prepareStr(`${this.pricePerNight}${this.currencySign} x ${this.state.daysNumber.value} ${wordForm}`);
+    const costValue = this._prepareStr(`${this.state.daysNumber.value * this.pricePerNight}${this.currencySign}`);
 
     this.DOM.costTitle.innerHTML = costTitle;
     this.DOM.costValue.innerHTML = costValue;
   }
 
-  calculateTotalPrice() {
+  _calculateTotalPrice() {
     if (!this.state.daysNumber.value) return 0;
 
     return this.state.daysNumber.value * this.pricePerNight + this.extraCosts - this.discount;
   }
 
-  prepareStr(str) {
+  _prepareStr(str) {
     return str.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
   }
 
-  getWordForm(value, wordForms) {
+  _getWordForm(value, wordForms) {
     if (!wordForms) return '';
 
     let n = value % 100;
