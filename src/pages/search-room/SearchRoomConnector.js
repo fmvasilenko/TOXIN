@@ -4,20 +4,20 @@ import Suite from '@blocks/suite/Suite';
 class SearchRoomConnector {
   constructor(container) {
     this.classes = require('./search-room.classes.json');
-    this.DOM = this.findDOMNodes(container);
+    this.DOM = this._findDOMNodes(container);
 
     this.sidebar = new Sidebar(this.DOM.sidebar);
-    this.suites = this.getSuites();
+    this.suites = this._getSuites();
   }
 
-  findDOMNodes(container) {
+  _findDOMNodes(container) {
     return {
       suites: container.querySelectorAll(`.js-${this.classes.suite}`),
       sidebar: container.querySelector(`.js-${this.classes.sidebar}`),
     };
   }
 
-  getSuites() {
+  _getSuites() {
     const suites = [];
 
     this.DOM.suites.forEach((suiteContainer) => {
