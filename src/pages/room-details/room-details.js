@@ -9,5 +9,5 @@ pagesStyles.keys().forEach(pagesStyles);
 
 const classes = require('./room-details.classes.json');
 
-const roomDetailsContainer = document.querySelector(`.${classes.roomDetails}`);
+const roomDetailsContainer = document.querySelector(`.js-${classes.roomDetails}`);
 new RoomDetailsConnector(roomDetailsContainer);

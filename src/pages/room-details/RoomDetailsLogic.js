@@ -7,8 +7,8 @@ class RoomDetailsLogic {
 
   findDOMNodes(container) {
     return {
-      coverImage: container.querySelector(`.${this.classes.coverImage}`),
-      miniImages: container.querySelector(`.${this.classes.miniImages}`),
+      coverImage: container.querySelector(`.js-${this.classes.coverImage}`),
+      miniImages: container.querySelector(`.js-${this.classes.miniImages}`),
     };
   }
 

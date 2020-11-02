@@ -9,10 +9,11 @@ include ../../common.blocks/feedback/feedback
 include ../../common.blocks/bullet/bullet 
 
 block variables
+  - const data = require('./room-details.data.json');
+  - const classes = require('./room-details.classes.json');
   - const pageTitle = 'Room details';
   - const pageDescription = 'Room details';
   - const pageClass = '';
-  - const data = require('./room-details.data.json');
   - const { gallery, information, chart, feedbacks, bullets, cancellation, receipt } = data;
 
 block styles
@@ -28,19 +29,19 @@ block footer
   +footer()
 
 block content
-  .room-details.js-room-details
-    .room-details__gallery.js-room-details__gallery
+  div(class = `${classes.roomDetails} js-${classes.roomDetails}`)
+    div(class = `${classes.gallery} js-${classes.gallery}`)
       if gallery.miniImages
         .room-details__cover-wrapper
-          img.room-details__cover-image.js-room-details__cover-image(src=gallery.coverPhoto.src, alt=gallery.coverPhoto.alt)
+          img(class = `${classes.coverImage} js-${classes.coverImage}` src=gallery.coverPhoto.src, alt=gallery.coverPhoto.alt)
         
-        .room-details__mini-images.js-room-details__mini-images
+        div(class = `${classes.miniImages} js-${classes.miniImages}`)
           each miniImage in gallery.miniImages
             .room-details__mini-image-wrapper
               img.room-details__mini-image(src=miniImage.src, alt=miniImage.alt)
       else
         .room-details__cover-wrapper.room-details__cover-wrapper_width_full
-          img.room-details__cover-image.js-room-details__cover-image(src=gallery.coverPhoto.src, alt=gallery.coverPhoto.alt)
+          img(class = `${classes.coverImage} js-${classes.coverImage}` src=gallery.coverPhoto.src, alt=gallery.coverPhoto.alt)
 
     .room-details__description
       .room-details__content
@@ -61,7 +62,7 @@ block content
             h2 #{feedbacks.title}
             span #{feedbacks.quantity}
           each feedback in feedbacks.items
-            .room-details__feedback.js-room-details__feedback
+            div(class = `${classes.feedback} js-${classes.feedback}`)
               +feedback(feedback)
 
         .room-details__rools
@@ -75,5 +76,5 @@ block content
             h2.room-details__cancellation-title #{cancellation.title}
             p.room-details__cancellation-description #{cancellation.description}
       
-      .room-details__sidebar.js-room-details__sidebar
+      div(class = `${classes.receipt} js-${classes.receipt}`)
         +receipt(receipt)

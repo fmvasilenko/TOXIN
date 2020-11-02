@@ -14,9 +14,9 @@ class RoomDetailsConnector {
 
   findDOMNodes(container) {
     return {
-      receipt: container.querySelector(`.${this.classes.receipt}`),
-      feedbacks: container.querySelectorAll(`.${this.classes.feedback}`),
-      gallery: container.querySelector(`.${this.classes.gallery}`),
+      receipt: container.querySelector(`.js-${this.classes.receipt}`),
+      feedbacks: container.querySelectorAll(`.js-${this.classes.feedback}`),
+      gallery: container.querySelector(`.js-${this.classes.gallery}`),
     };
   }
 
