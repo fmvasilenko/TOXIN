@@ -11,14 +11,14 @@ class StateItem {
 
   set value(givenValue) {
     this.currentValue = this.checkFunction(givenValue);
-    this.runSubscribers();
+    this._runSubscribers();
   }
 
   addSubscriber(subscriber) {
     this.subscribers.push(subscriber);
   }
 
-  runSubscribers() {
+  _runSubscribers() {
     this.subscribers.forEach((subscriber) => {
       subscriber(this.currentValue);
     });

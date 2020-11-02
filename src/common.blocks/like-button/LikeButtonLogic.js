@@ -4,10 +4,10 @@ class LikeButtonLogic {
   constructor(container) {
     this.classes = require('./like-button.classes.json');
     this.vocabulary = require('./like-button.config.json').vocabulary;
-    this.DOM = this.findDOMNodes(container);
-    this.state = this.getInitialState();
-    this.defineSubscriptions();
-    this.bindEventListeners();
+    this.DOM = this._findDOMNodes(container);
+    this.state = this._getInitialState();
+    this._defineSubscriptions();
+    this._bindEventListeners();
   }
 
   getLikesNumber() {
@@ -38,25 +38,25 @@ class LikeButtonLogic {
     this.isLikedExternalSubscriber = subscriber;
   }
 
-  defineSubscriptions() {
+  _defineSubscriptions() {
     this.likesNumberExternalSubscriber = () => {};
     this.isLikedExternalSubscriber = () => {};
 
-    this.state.isLiked.addSubscriber(this.changeLikesNumber.bind(this));
-    this.state.likesNumber.addSubscriber(this.render.bind(this));
-    this.state.isLiked.addSubscriber(this.isLikedSubscriber.bind(this));
-    this.state.likesNumber.addSubscriber(this.likesNumberSubscriber.bind(this));
+    this.state.isLiked.addSubscriber(this._changeLikesNumber.bind(this));
+    this.state.likesNumber.addSubscriber(this._render.bind(this));
+    this.state.isLiked.addSubscriber(this._isLikedSubscriber.bind(this));
+    this.state.likesNumber.addSubscriber(this._likesNumberSubscriber.bind(this));
   }
 
-  likesNumberSubscriber() {
+  _likesNumberSubscriber() {
     this.likesNumberExternalSubscriber(this.state.likesNumber.value);
   }
 
-  isLikedSubscriber() {
+  _isLikedSubscriber() {
     this.isLikedExternalSubscriber(this.state.isLiked.value);
   }
 
-  findDOMNodes(container) {
+  _findDOMNodes(container) {
     return {
       root: container.querySelector(`.js-${this.classes.root}`),
       icon: container.querySelector(`.js-${this.classes.icon}`),
@@ -64,7 +64,7 @@ class LikeButtonLogic {
     };
   }
 
-  getInitialState() {
+  _getInitialState() {
     let likesNumber = parseInt(this.DOM.input.value, 10);
     let isLiked = this.DOM.root.classList.contains(this.classes.rootLiked);
 
@@ -77,20 +77,20 @@ class LikeButtonLogic {
     };
   }
 
-  bindEventListeners() {
-    this.DOM.root.addEventListener('click', this.clickHandler.bind(this));
+  _bindEventListeners() {
+    this.DOM.root.addEventListener('click', this._clickHandler.bind(this));
   }
 
-  clickHandler() {
+  _clickHandler() {
     this.state.isLiked.value = !this.state.isLiked.value;
   }
 
-  changeLikesNumber() {
+  _changeLikesNumber() {
     if (this.state.isLiked.value) this.state.likesNumber.value += 1;
     else if (this.state.likesNumber.value > 0) this.state.likesNumber.value -= 1;
   }
 
-  render() {
+  _render() {
     if (this.state.isLiked.value) {
       this.DOM.root.classList.add(this.classes.rootLiked);
       this.DOM.icon.classList.add(this.classes.iconLiked);
