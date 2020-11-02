@@ -1,18 +1,19 @@
+/* eslint-disable class-methods-use-this */
 import DropdownOption from '../dropdown-option/DropdownOption';
 
 class DropdownLogic {
   constructor(container) {
     this.classes = require('./dropdown.classes.json');
-    this.DOM = this.findDOMNodes(container);
+    this.DOM = this._findDOMNodes(container);
     this.displayType = this.DOM.root.dataset.displayType;
     this.wordForms = this.DOM.input.dataset.wordForms.split(',');
     this.defaultValue = this.DOM.input.value;
-    this.state = this.getInitialState();
+    this.state = this._getInitialState();
     this.guestsNumberSubscriber = () => {};
-    this.bindEventListeners();
+    this._bindEventListeners();
 
-    this.options = this.getOptions();
-    this.render();
+    this.options = this._getOptions();
+    this._render();
   }
 
   getTotalNumber() {
@@ -23,7 +24,7 @@ class DropdownLogic {
     this.guestsNumberSubscriber = subscriber;
   }
 
-  findDOMNodes(container) {
+  _findDOMNodes(container) {
     return {
       root: container.querySelector(`.js-${this.classes.root}`),
       field: container.querySelector(`.js-${this.classes.field}`),
@@ -34,40 +35,40 @@ class DropdownLogic {
     };
   }
 
-  getInitialState() {
+  _getInitialState() {
     return {
       listDropped: false,
     };
   }
 
-  bindEventListeners() {
-    this.DOM.field.addEventListener('click', this.clickHandler.bind(this));
-    this.DOM.clearButton.addEventListener('click', this.clearButtonClickHandler.bind(this));
-    this.DOM.submitButton.addEventListener('click', this.closeList.bind(this));
-    document.addEventListener('click', this.outOfElementClickHandler.bind(this));
+  _bindEventListeners() {
+    this.DOM.field.addEventListener('click', this._clickHandler.bind(this));
+    this.DOM.clearButton.addEventListener('click', this._clearButtonClickHandler.bind(this));
+    this.DOM.submitButton.addEventListener('click', this._closeList.bind(this));
+    document.addEventListener('click', this._outOfElementClickHandler.bind(this));
   }
 
-  clickHandler() {
+  _clickHandler() {
     this.state.listDropped = !this.state.listDropped;
-    this.toggleList();
+    this._toggleList();
   }
 
-  clearButtonClickHandler() {
+  _clearButtonClickHandler() {
     this.options.forEach((options) => {
       options.setValue(0);
     });
   }
 
-  closeList() {
+  _closeList() {
     this.state.listDropped = false;
-    this.toggleList();
+    this._toggleList();
   }
 
-  outOfElementClickHandler(event) {
-    if (!event.target.closest(`.js-${this.classes.root}`)) this.closeList();
+  _outOfElementClickHandler(event) {
+    if (!event.target.closest(`.js-${this.classes.root}`)) this._closeList();
   }
 
-  toggleList() {
+  _toggleList() {
     if (this.state.listDropped) {
       this.DOM.field.classList.add(this.classes.fieldDropped);
       this.DOM.list.classList.add(this.classes.listDropped);
@@ -77,33 +78,33 @@ class DropdownLogic {
     }
   }
 
-  getOptions() {
+  _getOptions() {
     const options = [];
 
     this.DOM.list.querySelectorAll(`.${this.classes.optionContainer}`).forEach((optionContainer) => {
-      options.push(new DropdownOption(optionContainer, this.optionsSubscriber.bind(this)));
+      options.push(new DropdownOption(optionContainer, this._optionsSubscriber.bind(this)));
     });
 
     return options;
   }
 
-  optionsSubscriber() {
-    this.render();
+  _optionsSubscriber() {
+    this._render();
     this.guestsNumberSubscriber(this.getTotalNumber());
   }
 
-  render() {
-    if (this.displayType === 'total') this.renderTotal();
-    else if (this.displayType === 'values') this.renderValues();
+  _render() {
+    if (this.displayType === 'total') this._renderTotal();
+    else if (this.displayType === 'values') this._renderValues();
 
     if (this.options.reduce((sum, option) => sum + option.getState().value, 0) > 0) {
       this.DOM.clearButton.classList.remove(this.classes.buttonHidden);
     } else this.DOM.clearButton.classList.add(this.classes.buttonHidden);
   }
 
-  renderTotal() {
+  _renderTotal() {
     const summary = this.options.reduce((sum, option) => (option.getState().countedSeparately ? sum : sum + option.getState().value), 0);
-    let str = summary > 0 ? `${summary} ${this.getWordForm(summary)}` : '';
+    let str = summary > 0 ? `${summary} ${this._getWordForm(summary)}` : '';
 
     this.options.forEach((option) => {
       const { countedSeparately, value, wordForm } = option.getState();
@@ -116,7 +117,7 @@ class DropdownLogic {
     this.DOM.input.value = str || this.defaultValue;
   }
 
-  renderValues() {
+  _renderValues() {
     let str = '';
 
     this.options.forEach((option) => {
@@ -130,7 +131,7 @@ class DropdownLogic {
     this.DOM.input.value = str || this.defaultValue;
   }
 
-  getWordForm(value) {
+  _getWordForm(value) {
     if (!this.wordForms) return '';
 
     let n = value % 100;
