@@ -5,10 +5,10 @@ class RateButtonLogic {
   constructor(container) {
     this.classes = require('./rate-button.classes.json');
     this.vocabulary = require('./rate-button.config.json').vocabulary;
-    this.DOM = this.findDOMNodes(container);
-    this.state = this.getInitialState(container);
-    this.defineSubscriptions();
-    this.bindEventListeners(container);
+    this.DOM = this._findDOMNodes(container);
+    this.state = this._getInitialState(container);
+    this._defineSubscriptions();
+    this._bindEventListeners(container);
   }
 
   getRate() {
@@ -25,24 +25,24 @@ class RateButtonLogic {
     this.rateExternalSubscriber = subscriber;
   }
 
-  defineSubscriptions() {
+  _defineSubscriptions() {
     this.rateExternalSubscriber = () => {};
 
-    this.state.rate.addSubscriber(this.render.bind(this));
-    this.state.rate.addSubscriber(this.rateSubscriber.bind(this));
+    this.state.rate.addSubscriber(this._render.bind(this));
+    this.state.rate.addSubscriber(this._rateSubscriber.bind(this));
   }
 
-  rateSubscriber() {
+  _rateSubscriber() {
     this.rateExternalSubscriber(this.state.rate.value);
   }
 
-  findDOMNodes(container) {
+  _findDOMNodes(container) {
     return {
       stars: container.querySelectorAll(`.js-${this.classes.star}`),
     };
   }
 
-  getInitialState(container) {
+  _getInitialState(container) {
     const rateInput = container.querySelector(`.js-${this.classes.input}:checked`);
     const rate = rateInput ? parseInt(rateInput.value, 10) : 0;
 
@@ -51,15 +51,15 @@ class RateButtonLogic {
     };
   }
 
-  bindEventListeners(container) {
-    container.addEventListener('click', this.clickHandler.bind(this));
+  _bindEventListeners(container) {
+    container.addEventListener('click', this._clickHandler.bind(this));
   }
 
-  clickHandler(event) {
+  _clickHandler(event) {
     if (event.target.tagName === 'INPUT') this.state.rate.value = parseInt(event.target.value, 10);
   }
 
-  render() {
+  _render() {
     this.DOM.stars.forEach((star, index) => {
       if (index < this.state.rate.value) star.innerHTML = this.vocabulary.checkedStar;
       else star.innerHTML = this.vocabulary.uncheckedStar;
