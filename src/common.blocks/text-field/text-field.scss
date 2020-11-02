@@ -16,13 +16,7 @@
     font-family: $textFontFamily;
     color: $darkShade75;
 
-    &::-webkit-input-placeholder {
-      color: $darkShade25;
-    }
-
-    &:-moz-placeholder,
-    &::-moz-placeholder,
-    &:-ms-input-placeholder {
+    &::placeholder {
       color: $darkShade25;
     }
     
