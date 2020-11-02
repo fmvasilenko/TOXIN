@@ -6,7 +6,8 @@
     "global-require": "off",
     "react/sort-comp": "off",
     "max-len": "off",
-    "no-new": "off"
+    "no-new": "off",
+    "no-underscore-dangle": "off"
   },
   "env": {
     "browser": true,
