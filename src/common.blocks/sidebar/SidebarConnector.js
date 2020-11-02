@@ -6,7 +6,7 @@ import ExpandableCheckboxList from '@blocks/expandable-checkbox-list/ExpandableC
 class SidebarConnector {
   constructor(container) {
     this.classes = require('./sidebar.classes.json');
-    this.DOM = this.findDOMNodes(container);
+    this.DOM = this._findDOMNodes(container);
     this.filterDateDropdown = new FilterDateDropdown(this.DOM.filterDateDropdown);
     this.guestsDropdown = new Dropdown(this.DOM.guestsDropdown);
     this.rangeSlider = new RangeSlider(this.DOM.rangeSlider);
@@ -14,7 +14,7 @@ class SidebarConnector {
     this.convinience = new ExpandableCheckboxList(this.DOM.convinience);
   }
 
-  findDOMNodes(container) {
+  _findDOMNodes(container) {
     return {
       filterDateDropdown: container.querySelector(`.js-${this.classes.dates}`),
       guestsDropdown: container.querySelector(`.js-${this.classes.guests}`),
