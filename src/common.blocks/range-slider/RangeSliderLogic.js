@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import 'fsd4-slider';
 import RangeSliderStateItem from './RangeSliderStateItem';
 
@@ -5,11 +6,11 @@ class RangeSliderLogic {
   constructor(container) {
     this.classes = require('./range-slider.classes.json');
     this.config = require('./range-slider.config.json');
-    this.DOM = this.findDOMNodes(container);
-    this.state = this.getInitialState();
-    this.slider = this.createSlider();
+    this.DOM = this._findDOMNodes(container);
+    this.state = this._getInitialState();
+    this.slider = this._createSlider();
     this.changesSubscriber = () => {};
-    this.update(this.state.firstValue.value, this.state.secondValue.value);
+    this._update(this.state.firstValue.value, this.state.secondValue.value);
   }
 
   getFirstValue() {
@@ -32,7 +33,7 @@ class RangeSliderLogic {
     this.changesSubscriber = subscriber;
   }
 
-  findDOMNodes(container) {
+  _findDOMNodes(container) {
     return {
       line: container.querySelector(`.js-${this.classes.line}`),
       range: container.querySelector(`.js-${this.classes.range}`),
@@ -41,14 +42,14 @@ class RangeSliderLogic {
     };
   }
 
-  getInitialState() {
+  _getInitialState() {
     return {
       firstValue: new RangeSliderStateItem(5000),
       secondValue: new RangeSliderStateItem(10000),
     };
   }
 
-  createSlider() {
+  _createSlider() {
     return $(this.DOM.line).slider({
       limitsDisplayed: false,
       valueLabelDisplayed: false,
@@ -58,18 +59,18 @@ class RangeSliderLogic {
       leftHandleValue: this.state.firstValue.value,
       rightHandleValue: this.state.secondValue.value,
       step: this.config.step,
-    }, this.update.bind(this));
+    }, this._update.bind(this));
   }
 
-  update(leftHandleValue, rightHandleValue) {
+  _update(leftHandleValue, rightHandleValue) {
     this.state.firstValue.value = leftHandleValue;
     this.state.secondValue.value = rightHandleValue;
-    this.updateRange(leftHandleValue, rightHandleValue);
-    this.updateInputs(leftHandleValue, rightHandleValue);
+    this._updateRange(leftHandleValue, rightHandleValue);
+    this._updateInputs(leftHandleValue, rightHandleValue);
     this.changesSubscriber(leftHandleValue, rightHandleValue);
   }
 
-  updateRange(leftHandleValue, rightHandleValue) {
+  _updateRange(leftHandleValue, rightHandleValue) {
     const firstValue = `${leftHandleValue}`.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
     const secondValue = `${rightHandleValue}`.replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ');
 
@@ -78,7 +79,7 @@ class RangeSliderLogic {
     this.DOM.range.innerHTML = range;
   }
 
-  updateInputs(leftHandleValue, rightHandleValue) {
+  _updateInputs(leftHandleValue, rightHandleValue) {
     this.DOM.firstValue.value = `${leftHandleValue}`;
     this.DOM.secondValue.value = `${rightHandleValue}`;
   }

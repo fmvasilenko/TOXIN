@@ -7,7 +7,7 @@ class RangeSliderStateItem {
 
   set value(givenValue) {
     this.currentValue = this.checkFunction(givenValue);
-    this.runSubscribers();
+    this._runSubscribers();
   }
 
   get value() {
@@ -18,7 +18,7 @@ class RangeSliderStateItem {
     this.subscribers.push(subscriber);
   }
 
-  runSubscribers() {
+  _runSubscribers() {
     this.subscribers.forEach((subscriber) => {
       subscriber(this.currentValue);
     });
