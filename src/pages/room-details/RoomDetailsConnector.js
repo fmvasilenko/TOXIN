@@ -5,14 +5,14 @@ import RoomDetailsLogic from './RoomDetailsLogic';
 class RoomDetailsConnector {
   constructor(container) {
     this.classes = require('./room-details.classes.json');
-    this.DOM = this.findDOMNodes(container);
+    this.DOM = this._findDOMNodes(container);
 
     this.receipt = new Receipt(this.DOM.receipt);
-    this.feedbacks = this.createFeedbacks();
+    this.feedbacks = this._createFeedbacks();
     this.roomDetailsLogic = new RoomDetailsLogic(this.DOM.gallery);
   }
 
-  findDOMNodes(container) {
+  _findDOMNodes(container) {
     return {
       receipt: container.querySelector(`.js-${this.classes.receipt}`),
       feedbacks: container.querySelectorAll(`.js-${this.classes.feedback}`),
@@ -20,7 +20,7 @@ class RoomDetailsConnector {
     };
   }
 
-  createFeedbacks() {
+  _createFeedbacks() {
     const feedbacks = [];
 
     this.DOM.feedbacks.forEach((feedbackContainer) => {

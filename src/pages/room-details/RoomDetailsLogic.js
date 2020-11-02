@@ -1,22 +1,22 @@
 class RoomDetailsLogic {
   constructor(container) {
     this.classes = require('./room-details.classes.json');
-    this.DOM = this.findDOMNodes(container);
-    this.bindEventListeners();
+    this.DOM = this._findDOMNodes(container);
+    this._bindEventListeners();
   }
 
-  findDOMNodes(container) {
+  _findDOMNodes(container) {
     return {
       coverImage: container.querySelector(`.js-${this.classes.coverImage}`),
       miniImages: container.querySelector(`.js-${this.classes.miniImages}`),
     };
   }
 
-  bindEventListeners() {
-    if (this.DOM.miniImages) this.DOM.miniImages.addEventListener('click', this.miniImagesClickHandler.bind(this));
+  _bindEventListeners() {
+    if (this.DOM.miniImages) this.DOM.miniImages.addEventListener('click', this._miniImagesClickHandler.bind(this));
   }
 
-  miniImagesClickHandler(event) {
+  _miniImagesClickHandler(event) {
     const { target } = event;
 
     if (target.tagName === 'IMG') {
