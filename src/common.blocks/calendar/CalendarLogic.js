@@ -1,9 +1,10 @@
+/* eslint-disable class-methods-use-this */
 import CalendarStateItem from './CalendarStateItem';
 
-/* eslint-disable class-methods-use-this */
+const DAYS_IN_WEEK = 7;
+
 class CalendarLogic {
   constructor(container) {
-    this.daysInWeek = 7;
     this.classes = require('./calendar.classes.json');
     this.vocabulary = require('./calendar.config.json').vocabulary;
     this.DOM = this._findDOMNodes(container);
@@ -222,7 +223,7 @@ class CalendarLogic {
   _createTableHeader() {
     const header = document.createElement('tr');
 
-    for (let i = 0; i < this.daysInWeek; i += 1) {
+    for (let i = 0; i < DAYS_IN_WEEK; i += 1) {
       const cell = document.createElement('th');
       cell.classList.add(this.classes.dayName);
       cell.innerHTML = this.vocabulary.weekDays[i];
@@ -235,7 +236,7 @@ class CalendarLogic {
   _createTableRow(date) {
     const row = document.createElement('tr');
 
-    for (let i = 0; i < this.daysInWeek; i += 1) {
+    for (let i = 0; i < DAYS_IN_WEEK; i += 1) {
       row.appendChild(this._createTableCell(date));
       date.setDate(date.getDate() + 1);
     }
