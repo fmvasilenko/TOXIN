@@ -85,14 +85,18 @@ class CalendarLogic {
     this.leavingDateExternalSubscriber = () => {};
     this.submitSubscriber = () => {};
 
-    this.state.arrivalDate.addSubscriber(this._displayMonth.bind(this));
-    this.state.leavingDate.addSubscriber(this._displayMonth.bind(this));
-    this.state.monthDisplayed.addSubscriber(this._displayMonth.bind(this));
-    this.state.datePicking.addSubscriber(this._displayMonth.bind(this));
-    this.state.monthDisplayed.addSubscriber(this._checkLeftArrow.bind(this));
-    this.state.isLeftArrowActive.addSubscriber(this._renderLeftArrow.bind(this));
-    this.state.arrivalDate.addSubscriber(this._arrivalDateSubscriber.bind(this));
-    this.state.leavingDate.addSubscriber(this._leavingDateSubscriber.bind(this));
+    const {
+      arrivalDate, leavingDate, monthDisplayed, datePicking, isLeftArrowActive,
+    } = this.state;
+
+    arrivalDate.addSubscriber(this._displayMonth.bind(this));
+    arrivalDate.addSubscriber(this._arrivalDateSubscriber.bind(this));
+    leavingDate.addSubscriber(this._displayMonth.bind(this));
+    leavingDate.addSubscriber(this._leavingDateSubscriber.bind(this));
+    monthDisplayed.addSubscriber(this._displayMonth.bind(this));
+    monthDisplayed.addSubscriber(this._checkLeftArrow.bind(this));
+    datePicking.addSubscriber(this._displayMonth.bind(this));
+    isLeftArrowActive.addSubscriber(this._renderLeftArrow.bind(this));
   }
 
   _arrivalDateSubscriber() {
