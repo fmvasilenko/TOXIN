@@ -8,7 +8,7 @@ mixin dropdown(customConfig = {})
 
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - const { title, displayType, icon, defaultValue, value, valueForms, options, clearButton, submitButton } = config;
-  - const submitAreaClass = `${classes.submitArea} ${displayType === 'values' ? classes.submitAreaHidden : ''}`
+  - const submitAreaClasses = `${classes.submitArea} ${displayType === 'values' ? classes.submitAreaHidden : ''}`
 
   div(class = `${classes.root} js-${classes.root}` data-display-type=displayType)
 
@@ -24,7 +24,7 @@ mixin dropdown(customConfig = {})
           div(class = `${classes.optionContainer} js-${classes.optionContainer}`)
             +dropdown-option(option)
 
-      div(class=submitAreaClass)
+      div(class=submitAreaClasses)
         div(class = `${classes.button} js-${classes.button}` data-button-type="clearButton")
           +button(clearButton)
         div(class = `${classes.button} js-${classes.button}` data-button-type="submitButton")

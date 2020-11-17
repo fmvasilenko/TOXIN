@@ -5,13 +5,13 @@ mixin button(customConfig = {})
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - const { value, type: buttonType, style, href, disabled, icon, classes } = config;
 
-  - const buttonClass = `button ${classes[style]}`;
+  - const buttonClasses = `button ${classes[style]}`;
 
   if buttonType === "link"
-    a(class=buttonClass href=href) #{value}
+    a(class=buttonClasses href=href) #{value}
       if style === "sizeL"
         i.material-icons.button__arrow #{icon}
   else
-    button(class=buttonClass type=buttonType disabled=disabled) #{value}
+    button(class=buttonClasses type=buttonType disabled=disabled) #{value}
       if style === "sizeL"
         i.material-icons.button__arrow #{icon}

@@ -7,11 +7,11 @@ mixin like-button(customConfig = {})
   - const { value, name, liked, vocabulary } = config;
   - const { icon, iconLiked } = vocabulary;
 
-  - const buttonClass = `${classes.root} js-${classes.root} ${liked ? classes.rootLiked : ''}`;
-  - const iconClass = `material-icons ${classes.icon} js-${classes.icon} ${liked ? classes.iconLiked : ''}`;
-  - const numberClass = `${classes.input} js-${classes.input} ${liked ? classes.inputLiked : ''}`;
+  - const buttonClasses = `${classes.root} js-${classes.root} ${liked ? classes.rootLiked : ''}`;
+  - const iconClasses = `material-icons ${classes.icon} js-${classes.icon} ${liked ? classes.iconLiked : ''}`;
+  - const numberClasses = `${classes.input} js-${classes.input} ${liked ? classes.inputLiked : ''}`;
   - const displayedIcon = liked ? iconLiked : icon;
 
-  div(class=buttonClass) 
-    i(class=iconClass) #{displayedIcon}
-    input(class=numberClass type="number" name=name value=value readonly)
+  div(class=buttonClasses) 
+    i(class=iconClasses) #{displayedIcon}
+    input(class=numberClasses type="number" name=name value=value readonly)

@@ -5,13 +5,13 @@ mixin expandable-checkbox-list(customConfig = {})
 
   - const config = blocks.createConfig(defaultConfig, customConfig);
   - const { title, expanded, icon, checkboxButtons } = config;
-  - const iconClass = `material-icons ${classes.icon} js-${classes.icon} ${expanded ? classes.iconExpanded : ''}`;
+  - const iconClasses = `material-icons ${classes.icon} js-${classes.icon} ${expanded ? classes.iconExpanded : ''}`;
   
   div(class = classes.root)
 
     div(class = `${classes.field} js-${classes.field}`)
       h3(class = classes.title) #{title}
-      i(class = iconClass) #{icon}    
+      i(class = iconClasses) #{icon}    
 
     div(class = `${classes.list} js-${classes.list}`)
       if checkboxButtons
