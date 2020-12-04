@@ -75,7 +75,12 @@ module.exports = {
       test: /\.scss$/,
       use: [
         'style-loader',
-        MiniCssExtractPlugin.loader,
+        {
+          loader: MiniCssExtractPlugin.loader,
+          options: {
+            publicPath: '../..',
+          },
+        },
         {
           loader: 'css-loader',
           options: { sourceMap: true },
