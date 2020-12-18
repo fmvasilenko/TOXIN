@@ -65,7 +65,7 @@
   ],
   "amenities": {
     "title": "Удобства в номере",
-    "defaultValue": "",
+    "defaultValue": "Удобства в номере",
     "valueForms": "",
     "displayType": "values",
     "options": [

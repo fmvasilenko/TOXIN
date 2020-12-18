@@ -48,7 +48,7 @@
   },
   "dropdownAmenities": {
     "title": "Dropdown",
-    "defaultValue": "",
+    "defaultValue": "Удобства в номере",
     "valueForms": "",
     "displayType": "values",
     "options": [
