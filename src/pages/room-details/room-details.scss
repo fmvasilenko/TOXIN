@@ -132,10 +132,14 @@
     }
 
     @media screen and (min-width: rem(401)) and (max-width: rem(800)){
+      display: flex;
+      justify-content: center;
       width: 96%;
     }
 
     @media screen and (max-width: rem(400)){
+      display: flex;
+      justify-content: center;
       width: 100%;
     }
   }
