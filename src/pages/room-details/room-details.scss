@@ -221,6 +221,11 @@
     }
   }
 
+  &__feedbacks-quantity {
+    margin-left: rem(10);
+    white-space: nowrap;
+  }
+
   &__feedback {
     margin-top: rem(22);
   }

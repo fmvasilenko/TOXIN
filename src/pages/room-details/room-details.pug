@@ -60,7 +60,7 @@ block content
         .room-details__feedbacks
           .room-details__feedbacks-title
             h2 #{feedbacks.title}
-            span #{feedbacks.quantity}
+            span.room-details__feedbacks-quantity #{feedbacks.quantity}
           each feedback in feedbacks.items
             div(class = `${classes.feedback} js-${classes.feedback}`)
               +feedback(feedback)
