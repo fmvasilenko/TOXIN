@@ -17,22 +17,12 @@
     display: flex;
     align-items: center;
 
-    @media screen and (max-width: $desktopWidth) {
+    @media screen and (max-width: $smDesktopWidth) {
       width: 96%;
-    }
-
-    @media screen and (min-width: $phoneWidth) and (max-width: $tableWidth) {
-      flex-wrap: wrap;
-      justify-content: center;
-      height: auto;
-      padding: rem(20) 0;
-    }
-
-    @media screen and (max-width: $phoneWidth) {
+      justify-content: space-between;
       flex-wrap: wrap;
       height: auto;
       padding: rem(20) 0;
-      justify-content: space-around;
     }
   }
 
@@ -51,7 +41,7 @@
     display: none;
     cursor: pointer;
 
-    @media screen and (max-width: $phoneWidth) {
+    @media screen and (max-width: $smDesktopWidth) {
       display: block;
     }
   }
@@ -64,8 +54,8 @@
         display: flex;
       }
 
-      & ~ .header__button {
-        display: block;
+      & ~ .header__buttons {
+        display: flex;
       }
 
       & ~ .header__text {
@@ -82,18 +72,11 @@
     justify-content: flex-end;
 
     @media screen and (max-width: $smDesktopWidth) {
-      flex-wrap: wrap;
-    }
-
-    @media screen and (max-width: $tableWidth) {
-      justify-content: center;
-      margin-top: rem(10);
-    }
-
-    @media screen and (max-width: $phoneWidth) {
       flex-direction: column;
       align-items: center;
       display: none;
+      justify-content: center;
+      margin-top: rem(10);
     }
   }
 
@@ -111,8 +94,19 @@
       color: $darkShade75;
     }
 
-    @media screen and (max-width: $phoneWidth) {
+    @media screen and (max-width: $smDesktopWidth) {
       margin-left: 0;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+
+    @media screen and (max-width: $smDesktopWidth) {
+      display: none;
+      width: 100%;
+      justify-content: center;
+      margin-top: rem(15);
     }
   }
 
@@ -125,14 +119,9 @@
       margin-right: 0;
     }
 
-    @media screen and (max-width: $tableWidth) {
-      margin-top: rem(10);
-    }
-
-    @media screen and (max-width: $phoneWidth) {
+    @media screen and (max-width: $smDesktopWidth) {
       margin-right: 0;
       margin-left: 0;
-      display: none;
     }
   }
 
