@@ -2,28 +2,43 @@
 @import "../../scss/utils/mixins.scss";
 
 .like-button {
+  position: relative;
   width: rem(40);
   height: rem(20);
   display: flex;
-  border: 1px solid $darkShade25;
+  background: $darkShade25;
   border-radius: rem(10);
   cursor: pointer;
 
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    width: rem(40);
+    height: rem(20);
+    border-radius: inherit;
+    border: rem(1) solid transparent;
+    background-color: white;
+    background-clip: padding-box;
+  }
+
   &:hover {
-    border-color: $mainColor;
+    background: $gradient;
   }
 
   &_liked {
-    border-color: $mainColor;
+    background: $gradient;
     color: $mainColor;
   }
 
   &__icon {
-    min-width: rem(16);
-    height: rem(18);
+    z-index: 1;
+    min-width: rem(18);
+    height: rem(20);
     font-size: rem(10);
     color: $darkShade25;
-    line-height: rem(18);
+    line-height: rem(20);
     text-align: center;
 
     &_liked {
@@ -33,11 +48,12 @@
 
   &__number {
     width: 100%;
+    z-index: 1;
     display: inline-block;
-    margin-left: rem(2);
+    font-family: $textFontFamily;
     font-size: rem(10);
     color: $darkShade25;
-    line-height: 100%;
+    line-height: rem(20);
     background: transparent;
     border: 0;
     cursor: pointer;
