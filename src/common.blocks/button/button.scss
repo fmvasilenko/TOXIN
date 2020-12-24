@@ -51,6 +51,7 @@
 
   &_size_l {
     width: 100%;
+    padding-right: rem(40);
   }
 
   &_no-background {
@@ -77,6 +78,9 @@
 
   &__label {
     z-index: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &__arrow {
