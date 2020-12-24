@@ -8,10 +8,12 @@ mixin button(customConfig = {})
   - const buttonClasses = `button ${classes[style]}`;
 
   if buttonType === "link"
-    a(class=buttonClasses href=href) #{value}
-      if style === "sizeL"
-        i.material-icons.button__arrow #{icon}
+    a(class=buttonClasses href=href)
+      span.button__label #{value}
+        if style === "sizeL"
+          i.material-icons.button__arrow #{icon}
   else
-    button(class=buttonClasses type=buttonType disabled=disabled) #{value}
-      if style === "sizeL"
-        i.material-icons.button__arrow #{icon}
+    button(class=buttonClasses type=buttonType disabled=disabled)
+      span.button__label #{value}
+        if style === "sizeL"
+          i.material-icons.button__arrow #{icon}

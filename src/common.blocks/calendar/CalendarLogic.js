@@ -52,7 +52,9 @@ class CalendarLogic {
     if (event.target === this.DOM.leftArrow) this._leftArrowClickHandler();
     else if (event.target === this.DOM.rightArrow) this._rightArrowClickHandler();
     else if (event.target === this.DOM.clearButton) this._clearButtonClickHandler();
+    else if (event.target.closest(`.js-${this.classes.clearButton} > button`) === this.DOM.clearButton) this._clearButtonClickHandler();
     else if (event.target === this.DOM.submitButton) this._submitButtonClickHandler();
+    else if (event.target.closest(`.js-${this.classes.submitButton} > button`) === this.DOM.submitButton) this._submitButtonClickHandler();
     else if (event.target.closest(`.js-${this.classes.tableContainer}`) === this.DOM.tableContainer) {
       this._tableContainerClickHandler(event);
     }
