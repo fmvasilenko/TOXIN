@@ -4,6 +4,8 @@
   "arrow": "suite__arrow",
   "leftArrow": "suite__left-arrow",
   "rightArrow": "suite__right-arrow",
+  "leftArrowIcon": "suite__left-arrow-icon",
+  "rightArrowIcon": "suite__right-arrow-icon",
   "imageInput": "suite__image-input",
   "image": "suite__image",
   "dot": "suite__dot",

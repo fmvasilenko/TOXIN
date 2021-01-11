@@ -14,8 +14,10 @@ mixin suite(customConfig = {})
   form(class = classes.root)
 
     div(class = classes.gallery)
-      i(class = `material-icons ${classes.arrow} ${classes.leftArrow} js-${classes.leftArrow}`) #{arrowIcon}
-      i(class = `material-icons ${classes.arrow} ${classes.rightArrow} js-${classes.rightArrow}`) #{arrowIcon}
+      div(class= `${classes.arrow} ${classes.leftArrow} js-${classes.leftArrow}`)
+        i(class=`material-icons ${classes.leftArrowIcon}`) #{arrowIcon}
+      div(class= `${classes.arrow} ${classes.rightArrow} js-${classes.rightArrow}`)
+        i(class=`material-icons ${classes.rightArrowIcon}`) #{arrowIcon}
       each image, index in images
         label
           input(class = `${classes.imageInput} js-${classes.imageInput}` type="radio" name="image-gallery" checked=image.checked value=index)

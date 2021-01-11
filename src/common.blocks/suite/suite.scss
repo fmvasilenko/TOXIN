@@ -5,25 +5,24 @@
   background: #FFFFFF;
   border-radius: rem(4);
 
-  &:hover {
-    box-shadow: 0px 10px 20px 0px $darkShade5;
-  }
-
   &__gallery {
     position: relative;
     width: 100%;
     height: rem(151);
     overflow: hidden;
     border-radius: 4px 4px 0 0;
+
+    &:hover > .suite__arrow {
+      display: flex;
+    }
   }
 
   &__arrow {
     width: rem(44);
-    height: rem(44);
+    height: rem(151);
     position: absolute;
     z-index: 3;
-    top: rem(53);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     color: #FFFFFF;
@@ -33,11 +32,19 @@
 
   &__left-arrow {
     left: 0;
-    transform: rotate(90deg);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
   }
 
   &__right-arrow {
     right: 0;
+    background: linear-gradient(270deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99.99%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  &__left-arrow-icon {
+    transform: rotate(90deg);
+  }
+
+  &__right-arrow-icon {
     transform: rotate(-90deg);
   }
 
