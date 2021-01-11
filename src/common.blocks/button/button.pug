@@ -3,9 +3,9 @@ mixin button(customConfig = {})
   - const defaultConfig = require('@blocks/button/button.config.json');
 
   - const config = blocks.createConfig(defaultConfig, customConfig);
-  - const { value, type: buttonType, style, href, disabled, icon, classes } = config;
+  - const { value, type: buttonType, style, href, disabled, isLow, icon, classes } = config;
 
-  - const buttonClasses = `button ${classes[style]}`;
+  - const buttonClasses = `button ${isLow ? 'button_low' : ''} ${classes[style]}`;
 
   if buttonType === "link"
     a(class=buttonClasses href=href)

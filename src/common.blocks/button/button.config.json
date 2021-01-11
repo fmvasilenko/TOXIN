@@ -4,6 +4,7 @@
   "type": "",
   "href": "/",
   "disabled": false,
+  "isLow": false,
   "icon": "arrow_forward",
   "classes": {
     "default": "",

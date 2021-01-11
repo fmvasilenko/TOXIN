@@ -43,12 +43,14 @@
       "value": "Войти",
       "type": "link",
       "href": "login.html",
-      "style": "empty"
+      "style": "empty",
+      "isLow": true
     },
     {
       "value": "Зарегистрироваться",
       "type": "link",
-      "href": "registration.html"
+      "href": "registration.html",
+      "isLow": true
     }
   ],
   "rightText": "Юлий Цезарь"
