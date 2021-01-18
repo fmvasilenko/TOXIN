@@ -9,16 +9,16 @@ mixin donut-chart(customConfig = {})
   .donut-chart
     svg.donut-chart__svg(width="100%", height="100%", viewBox="0 0 34 34")
       defs
-        linearGradient(id="gradient1")
+        linearGradient(id="gradient1" x1="0" x2="0" y1="0" y2="1")
           stop(stop-color="#919191" offset="0%")
           stop(stop-color="#3D4975" offset="100%")
-        linearGradient(id="gradient2")
+        linearGradient(id="gradient2" x1="0" x2="0" y1="0" y2="1")
           stop(stop-color="#BC9CFF" offset="0%")
           stop(stop-color="#8BA4F9" offset="100%")
-        linearGradient(id="gradient3")
+        linearGradient(id="gradient3" x1="0" x2="0" y1="0" y2="1")
           stop(stop-color="#6FCF97" offset="0%")
           stop(stop-color="#66D2EA" offset="100%")
-        linearGradient(id="gradient4")
+        linearGradient(id="gradient4" x1="0" x2="0" y1="0" y2="1")
           stop(stop-color="#FFE39C" offset="0%")
           stop(stop-color="#FFBA9C" offset="100%")
 
@@ -36,8 +36,8 @@ mixin donut-chart(customConfig = {})
           circle(cx="17" cy="17" r="15.91549430918954" fill="transparent" stroke=color stroke-width="1" stroke-dasharray=dashArray stroke-dashoffset=dashOffset)
       
       g.donut-chart__total
-        text.donut-chart__total-number(x="50%", y="50%") #{totalNumber}
-        text.donut-chart__total-text(x="50%", y="50%") #{totalText}
+        text.donut-chart__total-number(x="50%", y="50%" font-weight="bold") #{totalNumber}
+        text.donut-chart__total-text(x="50%", y="50%" font-weight="bold") #{totalText}
         
     .donut-chart__description
       each piece in pieces
