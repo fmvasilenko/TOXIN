@@ -58,6 +58,8 @@ mixin receipt(customConfig = {})
 
 
 mixin receipt-cost(config, classes, costType, title, value, hasIcon = false)
+  - const { currencySign } = config.vocabulary;
+
   div(class = classes.cost)
     div(class = `${classes.costTitle} js-${classes.costTitle}` data-cost-type=costType) #{title}
     if hasIcon
