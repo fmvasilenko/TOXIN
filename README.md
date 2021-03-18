@@ -1,7 +1,6 @@
 <a name="top"></a>
 
-# FSD - TOXIN
-Test task for FSD.
+# TOXIN
 
 ## Table of contents
 1. [Initialization](#initialization)
